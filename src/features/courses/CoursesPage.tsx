@@ -1,14 +1,10 @@
 import { Link } from "react-router-dom";
-
-const COURSES = [
-  { to: "/python", icon: "🐍", name: "Python" },
-  { to: "/scratch", icon: "🐱", name: "Scratch" },
-  { to: "/web", icon: "🎨", name: "Diseño Web" },
-];
+import { courseList } from "@/courses/registry";
 
 /**
- * Catálogo de cursos. Esqueleto de la Fase 1: las tarjetas y el control por rol
- * se completan en la Fase 4.
+ * Catálogo de cursos. Los cursos se leen del registry (patrón Registry): añadir
+ * uno nuevo aparece aquí sin tocar esta página. El control por rol y el diseño
+ * de las tarjetas se completan en la Fase 4.
  */
 export function CoursesPage() {
   return (
@@ -16,11 +12,12 @@ export function CoursesPage() {
       <h1>Tus cursos</h1>
       <p className="lead">Elige un curso para empezar a practicar.</p>
       <ul>
-        {COURSES.map((c) => (
-          <li key={c.to}>
-            <Link to={c.to}>
-              {c.icon} {c.name}
-            </Link>
+        {courseList.map((c) => (
+          <li key={c.kind}>
+            <Link to={c.route}>
+              {c.icon} {c.title}
+            </Link>{" "}
+            — {c.description}
           </li>
         ))}
       </ul>
