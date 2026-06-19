@@ -1,0 +1,9 @@
+# Normaliza los finales de línea: el repo guarda LF (coherente con .editorconfig).
+* text=auto eol=lf
+
+# Binarios: que git no toque sus finales de línea.
+*.png binary
+*.jpg binary
+*.svg text
+*.mp3 binary
+*.sb3 binary

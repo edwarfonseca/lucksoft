@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Mis notas</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <script src="js/auth.js"></script>
+    <script>
+      LuckAuth.requireRole("estudiante");
+    </script>
+
+    <header class="topbar" id="topbar"></header>
+
+    <main class="page">
+      <h1>Mis notas</h1>
+      <p class="lead">
+        Aquí ves la calificación de cada actividad que has entregado.
+      </p>
+      <div id="list"></div>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      renderTopbar("notas");
+      const escapeHtml = LuckUtils.escapeHtml;
+
+      const user = LuckAuth.getUser();
+      const subs = LuckDB.getSubmissionsByStudent(user.user);
+      const list = document.getElementById("list");
+
+      function fecha(ts) {
+        return ts ? new Date(ts).toLocaleString("es") : "—";
+      }
+
+      if (subs.length === 0) {
+        list.innerHTML =
+          '<p class="empty">Aún no has entregado ninguna actividad. ' +
+          'Ve a <a href="python.html">Python</a>, resuelve una tarea y pulsa “Entregar”.</p>';
+      } else {
+        list.innerHTML = subs
+          .map((s) => {
+            const calificada = s.grade !== null && s.grade !== undefined;
+            const estado = calificada
+              ? `<span class="grade-pill">${s.grade}/100</span>`
+              : `<span class="tag soon">Pendiente</span>`;
+            const comentario = s.comment
+              ? `<p class="comment"><b>Comentario del docente:</b> ${escapeHtml(
+                  s.comment,
+                )}</p>`
+              : "";
+            return `
+              <div class="grade-card">
+                <div class="grade-card-head">
+                  <h3>${escapeHtml(s.activityTitle)}</h3>
+                  ${estado}
+                </div>
+                <p class="muted-line">Entregado: ${fecha(s.submittedAt)}</p>
+                ${comentario}
+              </div>`;
+          })
+          .join("");
+      }
+    </script>
+  </body>
+</html>

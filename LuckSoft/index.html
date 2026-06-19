@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Iniciar sesión</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="login-wrap">
+      <form class="login-card" id="loginForm">
+        <div class="brand">
+          <span class="logo">L</span>
+          <span>Luck<b>Soft</b></span>
+        </div>
+        <p class="subtitle">Plataforma de estudio de programación</p>
+
+        <div class="field">
+          <label for="user">Usuario</label>
+          <input
+            type="text"
+            id="user"
+            placeholder="alumno"
+            autocomplete="username"
+          />
+        </div>
+        <div class="field">
+          <label for="pass">Contraseña</label>
+          <input
+            type="password"
+            id="pass"
+            placeholder="••••••"
+            autocomplete="current-password"
+          />
+        </div>
+
+        <p class="error-msg" id="error"></p>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+
+        <p class="hint">
+          Cuentas demo (contraseña <b>1234</b>):<br />
+          Docente: <b>docente</b> · Estudiantes: <b>alumno</b>, <b>alumno2</b>
+        </p>
+      </form>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script>
+      // Si ya hay sesión, ir directo a cursos
+      if (LuckAuth.isLoggedIn()) {
+        location.href = "cursos.html";
+      }
+
+      const form = document.getElementById("loginForm");
+      const errorEl = document.getElementById("error");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const user = document.getElementById("user").value.trim();
+        const pass = document.getElementById("pass").value;
+
+        if (LuckAuth.login(user, pass)) {
+          location.href = "cursos.html";
+        } else {
+          errorEl.textContent = "Usuario o contraseña incorrectos.";
+        }
+      });
+    </script>
+  </body>
+</html>

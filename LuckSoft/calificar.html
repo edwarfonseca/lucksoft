@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Calificar</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <script src="js/auth.js"></script>
+    <script>
+      LuckAuth.requireRole("docente");
+    </script>
+
+    <header class="topbar" id="topbar"></header>
+
+    <main class="page">
+      <h1>Calificar entregas</h1>
+      <p class="lead">
+        Revisa el código de cada estudiante y asigna una calificación.
+      </p>
+      <div id="list"></div>
+    </main>
+
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      renderTopbar("calificar");
+
+      const list = document.getElementById("list");
+
+      function fecha(ts) {
+        return ts ? new Date(ts).toLocaleString("es") : "—";
+      }
+
+      const escapeHtml = LuckUtils.escapeHtml;
+
+      function render() {
+        const subs = LuckDB.getAllSubmissions();
+        if (subs.length === 0) {
+          list.innerHTML =
+            '<p class="empty">Todavía no hay entregas de estudiantes.</p>';
+          return;
+        }
+        list.innerHTML = subs
+          .map((s) => {
+            const calificada = s.grade !== null && s.grade !== undefined;
+            const estado = calificada
+              ? `<span class="grade-pill">${s.grade}/100</span>`
+              : `<span class="tag soon">Pendiente</span>`;
+            // Vista del trabajo según el tipo de curso
+            let trabajo;
+            if (s.kind === "scratch") {
+              trabajo = `<div class="scratch-actions">
+                  <a class="btn btn-ghost" href="scratch.html?review=${s.id}" target="_blank">🐱 Abrir para revisar</a>
+                  <button class="btn btn-ghost" data-download="${s.id}">⬇ Descargar .sb3</button>
+                </div>`;
+            } else if (s.kind === "web") {
+              const p = s.project || {};
+              trabajo = `
+                <iframe class="review-preview" data-web="${s.id}" sandbox="allow-scripts allow-modals"></iframe>
+                <details class="code-details">
+                  <summary>Ver código</summary>
+                  <pre class="code-preview">${escapeHtml(
+                    "<!-- HTML -->\n" +
+                      (p.html || "") +
+                      "\n\n/* CSS */\n" +
+                      (p.css || "") +
+                      "\n\n// JS\n" +
+                      (p.js || ""),
+                  )}</pre>
+                </details>`;
+            } else {
+              trabajo = `<pre class="code-preview">${escapeHtml(s.code || "")}</pre>`;
+            }
+            return `
+              <div class="grade-card">
+                <div class="grade-card-head">
+                  <h3>${escapeHtml(s.activityTitle)}</h3>
+                  ${estado}
+                </div>
+                <p class="muted-line">
+                  ${escapeHtml(s.studentName || s.student)} · entregado ${fecha(s.submittedAt)}
+                </p>
+                ${trabajo}
+                <div class="grade-form">
+                  <label>Nota (0–100)
+                    <input type="number" min="0" max="100" value="${
+                      calificada ? s.grade : ""
+                    }" data-grade="${s.id}" />
+                  </label>
+                  <label class="grow">Comentario
+                    <input type="text" value="${escapeHtml(
+                      s.comment || "",
+                    )}" data-comment="${s.id}" placeholder="Retroalimentación para el estudiante" />
+                  </label>
+                  <button class="btn btn-primary" data-save="${s.id}">Guardar</button>
+                </div>
+              </div>`;
+          })
+          .join("");
+
+        // Conectar botones de guardar
+        list.querySelectorAll("[data-save]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const id = btn.getAttribute("data-save");
+            const gradeInput = list.querySelector(`[data-grade="${id}"]`);
+            const commentInput = list.querySelector(`[data-comment="${id}"]`);
+            const nota = parseInt(gradeInput.value, 10);
+            if (isNaN(nota) || nota < 0 || nota > 100) {
+              alert("Ingresa una nota válida entre 0 y 100.");
+              return;
+            }
+            LuckDB.grade(id, nota, commentInput.value.trim());
+            render(); // refrescar para mostrar el estado actualizado
+          });
+        });
+
+        // Rellenar las vistas previas de entregas web
+        list.querySelectorAll("[data-web]").forEach((frame) => {
+          const sub = LuckDB.getById(frame.getAttribute("data-web"));
+          const p = (sub && sub.project) || {};
+          frame.srcdoc = LuckUtils.buildPreviewDoc(p.html, p.css, p.js);
+        });
+
+        // Descargar proyectos de Scratch (.sb3)
+        list.querySelectorAll("[data-download]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            const sub = LuckDB.getById(btn.getAttribute("data-download"));
+            if (!sub || !sub.project) return;
+            const bytes = LuckUtils.b64ToBytes(sub.project);
+            const url = URL.createObjectURL(
+              new Blob([bytes], { type: "application/x.scratch.sb3" }),
+            );
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = (sub.studentName || sub.student) + ".sb3";
+            a.click();
+            URL.revokeObjectURL(url);
+          });
+        });
+      }
+
+      render();
+    </script>
+  </body>
+</html>

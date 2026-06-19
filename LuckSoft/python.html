@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Editor Python</title>
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- CodeMirror (editor de código) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/python/python.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+
+    <!-- Pyodide (Python real vía WebAssembly) -->
+    <script src="https://cdn.jsdelivr.net/pyodide/v0.26.2/full/pyodide.js"></script>
+  </head>
+  <body>
+    <script src="js/auth.js"></script>
+    <script>
+      LuckAuth.requireLogin();
+    </script>
+
+    <div class="editor-page">
+      <div class="editor-toolbar">
+        <a class="btn btn-ghost" href="cursos.html">← Cursos</a>
+        <span class="title">🐍 Editor de Python</span>
+        <button class="btn btn-ghost" data-join-class="Python">
+          📹 Unirse a la clase
+        </button>
+        <button class="btn btn-ghost" id="taskToggle">📋 Tarea</button>
+        <span class="status" id="status">Cargando Python…</span>
+        <button class="btn btn-run" id="runBtn" disabled>▶ Ejecutar</button>
+        <button class="btn btn-ghost" id="stopBtn" disabled>⏹ Detener</button>
+        <button class="btn btn-ghost" id="clearBtn">Limpiar consola</button>
+        <button class="btn btn-primary" id="submitBtn">✓ Entregar</button>
+      </div>
+
+      <div class="editor-body" id="editorBody">
+        <div class="pane task-pane" id="taskPane">
+          <div class="pane-header task-header">
+            <span>📋 Enunciado</span>
+            <select id="taskSelect" class="task-select"></select>
+          </div>
+          <div class="task-content" id="taskContent"></div>
+        </div>
+
+        <div class="pane">
+          <div class="pane-header">Código</div>
+          <textarea id="code">
+# ¡Bienvenido a LuckSoft! Escribe Python y pulsa Ejecutar.
+nombre = "estudiante"
+print(f"Hola, {nombre} 👋")
+
+for i in range(1, 6):
+    print(f"{i} x {i} = {i * i}")
+</textarea
+          >
+        </div>
+
+        <div class="pane" style="border-right: none">
+          <div class="pane-header">Consola de salida</div>
+          <div class="console" id="output"></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/editor.js"></script>
+    <script src="js/assignments.js"></script>
+    <script src="js/clase.js"></script>
+  </body>
+</html>

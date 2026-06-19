@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Cursos</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <script src="js/auth.js"></script>
+    <script>
+      LuckAuth.requireLogin();
+    </script>
+
+    <header class="topbar" id="topbar"></header>
+
+    <main class="page">
+      <h1>Tus cursos</h1>
+      <p class="lead" id="lead">Elige un curso para empezar a practicar.</p>
+
+      <div class="grid">
+        <a class="course-card active" href="python.html">
+          <div class="course-icon" style="background: rgba(53, 114, 165, 0.2)">
+            🐍
+          </div>
+          <h3>Python</h3>
+          <p>
+            Aprende Python escribiendo y ejecutando código real en tu navegador.
+          </p>
+          <span class="tag ready">Disponible</span>
+        </a>
+
+        <a class="course-card active" href="scratch.html">
+          <div class="course-icon" style="background: rgba(255, 171, 25, 0.18)">
+            🐱
+          </div>
+          <h3>Scratch</h3>
+          <p>
+            Crea, ejecuta y modifica proyectos con programación por bloques.
+          </p>
+          <span class="tag ready">Disponible</span>
+        </a>
+
+        <a class="course-card active" href="web.html">
+          <div class="course-icon" style="background: rgba(240, 219, 79, 0.15)">
+            🎨
+          </div>
+          <h3>Diseño Web</h3>
+          <p>
+            Crea páginas con HTML, CSS y JavaScript y mira el resultado en vivo.
+          </p>
+          <span class="tag ready">Disponible</span>
+        </a>
+
+        <div class="course-card locked">
+          <div class="course-icon" style="background: rgba(0, 119, 204, 0.15)">
+            💻
+          </div>
+          <h3>C / C++</h3>
+          <p>Fundamentos de programación de bajo nivel y memoria.</p>
+          <span class="tag soon">Próximamente</span>
+        </div>
+
+        <div class="course-card locked">
+          <div class="course-icon" style="background: rgba(225, 78, 60, 0.15)">
+            🗄️
+          </div>
+          <h3>SQL</h3>
+          <p>Consultas, bases de datos relacionales y modelado.</p>
+          <span class="tag soon">Próximamente</span>
+        </div>
+      </div>
+    </main>
+
+    <script src="js/ui.js"></script>
+    <script>
+      renderTopbar("cursos");
+      // Mensaje según el rol
+      if (LuckAuth.getRole() === "docente") {
+        document.getElementById("lead").textContent =
+          "Entra a un curso para probar código, o ve a “Calificar” para revisar entregas.";
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Scratch</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+      .scratch-wrap {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+      }
+      .scratch-frame {
+        flex: 1;
+        width: 100%;
+        border: none;
+      }
+      .build-help {
+        max-width: 760px;
+        margin: 0 auto;
+        padding: 40px 28px;
+      }
+      .build-help pre {
+        background: #0c0e14;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 16px;
+        overflow: auto;
+        font-family: "Consolas", monospace;
+        font-size: 13.5px;
+        color: #d6f5ec;
+        margin: 14px 0;
+      }
+      .build-help ol {
+        margin-left: 20px;
+        line-height: 1.7;
+      }
+      .build-help code {
+        background: rgba(108, 92, 231, 0.18);
+        color: var(--brand-2);
+        padding: 1px 5px;
+        border-radius: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <script src="js/auth.js"></script>
+    <script>
+      LuckAuth.requireLogin();
+    </script>
+
+    <div class="scratch-wrap">
+      <header class="topbar" id="topbar"></header>
+
+      <div class="editor-toolbar" id="scratchToolbar" style="display: none">
+        <span class="title" id="scratchTitle">🐱 Proyecto de Scratch</span>
+        <span class="status" id="scratchStatus"></span>
+        <button class="btn btn-ghost" data-join-class="Scratch">
+          📹 Unirse a la clase
+        </button>
+        <button class="btn btn-ghost" id="saveBtn">💾 Guardar</button>
+        <button class="btn btn-primary" id="submitScratchBtn">
+          ✓ Entregar
+        </button>
+      </div>
+
+      <div id="content" style="flex: 1; display: flex; flex-direction: column">
+        <p class="lead" style="padding: 24px 28px">
+          Cargando editor de Scratch…
+        </p>
+      </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/ui.js"></script>
+    <script>
+      renderTopbar("cursos");
+    </script>
+    <script src="js/scratch.js"></script>
+    <script src="js/clase.js"></script>
+  </body>
+</html>

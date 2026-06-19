@@ -1,0 +1,20 @@
+{
+  "name": "lucksoft",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Plataforma educativa de programación (Fase 1: vanilla + localStorage; en migración a React+TS+Supabase).",
+  "type": "module",
+  "scripts": {
+    "lint": "eslint LuckSoft/js",
+    "lint:fix": "eslint LuckSoft/js --fix",
+    "format": "prettier --write \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md}\"",
+    "format:check": "prettier --check \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md}\"",
+    "start": "python LuckSoft/server.py"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
+    "prettier": "^3.3.3"
+  }
+}

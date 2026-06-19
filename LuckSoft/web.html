@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LuckSoft · Diseño Web</title>
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- CodeMirror (editor) -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/theme/material-darker.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/xml/xml.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/css/css.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/javascript/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/mode/htmlmixed/htmlmixed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closebrackets.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/edit/closetag.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/show-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/xml-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/html-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/css-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/javascript-hint.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/hint/anyword-hint.min.js"></script>
+  </head>
+  <body>
+    <script src="js/auth.js"></script>
+    <script>
+      LuckAuth.requireLogin();
+    </script>
+
+    <div class="editor-page">
+      <div class="editor-toolbar">
+        <a class="btn btn-ghost" href="cursos.html">← Cursos</a>
+        <span class="title">🎨 Diseño Web</span>
+        <button class="btn btn-ghost" data-join-class="Web">
+          📹 Unirse a la clase
+        </button>
+        <button class="btn btn-ghost" id="taskToggle">📋 Tarea</button>
+        <span class="status" id="status"></span>
+        <button class="btn btn-primary" id="submitBtn">✓ Entregar</button>
+      </div>
+
+      <div class="editor-body web-body" id="editorBody">
+        <div class="pane task-pane" id="taskPane">
+          <div class="pane-header task-header">
+            <span>📋 Enunciado</span>
+            <select id="taskSelect" class="task-select"></select>
+          </div>
+          <div class="task-content" id="taskContent"></div>
+        </div>
+
+        <div class="pane code-pane">
+          <div class="tabbar">
+            <button class="tab active" data-tab="html">HTML</button>
+            <button class="tab" data-tab="css">CSS</button>
+            <button class="tab" data-tab="js">JavaScript</button>
+          </div>
+          <div class="editor-host active" data-host="html">
+            <textarea id="htmlCode"></textarea>
+          </div>
+          <div class="editor-host" data-host="css">
+            <textarea id="cssCode"></textarea>
+          </div>
+          <div class="editor-host" data-host="js">
+            <textarea id="jsCode"></textarea>
+          </div>
+        </div>
+
+        <div class="pane" style="border-right: none">
+          <div class="pane-header">Vista previa</div>
+          <iframe
+            id="preview"
+            class="preview-frame"
+            sandbox="allow-scripts allow-modals"
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/db.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/web.js"></script>
+    <script src="js/clase.js"></script>
+  </body>
+</html>
