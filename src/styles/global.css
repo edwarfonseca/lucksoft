@@ -185,3 +185,103 @@ a:hover {
   font-size: 13px;
   margin: 0;
 }
+
+/* ---- Tarjetas de notas / calificación ---- */
+.grade-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 16px;
+}
+.grade-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.grade-card-head h3 {
+  margin: 0;
+}
+.muted-line {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 4px 0 12px;
+}
+.grade-pill {
+  background: rgba(108, 92, 231, 0.18);
+  color: var(--brand-2);
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.tag.soon {
+  background: rgba(255, 171, 25, 0.15);
+  color: #ffab19;
+  padding: 3px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+}
+.code-preview {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px;
+  overflow: auto;
+  font-family: "Consolas", monospace;
+  font-size: 13px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.code-details {
+  margin-top: 10px;
+}
+.review-preview {
+  width: 100%;
+  height: 220px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: white;
+}
+.scratch-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.grade-form {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+.grade-form label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--muted);
+}
+.grade-form .grow {
+  flex: 1;
+  min-width: 180px;
+}
+.grade-form input {
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 14px;
+}
+.comment {
+  background: var(--bg);
+  border-left: 3px solid var(--brand);
+  padding: 8px 12px;
+  border-radius: 6px;
+}
+.empty {
+  color: var(--muted);
+}
