@@ -1,14 +1,33 @@
-/**
- * "Calificar" (vista del docente). Revisa entregas y asigna nota usando los
- * casos de uso del dominio (Fase 2) y datos de Supabase (Fase 5).
- */
+import { useCallback, useEffect, useState } from "react";
+import type { Submission } from "@/domain/models/submission";
+import { submissionRepository } from "@/app/services";
+import { getAllSubmissions } from "@/application/listSubmissions";
+import { GradeCard } from "@/features/grading/GradeCard";
+
+/** "Calificar" (vista del docente). Migra calificar.html. */
 export function GradingPage() {
+  const [subs, setSubs] = useState<Submission[] | null>(null);
+
+  const reload = useCallback(() => {
+    getAllSubmissions(submissionRepository).then(setSubs);
+  }, []);
+  useEffect(() => reload(), [reload]);
+
   return (
     <>
       <h1>Calificar entregas</h1>
-      <p className="notice">
-        Esqueleto en migración (se implementa en Fase 4-5).
+      <p className="lead">
+        Revisa el trabajo de cada estudiante y asigna una calificación.
       </p>
+      {subs === null ? (
+        <p className="lead">Cargando…</p>
+      ) : subs.length === 0 ? (
+        <p className="empty">Todavía no hay entregas de estudiantes.</p>
+      ) : (
+        subs.map((s) => (
+          <GradeCard key={s.id} submission={s} onGraded={reload} />
+        ))
+      )}
     </>
   );
 }
