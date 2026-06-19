@@ -13,6 +13,9 @@ LuckSoft/scratch-editor/
 dist/
 build/
 
+# Caché incremental de TypeScript
+*.tsbuildinfo
+
 # Logs
 *.log
 npm-debug.log*
