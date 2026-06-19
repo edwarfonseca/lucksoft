@@ -86,4 +86,18 @@ export default tseslint.config(
       },
     },
   },
+
+  // ---- Worker clásico servido desde public/ (Pyodide) ----
+  {
+    files: ["public/**/*.js"],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      sourceType: "script",
+      globals: {
+        ...globals.worker,
+        loadPyodide: "readonly",
+        importScripts: "readonly",
+      },
+    },
+  },
 );

@@ -420,3 +420,31 @@ a:hover {
   background: rgba(255, 107, 107, 0.15);
   color: #ff6b6b;
 }
+
+/* ---- Consola de Python ---- */
+.console {
+  flex: 1;
+  overflow: auto;
+  padding: 12px;
+  background: var(--bg);
+  font-family: "Consolas", monospace;
+  font-size: 13.5px;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.console .err {
+  color: #ff6b6b;
+}
+.console-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--text);
+  font-family: inherit;
+  font-size: inherit;
+  width: 60%;
+}
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
