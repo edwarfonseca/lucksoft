@@ -1,29 +1,70 @@
-import { Link } from "react-router-dom";
+import { useState, type FormEvent } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import { useAuth } from "@/features/auth/auth-context";
 
-/**
- * Pantalla de login. Esqueleto de la Fase 1: la autenticación real (Supabase)
- * llega en la Fase 5; la UI definitiva, en la Fase 4.
- */
+/** Pantalla de inicio de sesión (migra el antiguo index.html). */
 export function LoginPage() {
+  const { user, login } = useAuth();
+  const navigate = useNavigate();
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+
+  // Si ya hay sesión, ir directo a cursos.
+  if (user) return <Navigate to="/cursos" replace />;
+
+  async function onSubmit(e: FormEvent) {
+    e.preventDefault();
+    const ok = await login(username.trim(), password);
+    if (ok) navigate("/cursos");
+    else setError("Usuario o contraseña incorrectos.");
+  }
+
   return (
-    <main className="page">
-      <div className="brand">
-        <span className="logo">L</span>
-        <span>
-          Luck<b>Soft</b>
-        </span>
-      </div>
-      <h1>Iniciar sesión</h1>
-      <p className="lead">Plataforma de estudio de programación.</p>
-      <p className="notice">
-        Esqueleto en migración (Fase 1). El login funcional se implementa en
-        fases posteriores.
-      </p>
-      <p>
-        <Link className="btn" to="/cursos">
-          Entrar a cursos →
-        </Link>
-      </p>
-    </main>
+    <div className="login-wrap">
+      <form className="login-card" onSubmit={onSubmit}>
+        <div className="brand">
+          <span className="logo">L</span>
+          <span>
+            Luck<b>Soft</b>
+          </span>
+        </div>
+        <p className="subtitle">Plataforma de estudio de programación</p>
+
+        <div className="field">
+          <label htmlFor="user">Usuario</label>
+          <input
+            id="user"
+            type="text"
+            placeholder="alumno"
+            autoComplete="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+          />
+        </div>
+        <div className="field">
+          <label htmlFor="pass">Contraseña</label>
+          <input
+            id="pass"
+            type="password"
+            placeholder="••••••"
+            autoComplete="current-password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+        </div>
+
+        {error && <p className="error-msg">{error}</p>}
+        <button type="submit" className="btn btn-primary">
+          Ingresar
+        </button>
+
+        <p className="hint">
+          Cuentas demo (contraseña <b>1234</b>):
+          <br />
+          Docente: <b>docente</b> · Estudiantes: <b>alumno</b>, <b>alumno2</b>
+        </p>
+      </form>
+    </div>
   );
 }
