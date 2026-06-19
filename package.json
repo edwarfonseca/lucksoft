@@ -5,16 +5,34 @@
   "description": "Plataforma educativa de programación (Fase 1: vanilla + localStorage; en migración a React+TS+Supabase).",
   "type": "module",
   "scripts": {
-    "lint": "eslint LuckSoft/js",
-    "lint:fix": "eslint LuckSoft/js --fix",
-    "format": "prettier --write \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md}\"",
-    "format:check": "prettier --check \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md}\"",
-    "start": "python LuckSoft/server.py"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc -b",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md,ts}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md,ts}\"",
+    "start:legacy": "python LuckSoft/server.py"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
+    "@types/node": "^26.0.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
     "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^15.11.0",
-    "prettier": "^3.3.3"
+    "prettier": "^3.3.3",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.61.1",
+    "vite": "^8.0.16"
+  },
+  "dependencies": {
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7",
+    "react-router-dom": "^7.18.0"
   }
 }
