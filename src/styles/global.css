@@ -286,11 +286,72 @@ a:hover {
   color: var(--muted);
 }
 
+/* ---- Catálogo de cursos ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.course-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text);
+  transition:
+    transform 0.12s ease,
+    border-color 0.12s ease;
+}
+.course-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--brand);
+  text-decoration: none;
+}
+.course-card h3 {
+  margin: 0;
+}
+.course-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  flex: 1;
+}
+.course-icon {
+  font-size: 26px;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(108, 92, 231, 0.12);
+}
+.tag.ready {
+  background: rgba(87, 217, 163, 0.15);
+  color: #57d9a3;
+  align-self: flex-start;
+}
+.course-card.locked {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+.course-card.locked:hover {
+  transform: none;
+  border-color: var(--border);
+}
+
 /* ---- Editores de código ---- */
+.app-main {
+  flex: 1;
+}
 .editor-shell {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  padding: 16px 24px;
 }
 .editor-toolbar {
   display: flex;

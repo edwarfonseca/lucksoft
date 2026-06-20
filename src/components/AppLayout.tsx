@@ -54,7 +54,7 @@ export function AppLayout() {
           </button>
         </div>
       </header>
-      <main className="page">
+      <main className="app-main">
         <Outlet />
       </main>
     </div>

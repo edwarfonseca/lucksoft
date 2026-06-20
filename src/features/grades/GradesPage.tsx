@@ -17,7 +17,7 @@ export function GradesPage() {
   }, [user]);
 
   return (
-    <>
+    <div className="page">
       <h1>Mis notas</h1>
       <p className="lead">
         Aquí ves la calificación de cada actividad que has entregado.
@@ -55,6 +55,6 @@ export function GradesPage() {
           );
         })
       )}
-    </>
+    </div>
   );
 }
