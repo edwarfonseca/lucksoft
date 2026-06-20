@@ -1,9 +1,11 @@
 import type { AuthService } from "@/domain/ports/AuthService";
 import type { SubmissionRepository } from "@/domain/ports/SubmissionRepository";
+import type { AdminService } from "@/domain/ports/AdminService";
 import { LocalAuthService } from "@/infrastructure/local/LocalAuthService";
 import { LocalSubmissionRepository } from "@/infrastructure/local/LocalSubmissionRepository";
 import { SupabaseAuthService } from "@/infrastructure/supabase/SupabaseAuthService";
 import { SupabaseSubmissionRepository } from "@/infrastructure/supabase/SupabaseSubmissionRepository";
+import { SupabaseAdminService } from "@/infrastructure/supabase/SupabaseAdminService";
 import { isSupabaseConfigured } from "@/infrastructure/supabase/client";
 
 /**
@@ -21,3 +23,9 @@ export const authService: AuthService = usingSupabase
 export const submissionRepository: SubmissionRepository = usingSupabase
   ? new SupabaseSubmissionRepository()
   : new LocalSubmissionRepository();
+
+// La administración de usuarios solo existe con Supabase (necesita auth real y
+// las Edge Functions). En modo local es null y el panel muestra un aviso.
+export const adminService: AdminService | null = usingSupabase
+  ? new SupabaseAdminService()
+  : null;
