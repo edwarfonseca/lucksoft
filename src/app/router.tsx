@@ -8,6 +8,7 @@ import { WebEditorPage } from "@/features/courses/WebEditorPage";
 import { ScratchEditorPage } from "@/features/courses/ScratchEditorPage";
 import { GradesPage } from "@/features/grades/GradesPage";
 import { GradingPage } from "@/features/grading/GradingPage";
+import { AdminPage } from "@/features/admin/AdminPage";
 
 /**
  * Rutas de la aplicación. Todo lo que cuelga de AppLayout exige sesión
@@ -39,6 +40,14 @@ export const router = createBrowserRouter([
         element: (
           <RequireRole role="docente">
             <GradingPage />
+          </RequireRole>
+        ),
+      },
+      {
+        path: "/admin",
+        element: (
+          <RequireRole role="admin">
+            <AdminPage />
           </RequireRole>
         ),
       },

@@ -1,24 +1,27 @@
 import { useState, type FormEvent } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { useAuth } from "@/features/auth/auth-context";
 
 /** Pantalla de inicio de sesión (migra el antiguo index.html). */
 export function LoginPage() {
   const { user, loading, login } = useAuth();
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // Esperar a que se resuelva la sesión; si ya hay, ir directo a cursos.
+  // Esperar a que se resuelva la sesión; si ya hay, ir a su área según el rol.
   if (loading) return null;
-  if (user) return <Navigate to="/cursos" replace />;
+  if (user) {
+    return (
+      <Navigate to={user.role === "admin" ? "/admin" : "/cursos"} replace />
+    );
+  }
 
   async function onSubmit(e: FormEvent) {
     e.preventDefault();
     const ok = await login(username.trim(), password);
-    if (ok) navigate("/cursos");
-    else setError("Usuario o contraseña incorrectos.");
+    if (!ok) setError("Usuario o contraseña incorrectos.");
+    // Si fue correcto, el redirect de arriba actúa al actualizarse la sesión.
   }
 
   return (
