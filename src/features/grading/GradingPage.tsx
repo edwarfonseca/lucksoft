@@ -14,7 +14,7 @@ export function GradingPage() {
   useEffect(() => reload(), [reload]);
 
   return (
-    <>
+    <div className="page">
       <h1>Calificar entregas</h1>
       <p className="lead">
         Revisa el trabajo de cada estudiante y asigna una calificación.
@@ -28,6 +28,6 @@ export function GradingPage() {
           <GradeCard key={s.id} submission={s} onGraded={reload} />
         ))
       )}
-    </>
+    </div>
   );
 }
