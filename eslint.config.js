@@ -6,7 +6,12 @@ import reactRefresh from "eslint-plugin-react-refresh";
 
 export default tseslint.config(
   {
-    ignores: ["LuckSoft/scratch-editor/**", "node_modules/**", "dist/**"],
+    ignores: [
+      "LuckSoft/scratch-editor/**",
+      "public/scratch-editor/**",
+      "node_modules/**",
+      "dist/**",
+    ],
   },
 
   // ---- Código nuevo: React + TypeScript (src/) ----

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import type { Submission, WebProject } from "@/domain/models/submission";
 import { buildPreviewDoc } from "@/lib/preview";
 import { base64ToBytes } from "@/lib/base64";
@@ -16,6 +17,7 @@ export function SubmissionWork({ submission }: { submission: Submission }) {
     case "scratch":
       return (
         <ScratchWork
+          id={submission.id}
           base64={submission.project}
           name={submission.studentName || submission.student}
         />
@@ -46,7 +48,15 @@ function WebWork({ project }: { project: WebProject }) {
   );
 }
 
-function ScratchWork({ base64, name }: { base64: string; name: string }) {
+function ScratchWork({
+  id,
+  base64,
+  name,
+}: {
+  id: string;
+  base64: string;
+  name: string;
+}) {
   function download() {
     const bytes = base64ToBytes(base64);
     const url = URL.createObjectURL(
@@ -60,12 +70,12 @@ function ScratchWork({ base64, name }: { base64: string; name: string }) {
   }
   return (
     <div className="scratch-actions">
+      <Link className="btn btn-ghost" to={`/scratch?review=${id}`}>
+        🐱 Abrir para revisar
+      </Link>
       <button className="btn btn-ghost" onClick={download}>
         ⬇ Descargar .sb3
       </button>
-      <span className="muted-line">
-        Abrir para revisar dentro de la app: Fase 4e (editor de Scratch).
-      </span>
     </div>
   );
 }

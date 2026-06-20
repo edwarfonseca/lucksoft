@@ -3,6 +3,7 @@ node_modules/
 
 # Build de TurboWarp (se regenera; ver PLAN.md / PROYECTO.md). No va en git.
 LuckSoft/scratch-editor/
+public/scratch-editor/
 
 # Variables de entorno (Supabase, etc.)
 .env

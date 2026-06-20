@@ -448,3 +448,15 @@ a:hover {
   opacity: 0.5;
   cursor: not-allowed;
 }
+
+/* ---- Editor de Scratch ---- */
+.editor-toolbar .status.err {
+  color: #ff6b6b;
+}
+.scratch-frame {
+  width: 100%;
+  height: calc(100vh - 160px);
+  min-height: 480px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
