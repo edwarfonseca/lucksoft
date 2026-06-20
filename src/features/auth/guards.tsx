@@ -3,9 +3,19 @@ import type { ReactNode } from "react";
 import type { Role } from "@/domain/models/user";
 import { useAuth } from "@/features/auth/auth-context";
 
+/** Mientras se resuelve la sesión, no decidir todavía. */
+function Loading() {
+  return (
+    <div className="page">
+      <p className="lead">Cargando…</p>
+    </div>
+  );
+}
+
 /** Exige sesión iniciada; si no, redirige al login. */
 export function RequireAuth({ children }: { children: ReactNode }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  if (loading) return <Loading />;
   if (!user) return <Navigate to="/" replace />;
   return <>{children}</>;
 }
@@ -18,7 +28,8 @@ export function RequireRole({
   role: Role;
   children: ReactNode;
 }) {
-  const { user } = useAuth();
+  const { user, loading } = useAuth();
+  if (loading) return <Loading />;
   if (!user) return <Navigate to="/" replace />;
   if (user.role !== role) return <Navigate to="/cursos" replace />;
   return <>{children}</>;

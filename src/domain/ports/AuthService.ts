@@ -11,6 +11,9 @@ export interface AuthService {
   /** Cierra la sesión. */
   logout(): Promise<void>;
 
-  /** Usuario de la sesión actual, o null si no hay sesión. */
-  getCurrentUser(): User | null;
+  /**
+   * Usuario de la sesión actual, o null si no hay sesión. Asíncrono porque la
+   * auth real (Supabase) valida el token contra el servidor.
+   */
+  getCurrentUser(): Promise<User | null>;
 }

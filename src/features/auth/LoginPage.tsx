@@ -4,13 +4,14 @@ import { useAuth } from "@/features/auth/auth-context";
 
 /** Pantalla de inicio de sesión (migra el antiguo index.html). */
 export function LoginPage() {
-  const { user, login } = useAuth();
+  const { user, loading, login } = useAuth();
   const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  // Si ya hay sesión, ir directo a cursos.
+  // Esperar a que se resuelva la sesión; si ya hay, ir directo a cursos.
+  if (loading) return null;
   if (user) return <Navigate to="/cursos" replace />;
 
   async function onSubmit(e: FormEvent) {
