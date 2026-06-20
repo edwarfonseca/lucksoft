@@ -47,7 +47,11 @@ export function AppLayout() {
         </nav>
         <div className="user-box">
           <span className={"rol-badge rol-" + user.role}>
-            {user.role === "docente" ? "Docente" : "Estudiante"}
+            {user.role === "docente"
+              ? "Docente"
+              : user.role === "admin"
+                ? "Admin"
+                : "Estudiante"}
           </span>
           <span>{user.name}</span>
           <button className="btn btn-ghost" onClick={onLogout}>
