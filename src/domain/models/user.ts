@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 /** Rol del usuario dentro de la plataforma. */
-export const roleSchema = z.enum(["docente", "estudiante"]);
+export const roleSchema = z.enum(["docente", "estudiante", "admin"]);
 export type Role = z.infer<typeof roleSchema>;
 
 /**

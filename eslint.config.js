@@ -9,6 +9,7 @@ export default tseslint.config(
     ignores: [
       "LuckSoft/scratch-editor/**",
       "public/scratch-editor/**",
+      "supabase/functions/**",
       "node_modules/**",
       "dist/**",
     ],
