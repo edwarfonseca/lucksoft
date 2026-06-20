@@ -1,9 +1,11 @@
 # Dependencias
 node_modules/
 
-# Build de TurboWarp (se regenera; ver PLAN.md / PROYECTO.md). No va en git.
+# Build de TurboWarp. La copia legacy no va en git.
 LuckSoft/scratch-editor/
-public/scratch-editor/
+# El build servido SÍ va en git (para que Scratch funcione en producción), pero
+# sin los source maps (.map), que solo sirven para depurar y pesan ~25 MB.
+public/scratch-editor/**/*.map
 
 # Variables de entorno (Supabase, etc.)
 .env
