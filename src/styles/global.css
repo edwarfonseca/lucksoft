@@ -98,6 +98,9 @@ a:hover {
 .rol-estudiante {
   color: #57d9a3;
 }
+.rol-admin {
+  color: #ffab19;
+}
 
 .page {
   max-width: 960px;
