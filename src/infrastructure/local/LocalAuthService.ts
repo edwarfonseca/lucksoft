@@ -37,7 +37,7 @@ export class LocalAuthService implements AuthService {
     sessionStorage.removeItem(SESSION_KEY);
   }
 
-  getCurrentUser(): User | null {
+  async getCurrentUser(): Promise<User | null> {
     const raw = sessionStorage.getItem(SESSION_KEY);
     if (!raw) return null;
     try {

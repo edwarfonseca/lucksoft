@@ -4,6 +4,8 @@ import type { User } from "@/domain/models/user";
 /** Estado de sesión expuesto por el contexto de autenticación. */
 export interface AuthState {
   user: User | null;
+  /** true mientras se resuelve la sesión inicial (auth asíncrona). */
+  loading: boolean;
   /** Inicia sesión; devuelve true si las credenciales son válidas. */
   login(username: string, password: string): Promise<boolean>;
   logout(): Promise<void>;

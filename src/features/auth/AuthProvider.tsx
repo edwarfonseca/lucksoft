@@ -1,4 +1,5 @@
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
+import type { User } from "@/domain/models/user";
 import { authService } from "@/app/services";
 import {
   login as loginUseCase,
@@ -7,14 +8,30 @@ import {
 import { AuthContext, type AuthState } from "@/features/auth/auth-context";
 
 /**
- * Proveedor de sesión. Mantiene el usuario actual en estado de React y delega en
- * los casos de uso (que a su vez usan el AuthService inyectado).
+ * Proveedor de sesión. Resuelve la sesión inicial de forma asíncrona (necesario
+ * para auth real) y delega en los casos de uso (que usan el AuthService
+ * inyectado).
  */
 export function AuthProvider({ children }: { children: ReactNode }) {
-  const [user, setUser] = useState(() => authService.getCurrentUser());
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    let active = true;
+    authService.getCurrentUser().then((u) => {
+      if (active) {
+        setUser(u);
+        setLoading(false);
+      }
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const value: AuthState = {
     user,
+    loading,
     async login(username, password) {
       const result = await loginUseCase(authService, username, password);
       setUser(result);
