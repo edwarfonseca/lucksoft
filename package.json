@@ -15,7 +15,17 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md,ts}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"LuckSoft/**/*.{js,html,css,md}\" \"*.{json,md,ts}\"",
-    "start:legacy": "python LuckSoft/server.py"
+    "start:legacy": "python LuckSoft/server.py",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{css,json,md,html}": [
+      "prettier --write"
+    ]
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
@@ -27,7 +37,9 @@
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.3",
     "globals": "^15.11.0",
+    "husky": "^9.1.7",
     "jsdom": "^29.1.1",
+    "lint-staged": "^17.0.7",
     "prettier": "^3.3.3",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.61.1",
