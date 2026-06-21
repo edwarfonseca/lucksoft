@@ -2,7 +2,13 @@ import { useEffect, useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { html as htmlLang } from "@codemirror/lang-html";
 import { css as cssLang } from "@codemirror/lang-css";
-import { javascript as jsLang } from "@codemirror/lang-javascript";
+import {
+  javascript as jsLang,
+  javascriptLanguage,
+  scopeCompletionSource,
+} from "@codemirror/lang-javascript";
+import type { Extension } from "@codemirror/state";
+import { editorTooltips } from "@/features/courses/codemirror";
 import { getCourse } from "@/courses/registry";
 import { webProjectSchema, type WebProject } from "@/domain/models/submission";
 import { submissionRepository } from "@/app/services";
@@ -15,7 +21,20 @@ import { JoinClassButton } from "@/features/courses/JoinClassButton";
 const webCourse = getCourse("web");
 type Tab = "html" | "css" | "js";
 const TABS: Tab[] = ["html", "css", "js"];
-const LANG = { html: htmlLang(), css: cssLang(), js: jsLang() };
+
+// Extensiones por lenguaje. JS añade autocompletado de los globales del
+// navegador (document, console, Math…) y sus métodos, como un editor real.
+const EXTENSIONS: Record<Tab, Extension[]> = {
+  html: [htmlLang(), editorTooltips],
+  css: [cssLang(), editorTooltips],
+  js: [
+    jsLang(),
+    javascriptLanguage.data.of({
+      autocomplete: scopeCompletionSource(globalThis),
+    }),
+    editorTooltips,
+  ],
+};
 
 /** Editor de Diseño Web: HTML/CSS/JS + vista previa en vivo. Migra web.js. */
 export function WebEditorPage() {
@@ -130,7 +149,7 @@ export function WebEditorPage() {
                 value={project[t]}
                 theme="dark"
                 height="100%"
-                extensions={[LANG[t]]}
+                extensions={EXTENSIONS[t]}
                 onChange={handleChange(t)}
               />
             </div>
