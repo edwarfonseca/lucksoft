@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import CodeMirror from "@uiw/react-codemirror";
 import { python } from "@codemirror/lang-python";
+import { editorTooltips } from "@/features/courses/codemirror";
 import { getCourse } from "@/courses/registry";
 import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
@@ -136,7 +137,7 @@ export function PythonEditorPage() {
               value={code}
               theme="dark"
               height="100%"
-              extensions={[python()]}
+              extensions={[python(), editorTooltips]}
               onChange={setCode}
             />
           </div>
