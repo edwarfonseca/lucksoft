@@ -41,6 +41,7 @@ export const horarioSchema = z.object({
   horaInicio: z.string(),
   docenteId: z.string().nullable(),
   docenteNombre: z.string().nullable(),
+  enlaceReunion: z.string().nullable(),
   activo: z.boolean(),
 });
 export type Horario = z.infer<typeof horarioSchema>;
@@ -56,6 +57,7 @@ export interface CreateHorarioInput {
   diaSemana: number;
   horaInicio: string;
   docenteId: string | null;
+  enlaceReunion: string | null;
 }
 
 /** Cambios al editar un horario. */
@@ -64,6 +66,7 @@ export interface UpdateHorarioInput {
   diaSemana?: number;
   horaInicio?: string;
   docenteId?: string | null;
+  enlaceReunion?: string | null;
   activo?: boolean;
 }
 

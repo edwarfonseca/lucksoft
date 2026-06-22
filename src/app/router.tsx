@@ -1,7 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "@/components/AppLayout";
 import { LoginPage } from "@/features/auth/LoginPage";
-import { RequireAuth, RequireRole } from "@/features/auth/guards";
+import {
+  RequireAuth,
+  RequireCourseAccess,
+  RequireRole,
+} from "@/features/auth/guards";
+import { EnrollmentProvider } from "@/features/courses/EnrollmentProvider";
 import { CoursesPage } from "@/features/courses/CoursesPage";
 import { PythonEditorPage } from "@/features/courses/PythonEditorPage";
 import { WebEditorPage } from "@/features/courses/WebEditorPage";
@@ -19,14 +24,37 @@ export const router = createBrowserRouter([
   {
     element: (
       <RequireAuth>
-        <AppLayout />
+        <EnrollmentProvider>
+          <AppLayout />
+        </EnrollmentProvider>
       </RequireAuth>
     ),
     children: [
       { path: "/cursos", element: <CoursesPage /> },
-      { path: "/python", element: <PythonEditorPage /> },
-      { path: "/web", element: <WebEditorPage /> },
-      { path: "/scratch", element: <ScratchEditorPage /> },
+      {
+        path: "/python",
+        element: (
+          <RequireCourseAccess course="python">
+            <PythonEditorPage />
+          </RequireCourseAccess>
+        ),
+      },
+      {
+        path: "/web",
+        element: (
+          <RequireCourseAccess course="web">
+            <WebEditorPage />
+          </RequireCourseAccess>
+        ),
+      },
+      {
+        path: "/scratch",
+        element: (
+          <RequireCourseAccess course="scratch">
+            <ScratchEditorPage />
+          </RequireCourseAccess>
+        ),
+      },
       {
         path: "/notas",
         element: (
