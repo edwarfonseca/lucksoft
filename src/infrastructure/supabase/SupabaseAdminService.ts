@@ -160,7 +160,7 @@ export class SupabaseAdminService implements AdminService {
     const { data, error } = await this.supabase
       .from("horarios")
       .select(
-        "id, curso, dia_semana, hora_inicio, docente_id, activo, docente:profiles(full_name)",
+        "id, curso, dia_semana, hora_inicio, docente_id, activo, docente:profiles!horarios_docente_id_fkey(full_name)",
       )
       .order("dia_semana", { ascending: true })
       .order("hora_inicio", { ascending: true });
