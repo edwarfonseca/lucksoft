@@ -615,3 +615,76 @@ a:hover {
   border: 1px solid var(--border);
   border-radius: 10px;
 }
+
+/* =======================================================================
+   DISEÑO RESPONSIVO — convención del proyecto
+   Breakpoints:
+     - ≤ 900px (tablet): los editores (código + vista previa) se apilan.
+     - ≤ 640px (móvil):  formularios a 1 columna, barra compacta, menos padding.
+   Toda UI nueva debe verse bien a 375px y 768px de ancho (sin scroll horizontal).
+   ======================================================================= */
+
+@media (max-width: 900px) {
+  /* Editores: apilar paneles en vertical con altura automática. */
+  .editor-body {
+    flex-direction: column;
+    height: auto;
+  }
+  .task-pane {
+    width: 100%;
+  }
+  .code-pane,
+  .preview-pane {
+    min-height: 340px;
+  }
+  .scratch-frame {
+    height: 70vh;
+    min-height: 360px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 24px 16px;
+  }
+
+  /* Barra superior: envuelve; la navegación pasa a una segunda línea. */
+  .topbar {
+    gap: 12px;
+    padding: 10px 16px;
+    flex-wrap: wrap;
+  }
+  .nav {
+    order: 3;
+    width: 100%;
+    gap: 14px;
+  }
+  .user-box {
+    gap: 8px;
+  }
+
+  /* Catálogo de cursos y formularios: una sola columna. */
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+  .form-actions .btn {
+    width: 100%;
+  }
+
+  /* Editores: menos gutter y la barra de herramientas no estira el estado. */
+  .editor-shell {
+    padding: 12px;
+  }
+  .editor-toolbar {
+    gap: 8px;
+  }
+  .editor-toolbar .status {
+    margin-left: 0;
+  }
+}
