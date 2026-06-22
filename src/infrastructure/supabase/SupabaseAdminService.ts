@@ -33,6 +33,7 @@ interface ProfileRow {
 interface HorarioRow {
   id: string;
   curso: string;
+  grupo: number;
   dia_semana: number;
   hora_inicio: string;
   docente_id: string | null;
@@ -147,6 +148,7 @@ export class SupabaseAdminService implements AdminService {
     const parsed = horarioSchema.safeParse({
       id: r.id,
       curso: r.curso,
+      grupo: r.grupo,
       diaSemana: r.dia_semana,
       horaInicio: r.hora_inicio,
       docenteId: r.docente_id,
@@ -160,10 +162,10 @@ export class SupabaseAdminService implements AdminService {
     const { data, error } = await this.supabase
       .from("horarios")
       .select(
-        "id, curso, dia_semana, hora_inicio, docente_id, activo, docente:profiles!horarios_docente_id_fkey(full_name)",
+        "id, curso, grupo, dia_semana, hora_inicio, docente_id, activo, docente:profiles!horarios_docente_id_fkey(full_name)",
       )
-      .order("dia_semana", { ascending: true })
-      .order("hora_inicio", { ascending: true });
+      .order("curso", { ascending: true })
+      .order("grupo", { ascending: true });
     if (error) throw new Error(error.message);
     return ((data ?? []) as unknown as HorarioRow[]).flatMap((r) => {
       const h = this.horarioToDomain(r);
