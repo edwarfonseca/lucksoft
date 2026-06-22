@@ -3,10 +3,16 @@ import type {
   ManagedProfile,
   UpdateProfileInput,
 } from "../models/profile";
+import type {
+  CreateHorarioInput,
+  Horario,
+  UpdateHorarioInput,
+} from "../models/horario";
 
 /**
- * Port de administración de usuarios. Solo lo implementa el adaptador de
- * Supabase (crear/borrar usan Edge Functions con service_role en el servidor).
+ * Port de administración. Solo lo implementa el adaptador de Supabase
+ * (crear/borrar cuentas usan Edge Functions con service_role en el servidor;
+ * los horarios son datos normales protegidos por RLS de admin).
  */
 export interface AdminService {
   /** Lista todos los perfiles (solo accesible para admin vía RLS). */
@@ -20,4 +26,22 @@ export interface AdminService {
 
   /** Elimina una cuenta por completo. */
   deleteUser(id: string): Promise<void>;
+
+  /** Lista los horarios de clase (con el nombre del docente si lo tiene). */
+  listHorarios(): Promise<Horario[]>;
+
+  /** Crea un horario de clase semanal. */
+  createHorario(input: CreateHorarioInput): Promise<void>;
+
+  /** Edita un horario existente. */
+  updateHorario(id: string, changes: UpdateHorarioInput): Promise<void>;
+
+  /** Elimina un horario (los estudiantes asignados quedan sin horario). */
+  deleteHorario(id: string): Promise<void>;
+
+  /**
+   * Ejecuta a mano el descuento de créditos del día de hoy (mismo cálculo que el
+   * cron semanal). Devuelve cuántos estudiantes fueron afectados.
+   */
+  consumeCreditsToday(): Promise<number>;
 }

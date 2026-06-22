@@ -68,6 +68,7 @@ Deno.serve(async (req) => {
         edad: b.edad ?? null,
         full_name,
         curso: b.role === "estudiante" ? (b.curso ?? null) : null,
+        horario_id: b.role === "estudiante" ? (b.horario_id ?? null) : null,
         creditos_pagados:
           b.role === "estudiante" ? (b.creditos_pagados ?? 0) : 0,
         nombre_acudiente:

@@ -62,3 +62,48 @@ panel **Administración** para crear, editar y eliminar estudiantes y docentes.
 - Editar datos del perfil (nombre, edad, curso, créditos…) lo hace el admin
   directo contra la tabla, protegido por RLS (`is_admin()`).
 - Un admin no puede eliminar su propia cuenta (lo bloquea la función).
+
+---
+
+# Horarios de clase y créditos (Fase 8) — paso a paso
+
+Añade **horarios**: clases semanales de 1 hora (un curso + un día + una hora).
+Cada estudiante se asigna a **un** horario y, cada semana el día de su clase, se
+le **descuenta 1 crédito** automáticamente.
+
+## 1) Ampliar la base de datos
+
+1. Supabase → **SQL Editor** → **New query**.
+2. Pega TODO `supabase/migrations/0003_horarios.sql` → **Run**.
+   - Crea la tabla `horarios`, añade `profiles.horario_id`, las reglas RLS y las
+     funciones de descuento de créditos (incluido el botón manual del panel).
+
+## 2) Activar el descuento automático semanal (cron)
+
+1. Supabase → **Database → Extensions** → busca **`pg_cron`** → **Enable**.
+2. Supabase → **SQL Editor** → pega TODO
+   `supabase/migrations/0004_cron_creditos.sql` → **Run**.
+   - Programa un job diario que descuenta 1 crédito a los estudiantes con clase
+     ese día (calculado en zona horaria `America/Bogota`; ajústala en el SQL si
+     lo necesitas).
+
+> ¿No quieres usar el cron? Puedes saltarte el paso 2: desde el panel, en la
+> pestaña **Horarios**, el botón **"Descontar créditos de hoy"** ejecuta el mismo
+> descuento a mano.
+
+## 3) Re-desplegar la función de creación de usuarios
+
+`admin-create-user` ahora también guarda el horario del estudiante. Vuelve a
+desplegarla:
+
+```bash
+npx supabase functions deploy admin-create-user
+```
+
+## 4) Usar
+
+En **Administración** verás dos pestañas:
+
+- **Horarios:** crea/edita/elimina clases (curso, día, hora, docente opcional).
+- **Usuarios:** al crear o editar un estudiante, elige su **Horario** (el curso
+  se deriva del horario elegido).

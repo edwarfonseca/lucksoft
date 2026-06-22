@@ -514,12 +514,27 @@ a:hover {
 }
 
 /* ---- Panel de administración ---- */
+.tabs {
+  display: flex;
+  gap: 4px;
+  border-bottom: 1px solid var(--border);
+  margin: 8px 0 20px;
+}
 .admin-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+.admin-head-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.ok-msg {
+  color: #51cf66;
+  font-size: 14px;
 }
 .admin-table-wrap {
   overflow-x: auto;
