@@ -5,6 +5,12 @@ import {
   type ManagedProfile,
   type UpdateProfileInput,
 } from "@/domain/models/profile";
+import {
+  horarioSchema,
+  type CreateHorarioInput,
+  type Horario,
+  type UpdateHorarioInput,
+} from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
 import { getSupabaseClient } from "./client";
 
@@ -17,10 +23,21 @@ interface ProfileRow {
   edad: number | null;
   activo: boolean;
   curso: string | null;
+  horario_id: string | null;
   creditos_pagados: number | null;
   nombre_acudiente: string | null;
   numero_acudiente: string | null;
   pais: string | null;
+}
+
+interface HorarioRow {
+  id: string;
+  curso: string;
+  dia_semana: number;
+  hora_inicio: string;
+  docente_id: string | null;
+  activo: boolean;
+  docente: { full_name: string | null } | null;
 }
 
 /** Administración de usuarios sobre Supabase (tabla profiles + Edge Functions). */
@@ -37,6 +54,7 @@ export class SupabaseAdminService implements AdminService {
       edad: r.edad,
       activo: r.activo,
       curso: r.curso,
+      horarioId: r.horario_id,
       creditosPagados: r.creditos_pagados ?? 0,
       nombreAcudiente: r.nombre_acudiente,
       numeroAcudiente: r.numero_acudiente,
@@ -85,6 +103,7 @@ export class SupabaseAdminService implements AdminService {
       apellidos: input.apellidos,
       edad: input.edad,
       curso: input.curso ?? null,
+      horario_id: input.horarioId ?? null,
       creditos_pagados: input.creditosPagados ?? 0,
       nombre_acudiente: input.nombreAcudiente ?? null,
       numero_acudiente: input.numeroAcudiente ?? null,
@@ -104,6 +123,7 @@ export class SupabaseAdminService implements AdminService {
     if (changes.edad !== undefined) row.edad = changes.edad;
     if (changes.activo !== undefined) row.activo = changes.activo;
     if (changes.curso !== undefined) row.curso = changes.curso;
+    if (changes.horarioId !== undefined) row.horario_id = changes.horarioId;
     if (changes.creditosPagados !== undefined)
       row.creditos_pagados = changes.creditosPagados;
     if (changes.nombreAcudiente !== undefined)
@@ -121,5 +141,74 @@ export class SupabaseAdminService implements AdminService {
 
   async deleteUser(id: string): Promise<void> {
     await this.invoke("admin-delete-user", { id });
+  }
+
+  private horarioToDomain(r: HorarioRow): Horario | null {
+    const parsed = horarioSchema.safeParse({
+      id: r.id,
+      curso: r.curso,
+      diaSemana: r.dia_semana,
+      horaInicio: r.hora_inicio,
+      docenteId: r.docente_id,
+      docenteNombre: r.docente?.full_name ?? null,
+      activo: r.activo,
+    });
+    return parsed.success ? parsed.data : null;
+  }
+
+  async listHorarios(): Promise<Horario[]> {
+    const { data, error } = await this.supabase
+      .from("horarios")
+      .select(
+        "id, curso, dia_semana, hora_inicio, docente_id, activo, docente:profiles(full_name)",
+      )
+      .order("dia_semana", { ascending: true })
+      .order("hora_inicio", { ascending: true });
+    if (error) throw new Error(error.message);
+    return ((data ?? []) as unknown as HorarioRow[]).flatMap((r) => {
+      const h = this.horarioToDomain(r);
+      return h ? [h] : [];
+    });
+  }
+
+  async createHorario(input: CreateHorarioInput): Promise<void> {
+    const { error } = await this.supabase.from("horarios").insert({
+      curso: input.curso,
+      dia_semana: input.diaSemana,
+      hora_inicio: input.horaInicio,
+      docente_id: input.docenteId,
+    });
+    if (error) throw new Error(error.message);
+  }
+
+  async updateHorario(id: string, changes: UpdateHorarioInput): Promise<void> {
+    const row: Record<string, unknown> = {};
+    if (changes.curso !== undefined) row.curso = changes.curso;
+    if (changes.diaSemana !== undefined) row.dia_semana = changes.diaSemana;
+    if (changes.horaInicio !== undefined) row.hora_inicio = changes.horaInicio;
+    if (changes.docenteId !== undefined) row.docente_id = changes.docenteId;
+    if (changes.activo !== undefined) row.activo = changes.activo;
+
+    const { error } = await this.supabase
+      .from("horarios")
+      .update(row)
+      .eq("id", id);
+    if (error) throw new Error(error.message);
+  }
+
+  async deleteHorario(id: string): Promise<void> {
+    const { error } = await this.supabase
+      .from("horarios")
+      .delete()
+      .eq("id", id);
+    if (error) throw new Error(error.message);
+  }
+
+  async consumeCreditsToday(): Promise<number> {
+    const { data, error } = await this.supabase.rpc(
+      "admin_consumir_creditos_hoy",
+    );
+    if (error) throw new Error(error.message);
+    return (data as number | null) ?? 0;
   }
 }

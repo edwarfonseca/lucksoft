@@ -5,12 +5,15 @@ import type {
   ManagedProfile,
   UpdateProfileInput,
 } from "@/domain/models/profile";
+import type { Horario } from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
 import { createUser, updateProfile } from "@/application/manageUsers";
-import { courseList } from "@/courses/registry";
+import { horarioLabel } from "@/features/admin/horarioLabel";
 
 interface Props {
   service: AdminService;
+  /** Horarios disponibles para asignar al estudiante. */
+  horarios: Horario[];
   /** Si viene, es edición; si no, es alta. */
   initial?: ManagedProfile;
   onSaved: () => void;
@@ -25,7 +28,7 @@ interface FormState {
   apellidos: string;
   edad: string;
   activo: boolean;
-  curso: string;
+  horarioId: string;
   creditosPagados: string;
   nombreAcudiente: string;
   numeroAcudiente: string;
@@ -41,7 +44,7 @@ function initialState(p?: ManagedProfile): FormState {
     apellidos: p?.apellidos ?? "",
     edad: p?.edad != null ? String(p.edad) : "",
     activo: p?.activo ?? true,
-    curso: p?.curso ?? courseList[0].kind,
+    horarioId: p?.horarioId ?? "",
     creditosPagados: p ? String(p.creditosPagados) : "0",
     nombreAcudiente: p?.nombreAcudiente ?? "",
     numeroAcudiente: p?.numeroAcudiente ?? "",
@@ -49,7 +52,13 @@ function initialState(p?: ManagedProfile): FormState {
   };
 }
 
-export function UserForm({ service, initial, onSaved, onCancel }: Props) {
+export function UserForm({
+  service,
+  horarios,
+  initial,
+  onSaved,
+  onCancel,
+}: Props) {
   const isEdit = !!initial;
   const [f, setF] = useState<FormState>(() => initialState(initial));
   const [error, setError] = useState("");
@@ -67,16 +76,20 @@ export function UserForm({ service, initial, onSaved, onCancel }: Props) {
     setError("");
     setSaving(true);
     try {
+      // El curso se deriva del horario elegido (se mantienen sincronizados).
+      const horario = horarios.find((h) => h.id === f.horarioId);
       const studentFields =
         f.role === "estudiante"
           ? {
-              curso: f.curso,
+              horarioId: f.horarioId || null,
+              curso: horario?.curso ?? null,
               creditosPagados: creditos,
               nombreAcudiente: f.nombreAcudiente.trim() || null,
               numeroAcudiente: f.numeroAcudiente.trim() || null,
               pais: f.pais.trim() || null,
             }
           : {
+              horarioId: null,
               curso: null,
               creditosPagados: 0,
               nombreAcudiente: null,
@@ -193,18 +206,28 @@ export function UserForm({ service, initial, onSaved, onCancel }: Props) {
         {f.role === "estudiante" && (
           <>
             <label>
-              Curso
+              Horario (curso, día y hora)
               <select
-                value={f.curso}
-                onChange={(e) => set("curso", e.target.value)}
+                value={f.horarioId}
+                onChange={(e) => set("horarioId", e.target.value)}
               >
-                {courseList.map((c) => (
-                  <option key={c.kind} value={c.kind}>
-                    {c.title}
-                  </option>
-                ))}
+                <option value="">— Sin asignar —</option>
+                {horarios
+                  .filter((h) => h.activo || h.id === f.horarioId)
+                  .map((h) => (
+                    <option key={h.id} value={h.id}>
+                      {horarioLabel(h)}
+                      {h.activo ? "" : " (inactivo)"}
+                    </option>
+                  ))}
               </select>
             </label>
+            {horarios.length === 0 && (
+              <p className="notice">
+                Aún no hay horarios. Créalos en la pestaña “Horarios” para poder
+                asignar al estudiante.
+              </p>
+            )}
             <label>
               Créditos pagados
               <input

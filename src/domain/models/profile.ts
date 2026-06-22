@@ -16,6 +16,7 @@ export const managedProfileSchema = z.object({
   activo: z.boolean(),
   // Solo estudiantes:
   curso: z.string().nullable(),
+  horarioId: z.string().nullable(),
   creditosPagados: z.number(),
   nombreAcudiente: z.string().nullable(),
   numeroAcudiente: z.string().nullable(),
@@ -32,6 +33,7 @@ export interface CreateUserInput {
   apellidos: string;
   edad: number | null;
   curso?: string | null;
+  horarioId?: string | null;
   creditosPagados?: number;
   nombreAcudiente?: string | null;
   numeroAcudiente?: string | null;
@@ -46,6 +48,7 @@ export interface UpdateProfileInput {
   edad?: number | null;
   activo?: boolean;
   curso?: string | null;
+  horarioId?: string | null;
   creditosPagados?: number;
   nombreAcudiente?: string | null;
   numeroAcudiente?: string | null;
