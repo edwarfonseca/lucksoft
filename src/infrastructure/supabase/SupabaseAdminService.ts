@@ -37,6 +37,7 @@ interface HorarioRow {
   dia_semana: number;
   hora_inicio: string;
   docente_id: string | null;
+  enlace_reunion: string | null;
   activo: boolean;
   docente: { full_name: string | null } | null;
 }
@@ -153,6 +154,7 @@ export class SupabaseAdminService implements AdminService {
       horaInicio: r.hora_inicio,
       docenteId: r.docente_id,
       docenteNombre: r.docente?.full_name ?? null,
+      enlaceReunion: r.enlace_reunion,
       activo: r.activo,
     });
     return parsed.success ? parsed.data : null;
@@ -162,7 +164,7 @@ export class SupabaseAdminService implements AdminService {
     const { data, error } = await this.supabase
       .from("horarios")
       .select(
-        "id, curso, grupo, dia_semana, hora_inicio, docente_id, activo, docente:profiles!horarios_docente_id_fkey(full_name)",
+        "id, curso, grupo, dia_semana, hora_inicio, docente_id, enlace_reunion, activo, docente:profiles!horarios_docente_id_fkey(full_name)",
       )
       .order("curso", { ascending: true })
       .order("grupo", { ascending: true });
@@ -179,6 +181,7 @@ export class SupabaseAdminService implements AdminService {
       dia_semana: input.diaSemana,
       hora_inicio: input.horaInicio,
       docente_id: input.docenteId,
+      enlace_reunion: input.enlaceReunion,
     });
     if (error) throw new Error(error.message);
   }
@@ -189,6 +192,8 @@ export class SupabaseAdminService implements AdminService {
     if (changes.diaSemana !== undefined) row.dia_semana = changes.diaSemana;
     if (changes.horaInicio !== undefined) row.hora_inicio = changes.horaInicio;
     if (changes.docenteId !== undefined) row.docente_id = changes.docenteId;
+    if (changes.enlaceReunion !== undefined)
+      row.enlace_reunion = changes.enlaceReunion;
     if (changes.activo !== undefined) row.activo = changes.activo;
 
     const { error } = await this.supabase

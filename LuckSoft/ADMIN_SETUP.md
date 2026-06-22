@@ -107,12 +107,32 @@ npx supabase functions deploy admin-create-user
    - Añade el número de **grupo** a `horarios` (numera los existentes) y un
      trigger que asigna el siguiente número por curso al crear uno nuevo.
 
-## 5) Usar
+## 5) Clase remota y bloqueo por créditos
+
+1. Supabase → **SQL Editor** → pega TODO
+   `supabase/migrations/0006_enlace_reunion.sql` → **Run**.
+   - Añade `enlace_reunion` a `horarios` (el enlace de la videollamada del grupo).
+
+Con esto, en la vista del estudiante (**Mis cursos**):
+
+- El estudiante ve **solo su curso** inscrito.
+- El botón **“Ingresar a la clase remota”** aparece únicamente durante la franja
+  de su clase (desde 10 min antes hasta que termina la hora). El docente del
+  grupo ve **“Iniciar clase (anfitrión)”** en la misma franja; ambos entran a la
+  **misma sala**.
+- Si dejas el **enlace de reunión** vacío en el grupo, la app genera una sala
+  **Jitsi** automática y estable por grupo (sin configurar nada). Si pones un
+  enlace (Zoom/Meet/Teams), se usa ese.
+- Cuando los créditos del estudiante bajan a **3 o menos**, ve una advertencia.
+  Al llegar a **0**, su curso queda **bloqueado** (no entra al editor ni a la
+  clase) hasta que renueves sus créditos.
+
+## 6) Usar
 
 En **Administración** verás dos pestañas:
 
 - **Horarios:** resumen de cuántos grupos hay por curso y la lista de clases
   (cada grupo se nombra `Python1`, `Web1`, `Scratch1`, …). Crea/edita/elimina
-  clases (curso, día, hora, docente opcional).
+  clases (curso, día, hora, docente y enlace de reunión opcionales).
 - **Usuarios:** al crear o editar un estudiante, elige su **grupo/horario** (el
-  curso se deriva del grupo elegido).
+  curso se deriva del grupo elegido) y sus **créditos**.

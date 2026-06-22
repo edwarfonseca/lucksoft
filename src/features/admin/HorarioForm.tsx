@@ -27,6 +27,7 @@ interface FormState {
   diaSemana: number;
   horaInicio: string;
   docenteId: string;
+  enlaceReunion: string;
   activo: boolean;
 }
 
@@ -36,6 +37,7 @@ function initialState(h?: Horario): FormState {
     diaSemana: h?.diaSemana ?? 1,
     horaInicio: h ? formatHora(h.horaInicio) : "17:00",
     docenteId: h?.docenteId ?? "",
+    enlaceReunion: h?.enlaceReunion ?? "",
     activo: h?.activo ?? true,
   };
 }
@@ -61,12 +63,14 @@ export function HorarioForm({
     setSaving(true);
     try {
       const docenteId = f.docenteId || null;
+      const enlaceReunion = f.enlaceReunion.trim() || null;
       if (isEdit && initial) {
         const changes: UpdateHorarioInput = {
           curso: f.curso,
           diaSemana: f.diaSemana,
           horaInicio: f.horaInicio,
           docenteId,
+          enlaceReunion,
           activo: f.activo,
         };
         await updateHorario(service, initial.id, changes);
@@ -76,6 +80,7 @@ export function HorarioForm({
           diaSemana: f.diaSemana,
           horaInicio: f.horaInicio,
           docenteId,
+          enlaceReunion,
         };
         await createHorario(service, input);
       }
@@ -143,6 +148,16 @@ export function HorarioForm({
           </select>
         </label>
 
+        <label className="full-width">
+          Enlace de la clase remota (opcional)
+          <input
+            type="url"
+            value={f.enlaceReunion}
+            onChange={(e) => set("enlaceReunion", e.target.value)}
+            placeholder="https://… (Zoom/Meet/Teams). Si lo dejas vacío se genera una sala automática."
+          />
+        </label>
+
         {isEdit && (
           <label className="checkbox">
             <input
@@ -157,7 +172,9 @@ export function HorarioForm({
 
       <p className="notice">
         Cada horario es una clase de 1 hora por semana. El día de la clase se
-        descuenta 1 crédito a cada estudiante activo asignado.
+        descuenta 1 crédito a cada estudiante activo asignado. El enlace de la
+        reunión se les habilita a docente y estudiantes solo durante la franja
+        de la clase.
       </p>
 
       {error && <p className="error-msg">{error}</p>}
