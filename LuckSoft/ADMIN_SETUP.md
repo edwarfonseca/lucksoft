@@ -100,10 +100,19 @@ desplegarla:
 npx supabase functions deploy admin-create-user
 ```
 
-## 4) Usar
+## 4) Numeración de grupos (Python1, Web1, …)
+
+1. Supabase → **SQL Editor** → pega TODO
+   `supabase/migrations/0005_grupos.sql` → **Run**.
+   - Añade el número de **grupo** a `horarios` (numera los existentes) y un
+     trigger que asigna el siguiente número por curso al crear uno nuevo.
+
+## 5) Usar
 
 En **Administración** verás dos pestañas:
 
-- **Horarios:** crea/edita/elimina clases (curso, día, hora, docente opcional).
-- **Usuarios:** al crear o editar un estudiante, elige su **Horario** (el curso
-  se deriva del horario elegido).
+- **Horarios:** resumen de cuántos grupos hay por curso y la lista de clases
+  (cada grupo se nombra `Python1`, `Web1`, `Scratch1`, …). Crea/edita/elimina
+  clases (curso, día, hora, docente opcional).
+- **Usuarios:** al crear o editar un estudiante, elige su **grupo/horario** (el
+  curso se deriva del grupo elegido).

@@ -1,5 +1,12 @@
 import { z } from "zod";
-import { courseKindSchema } from "./course";
+import { courseKindSchema, type CourseKind } from "./course";
+
+/** Nombre corto por curso para nombrar los grupos (Python1, Web1, Scratch1). */
+const KIND_LABEL: Record<CourseKind, string> = {
+  python: "Python",
+  web: "Web",
+  scratch: "Scratch",
+};
 
 /**
  * Día de la semana en convención Postgres EXTRACT(DOW): 0=Domingo … 6=Sábado.
@@ -27,6 +34,8 @@ export const DIAS_SEMANA: number[] = [1, 2, 3, 4, 5, 6, 0];
 export const horarioSchema = z.object({
   id: z.string(),
   curso: courseKindSchema,
+  /** Número de grupo correlativo dentro del curso (Python1, Python2, …). */
+  grupo: z.number().int(),
   diaSemana: diaSemanaSchema,
   /** Hora de inicio en formato "HH:MM". */
   horaInicio: z.string(),
@@ -35,6 +44,11 @@ export const horarioSchema = z.object({
   activo: z.boolean(),
 });
 export type Horario = z.infer<typeof horarioSchema>;
+
+/** Nombre del grupo, ej. "Python1". */
+export function grupoNombre(h: { curso: CourseKind; grupo: number }): string {
+  return `${KIND_LABEL[h.curso] ?? h.curso}${h.grupo}`;
+}
 
 /** Datos para crear un horario. */
 export interface CreateHorarioInput {

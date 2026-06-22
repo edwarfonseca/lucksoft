@@ -2,6 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import {
   DIA_SEMANA_LABEL,
   formatHora,
+  grupoNombre,
   type Horario,
 } from "@/domain/models/horario";
 import type { ManagedProfile } from "@/domain/models/profile";
@@ -13,7 +14,7 @@ import {
   deleteHorario,
   listHorarios,
 } from "@/application/manageHorarios";
-import { getCourse } from "@/courses/registry";
+import { courseList, getCourse } from "@/courses/registry";
 import { HorarioForm } from "@/features/admin/HorarioForm";
 
 interface Props {
@@ -111,6 +112,24 @@ export function HorariosPanel({ service }: Props) {
       {error && <p className="error-msg">{error}</p>}
       {info && <p className="ok-msg">{info}</p>}
 
+      {horarios !== null && (
+        <div className="grupo-summary">
+          {courseList.map((c) => {
+            const n = horarios.filter((h) => h.curso === c.kind).length;
+            return (
+              <div className="grupo-summary-card" key={c.kind}>
+                <span className="grupo-summary-count">{n}</span>
+                <span className="grupo-summary-label">
+                  {c.title}
+                  <br />
+                  {n === 1 ? "1 grupo" : `${n} grupos`}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+      )}
+
       {horarios === null ? (
         <p className="lead">Cargando…</p>
       ) : horarios.length === 0 ? (
@@ -120,6 +139,7 @@ export function HorariosPanel({ service }: Props) {
           <table className="admin-table">
             <thead>
               <tr>
+                <th>Grupo</th>
                 <th>Curso</th>
                 <th>Día</th>
                 <th>Hora</th>
@@ -131,6 +151,9 @@ export function HorariosPanel({ service }: Props) {
             <tbody>
               {horarios.map((h) => (
                 <tr key={h.id} className={h.activo ? "" : "inactive"}>
+                  <td>
+                    <strong>{grupoNombre(h)}</strong>
+                  </td>
                   <td>{getCourse(h.curso as CourseKind).title}</td>
                   <td>{DIA_SEMANA_LABEL[h.diaSemana]}</td>
                   <td>{formatHora(h.horaInicio)}</td>
