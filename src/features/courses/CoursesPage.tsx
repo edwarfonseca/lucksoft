@@ -37,7 +37,7 @@ function franja(c: ClaseHorario): string {
   return `${DIA_SEMANA_LABEL[c.diaSemana]} a las ${formatHora(c.horaInicio)}`;
 }
 
-/** Vista del estudiante: su único curso, créditos y horario de clase. */
+/** Vista del estudiante: sus cursos inscritos, créditos y horarios. */
 function StudentCourses() {
   const { enrollment, loading } = useEnrollment();
 
@@ -49,7 +49,7 @@ function StudentCourses() {
     return (
       <div className="page">
         <h1>Tus cursos</h1>
-        <p className="lead">Cargando tu curso…</p>
+        <p className="lead">Cargando tus cursos…</p>
       </div>
     );
 
@@ -61,30 +61,29 @@ function StudentCourses() {
       </div>
     );
 
-  const { clase, creditos } = enrollment;
+  const { cursos, creditos } = enrollment;
 
-  if (!clase)
+  if (cursos.length === 0)
     return (
       <div className="page">
         <h1>Tus cursos</h1>
         <p className="empty">
           Aún no estás inscrito en ningún curso. Contacta con administración
-          para que te asignen un horario.
+          para que te asignen un grupo.
         </p>
       </div>
     );
 
   const estado = estadoCreditos(creditos);
   const bloqueado = estado === "bloqueado";
-  const course = getCourse(clase.curso);
 
   return (
     <div className="page">
-      <h1>Tu curso</h1>
+      <h1>Tus cursos</h1>
 
       {estado === "bloqueado" && (
         <p className="banner banner-bloqueo">
-          ⛔ Tus créditos se agotaron. Tu curso está bloqueado. Renueva tus
+          ⛔ Tus créditos se agotaron. Tus cursos están bloqueados. Renueva tus
           créditos para volver a entrar.
         </p>
       )}
@@ -101,36 +100,33 @@ function StudentCourses() {
         </p>
       )}
 
-      <div className="clase-remota-card">
-        <div>
-          <h3>
-            {grupoNombre(clase)} · {course.title}
-          </h3>
-          <p className="muted">Tu clase: {franja(clase)} (1 hora)</p>
-        </div>
-        <p className="clase-remota-hint">
-          {bloqueado
-            ? "Disponible cuando renueves tus créditos."
-            : "Durante tu clase, el botón “Unirse a la clase” aparece arriba."}
-        </p>
-      </div>
-
       <div className="grid">
-        {bloqueado ? (
-          <div className="course-card locked">
-            <div className="course-icon">{course.icon}</div>
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-            <span className="tag soon">Bloqueado</span>
-          </div>
-        ) : (
-          <Link className="course-card" to={`/curso/${clase.curso}`}>
-            <div className="course-icon">{course.icon}</div>
-            <h3>{course.title}</h3>
-            <p>{course.description}</p>
-            <span className="tag ready">Disponible</span>
-          </Link>
-        )}
+        {cursos.map((c) => {
+          const course = getCourse(c.curso);
+          return bloqueado ? (
+            <div className="course-card locked" key={c.horarioId}>
+              <div className="course-icon">{course.icon}</div>
+              <h3>{course.title}</h3>
+              <p className="muted">
+                {grupoNombre(c)} · {franja(c)}
+              </p>
+              <span className="tag soon">Bloqueado</span>
+            </div>
+          ) : (
+            <Link
+              className="course-card"
+              to={`/curso/${c.curso}`}
+              key={c.horarioId}
+            >
+              <div className="course-icon">{course.icon}</div>
+              <h3>{course.title}</h3>
+              <p className="muted">
+                {grupoNombre(c)} · {franja(c)}
+              </p>
+              <span className="tag ready">Disponible</span>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

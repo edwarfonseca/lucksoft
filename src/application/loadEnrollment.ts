@@ -19,8 +19,8 @@ export function getTeacherClasses(
 
 export function setProgress(
   service: EnrollmentService,
-  periodo: number,
-  sesion: number,
+  horarioId: string,
+  leccionIdx: number,
 ): Promise<void> {
-  return service.setProgress(periodo, sesion);
+  return service.setProgress(horarioId, leccionIdx);
 }

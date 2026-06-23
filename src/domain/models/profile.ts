@@ -1,9 +1,18 @@
 import { z } from "zod";
 import { roleSchema } from "./user";
+import { courseKindSchema } from "./course";
 
 /** Roles que el panel puede crear (admin no se crea desde la UI). */
 export const creatableRoleSchema = z.enum(["estudiante", "docente"]);
 export type CreatableRole = z.infer<typeof creatableRoleSchema>;
+
+/** Un grupo en el que está inscrito un estudiante (para mostrar en el panel). */
+export const grupoRefSchema = z.object({
+  horarioId: z.string(),
+  curso: courseKindSchema,
+  grupo: z.number().int(),
+});
+export type GrupoRef = z.infer<typeof grupoRefSchema>;
 
 /** Perfil completo que gestiona el administrador. */
 export const managedProfileSchema = z.object({
@@ -16,8 +25,7 @@ export const managedProfileSchema = z.object({
   edad: z.number().nullable(),
   activo: z.boolean(),
   // Solo estudiantes:
-  curso: z.string().nullable(),
-  horarioId: z.string().nullable(),
+  grupos: z.array(grupoRefSchema),
   creditosPagados: z.number(),
   nombreAcudiente: z.string().nullable(),
   numeroAcudiente: z.string().nullable(),
@@ -33,8 +41,8 @@ export interface CreateUserInput {
   nombres: string;
   apellidos: string;
   edad: number | null;
-  curso?: string | null;
-  horarioId?: string | null;
+  /** Grupos (horarios) en los que se inscribe al estudiante. */
+  horarioIds?: string[];
   creditosPagados?: number;
   nombreAcudiente?: string | null;
   numeroAcudiente?: string | null;
@@ -48,8 +56,6 @@ export interface UpdateProfileInput {
   apellidos?: string;
   edad?: number | null;
   activo?: boolean;
-  curso?: string | null;
-  horarioId?: string | null;
   creditosPagados?: number;
   nombreAcudiente?: string | null;
   numeroAcudiente?: string | null;

@@ -756,10 +756,36 @@ a:hover {
   border-color: var(--brand);
   background: rgba(124, 92, 255, 0.12);
 }
+.sesion-btn.bloqueada {
+  opacity: 0.45;
+}
 .sesion-actual {
   font-size: 11px;
   color: var(--brand);
   font-weight: 600;
+}
+
+/* ---- Selección de grupos en el formulario de usuario ---- */
+.campo-label {
+  display: block;
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+.grupos-check {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 6px 16px;
+}
+.grupos-check label.checkbox {
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text);
+}
+.grupos-check label.checkbox input {
+  width: auto;
 }
 
 /* ---- Editor de Scratch ---- */

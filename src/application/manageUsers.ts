@@ -35,6 +35,14 @@ export function updateCredentials(
   return admin.updateCredentials(id, changes);
 }
 
+export function setEnrollments(
+  admin: AdminService,
+  studentId: string,
+  horarioIds: string[],
+): Promise<void> {
+  return admin.setEnrollments(studentId, horarioIds);
+}
+
 export function deleteUser(admin: AdminService, id: string): Promise<void> {
   return admin.deleteUser(id);
 }

@@ -58,12 +58,9 @@ export function RequireCourseAccess({
   if (user?.role !== "estudiante" || !enrollmentService) return <>{children}</>;
   if (loading) return <Loading />;
 
-  const clase = enrollment?.clase;
+  const inscrito = !!enrollment?.cursos.some((c) => c.curso === course);
   const creditos = enrollment?.creditos ?? 0;
-  const sinAcceso =
-    !clase ||
-    clase.curso !== course ||
-    estadoCreditos(creditos) === "bloqueado";
-  if (sinAcceso) return <Navigate to="/cursos" replace />;
+  if (!inscrito || estadoCreditos(creditos) === "bloqueado")
+    return <Navigate to="/cursos" replace />;
   return <>{children}</>;
 }

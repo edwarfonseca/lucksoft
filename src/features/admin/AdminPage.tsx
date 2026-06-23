@@ -1,14 +1,11 @@
 import { useCallback, useEffect, useState } from "react";
 import type { ManagedProfile } from "@/domain/models/profile";
-import type { Horario } from "@/domain/models/horario";
-import type { CourseKind } from "@/domain/models/course";
+import { type Horario, grupoNombre } from "@/domain/models/horario";
 import { adminService } from "@/app/services";
 import { deleteUser, listProfiles } from "@/application/manageUsers";
 import { listHorarios } from "@/application/manageHorarios";
-import { getCourse } from "@/courses/registry";
 import { UserForm } from "@/features/admin/UserForm";
 import { HorariosPanel } from "@/features/admin/HorariosPanel";
-import { horarioLabel } from "@/features/admin/horarioLabel";
 
 const ROLE_LABEL: Record<string, string> = {
   docente: "Docente",
@@ -95,8 +92,6 @@ function UsuariosPanel({
   }, [service]);
   useEffect(() => load(), [load]);
 
-  const horarioById = new Map(horarios.map((h) => [h.id, h]));
-
   async function onDelete(p: ManagedProfile) {
     if (
       !confirm(
@@ -150,7 +145,7 @@ function UsuariosPanel({
                 <th>Usuario</th>
                 <th>Rol</th>
                 <th>Edad</th>
-                <th>Horario</th>
+                <th>Grupos</th>
                 <th>Créditos</th>
                 <th>Acudiente</th>
                 <th>País</th>
@@ -160,10 +155,6 @@ function UsuariosPanel({
             </thead>
             <tbody>
               {profiles.map((p) => {
-                const horario =
-                  p.horarioId != null
-                    ? horarioById.get(p.horarioId)
-                    : undefined;
                 return (
                   <tr key={p.id} className={p.activo ? "" : "inactive"}>
                     <td>{p.fullName || "—"}</td>
@@ -171,14 +162,11 @@ function UsuariosPanel({
                     <td>{ROLE_LABEL[p.role] ?? p.role}</td>
                     <td>{p.edad ?? "—"}</td>
                     <td>
-                      {p.role === "estudiante"
-                        ? horario
-                          ? horarioLabel(horario)
-                          : p.curso
-                            ? (getCourse(p.curso as CourseKind)?.title ??
-                              p.curso)
-                            : "Sin asignar"
-                        : "—"}
+                      {p.role !== "estudiante"
+                        ? "—"
+                        : p.grupos.length
+                          ? p.grupos.map((g) => grupoNombre(g)).join(", ")
+                          : "Sin asignar"}
                     </td>
                     <td>{p.role === "estudiante" ? p.creditosPagados : "—"}</td>
                     <td>

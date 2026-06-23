@@ -1,6 +1,5 @@
 import type { CourseKind } from "./course";
 import { grupoNombre } from "./horario";
-import type { Leccion } from "./lessons";
 
 /**
  * Clase (horario) tal como la ve el estudiante o el docente: lo necesario para
@@ -16,11 +15,16 @@ export interface ClaseHorario {
   activo: boolean;
 }
 
-/** Inscripción del estudiante: su clase (o ninguna), créditos y última lección. */
+/** Un curso en el que el estudiante está inscrito (su grupo + su avance). */
+export interface EnrolledCourse extends ClaseHorario {
+  /** Índice de la última lección alcanzada (0 = ninguna; 1..40). */
+  progreso: number;
+}
+
+/** Inscripción del estudiante: créditos (bolsa compartida) y sus cursos. */
 export interface Enrollment {
-  clase: ClaseHorario | null;
   creditos: number;
-  progreso: Leccion;
+  cursos: EnrolledCourse[];
 }
 
 /** Créditos a partir de los cuales se avisa que se van a acabar. */
