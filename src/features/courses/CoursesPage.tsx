@@ -124,7 +124,7 @@ function StudentCourses() {
             <span className="tag soon">Bloqueado</span>
           </div>
         ) : (
-          <Link className="course-card" to={course.route}>
+          <Link className="course-card" to={`/curso/${clase.curso}`}>
             <div className="course-icon">{course.icon}</div>
             <h3>{course.title}</h3>
             <p>{course.description}</p>

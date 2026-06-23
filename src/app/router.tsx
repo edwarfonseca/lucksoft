@@ -8,6 +8,7 @@ import {
 } from "@/features/auth/guards";
 import { EnrollmentProvider } from "@/features/courses/EnrollmentProvider";
 import { CoursesPage } from "@/features/courses/CoursesPage";
+import { CourseLessonsPage } from "@/features/courses/CourseLessonsPage";
 import { PythonEditorPage } from "@/features/courses/PythonEditorPage";
 import { WebEditorPage } from "@/features/courses/WebEditorPage";
 import { ScratchEditorPage } from "@/features/courses/ScratchEditorPage";
@@ -31,6 +32,7 @@ export const router = createBrowserRouter([
     ),
     children: [
       { path: "/cursos", element: <CoursesPage /> },
+      { path: "/curso/:kind", element: <CourseLessonsPage /> },
       {
         path: "/python",
         element: (

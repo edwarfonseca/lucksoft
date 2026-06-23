@@ -8,14 +8,14 @@ export interface EnrollmentState {
   teacherClasses: ClaseHorario[];
   loading: boolean;
   /** Vuelve a cargar la inscripción (p. ej. tras un cambio de créditos). */
-  reload: () => void;
+  reload: () => Promise<void>;
 }
 
 export const EnrollmentContext = createContext<EnrollmentState>({
   enrollment: null,
   teacherClasses: [],
   loading: false,
-  reload: () => {},
+  reload: () => Promise.resolve(),
 });
 
 export const useEnrollment = () => useContext(EnrollmentContext);

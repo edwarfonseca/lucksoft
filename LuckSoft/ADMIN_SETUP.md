@@ -144,7 +144,20 @@ podrás cambiarlo, y un campo **Nueva contraseña** (déjalo en blanco para no
 cambiarla). El cambio de credenciales pasa por la Edge Function con
 `service_role`; el navegador nunca ve esa clave.
 
-## 7) Usar
+## 7) Lecciones por periodos (progreso del estudiante)
+
+1. Supabase → **SQL Editor** → pega TODO `supabase/migrations/0008_progreso.sql`
+   → **Run**. Añade `ultimo_periodo`/`ultima_sesion` a `profiles` y la función
+   `set_progreso` (el estudiante registra su propia lección, sin poder tocar
+   créditos ni rol).
+
+Con esto, cada curso se divide en **10 periodos** (un mes cada uno) × **4
+sesiones** (una semana cada una) = 40 lecciones. Al entrar a su curso, el
+estudiante elige periodo y sesión (su última lección queda resaltada como
+“Actual” y puede continuarla con un clic). Por ahora cada sesión solo abre el
+editor del curso; más adelante tendrá tareas propias.
+
+## 8) Usar
 
 En **Administración** verás dos pestañas:
 

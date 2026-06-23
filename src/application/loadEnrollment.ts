@@ -16,3 +16,11 @@ export function getTeacherClasses(
 ): Promise<ClaseHorario[]> {
   return service.getTeacherClasses(userId);
 }
+
+export function setProgress(
+  service: EnrollmentService,
+  periodo: number,
+  sesion: number,
+): Promise<void> {
+  return service.setProgress(periodo, sesion);
+}
