@@ -6,7 +6,6 @@ import { submitAssignment } from "@/application/submitAssignment";
 import { getSubmissionById } from "@/application/listSubmissions";
 import { base64ToBytes, bytesToBase64 } from "@/lib/base64";
 import { useAuth } from "@/features/auth/auth-context";
-import { JoinClassButton } from "@/features/courses/JoinClassButton";
 import type { ScratchVM, ScratchWindow } from "@/features/courses/scratchVm";
 
 const scratchCourse = getCourse("scratch");
@@ -180,7 +179,6 @@ export function ScratchEditorPage() {
         <span className="title">
           {isReview ? "🐱 Revisando proyecto" : "🐱 Proyecto de Scratch"}
         </span>
-        <JoinClassButton course="Scratch" />
         <span className={"status" + (statusErr ? " err" : "")}>{status}</span>
         {!isReview && (
           <button className="btn btn-ghost" onClick={manualSave}>

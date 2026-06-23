@@ -1,5 +1,6 @@
 import { NavLink, Outlet, useNavigate } from "react-router-dom";
 import { useAuth } from "@/features/auth/auth-context";
+import { ClassHeaderButton } from "@/features/courses/ClassHeaderButton";
 
 /** Enlaces de navegación según el rol del usuario. */
 function navLinksFor(role: string) {
@@ -46,6 +47,7 @@ export function AppLayout() {
           ))}
         </nav>
         <div className="user-box">
+          <ClassHeaderButton />
           <span className={"rol-badge rol-" + user.role}>
             {user.role === "docente"
               ? "Docente"

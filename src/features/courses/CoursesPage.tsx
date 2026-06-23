@@ -1,22 +1,14 @@
-import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { courseList, getCourse } from "@/courses/registry";
-import {
-  claseEnCurso,
-  estadoCreditos,
-  meetingUrl,
-  type ClaseHorario,
-} from "@/domain/models/enrollment";
+import { estadoCreditos, type ClaseHorario } from "@/domain/models/enrollment";
 import {
   DIA_SEMANA_LABEL,
   formatHora,
   grupoNombre,
 } from "@/domain/models/horario";
 import { enrollmentService } from "@/app/services";
-import { getTeacherClasses } from "@/application/loadEnrollment";
 import { useAuth } from "@/features/auth/auth-context";
 import { useEnrollment } from "@/features/courses/enrollment-context";
-import { useNowTick } from "@/features/courses/useNowTick";
 
 // Cursos aún no disponibles (teasers). No son estrategias reales todavía.
 const COMING_SOON = [
@@ -45,55 +37,9 @@ function franja(c: ClaseHorario): string {
   return `${DIA_SEMANA_LABEL[c.diaSemana]} a las ${formatHora(c.horaInicio)}`;
 }
 
-/** Botón/aviso de la clase remota según si está en curso ahora. */
-function ClaseRemota({
-  clase,
-  now,
-  rol,
-  deshabilitado,
-}: {
-  clase: ClaseHorario;
-  now: Date;
-  rol: "estudiante" | "docente";
-  deshabilitado?: boolean;
-}) {
-  const enVivo =
-    clase.activo && claseEnCurso(clase.diaSemana, clase.horaInicio, now);
-  const label =
-    rol === "docente"
-      ? "🎥 Iniciar clase (anfitrión)"
-      : "🎥 Ingresar a la clase remota";
-
-  if (deshabilitado) {
-    return (
-      <p className="clase-remota-hint">
-        Disponible cuando renueves tus créditos.
-      </p>
-    );
-  }
-  if (enVivo) {
-    return (
-      <a
-        className="btn btn-primary btn-clase-remota"
-        href={meetingUrl(clase)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {label}
-      </a>
-    );
-  }
-  return (
-    <p className="clase-remota-hint">
-      La clase remota se habilita <strong>{franja(clase)}</strong>.
-    </p>
-  );
-}
-
-/** Vista del estudiante: su único curso, créditos y clase remota. */
+/** Vista del estudiante: su único curso, créditos y horario de clase. */
 function StudentCourses() {
   const { enrollment, loading } = useEnrollment();
-  const now = useNowTick();
 
   // Modo local/demo: sin servicio de inscripción, muestra el catálogo normal.
   if (!enrollmentService)
@@ -162,12 +108,11 @@ function StudentCourses() {
           </h3>
           <p className="muted">Tu clase: {franja(clase)} (1 hora)</p>
         </div>
-        <ClaseRemota
-          clase={clase}
-          now={now}
-          rol="estudiante"
-          deshabilitado={bloqueado}
-        />
+        <p className="clase-remota-hint">
+          {bloqueado
+            ? "Disponible cuando renueves tus créditos."
+            : "Durante tu clase, el botón “Unirse a la clase” aparece arriba."}
+        </p>
       </div>
 
       <div className="grid">
@@ -191,22 +136,9 @@ function StudentCourses() {
   );
 }
 
-/** Vista del docente: todos los cursos + sus clases como anfitrión. */
+/** Vista del docente: todos los cursos + el horario de sus grupos. */
 function TeacherCourses() {
-  const { user } = useAuth();
-  const now = useNowTick();
-  const [clases, setClases] = useState<ClaseHorario[] | null>(null);
-
-  useEffect(() => {
-    if (!enrollmentService || !user) return;
-    let active = true;
-    getTeacherClasses(enrollmentService, user.id)
-      .then((c) => active && setClases(c))
-      .catch(() => active && setClases([]));
-    return () => {
-      active = false;
-    };
-  }, [user]);
+  const { teacherClasses } = useEnrollment();
 
   return (
     <div className="page">
@@ -216,10 +148,10 @@ function TeacherCourses() {
         entregas.
       </p>
 
-      {clases && clases.length > 0 && (
+      {teacherClasses.length > 0 && (
         <section className="clases-docente">
           <h2>Tus clases</h2>
-          {clases.map((c) => (
+          {teacherClasses.map((c) => (
             <div className="clase-remota-card" key={c.horarioId}>
               <div>
                 <h3>
@@ -227,7 +159,9 @@ function TeacherCourses() {
                 </h3>
                 <p className="muted">{franja(c)} (1 hora)</p>
               </div>
-              <ClaseRemota clase={c} now={now} rol="docente" />
+              <p className="clase-remota-hint">
+                Durante la clase, el botón “Iniciar clase” aparece arriba.
+              </p>
             </div>
           ))}
         </section>
