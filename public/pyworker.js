@@ -57,6 +57,22 @@ async function init(controlSAB, dataSAB) {
     });
     pyodide.setStdin({ stdin: readLine });
 
+    // Instalar nuestro módulo "turtle" (dibuja a SVG en vez de Tkinter).
+    try {
+      const shimSrc = await fetch("/turtle_shim.py").then((r) => r.text());
+      pyodide.globals.set("_lucksoft_turtle_src", shimSrc);
+      pyodide.runPython(
+        "import sys, types\n" +
+          '_m = types.ModuleType("turtle")\n' +
+          "exec(_lucksoft_turtle_src, _m.__dict__)\n" +
+          '_m.__name__ = "turtle"\n' +
+          'sys.modules["turtle"] = _m\n' +
+          "del _lucksoft_turtle_src",
+      );
+    } catch {
+      // Si falla, turtle simplemente no estará disponible; no rompe lo demás.
+    }
+
     postMessage({ type: "ready" });
   } catch (err) {
     postMessage({
@@ -66,11 +82,28 @@ async function init(controlSAB, dataSAB) {
   }
 }
 
+// Si el programa usó turtle, envía el dibujo (SVG) al hilo principal.
+function flushTurtle() {
+  try {
+    const svg = pyodide.runPython(
+      'sys.modules["turtle"]._lucksoft_svg() if "turtle" in sys.modules else None',
+    );
+    if (svg) postMessage({ type: "turtle", svg });
+  } catch {
+    /* sin dibujo */
+  }
+}
+
 async function run(code) {
   try {
+    pyodide.runPython(
+      'import sys\nif "turtle" in sys.modules: sys.modules["turtle"]._lucksoft_reset()',
+    );
     await pyodide.runPythonAsync(code);
+    flushTurtle();
     postMessage({ type: "done" });
   } catch (err) {
+    flushTurtle(); // mostrar lo dibujado hasta el error
     postMessage({ type: "error", text: String(err) });
   }
 }

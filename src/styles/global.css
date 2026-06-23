@@ -511,6 +511,21 @@ a:hover {
 .app-main {
   flex: 1;
 }
+/* Lienzo del módulo turtle (SVG) */
+.turtle-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  background: #1b1f2b;
+  border-bottom: 1px solid var(--border);
+}
+.turtle-canvas {
+  max-width: 100%;
+  max-height: 60vh;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
 .editor-shell {
   display: flex;
   flex-direction: column;
