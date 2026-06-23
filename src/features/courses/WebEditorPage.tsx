@@ -16,7 +16,6 @@ import { submitAssignment } from "@/application/submitAssignment";
 import { buildPreviewDoc } from "@/lib/preview";
 import { useAuth } from "@/features/auth/auth-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
-import { JoinClassButton } from "@/features/courses/JoinClassButton";
 
 const webCourse = getCourse("web");
 type Tab = "html" | "css" | "js";
@@ -102,7 +101,6 @@ export function WebEditorPage() {
     <div className="editor-shell">
       <div className="editor-toolbar">
         <span className="title">🎨 Diseño Web</span>
-        <JoinClassButton course="Web" />
         <button
           className={"btn btn-ghost" + (showTask ? " active" : "")}
           onClick={() => setShowTask((v) => !v)}

@@ -690,6 +690,11 @@ a:hover {
 .btn-clase-remota {
   white-space: nowrap;
 }
+.btn-clase-header {
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 13px;
+}
 .clase-remota-hint {
   margin: 0;
   font-size: 13px;

@@ -7,7 +7,6 @@ import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
 import { useAuth } from "@/features/auth/auth-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
-import { JoinClassButton } from "@/features/courses/JoinClassButton";
 import { usePythonRunner } from "@/features/courses/usePythonRunner";
 
 const pythonCourse = getCourse("python");
@@ -86,7 +85,6 @@ export function PythonEditorPage() {
     <div className="editor-shell">
       <div className="editor-toolbar">
         <span className="title">🐍 Editor de Python</span>
-        <JoinClassButton course="Python" />
         <button
           className={"btn btn-ghost" + (showTask ? " active" : "")}
           onClick={() => setShowTask((v) => !v)}
