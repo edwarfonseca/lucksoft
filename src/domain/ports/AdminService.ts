@@ -1,6 +1,7 @@
 import type {
   CreateUserInput,
   ManagedProfile,
+  UpdateCredentialsInput,
   UpdateProfileInput,
 } from "../models/profile";
 import type {
@@ -23,6 +24,9 @@ export interface AdminService {
 
   /** Edita los datos de un perfil existente. */
   updateProfile(id: string, changes: UpdateProfileInput): Promise<void>;
+
+  /** Cambia el usuario (login) y/o la contraseña de una cuenta. */
+  updateCredentials(id: string, changes: UpdateCredentialsInput): Promise<void>;
 
   /** Elimina una cuenta por completo. */
   deleteUser(id: string): Promise<void>;

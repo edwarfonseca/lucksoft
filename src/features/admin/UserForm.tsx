@@ -3,11 +3,16 @@ import type {
   CreatableRole,
   CreateUserInput,
   ManagedProfile,
+  UpdateCredentialsInput,
   UpdateProfileInput,
 } from "@/domain/models/profile";
 import type { Horario } from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
-import { createUser, updateProfile } from "@/application/manageUsers";
+import {
+  createUser,
+  updateCredentials,
+  updateProfile,
+} from "@/application/manageUsers";
 import { horarioLabel } from "@/features/admin/horarioLabel";
 
 interface Props {
@@ -37,7 +42,7 @@ interface FormState {
 
 function initialState(p?: ManagedProfile): FormState {
   return {
-    username: "",
+    username: p?.username ?? "",
     password: "",
     role: p && p.role === "docente" ? "docente" : "estudiante",
     nombres: p?.nombres ?? "",
@@ -98,6 +103,23 @@ export function UserForm({
             };
 
       if (isEdit && initial) {
+        // Credenciales: solo si cambió el usuario o se escribió una contraseña.
+        const nuevoUsuario = f.username.trim().toLowerCase();
+        const cred: UpdateCredentialsInput = {};
+        if (nuevoUsuario && nuevoUsuario !== (initial.username ?? ""))
+          cred.username = nuevoUsuario;
+        if (f.password) {
+          if (f.password.length < 6) {
+            setError("La contraseña debe tener al menos 6 caracteres.");
+            setSaving(false);
+            return;
+          }
+          cred.password = f.password;
+        }
+        if (cred.username || cred.password) {
+          await updateCredentials(service, initial.id, cred);
+        }
+
         const changes: UpdateProfileInput = {
           role: f.role,
           nombres: f.nombres.trim(),
@@ -153,6 +175,28 @@ export function UserForm({
                 value={f.password}
                 onChange={(e) => set("password", e.target.value)}
                 placeholder="mín. 6 caracteres"
+              />
+            </label>
+          </>
+        )}
+
+        {isEdit && (
+          <>
+            <label>
+              Usuario (para login)
+              <input
+                value={f.username}
+                onChange={(e) => set("username", e.target.value)}
+                placeholder="ej. juan"
+              />
+            </label>
+            <label>
+              Nueva contraseña
+              <input
+                type="text"
+                value={f.password}
+                onChange={(e) => set("password", e.target.value)}
+                placeholder="dejar en blanco para no cambiarla"
               />
             </label>
           </>
