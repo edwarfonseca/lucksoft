@@ -267,6 +267,97 @@ class Turtle:
     def getscreen(self):
         return _screen
 
+    # --- aspecto del cursor / utilidades (no afectan al dibujo) ---
+    def shape(self, name=None):
+        if name is None:
+            return getattr(self, "_shapename", "classic")
+        self._shapename = name
+
+    def shapesize(self, *a, **k):
+        pass
+
+    turtlesize = shapesize
+
+    def resizemode(self, *a, **k):
+        pass
+
+    def shearfactor(self, *a, **k):
+        pass
+
+    def tilt(self, *a, **k):
+        pass
+
+    def settiltangle(self, *a, **k):
+        pass
+
+    def tiltangle(self, *a, **k):
+        return 0
+
+    def pen(self, *a, **k):
+        pass
+
+    def getpen(self):
+        return self
+
+    getturtle = getpen
+
+    def reset(self):
+        self._x = 0.0
+        self._y = 0.0
+        self._h = 0.0
+        self._down = True
+        self._filling = False
+        self._fillpts = []
+
+    def begin_poly(self, *a, **k):
+        pass
+
+    def end_poly(self, *a, **k):
+        pass
+
+    def get_poly(self, *a, **k):
+        return None
+
+    def clearstamp(self, *a, **k):
+        pass
+
+    def clearstamps(self, *a, **k):
+        pass
+
+    def undo(self, *a, **k):
+        pass
+
+    def setundobuffer(self, *a, **k):
+        pass
+
+    def onclick(self, *a, **k):
+        pass
+
+    def onrelease(self, *a, **k):
+        pass
+
+    def ondrag(self, *a, **k):
+        pass
+
+    def mode(self, *a, **k):
+        pass
+
+    def degrees(self, *a, **k):
+        pass
+
+    def radians(self, *a, **k):
+        pass
+
+    def towards(self, x, y=None):
+        if y is None:
+            x, y = x
+        return math.degrees(math.atan2(y - self._y, x - self._x)) % 360
+
+    def distance(self, x, y=None):
+        if y is None:
+            x, y = x
+        return math.hypot(x - self._x, y - self._y)
+
 
 Pen = Turtle
 RawTurtle = Turtle
@@ -318,6 +409,48 @@ class _Screen:
     def bye(self, *a, **k):
         pass
 
+    def register_shape(self, *a, **k):
+        pass
+
+    addshape = register_shape
+
+    def bgpic(self, *a, **k):
+        pass
+
+    def setworldcoordinates(self, *a, **k):
+        pass
+
+    def onkey(self, *a, **k):
+        pass
+
+    onkeypress = onkey
+    onkeyrelease = onkey
+
+    def onclick(self, *a, **k):
+        pass
+
+    onscreenclick = onclick
+
+    def ontimer(self, *a, **k):
+        pass
+
+    def getcanvas(self, *a, **k):
+        return None
+
+    def window_width(self, *a, **k):
+        return _WIDTH
+
+    def window_height(self, *a, **k):
+        return _HEIGHT
+
+    def reset(self, *a, **k):
+        pass
+
+    def clear(self, *a, **k):
+        pass
+
+    clearscreen = clear
+
 
 _screen = _Screen()
 
@@ -349,13 +482,17 @@ for _n in (
     "forward fd backward back bk right rt left lt goto setpos setposition setx "
     "sety setheading seth home circle penup pu up pendown pd down isdown pensize "
     "width pencolor fillcolor color begin_fill end_fill dot write speed hideturtle "
-    "ht showturtle st stamp clear position pos xcor ycor heading"
+    "ht showturtle st stamp clear position pos xcor ycor heading shape shapesize "
+    "turtlesize resizemode tilt settiltangle tiltangle pen getpen getturtle reset "
+    "begin_poly end_poly clearstamp clearstamps undo setundobuffer onclick onrelease "
+    "ondrag mode degrees radians towards distance"
 ).split():
     globals()[_n] = _bind(_n)
 
 for _n in (
-    "bgcolor setup screensize colormode title tracer update "
-    "listen delay mainloop done exitonclick bye"
+    "bgcolor setup screensize colormode title tracer update listen delay mainloop "
+    "done exitonclick bye register_shape addshape bgpic setworldcoordinates onkey "
+    "onkeypress onscreenclick ontimer getcanvas window_width window_height clearscreen"
 ).split():
     globals()[_n] = getattr(_screen, _n)
 
