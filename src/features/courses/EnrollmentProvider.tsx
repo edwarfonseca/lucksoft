@@ -55,9 +55,9 @@ export function EnrollmentProvider({ children }: { children: ReactNode }) {
   // Recarga manual (p. ej. tras un cambio externo). Como se invoca desde manejadores
   // de eventos, aquí sí puede hacer setState de forma directa.
   const reload = useCallback(() => {
-    if (!isStudent || !user) return;
+    if (!isStudent || !user) return Promise.resolve();
     setEnrollment(undefined);
-    getStudentEnrollment(enrollmentService!, user.id)
+    return getStudentEnrollment(enrollmentService!, user.id)
       .then((e) => setEnrollment(e))
       .catch(() => setEnrollment(null));
   }, [isStudent, user]);

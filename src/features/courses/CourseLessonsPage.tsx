@@ -63,7 +63,7 @@ function Lessons({ kind }: { kind: CourseKind }) {
     try {
       if (isStudent) {
         await setProgress(enrollmentService!, l.periodo, l.sesion);
-        reload();
+        await reload();
       }
       navigate(course.route);
     } catch {
