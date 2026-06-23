@@ -9,6 +9,7 @@ export type CreatableRole = z.infer<typeof creatableRoleSchema>;
 export const managedProfileSchema = z.object({
   id: z.string(),
   role: roleSchema,
+  username: z.string().nullable(),
   nombres: z.string().nullable(),
   apellidos: z.string().nullable(),
   fullName: z.string(),
@@ -53,4 +54,12 @@ export interface UpdateProfileInput {
   nombreAcudiente?: string | null;
   numeroAcudiente?: string | null;
   pais?: string | null;
+}
+
+/** Cambios de credenciales de acceso (usuario y/o contraseña). */
+export interface UpdateCredentialsInput {
+  /** Nuevo nombre de usuario (login). Si se omite, no se cambia. */
+  username?: string;
+  /** Nueva contraseña. Si se omite, no se cambia. */
+  password?: string;
 }

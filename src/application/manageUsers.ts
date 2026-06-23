@@ -1,6 +1,7 @@
 import type {
   CreateUserInput,
   ManagedProfile,
+  UpdateCredentialsInput,
   UpdateProfileInput,
 } from "@/domain/models/profile";
 import type { AdminService } from "@/domain/ports/AdminService";
@@ -24,6 +25,14 @@ export function updateProfile(
   changes: UpdateProfileInput,
 ): Promise<void> {
   return admin.updateProfile(id, changes);
+}
+
+export function updateCredentials(
+  admin: AdminService,
+  id: string,
+  changes: UpdateCredentialsInput,
+): Promise<void> {
+  return admin.updateCredentials(id, changes);
 }
 
 export function deleteUser(admin: AdminService, id: string): Promise<void> {

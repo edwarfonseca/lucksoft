@@ -63,6 +63,7 @@ Deno.serve(async (req) => {
       .from("profiles")
       .update({
         role: b.role,
+        username: String(b.username).trim().toLowerCase(),
         nombres: b.nombres ?? null,
         apellidos: b.apellidos ?? null,
         edad: b.edad ?? null,

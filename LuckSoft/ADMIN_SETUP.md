@@ -127,7 +127,24 @@ Con esto, en la vista del estudiante (**Mis cursos**):
   Al llegar a **0**, su curso queda **bloqueado** (no entra al editor ni a la
   clase) hasta que renueves sus créditos.
 
-## 6) Usar
+## 6) Editar usuario y contraseña
+
+1. Supabase → **SQL Editor** → pega TODO `supabase/migrations/0007_username.sql`
+   → **Run**. Guarda una copia del usuario en `profiles` (lo rellena desde Auth).
+2. Despliega la nueva Edge Function y re-despliega la de crear (ahora guarda el
+   usuario):
+
+   ```bash
+   npx supabase functions deploy admin-update-credentials
+   npx supabase functions deploy admin-create-user
+   ```
+
+Con esto, al **editar** un estudiante o docente verás su **Usuario** (login) y
+podrás cambiarlo, y un campo **Nueva contraseña** (déjalo en blanco para no
+cambiarla). El cambio de credenciales pasa por la Edge Function con
+`service_role`; el navegador nunca ve esa clave.
+
+## 7) Usar
 
 En **Administración** verás dos pestañas:
 

@@ -147,6 +147,7 @@ function UsuariosPanel({
             <thead>
               <tr>
                 <th>Nombre</th>
+                <th>Usuario</th>
                 <th>Rol</th>
                 <th>Edad</th>
                 <th>Horario</th>
@@ -166,6 +167,7 @@ function UsuariosPanel({
                 return (
                   <tr key={p.id} className={p.activo ? "" : "inactive"}>
                     <td>{p.fullName || "—"}</td>
+                    <td>{p.username ?? "—"}</td>
                     <td>{ROLE_LABEL[p.role] ?? p.role}</td>
                     <td>{p.edad ?? "—"}</td>
                     <td>

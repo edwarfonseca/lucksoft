@@ -3,6 +3,7 @@ import {
   managedProfileSchema,
   type CreateUserInput,
   type ManagedProfile,
+  type UpdateCredentialsInput,
   type UpdateProfileInput,
 } from "@/domain/models/profile";
 import {
@@ -17,6 +18,7 @@ import { getSupabaseClient } from "./client";
 interface ProfileRow {
   id: string;
   role: string;
+  username: string | null;
   nombres: string | null;
   apellidos: string | null;
   full_name: string | null;
@@ -50,6 +52,7 @@ export class SupabaseAdminService implements AdminService {
     const parsed = managedProfileSchema.safeParse({
       id: r.id,
       role: r.role,
+      username: r.username,
       nombres: r.nombres,
       apellidos: r.apellidos,
       fullName: r.full_name ?? "",
@@ -139,6 +142,17 @@ export class SupabaseAdminService implements AdminService {
       .update(row)
       .eq("id", id);
     if (error) throw new Error(error.message);
+  }
+
+  async updateCredentials(
+    id: string,
+    changes: UpdateCredentialsInput,
+  ): Promise<void> {
+    await this.invoke("admin-update-credentials", {
+      id,
+      username: changes.username,
+      password: changes.password,
+    });
   }
 
   async deleteUser(id: string): Promise<void> {
