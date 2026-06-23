@@ -26,6 +26,12 @@ export function LoginPage() {
 
   return (
     <div className="login-wrap">
+      <div className="login-bg" aria-hidden="true">
+        <span className="blob blob-1" />
+        <span className="blob blob-2" />
+        <span className="blob blob-3" />
+        <div className="login-grid" />
+      </div>
       <form className="login-card" onSubmit={onSubmit}>
         <div className="brand">
           <span className="logo">L</span>
