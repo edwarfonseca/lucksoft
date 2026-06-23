@@ -707,6 +707,61 @@ a:hover {
   font-size: 18px;
 }
 
+/* ---- Selector de lecciones (periodos × sesiones) ---- */
+.continuar-btn {
+  margin: 4px 0 20px;
+}
+.periodos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+}
+.periodo-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 14px 16px;
+}
+.periodo-card h3 {
+  margin: 0 0 10px;
+  font-size: 15px;
+}
+.sesiones {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+.sesion-btn {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 8px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg);
+  color: var(--text);
+  font-size: 13px;
+  cursor: pointer;
+}
+.sesion-btn:hover:not(:disabled) {
+  border-color: var(--brand);
+}
+.sesion-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+.sesion-btn.actual {
+  border-color: var(--brand);
+  background: rgba(124, 92, 255, 0.12);
+}
+.sesion-actual {
+  font-size: 11px;
+  color: var(--brand);
+  font-weight: 600;
+}
+
 /* ---- Editor de Scratch ---- */
 .editor-toolbar .status.err {
   color: #ff6b6b;

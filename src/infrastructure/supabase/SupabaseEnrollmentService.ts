@@ -38,7 +38,7 @@ export class SupabaseEnrollmentService implements EnrollmentService {
     const { data, error } = await this.supabase
       .from("profiles")
       .select(
-        `creditos_pagados, horario:horarios!profiles_horario_id_fkey(${HORARIO_COLS})`,
+        `creditos_pagados, ultimo_periodo, ultima_sesion, horario:horarios!profiles_horario_id_fkey(${HORARIO_COLS})`,
       )
       .eq("id", userId)
       .single();
@@ -46,12 +46,26 @@ export class SupabaseEnrollmentService implements EnrollmentService {
 
     const row = data as unknown as {
       creditos_pagados: number | null;
+      ultimo_periodo: number | null;
+      ultima_sesion: number | null;
       horario: HorarioRow | null;
     };
     return {
       creditos: row.creditos_pagados ?? 0,
       clase: row.horario ? toClase(row.horario) : null,
+      progreso: {
+        periodo: row.ultimo_periodo ?? 1,
+        sesion: row.ultima_sesion ?? 1,
+      },
     };
+  }
+
+  async setProgress(periodo: number, sesion: number): Promise<void> {
+    const { error } = await this.supabase.rpc("set_progreso", {
+      p_periodo: periodo,
+      p_sesion: sesion,
+    });
+    if (error) throw new Error(error.message);
   }
 
   async getTeacherClasses(userId: string): Promise<ClaseHorario[]> {

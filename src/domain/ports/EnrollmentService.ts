@@ -11,4 +11,7 @@ export interface EnrollmentService {
 
   /** Grupos activos que dicta el docente autenticado. */
   getTeacherClasses(userId: string): Promise<ClaseHorario[]>;
+
+  /** Registra la última lección (periodo/sesión) del estudiante autenticado. */
+  setProgress(periodo: number, sesion: number): Promise<void>;
 }
