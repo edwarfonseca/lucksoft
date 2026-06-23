@@ -28,6 +28,12 @@ export interface AdminService {
   /** Cambia el usuario (login) y/o la contraseña de una cuenta. */
   updateCredentials(id: string, changes: UpdateCredentialsInput): Promise<void>;
 
+  /**
+   * Define en qué grupos (horarios) está inscrito un estudiante. Conserva el
+   * progreso de los que ya tenía y crea/elimina según la nueva selección.
+   */
+  setEnrollments(studentId: string, horarioIds: string[]): Promise<void>;
+
   /** Elimina una cuenta por completo. */
   deleteUser(id: string): Promise<void>;
 

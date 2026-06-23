@@ -157,7 +157,28 @@ estudiante elige periodo y sesión (su última lección queda resaltada como
 “Actual” y puede continuarla con un clic). Por ahora cada sesión solo abre el
 editor del curso; más adelante tendrá tareas propias.
 
-## 8) Usar
+## 8) Varios grupos por estudiante + lecciones por avance
+
+1. Supabase → **SQL Editor** → pega TODO `supabase/migrations/0009_inscripciones.sql`
+   → **Run**. Crea la tabla `inscripciones` (un estudiante en varios grupos),
+   migra los grupos actuales, y actualiza el progreso y el descuento de créditos.
+2. Re-despliega la función de crear (ahora inscribe en varios grupos):
+
+   ```bash
+   npx supabase functions deploy admin-create-user
+   ```
+
+Con esto:
+
+- En el panel, al crear/editar un estudiante eliges **varios grupos** (p. ej.
+  uno de Python y otro de Scratch) con casillas. La columna “Grupos” los lista.
+- El estudiante ve **todos sus cursos** en “Tus cursos”. Los **créditos** son una
+  bolsa compartida: cada clase de cualquier grupo gasta 1; al llegar a 0 se
+  bloquean todos.
+- En las lecciones, solo se abren las que **ya vio**; la **siguiente** se habilita
+  únicamente **durante su clase** (su horario). El resto aparece bloqueado.
+
+## 9) Usar
 
 En **Administración** verás dos pestañas:
 

@@ -10,6 +10,7 @@ import type { Horario } from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
 import {
   createUser,
+  setEnrollments,
   updateCredentials,
   updateProfile,
 } from "@/application/manageUsers";
@@ -33,7 +34,7 @@ interface FormState {
   apellidos: string;
   edad: string;
   activo: boolean;
-  horarioId: string;
+  horarioIds: string[];
   creditosPagados: string;
   nombreAcudiente: string;
   numeroAcudiente: string;
@@ -49,7 +50,7 @@ function initialState(p?: ManagedProfile): FormState {
     apellidos: p?.apellidos ?? "",
     edad: p?.edad != null ? String(p.edad) : "",
     activo: p?.activo ?? true,
-    horarioId: p?.horarioId ?? "",
+    horarioIds: p?.grupos.map((g) => g.horarioId) ?? [],
     creditosPagados: p ? String(p.creditosPagados) : "0",
     nombreAcudiente: p?.nombreAcudiente ?? "",
     numeroAcudiente: p?.numeroAcudiente ?? "",
@@ -81,26 +82,21 @@ export function UserForm({
     setError("");
     setSaving(true);
     try {
-      // El curso se deriva del horario elegido (se mantienen sincronizados).
-      const horario = horarios.find((h) => h.id === f.horarioId);
-      const studentFields =
-        f.role === "estudiante"
-          ? {
-              horarioId: f.horarioId || null,
-              curso: horario?.curso ?? null,
-              creditosPagados: creditos,
-              nombreAcudiente: f.nombreAcudiente.trim() || null,
-              numeroAcudiente: f.numeroAcudiente.trim() || null,
-              pais: f.pais.trim() || null,
-            }
-          : {
-              horarioId: null,
-              curso: null,
-              creditosPagados: 0,
-              nombreAcudiente: null,
-              numeroAcudiente: null,
-              pais: null,
-            };
+      const esEstudiante = f.role === "estudiante";
+      const horarioIds = esEstudiante ? f.horarioIds : [];
+      const studentFields = esEstudiante
+        ? {
+            creditosPagados: creditos,
+            nombreAcudiente: f.nombreAcudiente.trim() || null,
+            numeroAcudiente: f.numeroAcudiente.trim() || null,
+            pais: f.pais.trim() || null,
+          }
+        : {
+            creditosPagados: 0,
+            nombreAcudiente: null,
+            numeroAcudiente: null,
+            pais: null,
+          };
 
       if (isEdit && initial) {
         // Credenciales: solo si cambió el usuario o se escribió una contraseña.
@@ -129,6 +125,7 @@ export function UserForm({
           ...studentFields,
         };
         await updateProfile(service, initial.id, changes);
+        await setEnrollments(service, initial.id, horarioIds);
       } else {
         if (!f.username.trim() || !f.password) {
           setError("Usuario y contraseña son obligatorios.");
@@ -142,6 +139,7 @@ export function UserForm({
           nombres: f.nombres.trim(),
           apellidos: f.apellidos.trim(),
           edad,
+          horarioIds,
           ...studentFields,
         };
         await createUser(service, input);
@@ -249,29 +247,40 @@ export function UserForm({
 
         {f.role === "estudiante" && (
           <>
-            <label>
-              Horario (curso, día y hora)
-              <select
-                value={f.horarioId}
-                onChange={(e) => set("horarioId", e.target.value)}
-              >
-                <option value="">— Sin asignar —</option>
-                {horarios
-                  .filter((h) => h.activo || h.id === f.horarioId)
-                  .map((h) => (
-                    <option key={h.id} value={h.id}>
-                      {horarioLabel(h)}
-                      {h.activo ? "" : " (inactivo)"}
-                    </option>
-                  ))}
-              </select>
-            </label>
-            {horarios.length === 0 && (
-              <p className="notice">
-                Aún no hay horarios. Créalos en la pestaña “Horarios” para poder
-                asignar al estudiante.
-              </p>
-            )}
+            <div className="full-width">
+              <span className="campo-label">
+                Grupos (curso, día y hora) — puedes elegir varios
+              </span>
+              {horarios.length === 0 ? (
+                <p className="notice">
+                  Aún no hay horarios. Créalos en la pestaña “Horarios” para
+                  poder inscribir al estudiante.
+                </p>
+              ) : (
+                <div className="grupos-check">
+                  {horarios
+                    .filter((h) => h.activo || f.horarioIds.includes(h.id))
+                    .map((h) => (
+                      <label key={h.id} className="checkbox">
+                        <input
+                          type="checkbox"
+                          checked={f.horarioIds.includes(h.id)}
+                          onChange={() =>
+                            set(
+                              "horarioIds",
+                              f.horarioIds.includes(h.id)
+                                ? f.horarioIds.filter((x) => x !== h.id)
+                                : [...f.horarioIds, h.id],
+                            )
+                          }
+                        />
+                        {horarioLabel(h)}
+                        {h.activo ? "" : " (inactivo)"}
+                      </label>
+                    ))}
+                </div>
+              )}
+            </div>
             <label>
               Créditos pagados
               <input

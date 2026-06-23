@@ -68,8 +68,6 @@ Deno.serve(async (req) => {
         apellidos: b.apellidos ?? null,
         edad: b.edad ?? null,
         full_name,
-        curso: b.role === "estudiante" ? (b.curso ?? null) : null,
-        horario_id: b.role === "estudiante" ? (b.horario_id ?? null) : null,
         creditos_pagados:
           b.role === "estudiante" ? (b.creditos_pagados ?? 0) : 0,
         nombre_acudiente:
@@ -83,6 +81,23 @@ Deno.serve(async (req) => {
       // Si falla el perfil, deshacemos la cuenta para no dejarla a medias.
       await admin.auth.admin.deleteUser(created.user.id);
       return json(400, { error: updErr.message });
+    }
+
+    // Inscribir al estudiante en sus grupos.
+    const horarioIds: string[] = Array.isArray(b.horario_ids)
+      ? b.horario_ids
+      : [];
+    if (b.role === "estudiante" && horarioIds.length > 0) {
+      const { error: insErr } = await admin.from("inscripciones").insert(
+        horarioIds.map((horario_id: string) => ({
+          estudiante_id: created.user.id,
+          horario_id,
+        })),
+      );
+      if (insErr) {
+        await admin.auth.admin.deleteUser(created.user.id);
+        return json(400, { error: insErr.message });
+      }
     }
 
     return json(200, { id: created.user.id });

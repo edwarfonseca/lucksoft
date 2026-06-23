@@ -37,11 +37,21 @@ export function ClassHeaderButton() {
     c.activo && claseEnCurso(c.diaSemana, c.horaInicio, now);
 
   if (user?.role === "estudiante") {
-    const clase = enrollment?.clase;
     const creditos = enrollment?.creditos ?? 0;
-    if (!clase || estadoCreditos(creditos) === "bloqueado" || !enVivo(clase))
-      return null;
-    return <JoinLink clase={clase} label="📹 Unirse a la clase" />;
+    if (estadoCreditos(creditos) === "bloqueado") return null;
+    const live = (enrollment?.cursos ?? []).filter(enVivo);
+    if (live.length === 0) return null;
+    return (
+      <>
+        {live.map((c) => (
+          <JoinLink
+            key={c.horarioId}
+            clase={c}
+            label={`📹 Unirse a la clase (${grupoNombre(c)})`}
+          />
+        ))}
+      </>
+    );
   }
 
   if (user?.role === "docente") {

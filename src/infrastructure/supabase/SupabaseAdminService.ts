@@ -24,12 +24,16 @@ interface ProfileRow {
   full_name: string | null;
   edad: number | null;
   activo: boolean;
-  curso: string | null;
-  horario_id: string | null;
   creditos_pagados: number | null;
   nombre_acudiente: string | null;
   numero_acudiente: string | null;
   pais: string | null;
+  inscripciones:
+    | {
+        horario_id: string;
+        horarios: { curso: string; grupo: number } | null;
+      }[]
+    | null;
 }
 
 interface HorarioRow {
@@ -49,6 +53,17 @@ export class SupabaseAdminService implements AdminService {
   private supabase = getSupabaseClient();
 
   private toDomain(r: ProfileRow): ManagedProfile | null {
+    const grupos = (r.inscripciones ?? []).flatMap((i) =>
+      i.horarios
+        ? [
+            {
+              horarioId: i.horario_id,
+              curso: i.horarios.curso,
+              grupo: i.horarios.grupo,
+            },
+          ]
+        : [],
+    );
     const parsed = managedProfileSchema.safeParse({
       id: r.id,
       role: r.role,
@@ -58,8 +73,7 @@ export class SupabaseAdminService implements AdminService {
       fullName: r.full_name ?? "",
       edad: r.edad,
       activo: r.activo,
-      curso: r.curso,
-      horarioId: r.horario_id,
+      grupos,
       creditosPagados: r.creditos_pagados ?? 0,
       nombreAcudiente: r.nombre_acudiente,
       numeroAcudiente: r.numero_acudiente,
@@ -90,10 +104,10 @@ export class SupabaseAdminService implements AdminService {
   async listProfiles(): Promise<ManagedProfile[]> {
     const { data, error } = await this.supabase
       .from("profiles")
-      .select("*")
+      .select("*, inscripciones(horario_id, horarios(curso, grupo))")
       .order("role", { ascending: true });
     if (error) throw new Error(error.message);
-    return ((data ?? []) as ProfileRow[]).flatMap((r) => {
+    return ((data ?? []) as unknown as ProfileRow[]).flatMap((r) => {
       const p = this.toDomain(r);
       return p ? [p] : [];
     });
@@ -107,8 +121,7 @@ export class SupabaseAdminService implements AdminService {
       nombres: input.nombres,
       apellidos: input.apellidos,
       edad: input.edad,
-      curso: input.curso ?? null,
-      horario_id: input.horarioId ?? null,
+      horario_ids: input.horarioIds ?? [],
       creditos_pagados: input.creditosPagados ?? 0,
       nombre_acudiente: input.nombreAcudiente ?? null,
       numero_acudiente: input.numeroAcudiente ?? null,
@@ -127,8 +140,6 @@ export class SupabaseAdminService implements AdminService {
     }
     if (changes.edad !== undefined) row.edad = changes.edad;
     if (changes.activo !== undefined) row.activo = changes.activo;
-    if (changes.curso !== undefined) row.curso = changes.curso;
-    if (changes.horarioId !== undefined) row.horario_id = changes.horarioId;
     if (changes.creditosPagados !== undefined)
       row.creditos_pagados = changes.creditosPagados;
     if (changes.nombreAcudiente !== undefined)
@@ -153,6 +164,39 @@ export class SupabaseAdminService implements AdminService {
       username: changes.username,
       password: changes.password,
     });
+  }
+
+  async setEnrollments(studentId: string, horarioIds: string[]): Promise<void> {
+    const { data, error } = await this.supabase
+      .from("inscripciones")
+      .select("horario_id")
+      .eq("estudiante_id", studentId);
+    if (error) throw new Error(error.message);
+    const actuales = ((data ?? []) as { horario_id: string }[]).map(
+      (r) => r.horario_id,
+    );
+    const aAgregar = horarioIds.filter((id) => !actuales.includes(id));
+    const aQuitar = actuales.filter((id) => !horarioIds.includes(id));
+
+    if (aQuitar.length) {
+      const { error: delErr } = await this.supabase
+        .from("inscripciones")
+        .delete()
+        .eq("estudiante_id", studentId)
+        .in("horario_id", aQuitar);
+      if (delErr) throw new Error(delErr.message);
+    }
+    if (aAgregar.length) {
+      const { error: insErr } = await this.supabase
+        .from("inscripciones")
+        .insert(
+          aAgregar.map((horario_id) => ({
+            estudiante_id: studentId,
+            horario_id,
+          })),
+        );
+      if (insErr) throw new Error(insErr.message);
+    }
   }
 
   async deleteUser(id: string): Promise<void> {

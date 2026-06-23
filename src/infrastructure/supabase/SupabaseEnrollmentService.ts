@@ -1,5 +1,9 @@
 import { courseKindSchema } from "@/domain/models/course";
-import type { ClaseHorario, Enrollment } from "@/domain/models/enrollment";
+import type {
+  ClaseHorario,
+  EnrolledCourse,
+  Enrollment,
+} from "@/domain/models/enrollment";
 import type { EnrollmentService } from "@/domain/ports/EnrollmentService";
 import { getSupabaseClient } from "./client";
 
@@ -30,40 +34,49 @@ function toClase(r: HorarioRow): ClaseHorario | null {
 const HORARIO_COLS =
   "id, curso, grupo, dia_semana, hora_inicio, enlace_reunion, activo";
 
-/** Inscripción propia sobre Supabase (perfil + horario del usuario). */
+/** Inscripción propia sobre Supabase (perfil + sus inscripciones a grupos). */
 export class SupabaseEnrollmentService implements EnrollmentService {
   private supabase = getSupabaseClient();
 
   async getStudentEnrollment(userId: string): Promise<Enrollment> {
-    const { data, error } = await this.supabase
-      .from("profiles")
-      .select(
-        `creditos_pagados, ultimo_periodo, ultima_sesion, horario:horarios!profiles_horario_id_fkey(${HORARIO_COLS})`,
-      )
-      .eq("id", userId)
-      .single();
-    if (error) throw new Error(error.message);
+    const [perfil, inscripciones] = await Promise.all([
+      this.supabase
+        .from("profiles")
+        .select("creditos_pagados")
+        .eq("id", userId)
+        .single(),
+      this.supabase
+        .from("inscripciones")
+        .select(`progreso, horario:horarios(${HORARIO_COLS})`)
+        .eq("estudiante_id", userId),
+    ]);
+    if (perfil.error) throw new Error(perfil.error.message);
+    if (inscripciones.error) throw new Error(inscripciones.error.message);
 
-    const row = data as unknown as {
-      creditos_pagados: number | null;
-      ultimo_periodo: number | null;
-      ultima_sesion: number | null;
+    const rows = (inscripciones.data ?? []) as unknown as {
+      progreso: number | null;
       horario: HorarioRow | null;
-    };
+    }[];
+    const cursos: EnrolledCourse[] = rows.flatMap((r) => {
+      const clase = r.horario ? toClase(r.horario) : null;
+      return clase ? [{ ...clase, progreso: r.progreso ?? 0 }] : [];
+    });
+    cursos.sort((a, b) =>
+      a.curso === b.curso ? a.grupo - b.grupo : a.curso.localeCompare(b.curso),
+    );
+
     return {
-      creditos: row.creditos_pagados ?? 0,
-      clase: row.horario ? toClase(row.horario) : null,
-      progreso: {
-        periodo: row.ultimo_periodo ?? 1,
-        sesion: row.ultima_sesion ?? 1,
-      },
+      creditos:
+        (perfil.data as { creditos_pagados: number | null }).creditos_pagados ??
+        0,
+      cursos,
     };
   }
 
-  async setProgress(periodo: number, sesion: number): Promise<void> {
+  async setProgress(horarioId: string, leccionIdx: number): Promise<void> {
     const { error } = await this.supabase.rpc("set_progreso", {
-      p_periodo: periodo,
-      p_sesion: sesion,
+      p_horario_id: horarioId,
+      p_idx: leccionIdx,
     });
     if (error) throw new Error(error.message);
   }
