@@ -22,6 +22,7 @@ export function usePythonRunner() {
   );
   const [output, setOutput] = useState<OutputSegment[]>([]);
   const [awaitingInput, setAwaitingInput] = useState(false);
+  const [turtleSvg, setTurtleSvg] = useState<string | null>(null);
 
   const workerRef = useRef<Worker | null>(null);
   const controlRef = useRef<Int32Array | null>(null);
@@ -61,6 +62,9 @@ export function usePythonRunner() {
         case "input_request":
           setAwaitingInput(true);
           break;
+        case "turtle":
+          setTurtleSvg(msg.svg);
+          break;
         case "done":
           setStatus("Listo ✓");
           setRunning(false);
@@ -86,6 +90,7 @@ export function usePythonRunner() {
 
   const run = useCallback((code: string) => {
     setOutput([]);
+    setTurtleSvg(null);
     setRunning(true);
     setStatus("Ejecutando…");
     workerRef.current?.postMessage({ type: "run", code });
@@ -101,7 +106,10 @@ export function usePythonRunner() {
     createWorker(); // recrear para la próxima ejecución
   }, [append, createWorker]);
 
-  const clear = useCallback(() => setOutput([]), []);
+  const clear = useCallback(() => {
+    setOutput([]);
+    setTurtleSvg(null);
+  }, []);
 
   const submitInput = useCallback(
     (value: string) => {
@@ -126,6 +134,7 @@ export function usePythonRunner() {
     status,
     output,
     awaitingInput,
+    turtleSvg,
     canUseWorker,
     run,
     stop,

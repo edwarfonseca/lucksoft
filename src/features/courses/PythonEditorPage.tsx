@@ -142,6 +142,15 @@ export function PythonEditorPage() {
         </div>
 
         <div className="preview-pane">
+          {runner.turtleSvg && (
+            <div className="turtle-wrap">
+              <img
+                className="turtle-canvas"
+                src={`data:image/svg+xml;utf8,${encodeURIComponent(runner.turtleSvg)}`}
+                alt="Dibujo de turtle"
+              />
+            </div>
+          )}
           <div className="pane-header">Consola de salida</div>
           <div className="console" ref={consoleRef}>
             {runner.output.map((seg, i) => (
