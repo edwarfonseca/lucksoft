@@ -64,27 +64,43 @@ export function animateTurtle(
   if (!ctx) return () => {};
   const cmds = data.cmds;
 
-  // Escalar el lienzo para llenar el panel (manteniendo proporción) y nítido en
-  // pantallas de alta densidad. Las funciones de dibujo usan coords lógicas.
+  // El canvas LLENA su contenedor (el panel). El dibujo va centrado en el origen
+  // y escalado para que la "pantalla" lógica de turtle entre completa. Nítido en
+  // alta densidad (devicePixelRatio). Las coords de los comandos están centradas.
   const dpr = window.devicePixelRatio || 1;
   const host = canvas.parentElement;
-  let scale = 1;
+  let dispW = data.w;
+  let dispH = data.h;
   if (host) {
-    const availW = Math.max(80, host.clientWidth - 20);
-    const availH = Math.max(80, host.clientHeight - 20);
-    scale = Math.min(availW / data.w, availH / data.h);
-    if (!isFinite(scale) || scale <= 0) scale = 1;
-    scale = Math.min(scale, 3);
+    const cs = getComputedStyle(host);
+    const padX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+    const padY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+    dispW = Math.max(120, host.clientWidth - padX);
+    dispH = Math.max(120, host.clientHeight - padY);
   }
-  canvas.style.width = data.w * scale + "px";
-  canvas.style.height = data.h * scale + "px";
-  canvas.width = Math.round(data.w * scale * dpr);
-  canvas.height = Math.round(data.h * scale * dpr);
-  ctx.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
+  let scale = Math.min(dispW / data.w, dispH / data.h);
+  if (!isFinite(scale) || scale <= 0) scale = 1;
+
+  canvas.style.width = dispW + "px";
+  canvas.style.height = dispH + "px";
+  canvas.width = Math.round(dispW * dpr);
+  canvas.height = Math.round(dispH * dpr);
+  // origen en el centro del canvas + escala (en píxeles de dispositivo)
+  ctx.setTransform(
+    scale * dpr,
+    0,
+    0,
+    scale * dpr,
+    (dispW / 2) * dpr,
+    (dispH / 2) * dpr,
+  );
 
   const clearBg = () => {
+    ctx.save();
+    ctx.setTransform(1, 0, 0, 1, 0, 0);
     ctx.fillStyle = data.bg || "white";
-    ctx.fillRect(0, 0, data.w, data.h);
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    ctx.restore();
   };
   const fill = (c: FillCmd) => {
     ctx.beginPath();
