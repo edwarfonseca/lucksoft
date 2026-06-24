@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import type { TurtleData } from "@/features/courses/turtleCanvas";
 
 export interface OutputSegment {
   text: string;
@@ -22,7 +23,7 @@ export function usePythonRunner() {
   );
   const [output, setOutput] = useState<OutputSegment[]>([]);
   const [awaitingInput, setAwaitingInput] = useState(false);
-  const [turtleSvg, setTurtleSvg] = useState<string | null>(null);
+  const [turtleData, setTurtleData] = useState<TurtleData | null>(null);
 
   const workerRef = useRef<Worker | null>(null);
   const controlRef = useRef<Int32Array | null>(null);
@@ -63,7 +64,7 @@ export function usePythonRunner() {
           setAwaitingInput(true);
           break;
         case "turtle":
-          setTurtleSvg(msg.svg);
+          setTurtleData(msg.data);
           break;
         case "done":
           setStatus("Listo ✓");
@@ -90,7 +91,7 @@ export function usePythonRunner() {
 
   const run = useCallback((code: string) => {
     setOutput([]);
-    setTurtleSvg(null);
+    setTurtleData(null);
     setRunning(true);
     setStatus("Ejecutando…");
     workerRef.current?.postMessage({ type: "run", code });
@@ -108,7 +109,7 @@ export function usePythonRunner() {
 
   const clear = useCallback(() => {
     setOutput([]);
-    setTurtleSvg(null);
+    setTurtleData(null);
   }, []);
 
   const submitInput = useCallback(
@@ -134,7 +135,7 @@ export function usePythonRunner() {
     status,
     output,
     awaitingInput,
-    turtleSvg,
+    turtleData,
     canUseWorker,
     run,
     stop,

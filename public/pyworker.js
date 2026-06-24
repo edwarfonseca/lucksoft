@@ -82,13 +82,14 @@ async function init(controlSAB, dataSAB) {
   }
 }
 
-// Si el programa usó turtle, envía el dibujo (SVG) al hilo principal.
+// Si el programa usó turtle, envía los trazos (en orden) al hilo principal para
+// animar el avance en un canvas.
 function flushTurtle() {
   try {
-    const svg = pyodide.runPython(
-      'sys.modules["turtle"]._lucksoft_svg() if "turtle" in sys.modules else None',
+    const json = pyodide.runPython(
+      'sys.modules["turtle"]._lucksoft_json() if "turtle" in sys.modules else None',
     );
-    if (svg) postMessage({ type: "turtle", svg });
+    if (json) postMessage({ type: "turtle", data: JSON.parse(json) });
   } catch {
     /* sin dibujo */
   }

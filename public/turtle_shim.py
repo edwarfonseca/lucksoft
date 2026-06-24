@@ -8,10 +8,7 @@ import math
 _WIDTH = 400
 _HEIGHT = 400
 _BG = "white"
-_segments = []  # (x1,y1,x2,y2,color,width)
-_dots = []  # (x,y,r,color)
-_fills = []  # (puntos[], color)
-_texts = []  # (x,y,texto,size,color,anchor)
+_cmds = []  # comandos de dibujo EN ORDEN (para animar el avance en el canvas)
 _turtles = []  # tortugas creadas (para dibujar su figura/cursor al final)
 _drew = False
 _default = None
@@ -37,15 +34,11 @@ _SHAPES = {
 
 
 def _lucksoft_reset():
-    global _WIDTH, _HEIGHT, _BG, _segments, _dots, _fills, _texts
-    global _turtles, _drew, _default
+    global _WIDTH, _HEIGHT, _BG, _cmds, _turtles, _drew, _default
     _WIDTH = 400
     _HEIGHT = 400
     _BG = "white"
-    _segments = []
-    _dots = []
-    _fills = []
-    _texts = []
+    _cmds = []
     _turtles = []
     _drew = False
     _default = None
@@ -98,6 +91,7 @@ class Turtle:
         self._filling = False
         self._fillpts = []
         self._shapename = "classic"
+        self._speed = 3
         # Crear una tortuga ya hace que el lienzo aparezca (como en turtle real)
         # y se registra para dibujar su figura/cursor al final.
         _drew = True
@@ -107,10 +101,21 @@ class Turtle:
     def _line(self, x1, y1, x2, y2):
         global _drew
         _drew = True
-        if len(_segments) < _MAX:
+        if len(_cmds) < _MAX:
             a = _xy(x1, y1)
             b = _xy(x2, y2)
-            _segments.append((a[0], a[1], b[0], b[1], self._pc, self._w))
+            _cmds.append(
+                {
+                    "t": "l",
+                    "x1": a[0],
+                    "y1": a[1],
+                    "x2": b[0],
+                    "y2": b[1],
+                    "c": self._pc,
+                    "w": self._w,
+                    "s": self._speed,
+                }
+            )
 
     def _moveto(self, x, y, draw=True):
         if self._down and draw:
@@ -235,7 +240,13 @@ class Turtle:
         global _drew
         if self._filling and len(self._fillpts) >= 3:
             _drew = True
-            _fills.append((list(self._fillpts), self._fc))
+            _cmds.append(
+                {
+                    "t": "f",
+                    "pts": [[p[0], p[1]] for p in self._fillpts],
+                    "c": self._fc,
+                }
+            )
         self._filling = False
         self._fillpts = []
 
@@ -245,7 +256,7 @@ class Turtle:
         s = size if size else max(self._w + 4, 2 * self._w)
         c = _color(color) if color else self._pc
         p = _xy(self._x, self._y)
-        _dots.append((p[0], p[1], s / 2.0, c))
+        _cmds.append({"t": "d", "x": p[0], "y": p[1], "r": s / 2.0, "c": c})
 
     def write(self, text, move=False, align="left", font=("Arial", 8, "normal")):
         global _drew
@@ -255,7 +266,17 @@ class Turtle:
         anchor = {"left": "start", "center": "middle", "right": "end"}.get(
             align, "start"
         )
-        _texts.append((p[0], p[1], str(text), size, self._pc, anchor))
+        _cmds.append(
+            {
+                "t": "x",
+                "x": p[0],
+                "y": p[1],
+                "s": str(text),
+                "sz": size,
+                "c": self._pc,
+                "a": anchor,
+            }
+        )
 
     # --- consultas / no-ops ---
     def position(self):
@@ -272,8 +293,17 @@ class Turtle:
     def heading(self):
         return self._h
 
-    def speed(self, *a, **k):
-        pass
+    def speed(self, s=None, *a, **k):
+        if s is None:
+            return self._speed
+        names = {
+            "fastest": 0,
+            "fast": 10,
+            "normal": 6,
+            "slow": 3,
+            "slowest": 1,
+        }
+        self._speed = names.get(s, s) if isinstance(s, str) else int(s)
 
     def hideturtle(self):
         self._visible = False
@@ -524,50 +554,33 @@ for _n in (
     globals()[_n] = getattr(_screen, _n)
 
 
-def _lucksoft_svg():
+def _turtle_figura(t):
+    # Polígono de la figura de la tortuga (en coords SVG), rotado por su rumbo.
+    poly = _SHAPES.get(getattr(t, "_shapename", "classic"), _SHAPES["classic"])
+    ang = math.radians(t._h - 90.0)
+    ca, sa = math.cos(ang), math.sin(ang)
+    pts = []
+    for sx, sy in poly:
+        rx = sx * ca - sy * sa
+        ry = sx * sa + sy * ca
+        p = _xy(t._x + rx, t._y + ry)
+        pts.append([round(p[0], 2), round(p[1], 2)])
+    return {"pts": pts, "fill": t._fc, "stroke": t._pc}
+
+
+def _lucksoft_json():
     if not _drew:
         return None
-    out = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" '
-        'viewBox="0 0 %d %d">' % (_WIDTH, _HEIGHT, _WIDTH, _HEIGHT),
-        '<rect width="100%%" height="100%%" fill="%s"/>' % _esc(_BG),
+    import json
+
+    turtles = [
+        _turtle_figura(t) for t in _turtles if getattr(t, "_visible", True)
     ]
-    for pts, col in _fills:
-        d = " ".join("%.2f,%.2f" % (p[0], p[1]) for p in pts)
-        out.append('<polygon points="%s" fill="%s"/>' % (d, _esc(col)))
-    for x1, y1, x2, y2, col, w in _segments:
-        out.append(
-            '<line x1="%.2f" y1="%.2f" x2="%.2f" y2="%.2f" stroke="%s" '
-            'stroke-width="%.2f" stroke-linecap="round"/>'
-            % (x1, y1, x2, y2, _esc(col), w)
-        )
-    for x, y, r, col in _dots:
-        out.append(
-            '<circle cx="%.2f" cy="%.2f" r="%.2f" fill="%s"/>'
-            % (x, y, r, _esc(col))
-        )
-    for x, y, text, size, col, anchor in _texts:
-        out.append(
-            '<text x="%.2f" y="%.2f" fill="%s" font-size="%d" '
-            'text-anchor="%s" font-family="Arial">%s</text>'
-            % (x, y, _esc(col), size, anchor, _esc(text))
-        )
-    # Figura/cursor de cada tortuga visible, en su posición y rumbo finales.
-    for t in _turtles:
-        if not getattr(t, "_visible", True):
-            continue
-        poly = _SHAPES.get(getattr(t, "_shapename", "classic"), _SHAPES["classic"])
-        ang = math.radians(t._h - 90.0)
-        ca, sa = math.cos(ang), math.sin(ang)
-        pts = []
-        for sx, sy in poly:
-            rx = sx * ca - sy * sa
-            ry = sx * sa + sy * ca
-            p = _xy(t._x + rx, t._y + ry)
-            pts.append("%.2f,%.2f" % (p[0], p[1]))
-        out.append(
-            '<polygon points="%s" fill="%s" stroke="%s" stroke-width="1"/>'
-            % (" ".join(pts), _esc(t._fc), _esc(t._pc))
-        )
-    out.append("</svg>")
-    return "".join(out)
+    data = {
+        "w": _WIDTH,
+        "h": _HEIGHT,
+        "bg": _BG,
+        "cmds": _cmds,
+        "turtles": turtles,
+    }
+    return json.dumps(data)

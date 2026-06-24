@@ -8,6 +8,7 @@ import { submitAssignment } from "@/application/submitAssignment";
 import { useAuth } from "@/features/auth/auth-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
 import { usePythonRunner } from "@/features/courses/usePythonRunner";
+import { animateTurtle } from "@/features/courses/turtleCanvas";
 
 const pythonCourse = getCourse("python");
 const DEFAULT_CODE = `# ¡Bienvenido a LuckSoft! Escribe Python y pulsa Ejecutar.
@@ -31,6 +32,13 @@ export function PythonEditorPage() {
 
   const consoleRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const turtleCanvasRef = useRef<HTMLCanvasElement>(null);
+
+  // Anima el dibujo de turtle en el canvas cuando llega un nuevo resultado.
+  useEffect(() => {
+    if (!runner.turtleData || !turtleCanvasRef.current) return;
+    return animateTurtle(turtleCanvasRef.current, runner.turtleData);
+  }, [runner.turtleData]);
 
   // Autoscroll de la consola y foco en el campo de entrada cuando se solicita.
   useEffect(() => {
@@ -142,12 +150,12 @@ export function PythonEditorPage() {
         </div>
 
         <div className="preview-pane">
-          {runner.turtleSvg && (
+          {runner.turtleData && (
             <div className="turtle-wrap">
-              <img
+              <canvas
+                ref={turtleCanvasRef}
                 className="turtle-canvas"
-                src={`data:image/svg+xml;utf8,${encodeURIComponent(runner.turtleSvg)}`}
-                alt="Dibujo de turtle"
+                aria-label="Dibujo de turtle"
               />
             </div>
           )}
