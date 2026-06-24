@@ -12,13 +12,33 @@ _segments = []  # (x1,y1,x2,y2,color,width)
 _dots = []  # (x,y,r,color)
 _fills = []  # (puntos[], color)
 _texts = []  # (x,y,texto,size,color,anchor)
+_turtles = []  # tortugas creadas (para dibujar su figura/cursor al final)
 _drew = False
 _default = None
 _MAX = 60000  # tope de segmentos para no agotar memoria
 
+# Polígonos de cada forma, apuntando al norte (+y); se rotan según el rumbo.
+_SHAPES = {
+    "classic": [(0, 0), (-5, -9), (0, -7), (5, -9)],
+    "arrow": [(-10, 0), (10, 0), (0, 10)],
+    "triangle": [(10, -5.77), (0, 11.55), (-10, -5.77)],
+    "square": [(10, -10), (10, 10), (-10, 10), (-10, -10)],
+    "turtle": [
+        (0, 16), (-2, 14), (-1, 10), (-4, 7), (-7, 9), (-9, 8), (-6, 5),
+        (-7, 1), (-5, -3), (-8, -6), (-6, -8), (-4, -5), (0, -7), (4, -5),
+        (6, -8), (8, -6), (5, -3), (7, 1), (6, 5), (9, 8), (7, 9), (4, 7),
+        (1, 10), (2, 14),
+    ],
+    "circle": [
+        (10.0 * math.cos(math.radians(a)), 10.0 * math.sin(math.radians(a)))
+        for a in range(0, 360, 30)
+    ],
+}
+
 
 def _lucksoft_reset():
-    global _WIDTH, _HEIGHT, _BG, _segments, _dots, _fills, _texts, _drew, _default
+    global _WIDTH, _HEIGHT, _BG, _segments, _dots, _fills, _texts
+    global _turtles, _drew, _default
     _WIDTH = 400
     _HEIGHT = 400
     _BG = "white"
@@ -26,6 +46,7 @@ def _lucksoft_reset():
     _dots = []
     _fills = []
     _texts = []
+    _turtles = []
     _drew = False
     _default = None
 
@@ -65,6 +86,7 @@ def _color(a):
 
 class Turtle:
     def __init__(self, *a, **k):
+        global _drew
         self._x = 0.0
         self._y = 0.0
         self._h = 0.0
@@ -75,6 +97,11 @@ class Turtle:
         self._visible = True
         self._filling = False
         self._fillpts = []
+        self._shapename = "classic"
+        # Crear una tortuga ya hace que el lienzo aparezca (como en turtle real)
+        # y se registra para dibujar su figura/cursor al final.
+        _drew = True
+        _turtles.append(self)
 
     # --- dibujo interno ---
     def _line(self, x1, y1, x2, y2):
@@ -524,6 +551,23 @@ def _lucksoft_svg():
             '<text x="%.2f" y="%.2f" fill="%s" font-size="%d" '
             'text-anchor="%s" font-family="Arial">%s</text>'
             % (x, y, _esc(col), size, anchor, _esc(text))
+        )
+    # Figura/cursor de cada tortuga visible, en su posición y rumbo finales.
+    for t in _turtles:
+        if not getattr(t, "_visible", True):
+            continue
+        poly = _SHAPES.get(getattr(t, "_shapename", "classic"), _SHAPES["classic"])
+        ang = math.radians(t._h - 90.0)
+        ca, sa = math.cos(ang), math.sin(ang)
+        pts = []
+        for sx, sy in poly:
+            rx = sx * ca - sy * sa
+            ry = sx * sa + sy * ca
+            p = _xy(t._x + rx, t._y + ry)
+            pts.append("%.2f,%.2f" % (p[0], p[1]))
+        out.append(
+            '<polygon points="%s" fill="%s" stroke="%s" stroke-width="1"/>'
+            % (" ".join(pts), _esc(t._fc), _esc(t._pc))
         )
     out.append("</svg>")
     return "".join(out)
