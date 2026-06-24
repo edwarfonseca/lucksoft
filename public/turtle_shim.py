@@ -45,8 +45,9 @@ def _lucksoft_reset():
 
 
 def _xy(x, y):
-    # Centro de la pantalla en el medio del lienzo; y hacia arriba (como turtle).
-    return (_WIDTH / 2.0 + x, _HEIGHT / 2.0 - y)
+    # Coordenadas centradas en el origen (0,0 = home); y hacia abajo (canvas).
+    # El canvas de la app coloca el origen en su centro y aplica la escala.
+    return (x, -y)
 
 
 def _esc(s):

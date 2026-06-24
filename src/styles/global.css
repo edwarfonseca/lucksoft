@@ -518,7 +518,7 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 10px;
+  padding: 8px;
   background: #1b1f2b;
   border-bottom: 1px solid var(--border);
 }
@@ -534,6 +534,12 @@ a:hover {
 /* …y el área del editor se hace más alta para que el dibujo sea grande. */
 .editor-body.turtle-on {
   height: calc(100vh - 140px);
+}
+/* En escritorio, el dibujo se lleva la mayor parte del ancho. */
+@media (min-width: 901px) {
+  .editor-body.turtle-on .code-pane {
+    flex: 0 0 38%;
+  }
 }
 .editor-shell {
   display: flex;
