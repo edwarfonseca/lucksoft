@@ -511,20 +511,29 @@ a:hover {
 .app-main {
   flex: 1;
 }
-/* Lienzo del módulo turtle (SVG) */
+/* Lienzo del módulo turtle: ocupa el panel; el tamaño real lo fija el JS. */
 .turtle-wrap {
+  flex: 1;
+  min-height: 0;
   display: flex;
+  align-items: center;
   justify-content: center;
   padding: 10px;
   background: #1b1f2b;
   border-bottom: 1px solid var(--border);
 }
 .turtle-canvas {
-  max-width: 100%;
-  max-height: 60vh;
   background: white;
   border-radius: 8px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+/* Cuando hay dibujo de turtle, la consola cede espacio al lienzo. */
+.console.compact {
+  flex: 0 0 100px;
+}
+/* …y el área del editor se hace más alta para que el dibujo sea grande. */
+.editor-body.turtle-on {
+  height: calc(100vh - 140px);
 }
 .editor-shell {
   display: flex;

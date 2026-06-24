@@ -126,7 +126,7 @@ export function PythonEditorPage() {
         )}
       </div>
 
-      <div className="editor-body">
+      <div className={"editor-body" + (runner.turtleData ? " turtle-on" : "")}>
         {showTask && (
           <TaskPanel
             assignments={pythonCourse.assignments}
@@ -160,7 +160,10 @@ export function PythonEditorPage() {
             </div>
           )}
           <div className="pane-header">Consola de salida</div>
-          <div className="console" ref={consoleRef}>
+          <div
+            className={"console" + (runner.turtleData ? " compact" : "")}
+            ref={consoleRef}
+          >
             {runner.output.map((seg, i) => (
               <span key={i} className={seg.error ? "err" : undefined}>
                 {seg.text}

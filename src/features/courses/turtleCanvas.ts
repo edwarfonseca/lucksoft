@@ -62,9 +62,25 @@ export function animateTurtle(
 ): () => void {
   const ctx = canvas.getContext("2d");
   if (!ctx) return () => {};
-  canvas.width = data.w;
-  canvas.height = data.h;
   const cmds = data.cmds;
+
+  // Escalar el lienzo para llenar el panel (manteniendo proporción) y nítido en
+  // pantallas de alta densidad. Las funciones de dibujo usan coords lógicas.
+  const dpr = window.devicePixelRatio || 1;
+  const host = canvas.parentElement;
+  let scale = 1;
+  if (host) {
+    const availW = Math.max(80, host.clientWidth - 20);
+    const availH = Math.max(80, host.clientHeight - 20);
+    scale = Math.min(availW / data.w, availH / data.h);
+    if (!isFinite(scale) || scale <= 0) scale = 1;
+    scale = Math.min(scale, 3);
+  }
+  canvas.style.width = data.w * scale + "px";
+  canvas.style.height = data.h * scale + "px";
+  canvas.width = Math.round(data.w * scale * dpr);
+  canvas.height = Math.round(data.h * scale * dpr);
+  ctx.setTransform(scale * dpr, 0, 0, scale * dpr, 0, 0);
 
   const clearBg = () => {
     ctx.fillStyle = data.bg || "white";
