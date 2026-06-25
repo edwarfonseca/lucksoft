@@ -143,14 +143,15 @@ function Lessons({ kind }: { kind: CourseKind }) {
                       : isStudent && idx === frontier
                         ? "Última"
                         : "";
+                  const esMision = sData?.tipo === "mision";
                   return (
                     <button
                       key={s}
                       className={
-                        "sesion-btn" +
+                        "sesion-row" +
                         (estado === "actual" ? " actual" : "") +
                         (bloqueada ? " bloqueada" : "") +
-                        (sData?.tipo === "mision" ? " mision" : "")
+                        (esMision ? " mision" : "")
                       }
                       disabled={entering || bloqueada}
                       onClick={() => entrar({ periodo: p, sesion: s })}
@@ -158,13 +159,18 @@ function Lessons({ kind }: { kind: CourseKind }) {
                         sData ? sData.titulo : `Periodo ${p} · Sesión ${s}`
                       }
                     >
-                      <span className="sesion-num">
-                        {bloqueada ? "🔒 " : ""}
-                        {sData?.tipo === "mision" ? "🚀 " : ""}Sesión {s}
+                      <span className="sesion-ico">
+                        {bloqueada ? "🔒" : esMision ? "🚀" : s}
                       </span>
-                      {sData && (
-                        <span className="sesion-titulo">{sData.titulo}</span>
-                      )}
+                      <span className="sesion-info">
+                        <span className="sesion-num">
+                          Sesión {s}
+                          {esMision ? " · Misión final" : ""}
+                        </span>
+                        {sData && (
+                          <span className="sesion-titulo">{sData.titulo}</span>
+                        )}
+                      </span>
                       {badge && <span className="sesion-actual">{badge}</span>}
                     </button>
                   );
