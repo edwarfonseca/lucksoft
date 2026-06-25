@@ -20,6 +20,12 @@ describe("tareas de la lección", () => {
     }
   });
 
+  it("la misión muestra la pista de cargar código base en el enunciado", () => {
+    const s = getSesionContenido(pythonCurriculum, 6, 4)!;
+    const mision = lessonAssignments(6, 4, s).at(-1)!;
+    expect(mision.enunciado).toContain("Cargar código base");
+  });
+
   it("cada clave de retoScaffolds corresponde a un reto existente", () => {
     for (const key of Object.keys(retoScaffolds)) {
       const m = key.match(/^p(\d+)s(\d+)-reto(\d+)$/);
