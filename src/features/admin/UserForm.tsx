@@ -10,7 +10,9 @@ import type { Horario } from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
 import {
   createUser,
+  listProfiles,
   setEnrollments,
+  unlockAllLessons,
   updateCredentials,
   updateProfile,
 } from "@/application/manageUsers";
@@ -39,6 +41,7 @@ interface FormState {
   nombreAcudiente: string;
   numeroAcudiente: string;
   pais: string;
+  desbloquearLecciones: boolean;
 }
 
 function initialState(p?: ManagedProfile): FormState {
@@ -55,6 +58,7 @@ function initialState(p?: ManagedProfile): FormState {
     nombreAcudiente: p?.nombreAcudiente ?? "",
     numeroAcudiente: p?.numeroAcudiente ?? "",
     pais: p?.pais ?? "",
+    desbloquearLecciones: false,
   };
 }
 
@@ -126,6 +130,9 @@ export function UserForm({
         };
         await updateProfile(service, initial.id, changes);
         await setEnrollments(service, initial.id, horarioIds);
+        if (esEstudiante && f.desbloquearLecciones) {
+          await unlockAllLessons(service, initial.id);
+        }
       } else {
         if (!f.username.trim() || !f.password) {
           setError("Usuario y contraseña son obligatorios.");
@@ -143,6 +150,16 @@ export function UserForm({
           ...studentFields,
         };
         await createUser(service, input);
+        // El alta no devuelve el id; lo buscamos por usuario para desbloquear.
+        if (esEstudiante && f.desbloquearLecciones && horarioIds.length) {
+          const creados = await listProfiles(service);
+          const nuevo = creados.find(
+            (p) =>
+              (p.username ?? "").toLowerCase() ===
+              f.username.trim().toLowerCase(),
+          );
+          if (nuevo) await unlockAllLessons(service, nuevo.id);
+        }
       }
       onSaved();
     } catch (err) {
@@ -290,6 +307,23 @@ export function UserForm({
                 onChange={(e) => set("creditosPagados", e.target.value)}
               />
             </label>
+            <div className="full-width">
+              <label className="checkbox">
+                <input
+                  type="checkbox"
+                  checked={f.desbloquearLecciones}
+                  onChange={(e) =>
+                    set("desbloquearLecciones", e.target.checked)
+                  }
+                />
+                🔓 Acceso de prueba: desbloquear todas las lecciones
+              </label>
+              <p className="notice">
+                Pone el progreso al 100% en los grupos seleccionados para poder
+                ver todas las lecciones sin esperar a la clase. Para acceso
+                total recuerda dejar créditos &gt; 0 (por ejemplo 999).
+              </p>
+            </div>
             <label>
               Nombre del acudiente
               <input

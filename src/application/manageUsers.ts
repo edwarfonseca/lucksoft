@@ -43,6 +43,13 @@ export function setEnrollments(
   return admin.setEnrollments(studentId, horarioIds);
 }
 
+export function unlockAllLessons(
+  admin: AdminService,
+  studentId: string,
+): Promise<void> {
+  return admin.unlockAllLessons(studentId);
+}
+
 export function deleteUser(admin: AdminService, id: string): Promise<void> {
   return admin.deleteUser(id);
 }
