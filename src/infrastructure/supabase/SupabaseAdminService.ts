@@ -13,6 +13,7 @@ import {
   type UpdateHorarioInput,
 } from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
+import { LECCIONES_TOTAL } from "@/domain/models/lessons";
 import { getSupabaseClient } from "./client";
 
 interface ProfileRow {
@@ -197,6 +198,14 @@ export class SupabaseAdminService implements AdminService {
         );
       if (insErr) throw new Error(insErr.message);
     }
+  }
+
+  async unlockAllLessons(studentId: string): Promise<void> {
+    const { error } = await this.supabase
+      .from("inscripciones")
+      .update({ progreso: LECCIONES_TOTAL })
+      .eq("estudiante_id", studentId);
+    if (error) throw new Error(error.message);
   }
 
   async deleteUser(id: string): Promise<void> {

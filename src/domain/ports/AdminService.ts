@@ -34,6 +34,12 @@ export interface AdminService {
    */
   setEnrollments(studentId: string, horarioIds: string[]): Promise<void>;
 
+  /**
+   * Desbloquea todas las lecciones de un estudiante (progreso al 100% en todas
+   * sus inscripciones). Útil para crear usuarios de prueba con acceso total.
+   */
+  unlockAllLessons(studentId: string): Promise<void>;
+
   /** Elimina una cuenta por completo. */
   deleteUser(id: string): Promise<void>;
 
