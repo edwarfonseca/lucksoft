@@ -22,7 +22,7 @@ const NIVEL_DIF: Record<Nivel, Difficulty> = {
 };
 
 const PISTA_ANDAMIAJE =
-  '<p class="task-time">🧩 Pulsa «⬇ Cargar código base» para empezar con una ' +
+  '<p class="task-hint">🧩 Pulsa «⬇ Cargar código base» para empezar con una ' +
   "estructura ya comenzada y completar lo que falta (# TODO).</p>";
 
 /** Arma el HTML del enunciado (texto de confianza, ya escapado). */
