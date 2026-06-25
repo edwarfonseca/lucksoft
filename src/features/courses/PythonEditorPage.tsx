@@ -11,7 +11,7 @@ import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
 import { useAuth } from "@/features/auth/auth-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
-import { LessonTaskPanel } from "@/features/courses/LessonTaskPanel";
+import { lessonAssignments } from "@/features/courses/lessonTasks";
 import { usePythonRunner } from "@/features/courses/usePythonRunner";
 import { animateTurtle } from "@/features/courses/turtleCanvas";
 
@@ -40,6 +40,11 @@ export function PythonEditorPage() {
       ? getSesionContenido(pythonCurriculum, periodo, sesion)
       : undefined;
 
+  // Tareas activas: las de la lección (varias) o las del curso por defecto.
+  const assignments = leccion
+    ? lessonAssignments(periodo, sesion, leccion)
+    : pythonCourse.assignments;
+
   const [code, setCode] = useState(DEFAULT_CODE);
   const [taskIndex, setTaskIndex] = useState(0);
   // Con lección, el panel de tarea se abre solo.
@@ -65,7 +70,7 @@ export function PythonEditorPage() {
   }, [runner.output, runner.awaitingInput]);
 
   function loadBase() {
-    const base = pythonCourse.assignments[taskIndex].codigoBase;
+    const base = assignments[taskIndex].codigoBase;
     if (!base) return;
     if (
       code.trim() &&
@@ -81,15 +86,12 @@ export function PythonEditorPage() {
     setInputValue("");
   }
 
-  // Tarea que se entrega: la lección completa, o la actividad elegida del editor.
-  const task: PythonAssignment = leccion
-    ? {
-        id: `python-p${periodo}s${sesion}`,
-        titulo: `Periodo ${periodo} · Sesión ${sesion}: ${leccion.titulo}`,
-        dificultad: "media",
-        enunciado: "",
-      }
-    : pythonCourse.assignments[taskIndex];
+  // Actividad seleccionada (de la lección o del curso por defecto).
+  const task: PythonAssignment = assignments[taskIndex];
+  // En la entrega, anteponemos el contexto de la lección para calificar.
+  const entrega: PythonAssignment = leccion
+    ? { ...task, titulo: `P${periodo}·S${sesion} · ${task.titulo}` }
+    : task;
 
   async function submit() {
     if (!user) return;
@@ -99,14 +101,14 @@ export function PythonEditorPage() {
     }
     if (
       !confirm(
-        `¿Entregar tu solución de "${task.titulo}"?\nSi ya habías entregado, se reemplazará y quedará pendiente.`,
+        `¿Entregar tu solución de "${entrega.titulo}"?\nSi ya habías entregado, se reemplazará y quedará pendiente.`,
       )
     )
       return;
     await submitAssignment(
       submissionRepository,
       pythonCourse.buildSubmitInput({
-        assignment: task,
+        assignment: entrega,
         student: user,
         content: { code },
       }),
@@ -157,21 +159,14 @@ export function PythonEditorPage() {
       </div>
 
       <div className={"editor-body" + (runner.turtleData ? " turtle-on" : "")}>
-        {showTask &&
-          (leccion ? (
-            <LessonTaskPanel
-              periodo={periodo}
-              sesion={sesion}
-              contenido={leccion}
-            />
-          ) : (
-            <TaskPanel
-              assignments={pythonCourse.assignments}
-              index={taskIndex}
-              onSelect={setTaskIndex}
-              onLoadBase={loadBase}
-            />
-          ))}
+        {showTask && (
+          <TaskPanel
+            assignments={assignments}
+            index={taskIndex}
+            onSelect={setTaskIndex}
+            onLoadBase={loadBase}
+          />
+        )}
 
         <div className="code-pane">
           <div className="pane-header">Código</div>
