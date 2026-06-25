@@ -13,6 +13,7 @@ import {
   type Leccion,
 } from "@/domain/models/lessons";
 import { getCourse } from "@/courses/registry";
+import { getCurriculum } from "@/courses/curriculum";
 import { enrollmentService } from "@/app/services";
 import { setProgress } from "@/application/loadEnrollment";
 import { useAuth } from "@/features/auth/auth-context";
@@ -38,6 +39,7 @@ function Lessons({ kind }: { kind: CourseKind }) {
   const [entering, setEntering] = useState(false);
 
   const courseInfo = getCourse(kind);
+  const curriculum = getCurriculum(kind);
   const isStudent = user?.role === "estudiante" && !!enrollmentService;
 
   // Para no-estudiantes (docente/admin/local) todo está libre, sin progreso.
@@ -74,7 +76,12 @@ function Lessons({ kind }: { kind: CourseKind }) {
         );
         await reload();
       }
-      navigate(courseInfo.route);
+      // Con currículo abrimos el detalle de la lección; si no, el editor directo.
+      navigate(
+        curriculum
+          ? `/curso/${kind}/leccion/${l.periodo}/${l.sesion}`
+          : courseInfo.route,
+      );
     } catch {
       setEntering(false);
     }
@@ -105,40 +112,72 @@ function Lessons({ kind }: { kind: CourseKind }) {
       )}
 
       <div className="periodos">
-        {rango(PERIODOS).map((p) => (
-          <div className="periodo-card" key={p}>
-            <h3>Periodo {p}</h3>
-            <div className="sesiones">
-              {rango(SESIONES_POR_PERIODO).map((s) => {
-                const idx = toIndex(p, s);
-                const estado = estadoLeccion(idx, frontier, claseAhora);
-                const bloqueada = estado === "bloqueada";
-                const badge =
-                  estado === "actual"
-                    ? "Clase ahora"
-                    : isStudent && idx === frontier
-                      ? "Última"
-                      : "";
-                return (
-                  <button
-                    key={s}
-                    className={
-                      "sesion-btn" +
-                      (estado === "actual" ? " actual" : "") +
-                      (bloqueada ? " bloqueada" : "")
-                    }
-                    disabled={entering || bloqueada}
-                    onClick={() => entrar({ periodo: p, sesion: s })}
-                    title={`Periodo ${p} · Sesión ${s}`}
+        {rango(PERIODOS).map((p) => {
+          const pData = curriculum?.find((x) => x.numero === p);
+          return (
+            <div className="periodo-card" key={p}>
+              {pData ? (
+                <div className="periodo-cab">
+                  <span
+                    className="periodo-insignia"
+                    title={`Insignia: ${pData.insignia.nombre}`}
                   >
-                    {bloqueada ? "🔒 " : ""}Sesión {s}
-                    {badge && <span className="sesion-actual">{badge}</span>}
-                  </button>
-                );
-              })}
+                    {pData.insignia.emoji}
+                  </span>
+                  <div>
+                    <h3>
+                      Periodo {p}: {pData.titulo}
+                    </h3>
+                    <p className="periodo-meta">
+                      🚀 {pData.proyecto} · {pData.xp} XP
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <h3>Periodo {p}</h3>
+              )}
+              <div className="sesiones">
+                {rango(SESIONES_POR_PERIODO).map((s) => {
+                  const idx = toIndex(p, s);
+                  const estado = estadoLeccion(idx, frontier, claseAhora);
+                  const bloqueada = estado === "bloqueada";
+                  const sData = pData?.sesiones.find((x) => x.numero === s);
+                  const badge =
+                    estado === "actual"
+                      ? "Clase ahora"
+                      : isStudent && idx === frontier
+                        ? "Última"
+                        : "";
+                  return (
+                    <button
+                      key={s}
+                      className={
+                        "sesion-btn" +
+                        (estado === "actual" ? " actual" : "") +
+                        (bloqueada ? " bloqueada" : "") +
+                        (sData?.tipo === "mision" ? " mision" : "")
+                      }
+                      disabled={entering || bloqueada}
+                      onClick={() => entrar({ periodo: p, sesion: s })}
+                      title={
+                        sData ? sData.titulo : `Periodo ${p} · Sesión ${s}`
+                      }
+                    >
+                      <span className="sesion-num">
+                        {bloqueada ? "🔒 " : ""}
+                        {sData?.tipo === "mision" ? "🚀 " : ""}Sesión {s}
+                      </span>
+                      {sData && (
+                        <span className="sesion-titulo">{sData.titulo}</span>
+                      )}
+                      {badge && <span className="sesion-actual">{badge}</span>}
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
