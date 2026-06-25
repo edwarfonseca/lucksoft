@@ -1,16 +1,22 @@
 import { useEffect, useRef, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import CodeMirror from "@uiw/react-codemirror";
 import { python } from "@codemirror/lang-python";
 import { editorTooltips } from "@/features/courses/codemirror";
 import { getCourse } from "@/courses/registry";
+import { getCurriculum } from "@/courses/curriculum";
+import { getSesionContenido } from "@/domain/models/curriculum";
+import type { PythonAssignment } from "@/courses/python";
 import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
 import { useAuth } from "@/features/auth/auth-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
+import { LessonTaskPanel } from "@/features/courses/LessonTaskPanel";
 import { usePythonRunner } from "@/features/courses/usePythonRunner";
 import { animateTurtle } from "@/features/courses/turtleCanvas";
 
 const pythonCourse = getCourse("python");
+const pythonCurriculum = getCurriculum("python");
 const DEFAULT_CODE = `# ¡Bienvenido a LuckSoft! Escribe Python y pulsa Ejecutar.
 nombre = "estudiante"
 print(f"Hola, {nombre} 👋")
@@ -25,9 +31,19 @@ export function PythonEditorPage() {
   const isStudent = user?.role === "estudiante";
   const runner = usePythonRunner();
 
+  // Lección activa (si se llegó desde el selector con ?periodo=&sesion=).
+  const [searchParams] = useSearchParams();
+  const periodo = Number(searchParams.get("periodo"));
+  const sesion = Number(searchParams.get("sesion"));
+  const leccion =
+    pythonCurriculum && Number.isInteger(periodo) && Number.isInteger(sesion)
+      ? getSesionContenido(pythonCurriculum, periodo, sesion)
+      : undefined;
+
   const [code, setCode] = useState(DEFAULT_CODE);
   const [taskIndex, setTaskIndex] = useState(0);
-  const [showTask, setShowTask] = useState(false);
+  // Con lección, el panel de tarea se abre solo.
+  const [showTask, setShowTask] = useState(!!leccion);
   const [inputValue, setInputValue] = useState("");
 
   const consoleRef = useRef<HTMLDivElement>(null);
@@ -65,9 +81,18 @@ export function PythonEditorPage() {
     setInputValue("");
   }
 
+  // Tarea que se entrega: la lección completa, o la actividad elegida del editor.
+  const task: PythonAssignment = leccion
+    ? {
+        id: `python-p${periodo}s${sesion}`,
+        titulo: `Periodo ${periodo} · Sesión ${sesion}: ${leccion.titulo}`,
+        dificultad: "media",
+        enunciado: "",
+      }
+    : pythonCourse.assignments[taskIndex];
+
   async function submit() {
     if (!user) return;
-    const task = pythonCourse.assignments[taskIndex];
     if (!code.trim()) {
       alert("Escribe algo de código antes de entregar.");
       return;
@@ -92,7 +117,12 @@ export function PythonEditorPage() {
   return (
     <div className="editor-shell">
       <div className="editor-toolbar">
-        <span className="title">🐍 Editor de Python</span>
+        <span className="title">
+          🐍{" "}
+          {leccion
+            ? `P${periodo} · S${sesion}: ${leccion.titulo}`
+            : "Editor de Python"}
+        </span>
         <button
           className={"btn btn-ghost" + (showTask ? " active" : "")}
           onClick={() => setShowTask((v) => !v)}
@@ -127,14 +157,21 @@ export function PythonEditorPage() {
       </div>
 
       <div className={"editor-body" + (runner.turtleData ? " turtle-on" : "")}>
-        {showTask && (
-          <TaskPanel
-            assignments={pythonCourse.assignments}
-            index={taskIndex}
-            onSelect={setTaskIndex}
-            onLoadBase={loadBase}
-          />
-        )}
+        {showTask &&
+          (leccion ? (
+            <LessonTaskPanel
+              periodo={periodo}
+              sesion={sesion}
+              contenido={leccion}
+            />
+          ) : (
+            <TaskPanel
+              assignments={pythonCourse.assignments}
+              index={taskIndex}
+              onSelect={setTaskIndex}
+              onLoadBase={loadBase}
+            />
+          ))}
 
         <div className="code-pane">
           <div className="pane-header">Código</div>

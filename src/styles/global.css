@@ -927,16 +927,22 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2px;
-  padding: 10px 8px;
+  justify-content: center;
+  gap: 4px;
+  min-height: 84px;
+  padding: 12px 10px;
   border: 1px solid var(--border);
-  border-radius: 8px;
+  border-radius: 10px;
   background: var(--bg);
   color: var(--text);
   font-size: 13px;
   cursor: pointer;
+  transition:
+    border-color 0.15s,
+    transform 0.1s;
 }
 .sesion-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
   border-color: var(--brand);
 }
 .sesion-btn:disabled {
@@ -956,13 +962,16 @@ a:hover {
   font-weight: 600;
 }
 .sesion-num {
-  font-weight: 600;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--brand-2);
 }
 .sesion-titulo {
-  font-size: 11px;
-  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
   text-align: center;
-  line-height: 1.2;
+  line-height: 1.25;
 }
 .sesion-btn.mision {
   border-color: var(--brand-2);
@@ -970,256 +979,112 @@ a:hover {
 }
 .periodo-cab {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .periodo-insignia {
-  font-size: 26px;
+  font-size: 28px;
   line-height: 1;
   flex-shrink: 0;
 }
 .periodo-cab h3 {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   margin: 0;
-  font-size: 14px;
-  line-height: 1.25;
+  font-size: 15px;
+  line-height: 1.2;
 }
-.periodo-meta {
-  margin: 4px 0 0;
+.periodo-num {
   font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--muted);
 }
 
-/* ---- Detalle de una lección (sesión del currículo) ---- */
-.leccion-top {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-bottom: 12px;
-}
-.volver-link {
-  color: var(--brand-2);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-.volver-link:hover {
-  text-decoration: underline;
-}
-.leccion-ruta {
-  font-size: 12px;
-  color: var(--muted);
-}
-.leccion-hero {
-  display: flex;
-  gap: 16px;
-  align-items: center;
-  padding: 18px 20px;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  background: linear-gradient(
-    135deg,
-    rgba(108, 92, 231, 0.18),
-    rgba(162, 155, 254, 0.06)
-  );
-}
-.leccion-hero-insignia {
-  font-size: 46px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.leccion-periodo-nombre {
-  margin: 0 0 2px;
+/* ---- Panel de tarea de una lección (dentro del editor) ---- */
+.lesson-task {
   font-size: 13px;
-  color: var(--brand-2);
-  font-weight: 600;
 }
-.leccion-hero h1 {
-  margin: 0 0 8px;
-  font-size: 22px;
-}
-.leccion-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-}
-.chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  padding: 3px 9px;
-  border-radius: 999px;
+.lesson-task .lt-ruta {
+  margin: 0;
   font-size: 11px;
-  font-weight: 600;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  color: var(--text);
-}
-.chip-tipo {
-  background: rgba(108, 92, 231, 0.18);
-  border-color: transparent;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--brand-2);
 }
-.chip-xp {
-  background: rgba(255, 196, 0, 0.12);
-  border-color: transparent;
-  color: #ffce54;
+.lesson-task .lt-titulo {
+  margin: 2px 0 8px;
+  font-size: 16px;
+  line-height: 1.25;
 }
-.chip-nivel.nivel-principiante {
-  background: rgba(46, 204, 113, 0.15);
-  color: #46d39a;
-  border-color: transparent;
+.lesson-task .lt-objetivo {
+  margin: 0 0 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(108, 92, 231, 0.12);
+  line-height: 1.4;
 }
-.chip-nivel.nivel-intermedio {
-  background: rgba(52, 152, 219, 0.15);
-  color: #5dade2;
-  border-color: transparent;
+.lesson-task .lt-seccion {
+  margin: 14px 0 6px;
+  font-size: 13px;
 }
-.chip-nivel.nivel-avanzado {
-  background: rgba(231, 76, 60, 0.15);
-  color: #ff7b6b;
-  border-color: transparent;
-}
-.leccion-objetivo {
-  margin: 16px 0;
-  font-size: 15px;
-  line-height: 1.5;
-}
-.abrir-editor-btn {
-  display: inline-block;
-}
-.abrir-editor-btn-bottom {
-  margin-top: 20px;
-}
-.leccion-grid {
-  margin-top: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 14px;
-  align-items: start;
-}
-.leccion-card {
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  background: var(--surface);
-  padding: 14px 16px;
-}
-.leccion-card.destacada {
-  border-color: var(--brand);
-  background: linear-gradient(
-    135deg,
-    rgba(108, 92, 231, 0.16),
-    rgba(162, 155, 254, 0.04)
-  );
-  grid-column: 1 / -1;
-}
-.leccion-card h3 {
-  margin: 0 0 10px;
-  font-size: 14px;
-}
-.leccion-card ul,
-.leccion-card ol {
+.lesson-task ol,
+.lesson-task ul {
   margin: 0;
   padding-left: 18px;
   display: grid;
   gap: 6px;
 }
-.leccion-card li {
-  font-size: 13px;
-  line-height: 1.45;
-}
-.lista-check {
+.lesson-task .lt-retos {
   list-style: none;
-  padding-left: 0 !important;
+  padding-left: 0;
 }
-.lista-check li {
-  position: relative;
-  padding-left: 22px;
-}
-.lista-check li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #46d39a;
-  font-weight: 700;
-}
-.lista-tip {
-  list-style: none;
-  padding-left: 0 !important;
-}
-.lista-tip li {
-  position: relative;
-  padding-left: 22px;
-  color: var(--muted);
-}
-.lista-tip li::before {
-  content: "💡";
-  position: absolute;
-  left: 0;
-}
-.agenda {
-  list-style: none;
-  padding-left: 0 !important;
-}
-.agenda li {
-  display: flex;
-  gap: 10px;
-  align-items: baseline;
-}
-.agenda-min {
-  flex-shrink: 0;
-  min-width: 34px;
-  font-weight: 700;
-  color: var(--brand-2);
-  font-size: 12px;
-}
-.retos {
-  list-style: none;
-  padding-left: 0 !important;
-}
-.reto {
+.lesson-task .lt-retos li {
   border: 1px solid var(--border);
   border-radius: 8px;
   padding: 8px 10px;
   background: var(--bg);
 }
-.reto-cab {
+.lt-reto-cab {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 4px;
 }
-.reto p {
+.lesson-task .lt-retos p {
   margin: 0;
-  font-size: 13px;
   color: var(--muted);
+  line-height: 1.4;
 }
-.cierre-titulo {
-  margin: 0 0 6px;
-  font-weight: 700;
+.lesson-task .lt-mision {
+  border: 1px solid var(--brand);
+  border-radius: 8px;
+  padding: 10px;
+  background: rgba(108, 92, 231, 0.1);
+}
+.lesson-task .lt-mision strong {
   color: var(--brand-2);
 }
-.recompensa-txt {
-  margin: 0 0 8px;
-  font-weight: 600;
+.lesson-task .lt-mision p {
+  margin: 6px 0 0;
+  line-height: 1.4;
 }
-.recompensa-insignia {
-  margin: 0;
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.45;
+.tag.nivel-principiante {
+  background: rgba(87, 217, 163, 0.15);
+  color: #57d9a3;
 }
-@media (max-width: 640px) {
-  .leccion-hero {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-  .leccion-chips {
-    justify-content: center;
-  }
+.tag.nivel-intermedio {
+  background: rgba(93, 173, 226, 0.15);
+  color: #5dade2;
+}
+.tag.nivel-avanzado {
+  background: rgba(255, 107, 107, 0.15);
+  color: #ff6b6b;
 }
 
 /* ---- Selección de grupos en el formulario de usuario ---- */
