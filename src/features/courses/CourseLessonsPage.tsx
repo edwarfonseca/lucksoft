@@ -76,10 +76,11 @@ function Lessons({ kind }: { kind: CourseKind }) {
         );
         await reload();
       }
-      // Con currículo abrimos el detalle de la lección; si no, el editor directo.
+      // Vamos directo al editor; si hay currículo, con la lección en la URL para
+      // que el panel de Tarea cargue sus actividades.
       navigate(
         curriculum
-          ? `/curso/${kind}/leccion/${l.periodo}/${l.sesion}`
+          ? `${courseInfo.route}?periodo=${l.periodo}&sesion=${l.sesion}`
           : courseInfo.route,
       );
     } catch {
@@ -116,26 +117,20 @@ function Lessons({ kind }: { kind: CourseKind }) {
           const pData = curriculum?.find((x) => x.numero === p);
           return (
             <div className="periodo-card" key={p}>
-              {pData ? (
-                <div className="periodo-cab">
+              <div className="periodo-cab">
+                {pData && (
                   <span
                     className="periodo-insignia"
                     title={`Insignia: ${pData.insignia.nombre}`}
                   >
                     {pData.insignia.emoji}
                   </span>
-                  <div>
-                    <h3>
-                      Periodo {p}: {pData.titulo}
-                    </h3>
-                    <p className="periodo-meta">
-                      🚀 {pData.proyecto} · {pData.xp} XP
-                    </p>
-                  </div>
-                </div>
-              ) : (
-                <h3>Periodo {p}</h3>
-              )}
+                )}
+                <h3>
+                  <span className="periodo-num">Periodo {p}</span>
+                  {pData ? pData.titulo : ""}
+                </h3>
+              </div>
               <div className="sesiones">
                 {rango(SESIONES_POR_PERIODO).map((s) => {
                   const idx = toIndex(p, s);
