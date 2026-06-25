@@ -955,6 +955,272 @@ a:hover {
   color: var(--brand);
   font-weight: 600;
 }
+.sesion-num {
+  font-weight: 600;
+}
+.sesion-titulo {
+  font-size: 11px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.2;
+}
+.sesion-btn.mision {
+  border-color: var(--brand-2);
+  background: rgba(162, 155, 254, 0.1);
+}
+.periodo-cab {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.periodo-insignia {
+  font-size: 26px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.periodo-cab h3 {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.25;
+}
+.periodo-meta {
+  margin: 4px 0 0;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* ---- Detalle de una lección (sesión del currículo) ---- */
+.leccion-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.volver-link {
+  color: var(--brand-2);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+.volver-link:hover {
+  text-decoration: underline;
+}
+.leccion-ruta {
+  font-size: 12px;
+  color: var(--muted);
+}
+.leccion-hero {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 18px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.18),
+    rgba(162, 155, 254, 0.06)
+  );
+}
+.leccion-hero-insignia {
+  font-size: 46px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+.leccion-periodo-nombre {
+  margin: 0 0 2px;
+  font-size: 13px;
+  color: var(--brand-2);
+  font-weight: 600;
+}
+.leccion-hero h1 {
+  margin: 0 0 8px;
+  font-size: 22px;
+}
+.leccion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.chip-tipo {
+  background: rgba(108, 92, 231, 0.18);
+  border-color: transparent;
+  color: var(--brand-2);
+}
+.chip-xp {
+  background: rgba(255, 196, 0, 0.12);
+  border-color: transparent;
+  color: #ffce54;
+}
+.chip-nivel.nivel-principiante {
+  background: rgba(46, 204, 113, 0.15);
+  color: #46d39a;
+  border-color: transparent;
+}
+.chip-nivel.nivel-intermedio {
+  background: rgba(52, 152, 219, 0.15);
+  color: #5dade2;
+  border-color: transparent;
+}
+.chip-nivel.nivel-avanzado {
+  background: rgba(231, 76, 60, 0.15);
+  color: #ff7b6b;
+  border-color: transparent;
+}
+.leccion-objetivo {
+  margin: 16px 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+.abrir-editor-btn {
+  display: inline-block;
+}
+.abrir-editor-btn-bottom {
+  margin-top: 20px;
+}
+.leccion-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+.leccion-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface);
+  padding: 14px 16px;
+}
+.leccion-card.destacada {
+  border-color: var(--brand);
+  background: linear-gradient(
+    135deg,
+    rgba(108, 92, 231, 0.16),
+    rgba(162, 155, 254, 0.04)
+  );
+  grid-column: 1 / -1;
+}
+.leccion-card h3 {
+  margin: 0 0 10px;
+  font-size: 14px;
+}
+.leccion-card ul,
+.leccion-card ol {
+  margin: 0;
+  padding-left: 18px;
+  display: grid;
+  gap: 6px;
+}
+.leccion-card li {
+  font-size: 13px;
+  line-height: 1.45;
+}
+.lista-check {
+  list-style: none;
+  padding-left: 0 !important;
+}
+.lista-check li {
+  position: relative;
+  padding-left: 22px;
+}
+.lista-check li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #46d39a;
+  font-weight: 700;
+}
+.lista-tip {
+  list-style: none;
+  padding-left: 0 !important;
+}
+.lista-tip li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--muted);
+}
+.lista-tip li::before {
+  content: "💡";
+  position: absolute;
+  left: 0;
+}
+.agenda {
+  list-style: none;
+  padding-left: 0 !important;
+}
+.agenda li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.agenda-min {
+  flex-shrink: 0;
+  min-width: 34px;
+  font-weight: 700;
+  color: var(--brand-2);
+  font-size: 12px;
+}
+.retos {
+  list-style: none;
+  padding-left: 0 !important;
+}
+.reto {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  background: var(--bg);
+}
+.reto-cab {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+.reto p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+}
+.cierre-titulo {
+  margin: 0 0 6px;
+  font-weight: 700;
+  color: var(--brand-2);
+}
+.recompensa-txt {
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.recompensa-insignia {
+  margin: 0;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.45;
+}
+@media (max-width: 640px) {
+  .leccion-hero {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+  .leccion-chips {
+    justify-content: center;
+  }
+}
 
 /* ---- Selección de grupos en el formulario de usuario ---- */
 .campo-label {
