@@ -342,11 +342,39 @@ a:hover {
   margin: 0;
 }
 
+/* Personajes animados del fondo del login (iframes autocontenidos) */
+.personaje {
+  position: absolute;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.96;
+  filter: drop-shadow(0 18px 40px rgba(0, 0, 0, 0.45));
+}
+.personaje.p-1 {
+  right: 3%;
+  bottom: 0;
+  width: clamp(220px, 28vw, 380px);
+  height: clamp(220px, 28vw, 380px);
+}
+@media (max-width: 760px) {
+  .personaje.p-1 {
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -4%;
+    opacity: 0.5;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .blob,
   .login-grid,
   .login-card {
     animation: none;
+  }
+  .personaje {
+    display: none;
   }
 }
 

@@ -2,6 +2,16 @@ import { useState, type FormEvent } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/features/auth/auth-context";
 
+/**
+ * Personajes animados del fondo del login. Cada uno es un mini-bundle HTML
+ * autocontenido servido desde `public/characters/`. Para añadir más, deja el
+ * archivo en esa carpeta y agrega una entrada aquí con su posición (clase CSS
+ * `.personaje p-N` definida en global.css).
+ */
+const PERSONAJES_FONDO = [
+  { src: "/characters/saludo.html", pos: "p-1", title: "Personaje saludando" },
+];
+
 /** Pantalla de inicio de sesión (migra el antiguo index.html). */
 export function LoginPage() {
   const { user, loading, login } = useAuth();
@@ -31,6 +41,16 @@ export function LoginPage() {
         <span className="blob blob-2" />
         <span className="blob blob-3" />
         <div className="login-grid" />
+        {PERSONAJES_FONDO.map((p) => (
+          <iframe
+            key={p.src}
+            src={p.src}
+            title={p.title}
+            className={`personaje ${p.pos}`}
+            loading="lazy"
+            tabIndex={-1}
+          />
+        ))}
       </div>
       <form className="login-card" onSubmit={onSubmit}>
         <div className="brand">
