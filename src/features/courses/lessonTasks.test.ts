@@ -1,8 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { pythonCurriculum } from "@/courses/python/curriculum";
+import { scratchCurriculum } from "@/courses/scratch/curriculum";
 import { getSesionContenido } from "@/domain/models/curriculum";
 import { retoScaffolds } from "@/courses/python/scaffolds";
-import { lessonAssignments } from "./lessonTasks";
+import { lessonActivities, lessonAssignments } from "./lessonTasks";
 
 describe("tareas de la lección", () => {
   it("genera ejercicios + retos + misión como tareas separadas", () => {
@@ -10,6 +11,40 @@ describe("tareas de la lección", () => {
     const tasks = lessonAssignments(1, 1, s);
     expect(tasks).toHaveLength(s.ejercicios.length + s.retos.length + 1);
     expect(tasks.at(-1)!.id).toBe("p1s1-mision");
+  });
+
+  it("las actividades muestran su nombre en el título (Python y Scratch)", () => {
+    const py = lessonAssignments(
+      1,
+      1,
+      getSesionContenido(pythonCurriculum, 1, 1)!,
+    );
+    expect(py[0].titulo).toContain("Ejercicio 1");
+    expect(py[0].titulo).toContain("Hola, mundo");
+
+    const sc = lessonActivities(
+      1,
+      1,
+      getSesionContenido(scratchCurriculum, 1, 1)!,
+    );
+    expect(sc[0].titulo).toContain("Actividad 1");
+    expect(sc[0].titulo).toContain("Gato andarín");
+  });
+
+  it("todos los ejercicios de ambos cursos tienen nombre y descripción", () => {
+    for (const c of [pythonCurriculum, scratchCurriculum]) {
+      for (const p of c) {
+        for (const s of p.sesiones) {
+          for (const e of s.ejercicios) {
+            expect(typeof e).toBe("object");
+            if (typeof e === "object") {
+              expect(e.titulo.length).toBeGreaterThan(0);
+              expect(e.descripcion.length).toBeGreaterThan(0);
+            }
+          }
+        }
+      }
+    }
   });
 
   it("la misión de cada periodo trae un andamiaje con # TODO", () => {

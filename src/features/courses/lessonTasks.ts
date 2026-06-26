@@ -1,6 +1,7 @@
 import { escapeHtml } from "@/lib/html";
 import type { Assignment, Difficulty } from "@/domain/models/course";
 import type { Nivel, SesionContenido } from "@/domain/models/curriculum";
+import { ejercicioPartes } from "@/domain/models/curriculum";
 import type { PythonAssignment } from "@/courses/python";
 import { misionScaffolds, retoScaffolds } from "@/courses/python/scaffolds";
 
@@ -48,12 +49,13 @@ export function lessonAssignments(
   const tasks: PythonAssignment[] = [];
 
   s.ejercicios.forEach((e, i) => {
+    const { titulo, descripcion } = ejercicioPartes(e);
     tasks.push({
       id: `${prefix}-ej${i + 1}`,
-      titulo: `✍️ Ejercicio ${i + 1}`,
+      titulo: `✍️ Ejercicio ${i + 1}${titulo ? ": " + titulo : ""}`,
       dificultad: "facil",
-      enunciado: enunciado(e, 5),
-      codigoBase: `# Ejercicio ${i + 1}\n# ${e}\n\n`,
+      enunciado: enunciado(descripcion, 8),
+      codigoBase: `# Ejercicio ${i + 1}${titulo ? ": " + titulo : ""}\n# ${descripcion}\n\n`,
     });
   });
 
@@ -102,11 +104,12 @@ export function lessonActivities(
   const tasks: Assignment[] = [];
 
   s.ejercicios.forEach((e, i) => {
+    const { titulo, descripcion } = ejercicioPartes(e);
     tasks.push({
       id: `${prefix}-ej${i + 1}`,
-      titulo: `✍️ Actividad ${i + 1}`,
+      titulo: `✍️ Actividad ${i + 1}${titulo ? ": " + titulo : ""}`,
       dificultad: "facil",
-      enunciado: enunciado(e, 8),
+      enunciado: enunciado(descripcion, 10),
     });
   });
 

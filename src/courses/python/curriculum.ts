@@ -101,9 +101,20 @@ const periodo1: PeriodoContenido = {
         "Cada quien imprime una frase que lo represente y la comparte.",
       ),
       ejercicios: [
-        "Imprime 'Hola, mundo' y ejecútalo.",
-        "Imprime tu nombre y tu edad en dos líneas separadas.",
-        "Escribe un algoritmo en español (en comentarios) para lavarse los dientes.",
+        {
+          titulo: "Hola, mundo",
+          descripcion:
+            "Imprime 'Hola, mundo' y ejecútalo. ¡Tu primer programa!",
+        },
+        {
+          titulo: "Tu ficha",
+          descripcion: "Imprime tu nombre y tu edad en dos líneas separadas.",
+        },
+        {
+          titulo: "Algoritmo diario",
+          descripcion:
+            "Escribe en comentarios los pasos para lavarse los dientes.",
+        },
       ],
       retos: [
         {
@@ -162,9 +173,18 @@ const periodo1: PeriodoContenido = {
         "Documentar con comentarios el programa de la sesión anterior.",
       ),
       ejercicios: [
-        "Imprime una lista de compras (4 productos), uno por línea.",
-        "Añade un comentario que explique qué hace tu programa.",
-        "Usa print() con varias palabras separadas por comas.",
+        {
+          titulo: "Lista de compras",
+          descripcion: "Imprime una lista de 4 productos, uno por línea.",
+        },
+        {
+          titulo: "Deja una nota",
+          descripcion: "Añade un comentario que explique qué hace tu programa.",
+        },
+        {
+          titulo: "Todo junto",
+          descripcion: "Usa print() con varias palabras separadas por comas.",
+        },
       ],
       retos: [
         {
@@ -220,9 +240,19 @@ const periodo1: PeriodoContenido = {
         "Crear a propósito un error y explicárselo a un compañero.",
       ),
       ejercicios: [
-        "Arregla print('Hola) (falta una comilla).",
-        "Arregla print Hola (faltan paréntesis y comillas).",
-        "Encuentra el error en un programa de 3 líneas dado por el profe.",
+        {
+          titulo: "Comilla perdida",
+          descripcion: "Arregla print('Hola) — le falta una comilla.",
+        },
+        {
+          titulo: "Sin paréntesis",
+          descripcion: "Arregla print Hola — faltan paréntesis y comillas.",
+        },
+        {
+          titulo: "Caza el error",
+          descripcion:
+            "Encuentra el error en un programa de 3 líneas que te da el profe.",
+        },
       ],
       retos: [
         {
@@ -285,9 +315,18 @@ const periodo1: PeriodoContenido = {
         "Cada estudiante presenta su tarjeta a la clase.",
       ),
       ejercicios: [
-        "Imprime un marco con símbolos alrededor de tu nombre.",
-        "Añade una sección 'Sobre mí' con 3 datos.",
-        "Comenta cada sección del programa.",
+        {
+          titulo: "Marco con estilo",
+          descripcion: "Imprime un marco de símbolos alrededor de tu nombre.",
+        },
+        {
+          titulo: "Sobre mí",
+          descripcion: "Añade una sección 'Sobre mí' con 3 datos tuyos.",
+        },
+        {
+          titulo: "Documenta",
+          descripcion: "Comenta cada sección de tu programa.",
+        },
       ],
       retos: [
         {
@@ -356,9 +395,18 @@ const periodo2: PeriodoContenido = {
         "Crear 3 variables sobre uno mismo e imprimir una presentación.",
       ),
       ejercicios: [
-        "Crea una variable juego y muéstrala.",
-        "Guarda tu edad en una variable y úsala en una frase.",
-        "Crea una variable decimal (por ejemplo, tu estatura).",
+        {
+          titulo: "Tu primera variable",
+          descripcion: "Crea una variable «juego» y muéstrala.",
+        },
+        {
+          titulo: "Guarda tu edad",
+          descripcion: "Guarda tu edad en una variable y úsala en una frase.",
+        },
+        {
+          titulo: "Con decimales",
+          descripcion: "Crea una variable decimal (por ejemplo, tu estatura).",
+        },
       ],
       retos: [
         {
@@ -416,9 +464,18 @@ const periodo2: PeriodoContenido = {
         "Programa que entrevista al usuario y devuelve un resumen.",
       ),
       ejercicios: [
-        "Pide el nombre y saluda a la persona.",
-        "Pregunta el juego favorito y responde con una frase.",
-        "Pide dos datos y muéstralos juntos.",
+        {
+          titulo: "¿Cómo te llamas?",
+          descripcion: "Pide el nombre y saluda a la persona.",
+        },
+        {
+          titulo: "Tu juego favorito",
+          descripcion: "Pregunta el juego favorito y responde con una frase.",
+        },
+        {
+          titulo: "Dos datos",
+          descripcion: "Pide dos datos y muéstralos juntos.",
+        },
       ],
       retos: [
         {
@@ -475,9 +532,18 @@ const periodo2: PeriodoContenido = {
         "Crear un mini programa que sume dos edades introducidas por el usuario.",
       ),
       ejercicios: [
-        "Pide un número con input() y conviértelo con int().",
-        "Suma dos números introducidos por el usuario.",
-        "Crea una variable booleana y muéstrala.",
+        {
+          titulo: "Texto a número",
+          descripcion: "Pide un número con input() y conviértelo con int().",
+        },
+        {
+          titulo: "Suma real",
+          descripcion: "Suma dos números introducidos por el usuario.",
+        },
+        {
+          titulo: "Verdadero o falso",
+          descripcion: "Crea una variable booleana y muéstrala.",
+        },
       ],
       retos: [
         {
@@ -539,9 +605,18 @@ const periodo2: PeriodoContenido = {
         "Presentar el generador y crear el perfil de un compañero en vivo.",
       ),
       ejercicios: [
-        "Pide el nick y el juego favorito.",
-        "Pide las horas jugadas y conviértelas a número.",
-        "Muestra una ficha con todos los datos.",
+        {
+          titulo: "Datos del jugador",
+          descripcion: "Pide el nick y el juego favorito.",
+        },
+        {
+          titulo: "Horas jugadas",
+          descripcion: "Pide las horas jugadas y conviértelas a número.",
+        },
+        {
+          titulo: "Arma la ficha",
+          descripcion: "Muestra una ficha con todos los datos.",
+        },
       ],
       retos: [
         {
@@ -611,9 +686,18 @@ const periodo3: PeriodoContenido = {
         "Programa que calcula cuántos segundos has vivido.",
       ),
       ejercicios: [
-        "Calcula 7 * 8 y muéstralo.",
-        "Pide dos números y muestra su suma y su resta.",
-        "Calcula el promedio de tres notas.",
+        {
+          titulo: "Multiplica",
+          descripcion: "Calcula 7 * 8 y muéstralo.",
+        },
+        {
+          titulo: "Suma y resta",
+          descripcion: "Pide dos números y muestra su suma y su resta.",
+        },
+        {
+          titulo: "Promedio",
+          descripcion: "Calcula el promedio de tres notas.",
+        },
       ],
       retos: [
         {
@@ -668,9 +752,18 @@ const periodo3: PeriodoContenido = {
         "Programa que dice si un número es par o impar.",
       ),
       ejercicios: [
-        "Calcula 2 elevado a 10.",
-        "Averigua el residuo de 17 entre 5.",
-        "Comprueba si un número pedido es par usando %.",
+        {
+          titulo: "Dos a la diez",
+          descripcion: "Calcula 2 elevado a 10 (usa **).",
+        },
+        {
+          titulo: "El residuo",
+          descripcion: "Averigua el residuo de 17 entre 5 (usa %).",
+        },
+        {
+          titulo: "¿Par o impar?",
+          descripcion: "Comprueba si un número pedido es par usando %.",
+        },
       ],
       retos: [
         {
@@ -731,9 +824,19 @@ const periodo3: PeriodoContenido = {
         "Crear un conversor (km↔millas o °C↔°F) que funcione.",
       ),
       ejercicios: [
-        "Programa la fórmula 'doble más tres' para un número dado.",
-        "Calcula el 10% de descuento de un precio.",
-        "Convierte grados Celsius a Fahrenheit.",
+        {
+          titulo: "Doble más tres",
+          descripcion:
+            "Programa la fórmula 'doble más tres' para un número dado.",
+        },
+        {
+          titulo: "Descuento",
+          descripcion: "Calcula el 10% de descuento de un precio.",
+        },
+        {
+          titulo: "Conversor de grados",
+          descripcion: "Convierte grados Celsius a Fahrenheit.",
+        },
       ],
       retos: [
         {
@@ -793,9 +896,18 @@ const periodo3: PeriodoContenido = {
         "Presentar la calculadora y retar a un compañero a romperla.",
       ),
       ejercicios: [
-        "Pide dos números y muestra su suma y producto.",
-        "Añade la potencia y el módulo a la salida.",
-        "Muestra los resultados con etiquetas claras.",
+        {
+          titulo: "Suma y producto",
+          descripcion: "Pide dos números y muestra su suma y su producto.",
+        },
+        {
+          titulo: "Más operaciones",
+          descripcion: "Añade la potencia y el módulo a la salida.",
+        },
+        {
+          titulo: "Etiquetas claras",
+          descripcion: "Muestra los resultados con etiquetas claras.",
+        },
       ],
       retos: [
         {
@@ -864,9 +976,18 @@ const periodo4: PeriodoContenido = {
         "Programa que dice 'aprobado' si la nota es 3 o más.",
       ),
       ejercicios: [
-        "Compara dos números y muestra True/False.",
-        "Si un número es mayor que 10, muestra un mensaje.",
-        "Si la edad es mayor o igual a 18, di 'mayor de edad'.",
+        {
+          titulo: "¿Cuál gana?",
+          descripcion: "Compara dos números y muestra True o False.",
+        },
+        {
+          titulo: "Mayor que 10",
+          descripcion: "Si un número es mayor que 10, muestra un mensaje.",
+        },
+        {
+          titulo: "Mayor de edad",
+          descripcion: "Si la edad es 18 o más, di 'mayor de edad'.",
+        },
       ],
       retos: [
         {
@@ -918,9 +1039,19 @@ const periodo4: PeriodoContenido = {
         "Programa que dice si un número es par o impar con if-else.",
       ),
       ejercicios: [
-        "Si un número es par di 'par', si no 'impar'.",
-        "Si la nota es 3 o más di 'aprobado', si no 'reprobado'.",
-        "Si la edad es mayor de 18, 'adulto'; si no, 'menor'.",
+        {
+          titulo: "Par o impar",
+          descripcion: "Si un número es par di 'par'; si no, 'impar'.",
+        },
+        {
+          titulo: "¿Aprobaste?",
+          descripcion:
+            "Si la nota es 3 o más di 'aprobado'; si no, 'reprobado'.",
+        },
+        {
+          titulo: "Adulto o menor",
+          descripcion: "Si la edad es mayor de 18, 'adulto'; si no, 'menor'.",
+        },
       ],
       retos: [
         {
@@ -977,9 +1108,18 @@ const periodo4: PeriodoContenido = {
         "Crear un clasificador de notas en letras que funcione para todos los rangos.",
       ),
       ejercicios: [
-        "Clasifica una nota en 'alto/medio/bajo'.",
-        "Según la edad, di si es niño, joven o adulto.",
-        "Dado un número, di si es negativo, cero o positivo.",
+        {
+          titulo: "Tres niveles",
+          descripcion: "Clasifica una nota en 'alto', 'medio' o 'bajo'.",
+        },
+        {
+          titulo: "Etapas",
+          descripcion: "Según la edad, di si es niño, joven o adulto.",
+        },
+        {
+          titulo: "Signo del número",
+          descripcion: "Dado un número, di si es negativo, cero o positivo.",
+        },
       ],
       retos: [
         {
@@ -1041,9 +1181,18 @@ const periodo4: PeriodoContenido = {
         "Presentar el test y dejar que la clase lo responda.",
       ),
       ejercicios: [
-        "Haz una pregunta y suma puntos según la respuesta.",
-        "Con el puntaje, asigna un héroe usando elif.",
-        "Muestra el resultado con una descripción.",
+        {
+          titulo: "Suma puntos",
+          descripcion: "Haz una pregunta y suma puntos según la respuesta.",
+        },
+        {
+          titulo: "Asigna héroe",
+          descripcion: "Con el puntaje, asigna un héroe usando elif.",
+        },
+        {
+          titulo: "Resultado con estilo",
+          descripcion: "Muestra el resultado con una descripción.",
+        },
       ],
       retos: [
         {
@@ -1112,9 +1261,18 @@ const periodo5: PeriodoContenido = {
         "Programa que imprime los números del 1 al 10 con while.",
       ),
       ejercicios: [
-        "Imprime del 1 al 5 con while.",
-        "Haz una cuenta regresiva del 10 al 1.",
-        "Repite un mensaje 3 veces con un contador.",
+        {
+          titulo: "Del 1 al 5",
+          descripcion: "Imprime del 1 al 5 con while.",
+        },
+        {
+          titulo: "Cuenta atrás",
+          descripcion: "Haz una cuenta regresiva del 10 al 1.",
+        },
+        {
+          titulo: "Eco x3",
+          descripcion: "Repite un mensaje 3 veces usando un contador.",
+        },
       ],
       retos: [
         {
@@ -1166,9 +1324,18 @@ const periodo5: PeriodoContenido = {
         "Programa que imprime la tabla del número que elija el usuario.",
       ),
       ejercicios: [
-        "Imprime del 1 al 10 con for.",
-        "Imprime los pares del 2 al 20 con range.",
-        "Cuenta del 10 al 1 con for.",
+        {
+          titulo: "Del 1 al 10",
+          descripcion: "Imprime del 1 al 10 con for.",
+        },
+        {
+          titulo: "Solo pares",
+          descripcion: "Imprime los pares del 2 al 20 con range.",
+        },
+        {
+          titulo: "Al revés",
+          descripcion: "Cuenta del 10 al 1 con for.",
+        },
       ],
       retos: [
         {
@@ -1228,9 +1395,18 @@ const periodo5: PeriodoContenido = {
         "Programa que pide 5 notas y calcula el promedio con un acumulador.",
       ),
       ejercicios: [
-        "Suma los números del 1 al 100 con un acumulador.",
-        "Cuenta cuántos pares hay entre 1 y 50.",
-        "Pide 3 números y muestra su total.",
+        {
+          titulo: "Suma 1 a 100",
+          descripcion: "Suma los números del 1 al 100 con un acumulador.",
+        },
+        {
+          titulo: "Cuenta pares",
+          descripcion: "Cuenta cuántos pares hay entre 1 y 50.",
+        },
+        {
+          titulo: "Total",
+          descripcion: "Pide 3 números y muestra su total.",
+        },
       ],
       retos: [
         {
@@ -1291,9 +1467,18 @@ const periodo5: PeriodoContenido = {
         "Presentar el generador y crear un patrón a pedido de la clase.",
       ),
       ejercicios: [
-        "Imprime una pirámide de asteriscos de 5 filas.",
-        "Genera la tabla de multiplicar de un número elegido.",
-        "Dibuja un cuadrado de NxN con símbolos.",
+        {
+          titulo: "Pirámide",
+          descripcion: "Imprime una pirámide de asteriscos de 5 filas.",
+        },
+        {
+          titulo: "Tabla a elección",
+          descripcion: "Genera la tabla de multiplicar de un número elegido.",
+        },
+        {
+          titulo: "Cuadrado NxN",
+          descripcion: "Dibuja un cuadrado de NxN con símbolos.",
+        },
       ],
       retos: [
         {
@@ -1361,9 +1546,18 @@ const periodo6: PeriodoContenido = {
         "Programa que muestra el primer y el último elemento de una lista.",
       ),
       ejercicios: [
-        "Crea una lista con 4 frutas e imprime la primera.",
-        "Muestra el último elemento usando su índice.",
-        "Imprime cuántos elementos tiene la lista con len().",
+        {
+          titulo: "Primera fruta",
+          descripcion: "Crea una lista con 4 frutas e imprime la primera.",
+        },
+        {
+          titulo: "La última",
+          descripcion: "Muestra el último elemento usando su índice.",
+        },
+        {
+          titulo: "¿Cuántas?",
+          descripcion: "Imprime cuántos elementos tiene la lista con len().",
+        },
       ],
       retos: [
         {
@@ -1420,9 +1614,18 @@ const periodo6: PeriodoContenido = {
         "Programa que agrega 3 elementos a una lista vacía y muestra el resultado.",
       ),
       ejercicios: [
-        "Crea una lista vacía y agrégale 3 elementos.",
-        "Elimina un elemento por su valor con remove().",
-        "Cambia el segundo elemento de la lista.",
+        {
+          titulo: "Llena la lista",
+          descripcion: "Crea una lista vacía y agrégale 3 elementos.",
+        },
+        {
+          titulo: "Quita uno",
+          descripcion: "Elimina un elemento por su valor con remove().",
+        },
+        {
+          titulo: "Cambia uno",
+          descripcion: "Cambia el segundo elemento de la lista.",
+        },
       ],
       retos: [
         {
@@ -1485,9 +1688,18 @@ const periodo6: PeriodoContenido = {
         "Programa que recorre una lista de notas y dice cuántas están aprobadas.",
       ),
       ejercicios: [
-        "Recorre una lista de números e imprime cada uno.",
-        "Suma todos los elementos de una lista.",
-        "Cuenta cuántos elementos cumplen una condición.",
+        {
+          titulo: "Uno por uno",
+          descripcion: "Recorre una lista de números e imprime cada uno.",
+        },
+        {
+          titulo: "Suma la lista",
+          descripcion: "Suma todos los elementos de una lista.",
+        },
+        {
+          titulo: "Cuenta con condición",
+          descripcion: "Cuenta cuántos elementos cumplen una condición.",
+        },
       ],
       retos: [
         {
@@ -1546,9 +1758,18 @@ const periodo6: PeriodoContenido = {
         "Presentar el gestor y compartir el top de juegos.",
       ),
       ejercicios: [
-        "Crea la lista inicial de juegos.",
-        "Permite agregar un juego nuevo.",
-        "Muestra toda la colección numerada.",
+        {
+          titulo: "Tu colección",
+          descripcion: "Crea la lista inicial de juegos.",
+        },
+        {
+          titulo: "Agregar",
+          descripcion: "Permite agregar un juego nuevo a la lista.",
+        },
+        {
+          titulo: "Mostrar todo",
+          descripcion: "Muestra toda la colección numerada.",
+        },
       ],
       retos: [
         {
@@ -1616,9 +1837,18 @@ const periodo7: PeriodoContenido = {
         "Programa con una función que dibuja una línea decorativa.",
       ),
       ejercicios: [
-        "Define una función que imprima '¡Hola!'.",
-        "Llama a tu función tres veces.",
-        "Crea una función que imprima una línea de guiones.",
+        {
+          titulo: "Tu primera función",
+          descripcion: "Define una función que imprima '¡Hola!'.",
+        },
+        {
+          titulo: "Llámala 3 veces",
+          descripcion: "Llama a tu función tres veces.",
+        },
+        {
+          titulo: "Función separadora",
+          descripcion: "Crea una función que imprima una línea de guiones.",
+        },
       ],
       retos: [
         {
@@ -1676,9 +1906,20 @@ const periodo7: PeriodoContenido = {
         "Programa con una función que saluda a cualquier nombre que reciba.",
       ),
       ejercicios: [
-        "Crea saludar(nombre) y llámala con dos nombres distintos.",
-        "Crea una función que reciba un número e imprima su tabla.",
-        "Crea una función que dibuje N asteriscos.",
+        {
+          titulo: "Saludo a medida",
+          descripcion:
+            "Crea saludar(nombre) y llámala con dos nombres distintos.",
+        },
+        {
+          titulo: "Tabla por parámetro",
+          descripcion:
+            "Crea una función que reciba un número e imprima su tabla.",
+        },
+        {
+          titulo: "N asteriscos",
+          descripcion: "Crea una función que dibuje N asteriscos.",
+        },
       ],
       retos: [
         {
@@ -1741,9 +1982,18 @@ const periodo7: PeriodoContenido = {
         "Programa con una función es_par(n) que devuelve True/False y se usa en un if.",
       ),
       ejercicios: [
-        "Crea sumar(a, b) que devuelva la suma.",
-        "Crea area(base, altura) que devuelva el área.",
-        "Crea es_par(n) que devuelva True o False.",
+        {
+          titulo: "Suma que devuelve",
+          descripcion: "Crea sumar(a, b) que devuelva la suma.",
+        },
+        {
+          titulo: "Área",
+          descripcion: "Crea area(base, altura) que devuelva el área.",
+        },
+        {
+          titulo: "¿Es par?",
+          descripcion: "Crea es_par(n) que devuelva True o False.",
+        },
       ],
       retos: [
         {
@@ -1805,9 +2055,18 @@ const periodo7: PeriodoContenido = {
         "Presentar el centro de herramientas como una mini app.",
       ),
       ejercicios: [
-        "Crea una función por cada herramienta.",
-        "Haz un menú que llame a la función elegida.",
-        "Repite el menú hasta que el usuario salga.",
+        {
+          titulo: "Una por herramienta",
+          descripcion: "Crea una función por cada herramienta.",
+        },
+        {
+          titulo: "El menú",
+          descripcion: "Haz un menú que llame a la función elegida.",
+        },
+        {
+          titulo: "Menú en bucle",
+          descripcion: "Repite el menú hasta que el usuario salga.",
+        },
       ],
       retos: [
         {
@@ -1877,9 +2136,18 @@ const periodo8: PeriodoContenido = {
         "Programa que tira un dado de 6 caras.",
       ),
       ejercicios: [
-        "Genera un número al azar del 1 al 6.",
-        "Elige al azar entre 'cara' y 'cruz'.",
-        "Elige un color al azar de una lista.",
+        {
+          titulo: "Dado",
+          descripcion: "Genera un número al azar del 1 al 6.",
+        },
+        {
+          titulo: "Cara o cruz",
+          descripcion: "Elige al azar entre 'cara' y 'cruz'.",
+        },
+        {
+          titulo: "Color sorpresa",
+          descripcion: "Elige un color al azar de una lista.",
+        },
       ],
       retos: [
         {
@@ -1934,9 +2202,18 @@ const periodo8: PeriodoContenido = {
         "Programa con un menú de 3 opciones que responde a cada una.",
       ),
       ejercicios: [
-        "Haz un menú con 3 opciones y un 'salir'.",
-        "Suma 10 puntos cada vez que el usuario acierta.",
-        "Repite el menú hasta que elija salir.",
+        {
+          titulo: "Menú de 3",
+          descripcion: "Haz un menú con 3 opciones y un 'salir'.",
+        },
+        {
+          titulo: "Sistema de puntos",
+          descripcion: "Suma 10 puntos cada vez que el usuario acierta.",
+        },
+        {
+          titulo: "Repite hasta salir",
+          descripcion: "Repite el menú hasta que elija salir.",
+        },
       ],
       retos: [
         {
@@ -1997,9 +2274,18 @@ const periodo8: PeriodoContenido = {
         "Terminar un mini juego completo elegido por el estudiante.",
       ),
       ejercicios: [
-        "Juego de 'par o impar' contra la máquina.",
-        "Juego de 'mayor número' (cada uno saca un dado).",
-        "Pequeño quiz de 3 preguntas con puntaje.",
+        {
+          titulo: "Par o impar",
+          descripcion: "Juego de 'par o impar' contra la máquina.",
+        },
+        {
+          titulo: "Mayor número",
+          descripcion: "Juego de 'mayor número' (cada uno saca un dado).",
+        },
+        {
+          titulo: "Quiz exprés",
+          descripcion: "Pequeño quiz de 3 preguntas con puntaje.",
+        },
       ],
       retos: [
         {
@@ -2062,9 +2348,18 @@ const periodo8: PeriodoContenido = {
         "Torneo relámpago: jugar los programas entre compañeros.",
       ),
       ejercicios: [
-        "Pide la jugada del usuario y genera la de la máquina.",
-        "Decide quién gana la ronda con if/elif.",
-        "Lleva el marcador y muéstralo cada ronda.",
+        {
+          titulo: "Tu jugada y la suya",
+          descripcion: "Pide la jugada del usuario y genera la de la máquina.",
+        },
+        {
+          titulo: "¿Quién gana?",
+          descripcion: "Decide quién gana la ronda con if/elif.",
+        },
+        {
+          titulo: "Marcador",
+          descripcion: "Lleva el marcador y muéstralo cada ronda.",
+        },
       ],
       retos: [
         {
@@ -2132,9 +2427,18 @@ const periodo9: PeriodoContenido = {
         "Bocetar la trivia del periodo en pasos.",
       ),
       ejercicios: [
-        "Escribe en pasos cómo haría un programa de cajero.",
-        "Divide un juego en 'preparar, jugar, terminar'.",
-        "Convierte uno de los pasos en una función vacía.",
+        {
+          titulo: "En pasos",
+          descripcion: "Escribe en pasos cómo harías un programa de cajero.",
+        },
+        {
+          titulo: "Tres fases",
+          descripcion: "Divide un juego en 'preparar, jugar, terminar'.",
+        },
+        {
+          titulo: "De paso a función",
+          descripcion: "Convierte uno de los pasos en una función vacía.",
+        },
       ],
       retos: [
         {
@@ -2191,9 +2495,18 @@ const periodo9: PeriodoContenido = {
         "Estructurar el esqueleto de la trivia en funciones.",
       ),
       ejercicios: [
-        "Mueve un bloque repetido a una función.",
-        "Renombra variables poco claras.",
-        "Guarda un conjunto de datos en una lista.",
+        {
+          titulo: "A una función",
+          descripcion: "Mueve un bloque de código repetido a una función.",
+        },
+        {
+          titulo: "Nombres claros",
+          descripcion: "Renombra las variables poco claras.",
+        },
+        {
+          titulo: "Datos a una lista",
+          descripcion: "Guarda un conjunto de datos en una lista.",
+        },
       ],
       retos: [
         {
@@ -2250,9 +2563,18 @@ const periodo9: PeriodoContenido = {
         "Crear una función que valide una respuesta de la trivia.",
       ),
       ejercicios: [
-        "Función promedio(lista) que devuelva el promedio.",
-        "Función que devuelva el mayor de una lista.",
-        "Función con un parámetro por defecto.",
+        {
+          titulo: "Promedio",
+          descripcion: "Función promedio(lista) que devuelva el promedio.",
+        },
+        {
+          titulo: "El mayor",
+          descripcion: "Función que devuelva el mayor de una lista.",
+        },
+        {
+          titulo: "Valor por defecto",
+          descripcion: "Crea una función con un parámetro por defecto.",
+        },
       ],
       retos: [
         {
@@ -2315,9 +2637,19 @@ const periodo9: PeriodoContenido = {
         "Jugar las trivias entre compañeros y comentar.",
       ),
       ejercicios: [
-        "Guarda 5 preguntas con sus respuestas en listas.",
-        "Crea una función que haga una pregunta y diga si acertó.",
-        "Lleva el puntaje y muéstralo al final.",
+        {
+          titulo: "Banco de preguntas",
+          descripcion: "Guarda 5 preguntas con sus respuestas en listas.",
+        },
+        {
+          titulo: "Preguntar y revisar",
+          descripcion:
+            "Crea una función que haga una pregunta y diga si acertó.",
+        },
+        {
+          titulo: "Puntaje final",
+          descripcion: "Lleva el puntaje y muéstralo al final.",
+        },
       ],
       retos: [
         {
@@ -2386,9 +2718,18 @@ const periodo10: PeriodoContenido = {
         "Entregar el plan del proyecto final.",
       ),
       ejercicios: [
-        "Escribe en una frase qué hará tu proyecto.",
-        "Lista las funciones que vas a necesitar.",
-        "Define qué datos guardarás (y en qué listas).",
+        {
+          titulo: "En una frase",
+          descripcion: "Escribe en una frase qué hará tu proyecto.",
+        },
+        {
+          titulo: "Lista de funciones",
+          descripcion: "Lista las funciones que vas a necesitar.",
+        },
+        {
+          titulo: "¿Qué datos?",
+          descripcion: "Define qué datos guardarás (y en qué listas).",
+        },
       ],
       retos: [
         {
@@ -2446,9 +2787,18 @@ const periodo10: PeriodoContenido = {
         "Dejar la versión mínima ejecutándose.",
       ),
       ejercicios: [
-        "Programa la primera función de tu plan y pruébala.",
-        "Conecta dos funciones de tu proyecto.",
-        "Guarda y prueba tu avance.",
+        {
+          titulo: "Primera función",
+          descripcion: "Programa la primera función de tu plan y pruébala.",
+        },
+        {
+          titulo: "Conecta dos",
+          descripcion: "Conecta dos funciones de tu proyecto.",
+        },
+        {
+          titulo: "Guarda y prueba",
+          descripcion: "Guarda y prueba tu avance.",
+        },
       ],
       retos: [
         {
@@ -2505,9 +2855,19 @@ const periodo10: PeriodoContenido = {
         "Intercambio: un compañero prueba tu proyecto y reporta lo que encuentre.",
       ),
       ejercicios: [
-        "Prueba tu proyecto con datos raros (vacío, muy grande).",
-        "Valida una entrada para que no rompa el programa.",
-        "Corrige un error que hayas encontrado.",
+        {
+          titulo: "Datos raros",
+          descripcion:
+            "Prueba tu proyecto con datos raros (vacío, muy grande).",
+        },
+        {
+          titulo: "Valida la entrada",
+          descripcion: "Valida una entrada para que no rompa el programa.",
+        },
+        {
+          titulo: "Arregla un bug",
+          descripcion: "Corrige un error que hayas encontrado.",
+        },
       ],
       retos: [
         {
@@ -2564,9 +2924,18 @@ const periodo10: PeriodoContenido = {
         "Ceremonia de cierre: entrega de la insignia final y reconocimiento de logros.",
       ),
       ejercicios: [
-        "Prepara una demo de 2 minutos de tu proyecto.",
-        "Explica qué función te costó más y por qué.",
-        "Anota una mejora futura para tu proyecto.",
+        {
+          titulo: "Demo de 2 min",
+          descripcion: "Prepara una demo de 2 minutos de tu proyecto.",
+        },
+        {
+          titulo: "Lo más difícil",
+          descripcion: "Explica qué función te costó más y por qué.",
+        },
+        {
+          titulo: "Próxima versión",
+          descripcion: "Anota una mejora futura para tu proyecto.",
+        },
       ],
       retos: [
         {
