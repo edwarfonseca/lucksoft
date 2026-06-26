@@ -1,5 +1,5 @@
 import { escapeHtml } from "@/lib/html";
-import type { Difficulty } from "@/domain/models/course";
+import type { Assignment, Difficulty } from "@/domain/models/course";
 import type { Nivel, SesionContenido } from "@/domain/models/curriculum";
 import type { PythonAssignment } from "@/courses/python";
 import { misionScaffolds, retoScaffolds } from "@/courses/python/scaffolds";
@@ -83,6 +83,50 @@ export function lessonAssignments(
       esMision && andamiajeMision
         ? andamiajeMision
         : `# ${s.cierre.titulo}\n\n`,
+  });
+
+  return tasks;
+}
+
+/**
+ * Versión sin código de `lessonAssignments`, para cursos por bloques (Scratch),
+ * donde no hay "código base" que cargar. Cada ejercicio/reto/misión es una tarea
+ * con su tiempo sugerido. Pensado para niños: las etiquetas son más cercanas.
+ */
+export function lessonActivities(
+  periodo: number,
+  sesion: number,
+  s: SesionContenido,
+): Assignment[] {
+  const prefix = `p${periodo}s${sesion}`;
+  const tasks: Assignment[] = [];
+
+  s.ejercicios.forEach((e, i) => {
+    tasks.push({
+      id: `${prefix}-ej${i + 1}`,
+      titulo: `✍️ Actividad ${i + 1}`,
+      dificultad: "facil",
+      enunciado: enunciado(e, 8),
+    });
+  });
+
+  s.retos.forEach((r, i) => {
+    tasks.push({
+      id: `${prefix}-reto${i + 1}`,
+      titulo: `🏅 Reto ${i + 1}: ${r.titulo}`,
+      dificultad: NIVEL_DIF[r.nivel],
+      enunciado: enunciado(r.consigna, 12),
+    });
+  });
+
+  const esMision = s.tipo === "mision";
+  tasks.push({
+    id: `${prefix}-mision`,
+    titulo: `${esMision ? "🚀" : "🎯"} ${s.cierre.titulo}`,
+    dificultad: NIVEL_DIF[s.nivel],
+    enunciado: enunciado(s.cierre.descripcion, esMision ? 40 : 15, {
+      intro: `<strong>🎯 ${escapeHtml(s.objetivo)}</strong>`,
+    }),
   });
 
   return tasks;

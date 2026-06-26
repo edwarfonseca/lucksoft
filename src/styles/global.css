@@ -1101,8 +1101,10 @@ a:hover {
   color: #ff6b6b;
 }
 .scratch-frame {
+  flex: 1;
+  min-width: 0;
   width: 100%;
-  height: calc(100vh - 160px);
+  height: 100%;
   min-height: 480px;
   border: 1px solid var(--border);
   border-radius: 10px;

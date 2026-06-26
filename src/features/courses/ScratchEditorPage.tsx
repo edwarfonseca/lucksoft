@@ -1,14 +1,19 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { getCourse } from "@/courses/registry";
+import { getCurriculum } from "@/courses/curriculum";
+import { getSesionContenido } from "@/domain/models/curriculum";
 import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
 import { getSubmissionById } from "@/application/listSubmissions";
 import { base64ToBytes, bytesToBase64 } from "@/lib/base64";
 import { useAuth } from "@/features/auth/auth-context";
+import { TaskPanel } from "@/features/courses/TaskPanel";
+import { lessonActivities } from "@/features/courses/lessonTasks";
 import type { ScratchVM, ScratchWindow } from "@/features/courses/scratchVm";
 
 const scratchCourse = getCourse("scratch");
+const scratchCurriculum = getCurriculum("scratch");
 const EDITOR_PATH = "/scratch-editor/editor.html";
 
 /**
@@ -24,6 +29,17 @@ export function ScratchEditorPage() {
   const reviewId = params.get("review");
   const isReview = !!reviewId;
   const isStudent = user?.role === "estudiante";
+
+  // Lección activa (si se llegó desde el selector con ?periodo=&sesion=).
+  const periodo = Number(params.get("periodo"));
+  const sesion = Number(params.get("sesion"));
+  const leccion =
+    scratchCurriculum && Number.isInteger(periodo) && Number.isInteger(sesion)
+      ? getSesionContenido(scratchCurriculum, periodo, sesion)
+      : undefined;
+  const tareas = leccion ? lessonActivities(periodo, sesion, leccion) : [];
+  const [taskIndex, setTaskIndex] = useState(0);
+  const [showTask, setShowTask] = useState(!!leccion);
 
   const [buildStatus, setBuildStatus] = useState<"checking" | "ok" | "missing">(
     "checking",
@@ -177,8 +193,20 @@ export function ScratchEditorPage() {
     <div className="editor-shell">
       <div className="editor-toolbar">
         <span className="title">
-          {isReview ? "🐱 Revisando proyecto" : "🐱 Proyecto de Scratch"}
+          {isReview
+            ? "🐱 Revisando proyecto"
+            : leccion
+              ? `🐱 P${periodo} · S${sesion}: ${leccion.titulo}`
+              : "🐱 Proyecto de Scratch"}
         </span>
+        {leccion && (
+          <button
+            className={"btn btn-ghost" + (showTask ? " active" : "")}
+            onClick={() => setShowTask((v) => !v)}
+          >
+            📋 Tarea
+          </button>
+        )}
         <span className={"status" + (statusErr ? " err" : "")}>{status}</span>
         {!isReview && (
           <button className="btn btn-ghost" onClick={manualSave}>
@@ -191,13 +219,22 @@ export function ScratchEditorPage() {
           </button>
         )}
       </div>
-      <iframe
-        ref={frameRef}
-        className="scratch-frame"
-        src={EDITOR_PATH}
-        allow="fullscreen"
-        title="Editor de Scratch"
-      />
+      <div className="editor-body">
+        {showTask && leccion && (
+          <TaskPanel
+            assignments={tareas}
+            index={taskIndex}
+            onSelect={setTaskIndex}
+          />
+        )}
+        <iframe
+          ref={frameRef}
+          className="scratch-frame"
+          src={EDITOR_PATH}
+          allow="fullscreen"
+          title="Editor de Scratch"
+        />
+      </div>
     </div>
   );
 }
