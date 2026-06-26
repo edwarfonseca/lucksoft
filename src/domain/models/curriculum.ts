@@ -48,6 +48,26 @@ export interface Cierre {
   descripcion: string;
 }
 
+/**
+ * Una actividad práctica con nombre y una descripción breve. Las sesiones
+ * pueden listar sus ejercicios como texto simple (formato antiguo) o como un
+ * `Ejercicio` con título + descripción (más atractivo en el panel de Tarea).
+ */
+export interface Ejercicio {
+  titulo: string;
+  descripcion: string;
+}
+
+/** Devuelve título (si lo tiene) y descripción de un ejercicio. */
+export function ejercicioPartes(e: string | Ejercicio): {
+  titulo: string;
+  descripcion: string;
+} {
+  return typeof e === "string"
+    ? { titulo: "", descripcion: e }
+    : { titulo: e.titulo, descripcion: e.descripcion };
+}
+
 /** Contenido completo de una sesión (90 minutos). */
 export interface SesionContenido {
   /** 1..4 dentro del periodo. */
@@ -61,8 +81,8 @@ export interface SesionContenido {
   conceptos: string[];
   /** 3 + 7. Ejercicios/actividades con su tiempo estimado (suma ≈ 90 min). */
   agenda: BloqueAgenda[];
-  /** 3. Ejercicios prácticos cortos. */
-  ejercicios: string[];
+  /** 3. Ejercicios prácticos: texto simple o `Ejercicio` (título + descripción). */
+  ejercicios: (string | Ejercicio)[];
   /** 4. Entre 3 y 5 retos de programación. */
   retos: Reto[];
   /** 5. Mini proyecto o misión final. */

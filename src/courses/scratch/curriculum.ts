@@ -99,9 +99,21 @@ const periodo1: PeriodoContenido = {
         "Cada quien muestra a su gato saludando.",
       ),
       ejercicios: [
-        "Arrastra «al hacer clic en 🟩» y debajo «mover 10 pasos».",
-        "Agrega «decir ¡Hola! por 2 segundos» con tu nombre.",
-        "Pulsa la bandera verde y mira qué hace tu gato.",
+        {
+          titulo: "Gato andarín",
+          descripcion:
+            "Al pulsar la bandera 🟩, haz que tu gato camine. ¿Logras que dé 20 pasos seguidos?",
+        },
+        {
+          titulo: "¡Preséntate!",
+          descripcion:
+            "Que el gato diga «¡Hola, soy (tu nombre)!» por 2 segundos.",
+        },
+        {
+          titulo: "Gato presumido",
+          descripcion:
+            "Haz que crezca un poco y diga cuál es su color favorito antes de moverse.",
+        },
       ],
       retos: [
         {
@@ -158,9 +170,21 @@ const periodo1: PeriodoContenido = {
         "Mostramos los personajes de la clase.",
       ),
       ejercicios: [
-        "Elige un sprite distinto al gato y un fondo.",
-        "Haz que se mueva y diga su nombre.",
-        "Usa «cambiar tamaño» para hacerlo más grande.",
+        {
+          titulo: "Nuevo héroe",
+          descripcion:
+            "Cambia al gato por otro personaje y ponle un fondo que combine.",
+        },
+        {
+          titulo: "En movimiento",
+          descripcion:
+            "Haz que se mueva por la pantalla mientras dice su nombre.",
+        },
+        {
+          titulo: "Crece y encoge",
+          descripcion:
+            "Que se haga gigante, espere un momento y vuelva a su tamaño normal.",
+        },
       ],
       retos: [
         {
@@ -217,9 +241,20 @@ const periodo1: PeriodoContenido = {
         "Galería: cada quien muestra su truco favorito.",
       ),
       ejercicios: [
-        "Haz que tu personaje diga algo cuando le das clic.",
-        "Usa «cambiar efecto color» para pintarlo de otro color.",
-        "Esconde y muestra tu personaje con «esconder» y «mostrar».",
+        {
+          titulo: "Háblame",
+          descripcion: "Al hacerle clic, que tu personaje diga algo gracioso.",
+        },
+        {
+          titulo: "Camaleón",
+          descripcion:
+            "Usa «efecto color» para que cambie de color al tocarlo.",
+        },
+        {
+          titulo: "Truco de magia",
+          descripcion:
+            "Que aparezca y desaparezca usando «mostrar» y «esconder».",
+        },
       ],
       retos: [
         {
@@ -281,9 +316,20 @@ const periodo1: PeriodoContenido = {
         "Cada niño presenta su personaje favorito a la clase.",
       ),
       ejercicios: [
-        "Elige tu personaje favorito y un fondo bonito.",
-        "Haz que se mueva y se presente al pulsar la bandera.",
-        "Agrégale un truco al hacerle clic.",
+        {
+          titulo: "Elige tu héroe",
+          descripcion:
+            "Escoge tu personaje favorito y un fondo que cuente dónde vive.",
+        },
+        {
+          titulo: "Cobra vida",
+          descripcion: "Al pulsar la bandera, que se mueva y se presente.",
+        },
+        {
+          titulo: "Truco secreto",
+          descripcion:
+            "Agrégale un truco al hacerle clic (cambiar color, sonido o salto).",
+        },
       ],
       retos: [
         {
@@ -351,9 +397,20 @@ const periodo2: PeriodoContenido = {
         "Mostramos nuestras mini escenas.",
       ),
       ejercicios: [
-        "Haz que tu personaje diga «Hola», espere 1 segundo y diga «¿Cómo estás?».",
-        "Cambia el orden de dos bloques y mira qué cambia.",
-        "Usa «pensar» en vez de «decir».",
+        {
+          titulo: "Conversación",
+          descripcion:
+            "Que diga «Hola», espere 1 segundo y luego diga «¿Cómo estás?».",
+        },
+        {
+          titulo: "Detective del orden",
+          descripcion: "Cambia el orden de dos bloques y descubre qué pasa.",
+        },
+        {
+          titulo: "Pienso, luego digo",
+          descripcion:
+            "Usa «pensar» y «decir» para mostrar lo que piensa y lo que dice.",
+        },
       ],
       retos: [
         {
@@ -410,9 +467,20 @@ const periodo2: PeriodoContenido = {
         "Compartimos las animaciones.",
       ),
       ejercicios: [
-        "Elige un sprite que tenga 2 o más disfraces.",
-        "Pon «repetir 10» con «cambiar al siguiente disfraz» y «esperar 0.2 s».",
-        "Pulsa la bandera y mira cómo se anima.",
+        {
+          titulo: "Elige bailarín",
+          descripcion: "Busca un personaje que tenga 2 o más disfraces.",
+        },
+        {
+          titulo: "Cuadro a cuadro",
+          descripcion:
+            "Con «repetir 10», cambia al siguiente disfraz cada 0.2 s para animarlo.",
+        },
+        {
+          titulo: "Control de velocidad",
+          descripcion:
+            "Cambia el «esperar» para que la animación vaya más rápida o más lenta.",
+        },
       ],
       retos: [
         {
@@ -469,9 +537,20 @@ const periodo2: PeriodoContenido = {
         "Galería: votamos la animación más creativa.",
       ),
       ejercicios: [
-        "Usa «deslizar» para mover tu personaje sin saltos.",
-        "Haz que mientras se mueve, también hable.",
-        "Anímalo con disfraces durante el deslizamiento.",
+        {
+          titulo: "Deslízate",
+          descripcion:
+            "Usa «deslizar en 1 s» para que tu personaje se mueva suave, sin saltos.",
+        },
+        {
+          titulo: "Habla y anda",
+          descripcion: "Que hable mientras se desplaza por el escenario.",
+        },
+        {
+          titulo: "Animación al paso",
+          descripcion:
+            "Cambia disfraces mientras se desliza para que parezca que camina.",
+        },
       ],
       retos: [
         {
@@ -532,9 +611,19 @@ const periodo2: PeriodoContenido = {
         "¡Función de cine! Cada quien presenta su historia animada.",
       ),
       ejercicios: [
-        "Elige dos personajes y un fondo para tu historia.",
-        "Haz que conversen por turnos con «decir» y «esperar».",
-        "Anímalos con disfraces mientras hablan.",
+        {
+          titulo: "El reparto",
+          descripcion: "Elige dos personajes y un fondo para tu historia.",
+        },
+        {
+          titulo: "Por turnos",
+          descripcion:
+            "Haz que conversen por turnos usando «decir» y «esperar».",
+        },
+        {
+          titulo: "¡Acción!",
+          descripcion: "Anímalos con disfraces mientras hablan.",
+        },
       ],
       retos: [
         {
@@ -604,9 +693,19 @@ const periodo3: PeriodoContenido = {
         "Mostramos a dónde logramos llevar al personaje.",
       ),
       ejercicios: [
-        "Arrastra tu personaje y observa cómo cambian X e Y.",
-        "Usa «ir a x: 0 y: 0» para llevarlo al centro.",
-        "Llévalo a una esquina con coordenadas grandes (positivas o negativas).",
+        {
+          titulo: "Explorador X-Y",
+          descripcion:
+            "Arrastra tu personaje y observa cómo cambian los números X e Y.",
+        },
+        {
+          titulo: "Al centro",
+          descripcion: "Usa «ir a x: 0 y: 0» para teletransportarlo al centro.",
+        },
+        {
+          titulo: "A la esquina",
+          descripcion: "Llévalo a una esquina usando coordenadas grandes.",
+        },
       ],
       retos: [
         {
@@ -664,9 +763,19 @@ const periodo3: PeriodoContenido = {
         "Compartimos y probamos los controles de los compañeros.",
       ),
       ejercicios: [
-        "Haz «al presionar flecha derecha → sumar 10 a x».",
-        "Agrega la flecha izquierda (sumar -10 a x).",
-        "Agrega arriba y abajo (sumar/restar a y).",
+        {
+          titulo: "Hacia la derecha",
+          descripcion: "Programa «al presionar flecha derecha → sumar 10 a x».",
+        },
+        {
+          titulo: "Izquierda también",
+          descripcion: "Agrega la flecha izquierda (sumar -10 a x).",
+        },
+        {
+          titulo: "Control total",
+          descripcion:
+            "Suma las flechas arriba y abajo para moverte en las 4 direcciones.",
+        },
       ],
       retos: [
         {
@@ -721,9 +830,21 @@ const periodo3: PeriodoContenido = {
         "Galería: mostramos los movimientos más locos.",
       ),
       ejercicios: [
-        "Haz que un personaje se mueva solo y rebote en los bordes.",
-        "Haz que un personaje siga al puntero del ratón.",
-        "Evita que tu personaje teledirigido se salga del escenario.",
+        {
+          titulo: "Pelota rebotona",
+          descripcion:
+            "Haz un personaje que se mueva solo y rebote en los bordes.",
+        },
+        {
+          titulo: "Sígueme",
+          descripcion:
+            "Que un personaje vaya siempre hacia el puntero del ratón.",
+        },
+        {
+          titulo: "Sin escaparse",
+          descripcion:
+            "Evita que tu personaje con flechas se salga de la pantalla.",
+        },
       ],
       retos: [
         {
@@ -784,9 +905,19 @@ const periodo3: PeriodoContenido = {
         "¡Gran carrera! Compiten los proyectos entre compañeros.",
       ),
       ejercicios: [
-        "Coloca dos personajes en la línea de salida (con «ir a x.. y..»).",
-        "Dale a cada uno teclas distintas para moverse.",
-        "Pon una meta y prueba la carrera.",
+        {
+          titulo: "A la salida",
+          descripcion:
+            "Coloca dos personajes en la línea de salida con «ir a x.. y..».",
+        },
+        {
+          titulo: "Dos controles",
+          descripcion: "Dale a cada corredor sus propias teclas para moverse.",
+        },
+        {
+          titulo: "¡Meta!",
+          descripcion: "Pon una meta y prueba quién llega primero.",
+        },
       ],
       retos: [
         {
@@ -856,9 +987,21 @@ const periodo4: PeriodoContenido = {
         "Mostramos nuestras reacciones.",
       ),
       ejercicios: [
-        "Haz «si ¿tocando el puntero? entonces decir ¡Hola!».",
-        "Mete ese «si» dentro de «por siempre» para que vigile siempre.",
-        "Reacciona a la tecla espacio con «si ¿tecla espacio pulsada?».",
+        {
+          titulo: "Me tocaste",
+          descripcion:
+            "Programa «si ¿tocando el puntero? entonces decir ¡Hola!».",
+        },
+        {
+          titulo: "Vigilante",
+          descripcion:
+            "Mete ese «si» dentro de «por siempre» para que vigile todo el tiempo.",
+        },
+        {
+          titulo: "Botón espacio",
+          descripcion:
+            "Haz que reaccione al pulsar la tecla espacio («¿tecla espacio pulsada?»).",
+        },
       ],
       retos: [
         {
@@ -915,9 +1058,19 @@ const periodo4: PeriodoContenido = {
         "Compartimos: jugamos los laberintos de los demás.",
       ),
       ejercicios: [
-        "Dibuja un laberinto sencillo en el fondo.",
-        "Haz que el personaje se mueva con las flechas.",
-        "Usa «si ¿tocando color (pared)? entonces» retroceder un poco.",
+        {
+          titulo: "Dibuja el camino",
+          descripcion: "Pinta un laberinto sencillo en el fondo del escenario.",
+        },
+        {
+          titulo: "A moverse",
+          descripcion: "Controla al personaje con las flechas del teclado.",
+        },
+        {
+          titulo: "Paredes sólidas",
+          descripcion:
+            "«si ¿tocando color (pared)?» retrocede un poco para no atravesarla.",
+        },
       ],
       retos: [
         {
@@ -972,9 +1125,21 @@ const periodo4: PeriodoContenido = {
         "Galería: mostramos las interacciones más ingeniosas.",
       ),
       ejercicios: [
-        "Haz que al tocar una estrella, el personaje diga «¡Punto!».",
-        "Haz que al tocar una trampa, el personaje vuelva al inicio.",
-        "Reacciona distinto al tocar dos objetos diferentes.",
+        {
+          titulo: "¡Punto!",
+          descripcion:
+            "Al tocar una estrella, que el personaje diga «¡Punto!».",
+        },
+        {
+          titulo: "Cuidado, trampa",
+          descripcion:
+            "Al tocar una trampa, que el personaje vuelva al inicio.",
+        },
+        {
+          titulo: "Dos reacciones",
+          descripcion:
+            "Que reaccione distinto al tocar dos objetos diferentes.",
+        },
       ],
       retos: [
         {
@@ -1037,9 +1202,18 @@ const periodo4: PeriodoContenido = {
         "¡Sala de juegos! Cada quien presenta y deja jugar su laberinto.",
       ),
       ejercicios: [
-        "Dibuja el laberinto con su salida y meta.",
-        "Agrega premios que desaparecen al tocarlos.",
-        "Agrega una trampa que devuelve al inicio.",
+        {
+          titulo: "El plano",
+          descripcion: "Dibuja tu laberinto con su salida y su meta.",
+        },
+        {
+          titulo: "Tesoros",
+          descripcion: "Agrega premios que desaparecen al tocarlos.",
+        },
+        {
+          titulo: "Trampa traicionera",
+          descripcion: "Pon una trampa que devuelve al jugador al inicio.",
+        },
       ],
       retos: [
         {
@@ -1106,9 +1280,20 @@ const periodo5: PeriodoContenido = {
         "Mostramos nuestros movimientos repetidos.",
       ),
       ejercicios: [
-        "Haz que el personaje dé 4 pasos grandes usando «repetir 4».",
-        "Usa «por siempre» para que gire sin parar.",
-        "Cambia el número de «repetir» y mira qué pasa.",
+        {
+          titulo: "Cuatro pasotes",
+          descripcion:
+            "Haz que el personaje dé 4 pasos grandes usando «repetir 4».",
+        },
+        {
+          titulo: "Gira sin fin",
+          descripcion: "Usa «por siempre» para que gire sin parar.",
+        },
+        {
+          titulo: "Más o menos",
+          descripcion:
+            "Cambia el número de «repetir» y mira cómo cambia el resultado.",
+        },
       ],
       retos: [
         {
@@ -1165,9 +1350,19 @@ const periodo5: PeriodoContenido = {
         "Compartimos los bailes automáticos.",
       ),
       ejercicios: [
-        "Pon dentro de «por siempre»: cambiar disfraz + esperar.",
-        "Agrega un «girar» para que dé vueltas mientras baila.",
-        "Mueve también al personaje mientras se anima.",
+        {
+          titulo: "Baile en bucle",
+          descripcion: "Dentro de «por siempre»: cambiar disfraz + esperar.",
+        },
+        {
+          titulo: "Da vueltas",
+          descripcion: "Agrega un «girar» para que dé vueltas mientras baila.",
+        },
+        {
+          titulo: "Baila y avanza",
+          descripcion:
+            "Que también se mueva por el escenario mientras se anima.",
+        },
       ],
       retos: [
         {
@@ -1223,9 +1418,19 @@ const periodo5: PeriodoContenido = {
         "Galería: exponemos nuestros dibujos de patrones.",
       ),
       ejercicios: [
-        "Usa «bajar lápiz» y «repetir 4» con «mover» y «girar 90» para un cuadrado.",
-        "Cambia el giro a 72 para dibujar una estrella.",
-        "Cambia el color del lápiz en cada vuelta.",
+        {
+          titulo: "Cuadrado mágico",
+          descripcion:
+            "Con «bajar lápiz» y «repetir 4» (mover + girar 90) dibuja un cuadrado.",
+        },
+        {
+          titulo: "Estrella",
+          descripcion: "Cambia el giro a 72 para que salga una estrella.",
+        },
+        {
+          titulo: "Arcoíris",
+          descripcion: "Cambia el color del lápiz en cada vuelta del dibujo.",
+        },
       ],
       retos: [
         {
@@ -1287,9 +1492,19 @@ const periodo5: PeriodoContenido = {
         "¡Concurso de baile! Presentamos los robots bailarines.",
       ),
       ejercicios: [
-        "Elige un robot (o crea su disfraz) y un fondo.",
-        "Programa su baile dentro de un bucle.",
-        "Decora el fondo con un patrón hecho con bucles.",
+        {
+          titulo: "Tu robot",
+          descripcion:
+            "Elige (o dibuja) un robot y ponle un fondo para su show.",
+        },
+        {
+          titulo: "La coreografía",
+          descripcion: "Programa su baile dentro de un bucle.",
+        },
+        {
+          titulo: "Pista decorada",
+          descripcion: "Decora el fondo con un patrón hecho con bucles.",
+        },
       ],
       retos: [
         {
@@ -1358,9 +1573,19 @@ const periodo6: PeriodoContenido = {
         "Mostramos nuestros marcadores.",
       ),
       ejercicios: [
-        "Crea la variable «puntos» y que aparezca en el escenario.",
-        "Pon «fijar puntos a 0» al pulsar la bandera.",
-        "Haz que al hacer clic en un objeto, «sumar 1 a puntos».",
+        {
+          titulo: "Crea «puntos»",
+          descripcion:
+            "Crea la variable «puntos» y haz que aparezca en el escenario.",
+        },
+        {
+          titulo: "Empieza en 0",
+          descripcion: "Pon «fijar puntos a 0» al pulsar la bandera verde.",
+        },
+        {
+          titulo: "Clic = punto",
+          descripcion: "Al hacer clic en un objeto, «sumar 1 a puntos».",
+        },
       ],
       retos: [
         {
@@ -1415,9 +1640,18 @@ const periodo6: PeriodoContenido = {
         "Compartimos y jugamos.",
       ),
       ejercicios: [
-        "Crea la variable «vidas» y empiézala en 3.",
-        "Haz que al fallar, «restar 1 a vidas».",
-        "Cuando vidas = 0, muestra «Fin del juego».",
+        {
+          titulo: "Tres vidas",
+          descripcion: "Crea la variable «vidas» y empiézala en 3.",
+        },
+        {
+          titulo: "¡Ay, fallaste!",
+          descripcion: "Haz que al fallar se «reste 1 a vidas».",
+        },
+        {
+          titulo: "Game over",
+          descripcion: "Cuando vidas = 0, muestra el mensaje «Fin del juego».",
+        },
       ],
       retos: [
         {
@@ -1472,9 +1706,19 @@ const periodo6: PeriodoContenido = {
         "Galería: comparamos récords de la clase.",
       ),
       ejercicios: [
-        "Muestra el «cronómetro» en pantalla y reinícialo al empezar.",
-        "Crea una cuenta regresiva de 30 a 0 con una variable.",
-        "Guarda en una variable «récord» el mejor puntaje.",
+        {
+          titulo: "Contrarreloj",
+          descripcion:
+            "Muestra el «cronómetro» en pantalla y reinícialo al empezar.",
+        },
+        {
+          titulo: "Cuenta atrás",
+          descripcion: "Crea una cuenta regresiva de 30 a 0 con una variable.",
+        },
+        {
+          titulo: "Récord",
+          descripcion: "Guarda el mejor puntaje en una variable «récord».",
+        },
       ],
       retos: [
         {
@@ -1534,9 +1778,18 @@ const periodo6: PeriodoContenido = {
         "¡Sala de arcade! Presentamos y jugamos los juegos.",
       ),
       ejercicios: [
-        "Crea una canasta que muevas a izquierda y derecha.",
-        "Haz que un objeto caiga desde arriba.",
-        "Suma puntos al atrapar y resta vidas al dejarlo caer.",
+        {
+          titulo: "La canasta",
+          descripcion: "Crea una canasta que muevas a izquierda y derecha.",
+        },
+        {
+          titulo: "Lluvia",
+          descripcion: "Haz que un objeto caiga desde arriba del escenario.",
+        },
+        {
+          titulo: "Puntos y vidas",
+          descripcion: "Suma puntos al atrapar y resta vidas al dejarlo caer.",
+        },
       ],
       retos: [
         {
@@ -1605,9 +1858,18 @@ const periodo7: PeriodoContenido = {
         "Mostramos (¡y escuchamos!) nuestros objetos sonoros.",
       ),
       ejercicios: [
-        "Elige un sonido de la biblioteca para tu personaje.",
-        "Haz que suene al hacer clic en él.",
-        "Agrega un segundo objeto con otro sonido.",
+        {
+          titulo: "Elige un sonido",
+          descripcion: "Escoge un sonido de la biblioteca para tu personaje.",
+        },
+        {
+          titulo: "Clic sonoro",
+          descripcion: "Haz que suene al hacer clic en él.",
+        },
+        {
+          titulo: "Dúo de sonidos",
+          descripcion: "Agrega un segundo objeto con un sonido distinto.",
+        },
       ],
       retos: [
         {
@@ -1663,9 +1925,19 @@ const periodo7: PeriodoContenido = {
         "Compartimos las escenas ambientadas.",
       ),
       ejercicios: [
-        "Pon una música de fondo que se repita.",
-        "Cambia el fondo del escenario a otro.",
-        "Aplica un «efecto color» o «efecto fantasma» a tu personaje.",
+        {
+          titulo: "Música sin fin",
+          descripcion: "Pon una música de fondo que se repita en bucle.",
+        },
+        {
+          titulo: "Cambia el lugar",
+          descripcion: "Cambia el fondo del escenario a otro distinto.",
+        },
+        {
+          titulo: "Luces",
+          descripcion:
+            "Aplica «efecto color» o «efecto fantasma» a tu personaje.",
+        },
       ],
       retos: [
         {
@@ -1721,9 +1993,19 @@ const periodo7: PeriodoContenido = {
         "Galería: presentamos nuestros números sincronizados.",
       ),
       ejercicios: [
-        "Usa «enviar mensaje» y que otro sprite reaccione con «al recibir».",
-        "Haz que un personaje baile mientras suena la música.",
-        "Sincroniza dos personajes con un mismo mensaje.",
+        {
+          titulo: "Mensajero",
+          descripcion:
+            "Usa «enviar mensaje» y que otro sprite reaccione con «al recibir».",
+        },
+        {
+          titulo: "Música + baile",
+          descripcion: "Haz que un personaje baile mientras suena la música.",
+        },
+        {
+          titulo: "A la vez",
+          descripcion: "Sincroniza dos personajes con un mismo mensaje.",
+        },
       ],
       retos: [
         {
@@ -1785,9 +2067,18 @@ const periodo7: PeriodoContenido = {
         "¡Gran concierto! Cada quien presenta su espectáculo interactivo.",
       ),
       ejercicios: [
-        "Crea instrumentos que suenen al hacerles clic.",
-        "Agrega músicos que se animen.",
-        "Pon luces (efectos) que cambien con la música.",
+        {
+          titulo: "Instrumentos",
+          descripcion: "Crea instrumentos que suenen al hacerles clic.",
+        },
+        {
+          titulo: "La banda",
+          descripcion: "Agrega músicos que se animen mientras tocan.",
+        },
+        {
+          titulo: "Show de luces",
+          descripcion: "Pon luces (efectos) que cambien con la música.",
+        },
       ],
       retos: [
         {
@@ -1855,9 +2146,18 @@ const periodo8: PeriodoContenido = {
         "Mostramos nuestros inicios de juego.",
       ),
       ejercicios: [
-        "Crea un héroe que se mueve con las flechas.",
-        "Agrega un objeto a recoger que suma puntos.",
-        "Escribe (en «decir») cuál es el objetivo del juego.",
+        {
+          titulo: "El héroe",
+          descripcion: "Crea un héroe que se mueve con las flechas.",
+        },
+        {
+          titulo: "A recoger",
+          descripcion: "Agrega un objeto que suma puntos al recogerlo.",
+        },
+        {
+          titulo: "La misión",
+          descripcion: "Que el juego «diga» cuál es el objetivo al empezar.",
+        },
       ],
       retos: [
         {
@@ -1912,9 +2212,18 @@ const periodo8: PeriodoContenido = {
         "Compartimos y jugamos los juegos.",
       ),
       ejercicios: [
-        "Haz que el objeto reaparezca en otro lugar al recogerlo.",
-        "Agrega un enemigo que quita una vida al tocarte.",
-        "Muestra puntos y vidas en pantalla.",
+        {
+          titulo: "Reaparece",
+          descripcion: "Que el objeto reaparezca en otro lugar al recogerlo.",
+        },
+        {
+          titulo: "¡Peligro!",
+          descripcion: "Agrega un enemigo que quita una vida al tocarte.",
+        },
+        {
+          titulo: "Marcador",
+          descripcion: "Muestra los puntos y las vidas en pantalla.",
+        },
       ],
       retos: [
         {
@@ -1971,9 +2280,18 @@ const periodo8: PeriodoContenido = {
         "Galería: probamos los juegos y damos ideas.",
       ),
       ejercicios: [
-        "Haz que al llegar a 10 puntos aparezca «¡Ganaste!».",
-        "Haz que al quedarte sin vidas aparezca «Fin del juego».",
-        "Detén el juego cuando termina (ganar o perder).",
+        {
+          titulo: "¡Ganaste!",
+          descripcion: "Al llegar a 10 puntos, muestra el mensaje «¡Ganaste!».",
+        },
+        {
+          titulo: "Fin del juego",
+          descripcion: "Al quedarte sin vidas, muestra «Fin del juego».",
+        },
+        {
+          titulo: "Punto final",
+          descripcion: "Detén el juego cuando termina (al ganar o al perder).",
+        },
       ],
       retos: [
         {
@@ -2033,9 +2351,19 @@ const periodo8: PeriodoContenido = {
         "¡Feria de videojuegos! Presentamos y jugamos los juegos.",
       ),
       ejercicios: [
-        "Arma el héroe, los objetos y los enemigos.",
-        "Agrega puntos, vidas y condiciones de ganar/perder.",
-        "Pon un mensaje de inicio que explique el objetivo.",
+        {
+          titulo: "Arma el juego",
+          descripcion:
+            "Junta el héroe, los objetos y los enemigos en el escenario.",
+        },
+        {
+          titulo: "Reglas claras",
+          descripcion: "Agrega puntos, vidas y condiciones de ganar/perder.",
+        },
+        {
+          titulo: "Cómo jugar",
+          descripcion: "Pon un mensaje de inicio que explique el objetivo.",
+        },
       ],
       retos: [
         {
@@ -2104,9 +2432,18 @@ const periodo9: PeriodoContenido = {
         "Compartimos las ideas de juego.",
       ),
       ejercicios: [
-        "Escribe el nombre y el objetivo de tu juego.",
-        "Dibuja a tu héroe y a un enemigo.",
-        "Escribe 2 reglas (qué suma puntos, cómo se gana).",
+        {
+          titulo: "La idea",
+          descripcion: "Escribe el nombre y el objetivo de tu juego.",
+        },
+        {
+          titulo: "Héroe y villano",
+          descripcion: "Dibuja a tu héroe y a un enemigo.",
+        },
+        {
+          titulo: "Dos reglas",
+          descripcion: "Escribe 2 reglas: qué suma puntos y cómo se gana.",
+        },
       ],
       retos: [
         {
@@ -2162,9 +2499,18 @@ const periodo9: PeriodoContenido = {
         "Compartimos los diseños.",
       ),
       ejercicios: [
-        "Edita el disfraz de tu héroe a tu gusto.",
-        "Diseña o elige el fondo de tu primer nivel.",
-        "Crea un disfraz extra (por ejemplo, héroe «dañado»).",
+        {
+          titulo: "Héroe con estilo",
+          descripcion: "Edita el disfraz de tu héroe a tu gusto.",
+        },
+        {
+          titulo: "El escenario",
+          descripcion: "Diseña o elige el fondo de tu primer nivel.",
+        },
+        {
+          titulo: "Disfraz extra",
+          descripcion: "Crea un disfraz más (por ejemplo, el héroe «dañado»).",
+        },
       ],
       retos: [
         {
@@ -2219,9 +2565,18 @@ const periodo9: PeriodoContenido = {
         "Galería: probamos las mecánicas de los compañeros y damos ideas.",
       ),
       ejercicios: [
-        "Agrega un power-up que dé un poder al recogerlo.",
-        "Haz que el juego cambie al pasar de nivel.",
-        "Prueba tu juego y anota qué mejorar.",
+        {
+          titulo: "Power-up",
+          descripcion: "Agrega un objeto que te dé un poder al recogerlo.",
+        },
+        {
+          titulo: "Sube de nivel",
+          descripcion: "Haz que el juego cambie al pasar de nivel.",
+        },
+        {
+          titulo: "Prueba y anota",
+          descripcion: "Juega tu propio juego y anota qué puedes mejorar.",
+        },
       ],
       retos: [
         {
@@ -2282,9 +2637,18 @@ const periodo9: PeriodoContenido = {
         "¡Estudio de juegos! Presenta tu videojuego original y explica tus ideas.",
       ),
       ejercicios: [
-        "Programa tu héroe y su nivel.",
-        "Agrega reglas, puntos y una mecánica especial.",
-        "Pon un inicio que explique el juego y un final.",
+        {
+          titulo: "Héroe y nivel",
+          descripcion: "Programa tu héroe y su primer nivel.",
+        },
+        {
+          titulo: "Tus reglas",
+          descripcion: "Agrega reglas, puntos y una mecánica especial.",
+        },
+        {
+          titulo: "Inicio y final",
+          descripcion: "Pon un inicio que explique el juego y un final.",
+        },
       ],
       retos: [
         {
@@ -2352,9 +2716,19 @@ const periodo10: PeriodoContenido = {
         "Compartimos los planes.",
       ),
       ejercicios: [
-        "Decide si harás un videojuego o una historia interactiva.",
-        "Escribe el objetivo y los personajes principales.",
-        "Haz una lista de lo que necesitas programar.",
+        {
+          titulo: "Juego o historia",
+          descripcion:
+            "Decide si harás un videojuego o una historia interactiva.",
+        },
+        {
+          titulo: "Lo importante",
+          descripcion: "Escribe el objetivo y los personajes principales.",
+        },
+        {
+          titulo: "Lista de tareas",
+          descripcion: "Haz una lista de lo que necesitas programar.",
+        },
       ],
       retos: [
         {
@@ -2410,9 +2784,18 @@ const periodo10: PeriodoContenido = {
         "Punto de control: ¿qué parte ya funciona?",
       ),
       ejercicios: [
-        "Programa la parte principal de tu proyecto.",
-        "Pruébala y corrige antes de seguir.",
-        "Guarda tu avance.",
+        {
+          titulo: "Lo principal",
+          descripcion: "Programa la parte más importante de tu proyecto.",
+        },
+        {
+          titulo: "Prueba ya",
+          descripcion: "Pruébala y corrige los errores antes de seguir.",
+        },
+        {
+          titulo: "Guarda",
+          descripcion: "Guarda tu avance para no perderlo.",
+        },
       ],
       retos: [
         {
@@ -2468,9 +2851,18 @@ const periodo10: PeriodoContenido = {
         "Galería: aplicamos mejoras según lo aprendido.",
       ),
       ejercicios: [
-        "Pide a un compañero que pruebe tu proyecto.",
-        "Anota 3 cosas para mejorar.",
-        "Arregla al menos un error que hayas encontrado.",
+        {
+          titulo: "Jugador invitado",
+          descripcion: "Pide a un compañero que pruebe tu proyecto.",
+        },
+        {
+          titulo: "Lista de mejoras",
+          descripcion: "Anota 3 cosas que puedes mejorar.",
+        },
+        {
+          titulo: "Cazabugs",
+          descripcion: "Arregla al menos un error que hayas encontrado.",
+        },
       ],
       retos: [
         {
@@ -2527,9 +2919,18 @@ const periodo10: PeriodoContenido = {
         "¡Gran cierre! Comentarios positivos y entrega de la insignia final.",
       ),
       ejercicios: [
-        "Prepara una demo corta de tu proyecto.",
-        "Explica qué parte te costó más y cómo la resolviste.",
-        "Anota una mejora futura para tu proyecto.",
+        {
+          titulo: "Tu demo",
+          descripcion: "Prepara una demostración corta de tu proyecto.",
+        },
+        {
+          titulo: "Tu historia",
+          descripcion: "Explica qué parte te costó más y cómo la resolviste.",
+        },
+        {
+          titulo: "Próxima versión",
+          descripcion: "Anota una mejora futura para tu proyecto.",
+        },
       ],
       retos: [
         {
