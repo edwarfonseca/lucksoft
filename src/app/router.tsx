@@ -14,6 +14,7 @@ import { WebEditorPage } from "@/features/courses/WebEditorPage";
 import { ScratchEditorPage } from "@/features/courses/ScratchEditorPage";
 import { GradesPage } from "@/features/grades/GradesPage";
 import { GradingPage } from "@/features/grading/GradingPage";
+import { PetPage } from "@/features/pets/PetPage";
 import { AdminPage } from "@/features/admin/AdminPage";
 
 /**
@@ -62,6 +63,14 @@ export const router = createBrowserRouter([
         element: (
           <RequireRole role="estudiante">
             <GradesPage />
+          </RequireRole>
+        ),
+      },
+      {
+        path: "/mascota",
+        element: (
+          <RequireRole role="estudiante">
+            <PetPage />
           </RequireRole>
         ),
       },

@@ -2,12 +2,15 @@ import type { AuthService } from "@/domain/ports/AuthService";
 import type { SubmissionRepository } from "@/domain/ports/SubmissionRepository";
 import type { AdminService } from "@/domain/ports/AdminService";
 import type { EnrollmentService } from "@/domain/ports/EnrollmentService";
+import type { PetService } from "@/domain/ports/PetService";
 import { LocalAuthService } from "@/infrastructure/local/LocalAuthService";
 import { LocalSubmissionRepository } from "@/infrastructure/local/LocalSubmissionRepository";
+import { LocalPetService } from "@/infrastructure/local/LocalPetService";
 import { SupabaseAuthService } from "@/infrastructure/supabase/SupabaseAuthService";
 import { SupabaseSubmissionRepository } from "@/infrastructure/supabase/SupabaseSubmissionRepository";
 import { SupabaseAdminService } from "@/infrastructure/supabase/SupabaseAdminService";
 import { SupabaseEnrollmentService } from "@/infrastructure/supabase/SupabaseEnrollmentService";
+import { SupabasePetService } from "@/infrastructure/supabase/SupabasePetService";
 import { isSupabaseConfigured } from "@/infrastructure/supabase/client";
 
 /**
@@ -37,3 +40,9 @@ export const adminService: AdminService | null = usingSupabase
 export const enrollmentService: EnrollmentService | null = usingSupabase
   ? new SupabaseEnrollmentService()
   : null;
+
+// La mascota virtual del estudiante: energía por progreso, monedas por notas.
+// Con Supabase se calcula en el servidor; en modo local se simula en el navegador.
+export const petService: PetService = usingSupabase
+  ? new SupabasePetService()
+  : new LocalPetService();
