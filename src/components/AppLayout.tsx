@@ -6,7 +6,10 @@ import { ClassHeaderButton } from "@/features/courses/ClassHeaderButton";
 function navLinksFor(role: string) {
   if (role === "admin") return [{ to: "/admin", label: "Administración" }];
   const links = [{ to: "/cursos", label: "Cursos" }];
-  if (role === "estudiante") links.push({ to: "/notas", label: "Mis notas" });
+  if (role === "estudiante") {
+    links.push({ to: "/mascota", label: "Mascota" });
+    links.push({ to: "/notas", label: "Mis notas" });
+  }
   if (role === "docente") links.push({ to: "/calificar", label: "Calificar" });
   return links;
 }

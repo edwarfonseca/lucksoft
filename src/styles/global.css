@@ -1182,3 +1182,195 @@ a:hover {
     margin-left: 0;
   }
 }
+
+/* ─────────────────────────────────────────────────────────────
+   Mascota virtual (tamagotchi). El color (--pet-color) lo fija el estado.
+   ───────────────────────────────────────────────────────────── */
+.pet-page .lead {
+  max-width: 640px;
+}
+.pet-feliz {
+  --pet-color: #2ecc71;
+}
+.pet-hambre {
+  --pet-color: #f1c40f;
+}
+.pet-critica {
+  --pet-color: #e67e22;
+}
+.pet-muerta {
+  --pet-color: #e74c3c;
+}
+
+.pet-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--pet-color, var(--brand));
+  border-radius: 16px;
+  padding: 20px 24px;
+  margin: 16px 0 28px;
+}
+
+.pet-stage {
+  flex: 0 0 200px;
+  width: 200px;
+  height: 200px;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(
+    circle at 50% 45%,
+    color-mix(in srgb, var(--pet-color, var(--brand)) 22%, transparent),
+    transparent 70%
+  );
+  border-radius: 20px;
+}
+.pet-anim {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: transparent;
+}
+.pet-emoji {
+  font-size: 110px;
+  line-height: 1;
+  animation: pet-bob 2.4s ease-in-out infinite;
+}
+.pet-muerta .pet-emoji {
+  animation: none;
+  filter: grayscale(0.6);
+  opacity: 0.85;
+}
+@keyframes pet-bob {
+  0%,
+  100% {
+    transform: translateY(0) rotate(-2deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+}
+
+.pet-info {
+  flex: 1 1 260px;
+  min-width: 240px;
+}
+.pet-name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.pet-name {
+  margin: 0;
+  font-size: 24px;
+}
+.pet-name-input {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  font-size: 16px;
+}
+.pet-estado {
+  font-size: 13px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+  color: #0c0e14;
+  background: var(--pet-color, var(--brand));
+}
+.pet-mensaje {
+  margin: 8px 0 14px;
+  color: var(--muted);
+}
+
+.pet-bar {
+  position: relative;
+  height: 26px;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+}
+.pet-bar-fill {
+  height: 100%;
+  background: var(--pet-color, var(--brand));
+  transition: width 0.4s ease;
+}
+.pet-bar-text {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+.pet-monedas {
+  margin: 12px 0 0;
+  font-size: 18px;
+}
+
+.pet-tienda-titulo {
+  font-size: 20px;
+  margin: 4px 0 12px;
+}
+.pet-aviso {
+  margin: 0 0 12px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--brand) 18%, transparent);
+  border: 1px solid var(--border);
+}
+.pet-tienda {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 14px;
+}
+.pet-comida {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px 10px;
+}
+.pet-comida-emoji {
+  font-size: 44px;
+  line-height: 1;
+}
+.pet-comida-nombre {
+  font-weight: 600;
+}
+.pet-comida-energia {
+  font-size: 13px;
+  color: var(--muted);
+}
+.btn-sm {
+  padding: 5px 12px;
+  font-size: 13px;
+}
+.pet-pie {
+  margin-top: 22px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+@media (max-width: 640px) {
+  .pet-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 18px;
+  }
+  .pet-name-row {
+    justify-content: center;
+  }
+}
