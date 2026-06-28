@@ -645,6 +645,51 @@ a:hover {
   background: white;
 }
 
+/* Editor con paneles de alto ajustable (Diseño Web): el alto lo fija el inline
+   style desde React, no la altura calculada por defecto. */
+.editor-body--resizable {
+  height: auto;
+  min-height: 0;
+}
+/* Editor de pestañas (Diseño Web): el editor activo llena todo el panel de
+   código, sin importar cuántas líneas tenga. Se ocultan los inactivos por clase
+   (no inline) para poder usar flexbox y que CodeMirror herede la altura. */
+.code-pane--tabs .editor-host {
+  flex: 1;
+  min-height: 0;
+}
+.code-pane--tabs .editor-host.is-hidden {
+  display: none;
+}
+/* El contenedor que crea react-codemirror (.cm-theme) debe ocupar todo el alto
+   para que el `.cm-editor` (height: 100%) se estire en lugar de medir su texto. */
+.code-pane--tabs .editor-host > * {
+  height: 100%;
+}
+/* Barra inferior del panel de código para arrastrar y cambiar su alto. */
+.pane-resizer {
+  flex: 0 0 10px;
+  height: 10px;
+  cursor: ns-resize;
+  background: var(--border);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+.pane-resizer::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--muted);
+}
+.pane-resizer:hover {
+  background: var(--brand);
+}
+
 /* ---- Panel de tareas ---- */
 .task-pane {
   width: 300px;

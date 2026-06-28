@@ -2,8 +2,14 @@ import { escapeHtml } from "@/lib/html";
 import type { Assignment, Difficulty } from "@/domain/models/course";
 import type { Nivel, SesionContenido } from "@/domain/models/curriculum";
 import { ejercicioPartes } from "@/domain/models/curriculum";
+import type { WebProject } from "@/domain/models/submission";
 import type { PythonAssignment } from "@/courses/python";
+import type { WebAssignment } from "@/courses/web";
 import { misionScaffolds, retoScaffolds } from "@/courses/python/scaffolds";
+import {
+  misionScaffolds as webMisionScaffolds,
+  retoScaffolds as webRetoScaffolds,
+} from "@/courses/web/scaffolds";
 
 /**
  * Convierte una sesión del currículo en una lista de tareas seleccionables para
@@ -85,6 +91,72 @@ export function lessonAssignments(
       esMision && andamiajeMision
         ? andamiajeMision
         : `# ${s.cierre.titulo}\n\n`,
+  });
+
+  return tasks;
+}
+
+/**
+ * Versión web de `lessonAssignments`: convierte una sesión del currículo en
+ * tareas para el editor de Diseño Web. Cada tarea trae un proyecto base
+ * `{html, css, js}` que el botón «Cargar código base» vuelca en los tres
+ * editores. Las actividades largas (misiones y algunos retos) traen un andamiaje
+ * con comentarios TODO (ver `courses/web/scaffolds.ts`); las cortas, un esqueleto
+ * mínimo con el enunciado como comentario HTML.
+ */
+function webBase(titulo: string, descripcion: string): WebProject {
+  const linea = titulo ? `${titulo}: ${descripcion}` : descripcion;
+  return { html: `<!-- ${linea} -->\n`, css: "", js: "" };
+}
+
+export function lessonWebAssignments(
+  periodo: number,
+  sesion: number,
+  s: SesionContenido,
+): WebAssignment[] {
+  const prefix = `p${periodo}s${sesion}`;
+  const tasks: WebAssignment[] = [];
+
+  s.ejercicios.forEach((e, i) => {
+    const { titulo, descripcion } = ejercicioPartes(e);
+    tasks.push({
+      id: `${prefix}-ej${i + 1}`,
+      titulo: `✍️ Ejercicio ${i + 1}${titulo ? ": " + titulo : ""}`,
+      dificultad: "facil",
+      enunciado: enunciado(descripcion, 8),
+      base: webBase(
+        `Ejercicio ${i + 1}${titulo ? ": " + titulo : ""}`,
+        descripcion,
+      ),
+    });
+  });
+
+  s.retos.forEach((r, i) => {
+    const id = `${prefix}-reto${i + 1}`;
+    const andamiaje = webRetoScaffolds[id];
+    tasks.push({
+      id,
+      titulo: `🏅 Reto ${i + 1}: ${r.titulo}`,
+      dificultad: NIVEL_DIF[r.nivel],
+      enunciado: enunciado(r.consigna, 10, { conAndamiaje: !!andamiaje }),
+      base: andamiaje ?? webBase(`Reto: ${r.titulo}`, r.consigna),
+    });
+  });
+
+  const esMision = s.tipo === "mision";
+  const andamiajeMision = webMisionScaffolds[periodo];
+  tasks.push({
+    id: `${prefix}-mision`,
+    titulo: `${esMision ? "🚀" : "🎯"} ${s.cierre.titulo}`,
+    dificultad: NIVEL_DIF[s.nivel],
+    enunciado: enunciado(s.cierre.descripcion, esMision ? 35 : 15, {
+      intro: `<strong>🎯 ${escapeHtml(s.objetivo)}</strong>`,
+      conAndamiaje: esMision && !!andamiajeMision,
+    }),
+    base:
+      esMision && andamiajeMision
+        ? andamiajeMision
+        : webBase("", s.cierre.titulo),
   });
 
   return tasks;
