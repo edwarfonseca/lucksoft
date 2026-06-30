@@ -5,6 +5,7 @@ import {
   estadoMascota,
   puedeComprar,
   type Comida,
+  type EstadoMascotaKey,
   type Mascota,
 } from "@/domain/models/pet";
 import { petService } from "@/app/services";
@@ -16,12 +17,17 @@ import {
 } from "@/application/pet";
 
 /**
- * Cuando tengas la animación HTML de la mascota (igual que
- * `public/characters/saludo.html` del login), súbela a `public/pets/` y pon aquí
- * su ruta (p. ej. "/pets/mascota.html"). Mientras sea null se muestra una mascota
- * de emoji grande que cambia según el hambre, así la página ya funciona.
+ * Animación HTML de la mascota por estado. Cada una es un archivo autocontenido
+ * en `public/pets/` (igual que `public/characters/saludo.html` del login) que se
+ * incrusta en un iframe. Las claves son los estados de la mascota y el valor es
+ * la ruta del archivo. Si pones `null` en alguno, ese estado vuelve al emoji.
  */
-const MASCOTA_ANIMACION: string | null = null;
+const ANIMACIONES_MASCOTA: Record<EstadoMascotaKey, string | null> = {
+  feliz: "/pets/feliz.html", // 67–100% de energía
+  hambre: "/pets/quiere-comer.html", // 34–66%
+  critica: "/pets/mucha-hambre.html", // 1–33%
+  muerta: "/pets/murio.html", // 0%
+};
 
 /** "Mascota": tamagotchi del estudiante + tienda de comida. */
 export function PetPage() {
@@ -113,11 +119,12 @@ export function PetPage() {
 
       <div className={"pet-card " + estado.clase}>
         <div className="pet-stage">
-          {MASCOTA_ANIMACION ? (
+          {ANIMACIONES_MASCOTA[estado.key] ? (
             <iframe
+              key={estado.key}
               className="pet-anim"
-              src={MASCOTA_ANIMACION}
-              title={`Mascota ${mascota.nombre}`}
+              src={ANIMACIONES_MASCOTA[estado.key]!}
+              title={`Mascota ${mascota.nombre} (${estado.label})`}
             />
           ) : (
             <div className="pet-emoji" aria-hidden="true">
