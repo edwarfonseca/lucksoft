@@ -179,9 +179,11 @@ begin
     raise exception 'Monedas insuficientes';
   end if;
 
+  -- Calificamos las columnas con la tabla: 'energia' también es una columna de
+  -- salida (RETURNS TABLE) y sin calificar sería ambigua.
   update public.mascotas
-     set energia          = least(100, energia + v_energia),
-         monedas_gastadas = monedas_gastadas + v_costo,
+     set energia          = least(100, mascotas.energia + v_energia),
+         monedas_gastadas = mascotas.monedas_gastadas + v_costo,
          updated_at       = now()
    where estudiante_id = auth.uid();
 
