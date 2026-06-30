@@ -13,6 +13,8 @@ import {
   type UpdateHorarioInput,
 } from "@/domain/models/horario";
 import type { AdminService } from "@/domain/ports/AdminService";
+import { courseKindSchema } from "@/domain/models/course";
+import type { GrupoEntregas } from "@/domain/models/stats";
 import { LECCIONES_TOTAL } from "@/domain/models/lessons";
 import { getSupabaseClient } from "./client";
 
@@ -284,5 +286,37 @@ export class SupabaseAdminService implements AdminService {
     );
     if (error) throw new Error(error.message);
     return (data as number | null) ?? 0;
+  }
+
+  async getGroupSubmissionStats(): Promise<GrupoEntregas[]> {
+    const { data, error } = await this.supabase.rpc("admin_entregas_por_grupo");
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as {
+      horario_id: string;
+      curso: string;
+      grupo: number;
+      docente: string | null;
+      estudiantes: number;
+      entregas: number;
+      lecciones: number;
+      esperadas: number;
+    }[];
+    return rows.flatMap((r) => {
+      const curso = courseKindSchema.safeParse(r.curso);
+      return curso.success
+        ? [
+            {
+              horarioId: r.horario_id,
+              curso: curso.data,
+              grupo: r.grupo,
+              docente: r.docente ?? "",
+              estudiantes: r.estudiantes,
+              entregas: r.entregas,
+              lecciones: r.lecciones,
+              esperadas: r.esperadas,
+            },
+          ]
+        : [];
+    });
   }
 }

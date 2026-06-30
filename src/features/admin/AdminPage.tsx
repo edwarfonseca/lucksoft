@@ -6,6 +6,7 @@ import { deleteUser, listProfiles } from "@/application/manageUsers";
 import { listHorarios } from "@/application/manageHorarios";
 import { UserForm } from "@/features/admin/UserForm";
 import { HorariosPanel } from "@/features/admin/HorariosPanel";
+import { StatsPanel } from "@/features/admin/StatsPanel";
 
 const ROLE_LABEL: Record<string, string> = {
   docente: "Docente",
@@ -13,7 +14,7 @@ const ROLE_LABEL: Record<string, string> = {
   admin: "Admin",
 };
 
-type Tab = "usuarios" | "horarios";
+type Tab = "usuarios" | "horarios" | "estadisticas";
 
 /** Panel de administración: gestiona estudiantes, docentes y horarios. */
 export function AdminPage() {
@@ -55,12 +56,22 @@ function AdminPanel() {
         >
           Horarios
         </button>
+        <button
+          role="tab"
+          aria-selected={tab === "estadisticas"}
+          className={`tab ${tab === "estadisticas" ? "active" : ""}`}
+          onClick={() => setTab("estadisticas")}
+        >
+          Estadísticas
+        </button>
       </div>
 
       {tab === "usuarios" ? (
         <UsuariosPanel service={service} />
-      ) : (
+      ) : tab === "horarios" ? (
         <HorariosPanel service={service} />
+      ) : (
+        <StatsPanel service={service} />
       )}
     </div>
   );

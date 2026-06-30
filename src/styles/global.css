@@ -102,6 +102,144 @@ a:hover {
   color: #ffab19;
 }
 
+/* Menú de usuario (avatar + nombre + desplegable) de la barra superior. */
+.user-menu {
+  position: relative;
+}
+.user-menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 4px 10px 4px 4px;
+  color: var(--text);
+  cursor: pointer;
+}
+.user-menu-btn:hover {
+  border-color: var(--brand);
+}
+.avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+.user-menu-name {
+  font-size: 14px;
+  max-width: 160px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.user-menu-caret {
+  color: var(--muted);
+  font-size: 11px;
+}
+.user-menu-dropdown {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 8px);
+  min-width: 230px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+  padding: 8px;
+  z-index: 60;
+}
+.user-menu-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+}
+.user-menu-info .meta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: flex-start;
+}
+.user-menu-info .nm {
+  font-weight: 600;
+}
+.user-menu-sep {
+  height: 1px;
+  background: var(--border);
+  margin: 6px 0;
+}
+.user-menu-item {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: 0;
+  color: var(--text);
+  padding: 9px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: left;
+}
+.user-menu-item:hover {
+  background: var(--bg);
+}
+.user-menu-item.danger {
+  color: #ff6b6b;
+}
+/* El avatar con foto recorta la imagen al círculo. */
+.avatar-img {
+  object-fit: cover;
+}
+
+/* Mi perfil. */
+.profile-page {
+  max-width: 520px;
+}
+.profile-avatar {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin: 18px 0 24px;
+}
+.profile-avatar .btn {
+  margin: 0 8px 0 0;
+}
+.profile-hint {
+  font-size: 12px;
+  margin-top: 6px;
+}
+.profile-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 18px;
+  font-size: 14px;
+  color: var(--muted);
+}
+.profile-field input {
+  background: var(--bg);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 12px;
+  font-size: 15px;
+}
+.profile-field input:disabled {
+  opacity: 0.6;
+}
+.ok-msg {
+  color: #57d9a3;
+  margin: 4px 0 12px;
+}
+
 .page {
   max-width: 960px;
   margin: 0 auto;
@@ -379,6 +517,18 @@ a:hover {
 }
 
 /* ---- Tarjetas de notas / calificación ---- */
+/* Enlace "← Mis cursos" para volver del detalle de calificación al listado. */
+.back-link {
+  display: inline-block;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+.back-link:hover {
+  color: var(--text);
+}
+
 .grade-card {
   background: var(--surface);
   border: 1px solid var(--border);
@@ -807,6 +957,75 @@ a:hover {
   justify-content: space-between;
   gap: 16px;
   flex-wrap: wrap;
+}
+/* Modal (ventana emergente propia, en vez de alert/confirm del navegador). */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.55);
+}
+.modal {
+  width: 100%;
+  max-width: 420px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px 22px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+.modal-head h2 {
+  margin: 0;
+}
+.modal-close {
+  background: transparent;
+  border: 0;
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 1;
+}
+.modal-close:hover {
+  color: var(--text);
+}
+/* Lista de datos clave-valor (información del estudiante). */
+.info-list {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 8px 16px;
+  margin: 0;
+}
+.info-list dt {
+  color: var(--muted);
+  font-size: 13px;
+}
+.info-list dd {
+  margin: 0;
+  font-weight: 500;
+}
+
+/* Estadísticas del panel de admin. */
+.stats-section {
+  margin-bottom: 28px;
+}
+.stats-resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 8px 0 14px;
+}
+.stats-resumen .tag {
+  font-size: 13px;
 }
 .admin-head-actions {
   display: flex;

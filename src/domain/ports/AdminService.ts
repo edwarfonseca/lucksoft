@@ -9,6 +9,7 @@ import type {
   Horario,
   UpdateHorarioInput,
 } from "../models/horario";
+import type { GrupoEntregas } from "../models/stats";
 
 /**
  * Port de administración. Solo lo implementa el adaptador de Supabase
@@ -60,4 +61,7 @@ export interface AdminService {
    * cron semanal). Devuelve cuántos estudiantes fueron afectados.
    */
   consumeCreditsToday(): Promise<number>;
+
+  /** Estadísticas de entregas por grupo (para las estadísticas del panel). */
+  getGroupSubmissionStats(): Promise<GrupoEntregas[]>;
 }

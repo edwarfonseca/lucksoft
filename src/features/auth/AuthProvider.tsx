@@ -41,6 +41,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       await logoutUseCase(authService);
       setUser(null);
     },
+    async refresh() {
+      setUser(await authService.getCurrentUser());
+    },
   };
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

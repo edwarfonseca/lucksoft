@@ -3,8 +3,10 @@ import type {
   ClaseHorario,
   EnrolledCourse,
   Enrollment,
+  TeacherStudent,
 } from "@/domain/models/enrollment";
 import type { EnrollmentService } from "@/domain/ports/EnrollmentService";
+import type { GrupoEstudiante } from "@/domain/models/teacherGroup";
 import { getSupabaseClient } from "./client";
 
 interface HorarioRow {
@@ -94,5 +96,48 @@ export class SupabaseEnrollmentService implements EnrollmentService {
       const c = toClase(r);
       return c ? [c] : [];
     });
+  }
+
+  async getTeacherStudents(): Promise<TeacherStudent[]> {
+    // RPC SECURITY DEFINER: solo devuelve los estudiantes de los grupos del
+    // docente autenticado (ver migración 0012). auth.uid() se resuelve dentro.
+    const { data, error } = await this.supabase.rpc("mis_estudiantes");
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as { estudiante_id: string; curso: string }[];
+    return rows.flatMap((r) => {
+      const curso = courseKindSchema.safeParse(r.curso);
+      return curso.success
+        ? [{ studentId: r.estudiante_id, curso: curso.data }]
+        : [];
+    });
+  }
+
+  async getGroupStudents(horarioId: string): Promise<GrupoEstudiante[]> {
+    // RPC SECURITY DEFINER: valida que el grupo sea del docente (ver 0014).
+    const { data, error } = await this.supabase.rpc(
+      "docente_estudiantes_grupo",
+      { p_horario_id: horarioId },
+    );
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as {
+      id: string;
+      full_name: string | null;
+      edad: number | null;
+      creditos: number;
+      nombre_acudiente: string | null;
+      numero_acudiente: string | null;
+      pais: string | null;
+      activo: boolean;
+    }[];
+    return rows.map((r) => ({
+      id: r.id,
+      fullName: r.full_name ?? "",
+      edad: r.edad,
+      creditos: r.creditos,
+      nombreAcudiente: r.nombre_acudiente,
+      numeroAcudiente: r.numero_acudiente,
+      pais: r.pais,
+      activo: r.activo,
+    }));
   }
 }

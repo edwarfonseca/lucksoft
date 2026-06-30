@@ -132,38 +132,49 @@ function StudentCourses() {
   );
 }
 
-/** Vista del docente: todos los cursos + el horario de sus grupos. */
+/** Vista del docente: sus grupos activos (con sus estudiantes) + catálogo. */
 function TeacherCourses() {
-  const { teacherClasses } = useEnrollment();
+  const { teacherClasses, teacherLoading } = useEnrollment();
+  const n = teacherClasses.length;
 
   return (
     <div className="page">
-      <h1>Tus cursos</h1>
+      <h1>Tus grupos</h1>
       <p className="lead">
-        Entra a un curso para probar código, o ve a “Calificar” para revisar
-        entregas.
+        {teacherLoading
+          ? "Cargando tus grupos…"
+          : n === 0
+            ? "No tienes grupos activos asignados. Pide a administración que te asigne uno."
+            : `Tienes ${n} ${n === 1 ? "grupo activo" : "grupos activos"}. Entra a uno para ver sus estudiantes.`}
       </p>
 
-      {teacherClasses.length > 0 && (
-        <section className="clases-docente">
-          <h2>Tus clases</h2>
+      {n > 0 && (
+        <div className="grid">
           {teacherClasses.map((c) => (
-            <div className="clase-remota-card" key={c.horarioId}>
-              <div>
-                <h3>
-                  {grupoNombre(c)} · {getCourse(c.curso).title}
-                </h3>
-                <p className="muted">{franja(c)} (1 hora)</p>
-              </div>
-              <p className="clase-remota-hint">
-                Durante la clase, el botón “Iniciar clase” aparece arriba.
+            <Link
+              className="course-card"
+              to={`/grupos/${c.horarioId}`}
+              key={c.horarioId}
+            >
+              <div className="course-icon">{getCourse(c.curso).icon}</div>
+              <h3>{grupoNombre(c)}</h3>
+              <p className="muted">
+                {getCourse(c.curso).title} · {franja(c)}
               </p>
-            </div>
+              <span className="tag ready">Ver estudiantes →</span>
+            </Link>
           ))}
-        </section>
+        </div>
       )}
 
-      <CatalogGrid showComingSoon />
+      <section className="clases-docente">
+        <h2>Practicar cursos</h2>
+        <p className="lead">
+          Entra a un curso para probar código, o ve a “Calificar” para revisar
+          entregas.
+        </p>
+        <CatalogGrid showComingSoon />
+      </section>
     </div>
   );
 }

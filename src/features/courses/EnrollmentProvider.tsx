@@ -1,9 +1,14 @@
 import { useCallback, useEffect, useState, type ReactNode } from "react";
-import type { ClaseHorario, Enrollment } from "@/domain/models/enrollment";
+import type {
+  ClaseHorario,
+  Enrollment,
+  TeacherStudent,
+} from "@/domain/models/enrollment";
 import { enrollmentService } from "@/app/services";
 import {
   getStudentEnrollment,
   getTeacherClasses,
+  getTeacherStudents,
 } from "@/application/loadEnrollment";
 import { useAuth } from "@/features/auth/auth-context";
 import {
@@ -26,6 +31,8 @@ export function EnrollmentProvider({ children }: { children: ReactNode }) {
     isStudent ? undefined : null,
   );
   const [teacherClasses, setTeacherClasses] = useState<ClaseHorario[]>([]);
+  const [teacherStudents, setTeacherStudents] = useState<TeacherStudent[]>([]);
+  const [teacherLoading, setTeacherLoading] = useState(isTeacher);
 
   // El setState va en los callbacks de la promesa, no en el cuerpo del efecto
   // (cumple react-hooks/set-state-in-effect).
@@ -40,13 +47,29 @@ export function EnrollmentProvider({ children }: { children: ReactNode }) {
     };
   }, [isStudent, user]);
 
-  // Clases que dicta el docente (para el botón de clase del header).
+  // Datos del docente: sus grupos (para el botón de clase y "Calificar") y los
+  // estudiantes de esos grupos (para filtrar las entregas a calificar).
   useEffect(() => {
     if (!isTeacher || !user) return;
     let active = true;
-    getTeacherClasses(enrollmentService!, user.id)
-      .then((cs) => active && setTeacherClasses(cs))
-      .catch(() => active && setTeacherClasses([]));
+    // `teacherLoading` arranca en true (estado inicial) para los docentes; aquí
+    // solo lo apagamos al terminar (en callbacks de la promesa, no en el cuerpo
+    // del efecto, para cumplir react-hooks/set-state-in-effect).
+    Promise.all([
+      getTeacherClasses(enrollmentService!, user.id),
+      getTeacherStudents(enrollmentService!),
+    ])
+      .then(([cs, ss]) => {
+        if (!active) return;
+        setTeacherClasses(cs);
+        setTeacherStudents(ss);
+      })
+      .catch(() => {
+        if (!active) return;
+        setTeacherClasses([]);
+        setTeacherStudents([]);
+      })
+      .finally(() => active && setTeacherLoading(false));
     return () => {
       active = false;
     };
@@ -65,7 +88,9 @@ export function EnrollmentProvider({ children }: { children: ReactNode }) {
   const value: EnrollmentState = {
     enrollment: enrollment ?? null,
     teacherClasses,
+    teacherStudents,
     loading: enrollment === undefined,
+    teacherLoading,
     reload,
   };
   return (
