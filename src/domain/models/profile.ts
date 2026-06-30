@@ -33,6 +33,13 @@ export const managedProfileSchema = z.object({
 });
 export type ManagedProfile = z.infer<typeof managedProfileSchema>;
 
+/** Datos del propio perfil que el usuario puede ver/editar (Mi perfil). */
+export interface MyProfile {
+  fullName: string;
+  avatarUrl: string | null;
+  username: string | null;
+}
+
 /** Datos para crear una cuenta nueva (incluye credenciales de acceso). */
 export interface CreateUserInput {
   username: string;

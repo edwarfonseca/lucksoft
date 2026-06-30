@@ -9,6 +9,8 @@ export interface AuthState {
   /** Inicia sesión; devuelve true si las credenciales son válidas. */
   login(username: string, password: string): Promise<boolean>;
   logout(): Promise<void>;
+  /** Recarga el usuario actual (p. ej. tras editar el perfil). */
+  refresh(): Promise<void>;
 }
 
 export const AuthContext = createContext<AuthState | null>(null);

@@ -88,12 +88,6 @@ export function LoginPage() {
         <button type="submit" className="btn btn-primary">
           Ingresar
         </button>
-
-        <p className="hint">
-          Cuentas demo (contraseña <b>1234</b>):
-          <br />
-          Docente: <b>docente</b> · Estudiantes: <b>alumno</b>, <b>alumno2</b>
-        </p>
       </form>
     </div>
   );

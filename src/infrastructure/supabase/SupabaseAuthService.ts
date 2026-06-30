@@ -11,6 +11,7 @@ const usernameToEmail = (u: string) =>
 interface ProfileRow {
   full_name: string | null;
   role: Role;
+  avatar_url: string | null;
 }
 
 /** Adaptador de autenticación sobre Supabase Auth + tabla `profiles`. */
@@ -44,7 +45,7 @@ export class SupabaseAuthService implements AuthService {
   ): Promise<User | null> {
     const { data, error } = await this.supabase
       .from("profiles")
-      .select("full_name, role")
+      .select("full_name, role, avatar_url")
       .eq("id", id)
       .single();
     if (error || !data) return null;
@@ -53,6 +54,7 @@ export class SupabaseAuthService implements AuthService {
       id,
       name: profile.full_name || fallbackName,
       role: profile.role,
+      avatarUrl: profile.avatar_url,
     });
     return parsed.success ? parsed.data : null;
   }

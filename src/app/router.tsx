@@ -9,13 +9,16 @@ import {
 import { EnrollmentProvider } from "@/features/courses/EnrollmentProvider";
 import { CoursesPage } from "@/features/courses/CoursesPage";
 import { CourseLessonsPage } from "@/features/courses/CourseLessonsPage";
+import { TeacherGroupPage } from "@/features/courses/TeacherGroupPage";
 import { PythonEditorPage } from "@/features/courses/PythonEditorPage";
 import { WebEditorPage } from "@/features/courses/WebEditorPage";
 import { ScratchEditorPage } from "@/features/courses/ScratchEditorPage";
 import { GradesPage } from "@/features/grades/GradesPage";
 import { GradingPage } from "@/features/grading/GradingPage";
+import { CourseGradingPage } from "@/features/grading/CourseGradingPage";
 import { PetPage } from "@/features/pets/PetPage";
 import { AdminPage } from "@/features/admin/AdminPage";
+import { ProfilePage } from "@/features/profile/ProfilePage";
 
 /**
  * Rutas de la aplicación. Todo lo que cuelga de AppLayout exige sesión
@@ -33,7 +36,16 @@ export const router = createBrowserRouter([
     ),
     children: [
       { path: "/cursos", element: <CoursesPage /> },
+      { path: "/perfil", element: <ProfilePage /> },
       { path: "/curso/:kind", element: <CourseLessonsPage /> },
+      {
+        path: "/grupos/:horarioId",
+        element: (
+          <RequireRole role="docente">
+            <TeacherGroupPage />
+          </RequireRole>
+        ),
+      },
       {
         path: "/python",
         element: (
@@ -79,6 +91,14 @@ export const router = createBrowserRouter([
         element: (
           <RequireRole role="docente">
             <GradingPage />
+          </RequireRole>
+        ),
+      },
+      {
+        path: "/calificar/:kind",
+        element: (
+          <RequireRole role="docente">
+            <CourseGradingPage />
           </RequireRole>
         ),
       },

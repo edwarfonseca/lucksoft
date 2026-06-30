@@ -21,6 +21,15 @@ export interface EnrolledCourse extends ClaseHorario {
   progreso: number;
 }
 
+/**
+ * Un estudiante inscrito en uno de los grupos que dicta el docente, con el curso
+ * de ese grupo. Sirve para que "Calificar" muestre solo a sus estudiantes.
+ */
+export interface TeacherStudent {
+  studentId: string;
+  curso: CourseKind;
+}
+
 /** Inscripción del estudiante: créditos (bolsa compartida) y sus cursos. */
 export interface Enrollment {
   creditos: number;
