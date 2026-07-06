@@ -1,0 +1,5083 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Curso de Scratch — Guía de clases</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #1a1a1a;
+        line-height: 1.5;
+        margin: 0;
+        padding: 32px 40px;
+      }
+      .cover {
+        text-align: center;
+        padding: 80px 0;
+        page-break-after: always;
+      }
+      .cover h1 {
+        font-size: 34px;
+        margin: 0 0 8px;
+      }
+      .cover p {
+        color: #555;
+      }
+      .periodo {
+        page-break-before: always;
+        border-top: 4px solid #6c5ce7;
+        padding-top: 12px;
+      }
+      .periodo h1 {
+        color: #4834d4;
+        font-size: 26px;
+        margin: 4px 0;
+      }
+      .desc {
+        color: #333;
+      }
+      .meta {
+        background: #f2f0ff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .sesion {
+        page-break-before: always;
+      }
+      .sesion h2 {
+        color: #6c5ce7;
+        font-size: 21px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 6px;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 16px 0 6px;
+        color: #2d2d2d;
+      }
+      .tags {
+        margin: 6px 0 4px;
+      }
+      .tag {
+        display: inline-block;
+        background: #eceafe;
+        color: #4834d4;
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 12px;
+        margin-right: 6px;
+      }
+      .nivel {
+        color: #888;
+        font-weight: normal;
+        font-size: 12px;
+      }
+      ul {
+        margin: 4px 0 4px 4px;
+        padding-left: 20px;
+      }
+      li {
+        margin: 3px 0;
+      }
+      .retos li {
+        margin-bottom: 8px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+      }
+      table.agenda th,
+      table.agenda td {
+        border: 1px solid #ddd;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.agenda th {
+        background: #f5f5f5;
+      }
+      table.agenda td:nth-child(2) {
+        white-space: nowrap;
+        width: 70px;
+      }
+      .recompensa {
+        background: #fff8e6;
+        border-left: 4px solid #ffab19;
+        padding: 8px 12px;
+        margin-top: 14px;
+        border-radius: 4px;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <h1>Curso de Scratch — Guía de clases</h1>
+      <p>Guía de clases · 10 periodos × 4 sesiones (40 clases de 90 min)</p>
+      <p>LuckSoft — material de apoyo para el docente</p>
+    </div>
+
+    <section class="periodo">
+      <h1>Periodo 1 — Descubriendo Scratch</h1>
+      <p class="desc">
+        Conocemos la plataforma y descubrimos que programar es dar instrucciones
+        a nuestros personajes.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Mi Personaje Favorito · <b>Insignia:</b> 🐱
+        Explorador de Scratch · <b>XP:</b> 150
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 1: ¡Hola, Scratch!</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Conocer el escenario y los personajes (sprites) y hacer que un personaje
+        se mueva con bloques.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Programar es dar instrucciones en orden</li>
+        <li>El escenario y los personajes (sprites)</li>
+        <li>El bloque «al hacer clic en 🟩 (bandera verde)»</li>
+        <li>«mover 10 pasos» y «decir»</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego del robot: un niño da órdenes y el profe las obedece tal
+              cual. Descubrimos que las máquinas hacen EXACTO lo que les
+              decimos.
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Recorrido por Scratch: el escenario, el gato, la zona de bloques.
+              Probamos arrastrar «mover 10 pasos» y darle clic.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Todos ponen «al hacer clic en 🟩» + «mover 10 pasos» + «decir
+              ¡Hola!» y pulsan la bandera verde.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos: hacer que el gato salude con tu nombre y dé varios
+              pasos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Cada quien muestra a su gato saludando.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Gato andarín:</b> Al pulsar la bandera 🟩, haz que tu gato camine.
+          ¿Logras que dé 20 pasos seguidos?
+        </li>
+        <li>
+          <b>¡Preséntate!:</b> Que el gato diga «¡Hola, soy (tu nombre)!» por 2
+          segundos.
+        </li>
+        <li>
+          <b>Gato presumido:</b> Haz que crezca un poco y diga cuál es su color
+          favorito antes de moverse.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Gato saltarín</b> <span class="nivel">(Principiante)</span
+          ><br />Haz que el gato dé 30 pasos al pulsar la bandera (usa «mover 30
+          pasos»).
+        </li>
+        <li>
+          <b>Saludo con nombre</b> <span class="nivel">(Principiante)</span
+          ><br />Que el gato diga «¡Hola, soy (tu nombre)!» al empezar.
+        </li>
+        <li>
+          <b>Doble saludo</b> <span class="nivel">(Principiante)</span><br />Haz
+          que el gato diga dos cosas, una después de la otra.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi gato me saluda</h3>
+      <p>
+        Cuando pulses la bandera verde, tu gato debe saludar con tu nombre y
+        moverse un poco. ¡Pruébalo!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Encuentra el escenario, el sprite y los bloques.</li>
+        <li>Usa «al hacer clic en 🟩» para empezar.</li>
+        <li>El gato se mueve y habla al pulsar la bandera.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Empieza con el juego del robot sin computador: engancha y explica qué
+          es programar.
+        </li>
+        <li>
+          Celebra el primer «clic en la bandera»: es un momento mágico para
+          ellos.
+        </li>
+        <li>
+          Deja que exploren bloques libremente unos minutos antes de guiar.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +30 XP · Logro 'Primer bloque'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 2: Mi sprite se mueve y habla</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir paso a paso un personaje que se mueve, cambia su aspecto y
+        habla.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Elegir un sprite y un fondo</li>
+        <li>Bloques de Apariencia («decir», «cambiar tamaño»)</li>
+        <li>Encadenar varios bloques en orden</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>
+              Recordamos: la bandera verde y «mover». ¿Qué hace cada bloque?
+            </td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe elige un nuevo sprite y un fondo, y le pone bloques para
+              que se mueva y hable.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Cada niño elige su personaje y su fondo, y construye: empezar →
+              moverse → decir algo → cambiar de tamaño.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: cambia el sprite, el fondo y lo que dice tu
+              personaje.
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Mostramos los personajes de la clase.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Nuevo héroe:</b> Cambia al gato por otro personaje y ponle un fondo
+          que combine.
+        </li>
+        <li>
+          <b>En movimiento:</b> Haz que se mueva por la pantalla mientras dice
+          su nombre.
+        </li>
+        <li>
+          <b>Crece y encoge:</b> Que se haga gigante, espere un momento y vuelva
+          a su tamaño normal.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mi escenario</b> <span class="nivel">(Principiante)</span
+          ><br />Elige un fondo que combine con tu personaje y cuenta dónde
+          está.
+        </li>
+        <li>
+          <b>Crece y encoge</b> <span class="nivel">(Principiante)</span
+          ><br />Haz que tu personaje crezca y luego vuelva a su tamaño normal.
+        </li>
+        <li>
+          <b>Presentación</b> <span class="nivel">(Principiante)</span><br />Que
+          tu personaje diga su nombre y una cosa que le gusta hacer.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi personaje se presenta</h3>
+      <p>
+        Crea un personaje con su fondo que, al pulsar la bandera, se mueva,
+        cambie de tamaño y se presente.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Elige sprite y fondo a su gusto.</li>
+        <li>Encadena varios bloques en orden.</li>
+        <li>El personaje se mueve, habla y cambia de tamaño.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Permite total libertad temática: que elijan el personaje que aman.
+        </li>
+        <li>
+          Si algo no funciona, pregúntales «¿en qué orden están tus bloques?».
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +35 XP · Logro 'Mi primer escenario'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 3: Trucos con mi personaje</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar más bloques de apariencia y eventos para darle vida al personaje
+        con pequeños trucos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Bloques de Eventos (al hacer clic en el sprite)</li>
+        <li>Efectos: «cambiar efecto color», «mostrar / esconder»</li>
+        <li>Probar y observar qué hace cada bloque</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Juego «¿qué bloque hace esto?»: el profe ejecuta y los niños
+              adivinan el bloque.
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «al hacer clic en este objeto → decir algo». ¡El
+              personaje responde cuando lo tocas!
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles para hacer que el personaje reaccione al clic,
+              aparezca/desaparezca y cambie de color.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: cada quien muestra su truco favorito.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Háblame:</b> Al hacerle clic, que tu personaje diga algo gracioso.
+        </li>
+        <li>
+          <b>Camaleón:</b> Usa «efecto color» para que cambie de color al
+          tocarlo.
+        </li>
+        <li>
+          <b>Truco de magia:</b> Que aparezca y desaparezca usando «mostrar» y
+          «esconder».
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Personaje parlanchín</b> <span class="nivel">(Principiante)</span
+          ><br />Al hacer clic en él, que diga algo diferente cada vez (varios
+          «decir»).
+        </li>
+        <li>
+          <b>Arcoíris</b> <span class="nivel">(Principiante)</span><br />Haz que
+          tu personaje cambie de color poco a poco.
+        </li>
+        <li>
+          <b>Ahora me ves</b> <span class="nivel">(Intermedio)</span><br />Que
+          el personaje aparezca y desaparezca como por arte de magia.
+        </li>
+        <li>
+          <b>Doble truco</b> <span class="nivel">(Intermedio)</span
+          ><br />Combina dos trucos: que al tocarlo cambie de color Y diga algo.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El show de trucos</h3>
+      <p>
+        Arma un mini show donde tu personaje haga al menos dos trucos al darle
+        clic.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa el evento «al hacer clic en el objeto».</li>
+        <li>Aplica un efecto de apariencia.</li>
+        <li>Combina dos acciones en un truco.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Invítalos a experimentar: «prueba el bloque y mira qué pasa».</li>
+        <li>
+          Los efectos visuales encantan a esta edad; deja tiempo para jugar.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +35 XP · Trofeo 'Mago de los bloques'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 4: Gran Misión: Mi Personaje Favorito</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un proyecto con tu personaje favorito que se mueve,
+        habla y hace trucos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar movimiento, apariencia y eventos</li>
+        <li>Elegir personaje, fondo y acciones</li>
+        <li>Presentar el propio proyecto</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: dibuja tu personaje favorito y escribe 3 cosas que hará
+              (moverse, hablar, un truco).
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo en Scratch: elige el sprite y el fondo, y agrega los
+              bloques para que cobre vida.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>
+              Pruébalo con la bandera verde y mejóralo: que se vea y suene como
+              tú quieres.
+            </td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>Cada niño presenta su personaje favorito a la clase.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Elige tu héroe:</b> Escoge tu personaje favorito y un fondo que
+          cuente dónde vive.
+        </li>
+        <li>
+          <b>Cobra vida:</b> Al pulsar la bandera, que se mueva y se presente.
+        </li>
+        <li>
+          <b>Truco secreto:</b> Agrégale un truco al hacerle clic (cambiar
+          color, sonido o salto).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Personaje con vida</b> <span class="nivel">(Principiante)</span
+          ><br />Que haga al menos 3 cosas: moverse, hablar y un truco.
+        </li>
+        <li>
+          <b>Escena completa</b> <span class="nivel">(Intermedio)</span
+          ><br />Elige un fondo que cuente una historia sobre tu personaje.
+        </li>
+        <li>
+          <b>Sorpresa</b> <span class="nivel">(Intermedio)</span><br />Agrega un
+          detalle sorpresa que no le enseñó el profe.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Mi Personaje Favorito</h3>
+      <p>
+        Tu personaje favorito, con su fondo, que se mueve, se presenta y hace al
+        menos un truco. ¡Preséntalo a la clase!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El proyecto tiene personaje y fondo elegidos.</li>
+        <li>El personaje se mueve, habla y hace un truco.</li>
+        <li>Presenta su trabajo con orgullo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Valora la creatividad por encima de la perfección técnica.</li>
+        <li>
+          Haz una galería: ver los trabajos de los demás los motiva muchísimo.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · 🐱 Insignia 'Explorador de Scratch'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 2 — Secuencias y Animaciones</h1>
+      <p class="desc">
+        Aprendemos a ordenar instrucciones para crear historias y animaciones
+        simples.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Mi Historia Animada · <b>Insignia:</b> 🎬
+        Animador Junior · <b>XP:</b> 170
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 1: Una cosa después de otra</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Entender que el orden importa y usar «esperar» para que las acciones se
+        vean.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Secuencia: el orden de los bloques importa</li>
+        <li>«esperar 1 segundo»</li>
+        <li>«decir» y «pensar»</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego «la receta loca»: ordenamos en el tablero los pasos para
+              hacer un sándwich. Si cambias el orden, ¡sale mal!
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Vemos cómo «esperar 1 segundo» hace que las cosas no pasen todas
+              de golpe.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos una mini escena: el personaje dice algo, espera, y
+              luego dice otra cosa.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos cambiando el orden de los bloques para ver qué pasa.
+            </td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos nuestras mini escenas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Conversación:</b> Que diga «Hola», espere 1 segundo y luego diga
+          «¿Cómo estás?».
+        </li>
+        <li>
+          <b>Detective del orden:</b> Cambia el orden de dos bloques y descubre
+          qué pasa.
+        </li>
+        <li>
+          <b>Pienso, luego digo:</b> Usa «pensar» y «decir» para mostrar lo que
+          piensa y lo que dice.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Cuenta hasta tres</b> <span class="nivel">(Principiante)</span
+          ><br />Que el personaje diga 1, espere, diga 2, espere y diga 3.
+        </li>
+        <li>
+          <b>Diálogo</b> <span class="nivel">(Principiante)</span><br />Haz que
+          el personaje diga tres frases con pausas entre ellas.
+        </li>
+        <li>
+          <b>Pienso y digo</b> <span class="nivel">(Intermedio)</span
+          ><br />Combina «pensar» y «decir» para mostrar lo que piensa y lo que
+          dice.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi mini diálogo</h3>
+      <p>
+        Crea un personaje que diga tres frases en orden, con pausas para que se
+        entienda.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Ordena los bloques correctamente.</li>
+        <li>Usa «esperar» entre acciones.</li>
+        <li>Las frases se entienden, una tras otra.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>El juego de la receta hace visible la idea de secuencia: úsalo.</li>
+        <li>
+          Sin «esperar» todo pasa de golpe; provoca ese error para que lo
+          descubran.
+        </li>
+      </ul>
+
+      <p class="recompensa"><b>🎁 Recompensa:</b> +35 XP · Logro 'En orden'</p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 2: Construyo una animación</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Crear una animación cambiando disfraces y repitiendo acciones.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Disfraces de un sprite</li>
+        <li>«cambiar al siguiente disfraz»</li>
+        <li>«repetir» para animar</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos las secuencias y las pausas.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe muestra cómo un personaje «camina» cambiando de disfraz
+              dentro de «repetir».
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso: «por siempre» o «repetir 10» con «cambiar
+              disfraz» + «esperar» para que se mueva como animación.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: elige un personaje con varios disfraces y haz tu
+              propia animación.
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos las animaciones.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Elige bailarín:</b> Busca un personaje que tenga 2 o más disfraces.
+        </li>
+        <li>
+          <b>Cuadro a cuadro:</b> Con «repetir 10», cambia al siguiente disfraz
+          cada 0.2 s para animarlo.
+        </li>
+        <li>
+          <b>Control de velocidad:</b> Cambia el «esperar» para que la animación
+          vaya más rápida o más lenta.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Caminando</b> <span class="nivel">(Principiante)</span><br />Haz
+          que tu personaje parezca que camina cambiando disfraces.
+        </li>
+        <li>
+          <b>Más rápido / más lento</b> <span class="nivel">(Principiante)</span
+          ><br />Cambia el «esperar» para que la animación sea más rápida o más
+          lenta.
+        </li>
+        <li>
+          <b>Animación con movimiento</b> <span class="nivel">(Intermedio)</span
+          ><br />Que además de cambiar disfraz, el personaje avance por el
+          escenario.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi animación</h3>
+      <p>
+        Crea un personaje que se anime cambiando de disfraz mientras se mueve
+        por el escenario.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa varios disfraces.</li>
+        <li>Repite el cambio de disfraz para animar.</li>
+        <li>Controla la velocidad con «esperar».</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Elige sprites con disfraces de animación (caminar, volar) para
+          resultados vistosos.
+        </li>
+        <li>Muestra cómo cambiar el «esperar» acelera o frena la animación.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +40 XP · Logro 'Cuadro a cuadro'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 3: Retos de animación</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Combinar disfraces, movimiento y diálogos para animaciones más vivas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Combinar animación con diálogos</li>
+        <li>«deslizar en 1 segundo a x, y» (movimiento suave)</li>
+        <li>Encadenar varias acciones</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: ¿quién hace la animación más graciosa en 2 minutos?
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «deslizar en 1 segundo a x: ... y: ...» mueve al
+              personaje suavemente.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: animaciones con saltos, paseos y
+              conversaciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: votamos la animación más creativa.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Deslízate:</b> Usa «deslizar en 1 s» para que tu personaje se mueva
+          suave, sin saltos.
+        </li>
+        <li>
+          <b>Habla y anda:</b> Que hable mientras se desplaza por el escenario.
+        </li>
+        <li>
+          <b>Animación al paso:</b> Cambia disfraces mientras se desliza para
+          que parezca que camina.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>El paseo</b> <span class="nivel">(Intermedio)</span><br />Tu
+          personaje cruza el escenario caminando (disfraces) y deslizándose.
+        </li>
+        <li>
+          <b>Saltarín</b> <span class="nivel">(Intermedio)</span><br />Haz que
+          el personaje suba y baje como si saltara.
+        </li>
+        <li>
+          <b>Dos amigos</b> <span class="nivel">(Intermedio)</span><br />Anima
+          dos personajes que se mueven y se saludan.
+        </li>
+        <li>
+          <b>Animación sorpresa</b> <span class="nivel">(Avanzado)</span
+          ><br />Inventa una animación con un final sorpresa (un cambio de
+          disfraz o color al terminar).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Escena animada</h3>
+      <p>
+        Crea una escena donde un personaje se mueve suavemente, se anima y dice
+        algo.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «deslizar» para movimiento suave.</li>
+        <li>Combina animación, movimiento y diálogo.</li>
+        <li>La escena se entiende y se ve fluida.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          «deslizar» da un acabado pro; muéstralo frente a «mover» de golpe.
+        </li>
+        <li>Anima a contar una micro-historia, no solo a mover por mover.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +45 XP · Trofeo 'Animador veloz'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 4: Gran Misión: Mi Historia Animada</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar una historia animada corta con dos personajes que
+        hablan y se mueven.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar secuencias, disfraces y diálogos</li>
+        <li>Una historia con principio y final</li>
+        <li>Coordinar dos personajes</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: piensa una mini historia (¿quiénes son? ¿qué pasa? ¿cómo
+              termina?).
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyela: dos personajes que se mueven, cambian de disfraz y
+              conversan por turnos.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>
+              Pruébala y mejora los tiempos (que no hablen los dos a la vez).
+            </td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>¡Función de cine! Cada quien presenta su historia animada.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>El reparto:</b> Elige dos personajes y un fondo para tu historia.
+        </li>
+        <li>
+          <b>Por turnos:</b> Haz que conversen por turnos usando «decir» y
+          «esperar».
+        </li>
+        <li><b>¡Acción!:</b> Anímalos con disfraces mientras hablan.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Conversación por turnos</b> <span class="nivel">(Intermedio)</span
+          ><br />Que un personaje hable, espere, y luego hable el otro (¡sin
+          pisarse!).
+        </li>
+        <li>
+          <b>Cambio de escena</b> <span class="nivel">(Avanzado)</span
+          ><br />Cambia el fondo a mitad de la historia para mostrar otro lugar.
+        </li>
+        <li>
+          <b>Final feliz</b> <span class="nivel">(Intermedio)</span
+          ><br />Termina la historia con una animación especial (baile, salto,
+          color).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Mi Historia Animada</h3>
+      <p>
+        Una historia corta con dos personajes que se mueven, se animan y
+        conversan por turnos, con principio y final. ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>La historia tiene principio y final.</li>
+        <li>Los personajes conversan por turnos, sin pisarse.</li>
+        <li>Hay animación (disfraces o movimiento).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El reto difícil es la sincronía: enséñales a usar «esperar» para los
+          turnos.
+        </li>
+        <li>
+          Deja que escriban su historia en papel primero; mejora muchísimo el
+          resultado.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · 🎬 Insignia 'Animador Junior'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 3 — Coordenadas y Movimiento</h1>
+      <p class="desc">
+        Aprendemos a mover personajes por todo el escenario usando coordenadas y
+        el teclado.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Carrera de Personajes · <b>Insignia:</b> 🕹️
+        Piloto de Sprites · <b>XP:</b> 190
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 1: El mapa secreto (X e Y)</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Entender las coordenadas X e Y y mover el personaje a un punto exacto.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>
+          El escenario es un mapa con X (izquierda-derecha) e Y (arriba-abajo)
+        </li>
+        <li>«ir a x: ... y: ...»</li>
+        <li>El centro es x:0 y:0</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego «batalla naval» sencillo en el tablero: encontramos casillas
+              dando dos números.
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Vemos cómo el escenario tiene coordenadas y movemos el gato
+              arrastrándolo (mira cómo cambian X e Y).
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Probamos «ir a x: 100 y: 50» y otros puntos para teletransportar
+              al personaje.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos: llevar al personaje a las esquinas y al centro.</td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos a dónde logramos llevar al personaje.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Explorador X-Y:</b> Arrastra tu personaje y observa cómo cambian
+          los números X e Y.
+        </li>
+        <li>
+          <b>Al centro:</b> Usa «ir a x: 0 y: 0» para teletransportarlo al
+          centro.
+        </li>
+        <li>
+          <b>A la esquina:</b> Llévalo a una esquina usando coordenadas grandes.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Teletransporte</b> <span class="nivel">(Principiante)</span
+          ><br />Haz que al pulsar la bandera el personaje aparezca en una
+          esquina exacta.
+        </li>
+        <li>
+          <b>Recorrido</b> <span class="nivel">(Principiante)</span><br />Que el
+          personaje vaya a 3 puntos distintos, esperando entre cada uno.
+        </li>
+        <li>
+          <b>Al centro y a volar</b> <span class="nivel">(Intermedio)</span
+          ><br />Empieza en el centro (x:0 y:0) y muévete a la derecha del
+          escenario.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El recorrido mágico</h3>
+      <p>
+        Haz que tu personaje visite 4 puntos del escenario en orden, esperando
+        en cada uno.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Entiende que X e Y ubican al personaje.</li>
+        <li>Usa «ir a x.. y..» para puntos exactos.</li>
+        <li>Lleva el personaje a varios lugares en orden.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          La batalla naval en papel hace tangibles las coordenadas: úsala de
+          gancho.
+        </li>
+        <li>Muestra los números X/Y que cambian al arrastrar el sprite.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +40 XP · Logro 'Lector de mapas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 2: Muevo con el teclado</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Controlar al personaje con las flechas del teclado usando eventos de
+        tecla.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>«al presionar tecla [flecha]»</li>
+        <li>«sumar a x» y «sumar a y» para moverse</li>
+        <li>Apuntar en dirección</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos X e Y y para qué sirven.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe construye el control con flechas: «al presionar flecha
+              derecha → sumar 10 a x».
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso el control completo: arriba, abajo,
+              izquierda y derecha.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: cambia el personaje y la velocidad (cuánto suma
+              cada flecha).
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos y probamos los controles de los compañeros.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Hacia la derecha:</b> Programa «al presionar flecha derecha → sumar
+          10 a x».
+        </li>
+        <li>
+          <b>Izquierda también:</b> Agrega la flecha izquierda (sumar -10 a x).
+        </li>
+        <li>
+          <b>Control total:</b> Suma las flechas arriba y abajo para moverte en
+          las 4 direcciones.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Control total</b> <span class="nivel">(Principiante)</span
+          ><br />Que el personaje se mueva en las 4 direcciones con las flechas.
+        </li>
+        <li>
+          <b>Turbo</b> <span class="nivel">(Principiante)</span><br />Haz una
+          versión rápida (sumar 20) y una lenta (sumar 5).
+        </li>
+        <li>
+          <b>Mira a dónde va</b> <span class="nivel">(Intermedio)</span
+          ><br />Que el personaje apunte hacia el lado al que se mueve.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi personaje teledirigido</h3>
+      <p>
+        Crea un personaje que puedas mover por todo el escenario con las 4
+        flechas.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa eventos «al presionar tecla».</li>
+        <li>Mueve el personaje en las 4 direcciones.</li>
+        <li>Controla la velocidad del movimiento.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Que prueben su control de inmediato: el movimiento por teclado
+          entusiasma.
+        </li>
+        <li>
+          Si solo se mueve en un sentido, revisen el signo del número (10 vs
+          -10).
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +45 XP · Logro 'Manos al control'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 3: Retos de movimiento</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Controlar el movimiento dentro de los límites del escenario y rebotar en
+        los bordes.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>«si toca un borde, rebotar»</li>
+        <li>Mantener al personaje dentro del escenario</li>
+        <li>Combinar teclado y movimiento automático</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: carrera de 30 segundos moviendo el personaje con
+              las flechas.
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «por siempre → mover 5 pasos → si toca un borde,
+              rebotar» (¡se mueve solo y no se escapa!).
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: que el personaje no se salga, que rebote, que
+              persiga el ratón.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: mostramos los movimientos más locos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Pelota rebotona:</b> Haz un personaje que se mueva solo y rebote en
+          los bordes.
+        </li>
+        <li>
+          <b>Sígueme:</b> Que un personaje vaya siempre hacia el puntero del
+          ratón.
+        </li>
+        <li>
+          <b>Sin escaparse:</b> Evita que tu personaje con flechas se salga de
+          la pantalla.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Pelota loca</b> <span class="nivel">(Intermedio)</span><br />Una
+          pelota que se mueve sola y rebota por todo el escenario.
+        </li>
+        <li>
+          <b>Sígueme</b> <span class="nivel">(Intermedio)</span><br />Un
+          personaje que siempre va hacia donde está el ratón.
+        </li>
+        <li>
+          <b>Sin escapar</b> <span class="nivel">(Intermedio)</span><br />Que tu
+          personaje con flechas no pueda salirse de la pantalla.
+        </li>
+        <li>
+          <b>Persecución</b> <span class="nivel">(Avanzado)</span><br />Un
+          personaje que persigue a otro por el escenario.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Movimiento sin límites</h3>
+      <p>
+        Crea una escena con un personaje que se mueve solo y rebota, y otro que
+        controlas tú.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «rebotar» en los bordes.</li>
+        <li>Mantiene el personaje dentro del escenario.</li>
+        <li>Combina movimiento automático y por teclado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El rebote engancha; ya prepara la base para los juegos de los próximos
+          periodos.
+        </li>
+        <li>Recuérdales «por siempre» para que el movimiento no se detenga.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Trofeo 'As del volante'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 4: Gran Misión: Carrera de Personajes</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar una carrera para dos jugadores, controlando cada
+        personaje con el teclado.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar coordenadas, teclado y bordes</li>
+        <li>Dos controles distintos (dos jugadores)</li>
+        <li>Línea de meta</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: dibuja la pista, dónde empiezan los corredores y dónde
+              está la meta.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyela: dos personajes en la salida, cada uno con sus teclas,
+              y una meta.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>
+              Pruébala con un compañero y ajusta la velocidad para que sea
+              justa.
+            </td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>¡Gran carrera! Compiten los proyectos entre compañeros.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>A la salida:</b> Coloca dos personajes en la línea de salida con
+          «ir a x.. y..».
+        </li>
+        <li>
+          <b>Dos controles:</b> Dale a cada corredor sus propias teclas para
+          moverse.
+        </li>
+        <li><b>¡Meta!:</b> Pon una meta y prueba quién llega primero.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Dos jugadores</b> <span class="nivel">(Intermedio)</span><br />Que
+          el jugador 1 use las flechas y el jugador 2 las teclas W A S D.
+        </li>
+        <li>
+          <b>¡Ganaste!</b> <span class="nivel">(Avanzado)</span><br />Que al
+          llegar a la meta, el personaje diga «¡Gané!» (pista: «si tocando la
+          meta»).
+        </li>
+        <li>
+          <b>Pista con curvas</b> <span class="nivel">(Intermedio)</span
+          ><br />Dibuja un fondo de pista con curvas y un punto de salida claro.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Carrera de Personajes</h3>
+      <p>
+        Una carrera para dos jugadores: cada personaje con su control, salida y
+        meta. ¡Organicen un torneo!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Dos personajes con controles distintos.</li>
+        <li>Salida y meta definidas.</li>
+        <li>La carrera es jugable y justa.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>El torneo final es muy motivador: resérvale tiempo.</li>
+        <li>
+          Ayúdalos a equilibrar la velocidad para que ninguno gane siempre.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · 🕹️ Insignia 'Piloto de Sprites'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 4 — Decisiones y Condiciones</h1>
+      <p class="desc">
+        Hacemos que nuestros programas reaccionen: tomen decisiones y respondan
+        a lo que pasa.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Laberinto Interactivo · <b>Insignia:</b> 🧭
+        Detective de Decisiones · <b>XP:</b> 210
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 1: Si pasa esto, haz aquello</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar el bloque «si... entonces» para que el personaje reaccione a una
+        situación.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>El bloque «si... entonces»</li>
+        <li>Sensores: «¿tocando el puntero?», «¿tecla pulsada?»</li>
+        <li>«por siempre» + «si» para vigilar todo el tiempo</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego «Simón dice»: solo obedecemos SI Simón lo dice. ¡Eso es una
+              condición!
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Descubrimos «si... entonces» y los sensores (tocando, tecla
+              pulsada).
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos juntos: «por siempre → si ¿tocando el puntero? → decir
+              ¡Me tocaste!».
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos: que el personaje reaccione a una tecla o al ratón.
+            </td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos nuestras reacciones.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Me tocaste:</b> Programa «si ¿tocando el puntero? entonces decir
+          ¡Hola!».
+        </li>
+        <li>
+          <b>Vigilante:</b> Mete ese «si» dentro de «por siempre» para que
+          vigile todo el tiempo.
+        </li>
+        <li>
+          <b>Botón espacio:</b> Haz que reaccione al pulsar la tecla espacio
+          («¿tecla espacio pulsada?»).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>No me toques</b> <span class="nivel">(Intermedio)</span><br />Que
+          el personaje grite algo cada vez que el ratón lo toca.
+        </li>
+        <li>
+          <b>Botón mágico</b> <span class="nivel">(Intermedio)</span><br />Que
+          al pulsar una tecla, el personaje cambie de color.
+        </li>
+        <li>
+          <b>Vigilante</b> <span class="nivel">(Intermedio)</span><br />Usa «por
+          siempre» para que el personaje reaccione una y otra vez.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El personaje reactivo</h3>
+      <p>
+        Crea un personaje que reaccione de dos formas distintas: al tocarlo con
+        el ratón y al pulsar una tecla.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «si... entonces» con un sensor.</li>
+        <li>Lo coloca dentro de «por siempre».</li>
+        <li>El personaje reacciona como se espera.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>«Simón dice» enseña la condición sin computador: aprovéchalo.</li>
+        <li>Sin «por siempre», el «si» solo se revisa una vez: muéstralo.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +45 XP · Logro 'Primera decisión'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 2: Construyo un laberinto</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Detectar colores para crear las paredes de un laberinto que el personaje
+        no puede cruzar.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>«¿tocando color?»</li>
+        <li>«si... entonces... si no...»</li>
+        <li>Volver atrás si chocas con una pared</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos «si... entonces» y los sensores.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe dibuja un laberinto en el fondo y muestra: «si tocando el
+              color de la pared, vuelve atrás».
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso: mover con flechas + detectar el color de
+              las paredes para no atravesarlas.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: dibuja tu propio laberinto y elige el color de las
+              paredes.
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos: jugamos los laberintos de los demás.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Dibuja el camino:</b> Pinta un laberinto sencillo en el fondo del
+          escenario.
+        </li>
+        <li>
+          <b>A moverse:</b> Controla al personaje con las flechas del teclado.
+        </li>
+        <li>
+          <b>Paredes sólidas:</b> «si ¿tocando color (pared)?» retrocede un poco
+          para no atravesarla.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Paredes sólidas</b> <span class="nivel">(Intermedio)</span
+          ><br />Que el personaje no pueda atravesar ninguna pared del
+          laberinto.
+        </li>
+        <li>
+          <b>La salida</b> <span class="nivel">(Intermedio)</span><br />Marca
+          una salida de otro color y que al tocarla diga «¡Lo lograste!».
+        </li>
+        <li>
+          <b>Laberinto difícil</b> <span class="nivel">(Avanzado)</span
+          ><br />Dibuja un laberinto más complicado con varios caminos.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi laberinto</h3>
+      <p>
+        Crea un laberinto donde controlas un personaje que no puede atravesar
+        las paredes.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «¿tocando color?» para las paredes.</li>
+        <li>El personaje no atraviesa las paredes.</li>
+        <li>El laberinto se puede jugar.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Que pinten las paredes de un color liso y distinto; facilita la
+          detección.
+        </li>
+        <li>
+          Truco clave: al tocar la pared, regresar a la posición anterior.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Constructor de laberintos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 3: Retos de interacción</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Crear interacciones combinando varias condiciones y sensores.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>«¿tocando (otro sprite)?»</li>
+        <li>Combinar varias condiciones</li>
+        <li>Reacciones distintas según lo que toca</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: «si... entonces» relámpago: el profe dice una
+              condición y los niños la programan.
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «¿tocando (otro objeto)?» para que dos personajes
+              interactúen.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: trampas, premios, puertas que se abren al tocar
+              una llave.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: mostramos las interacciones más ingeniosas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>¡Punto!:</b> Al tocar una estrella, que el personaje diga
+          «¡Punto!».
+        </li>
+        <li>
+          <b>Cuidado, trampa:</b> Al tocar una trampa, que el personaje vuelva
+          al inicio.
+        </li>
+        <li>
+          <b>Dos reacciones:</b> Que reaccione distinto al tocar dos objetos
+          diferentes.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Recoge la moneda</b> <span class="nivel">(Intermedio)</span
+          ><br />Que al tocar una moneda, la moneda desaparezca (esconder).
+        </li>
+        <li>
+          <b>Trampa</b> <span class="nivel">(Intermedio)</span><br />Que al
+          tocar una trampa, el personaje regrese a la salida.
+        </li>
+        <li>
+          <b>Llave y puerta</b> <span class="nivel">(Avanzado)</span><br />Que
+          la puerta se abra (desaparezca) solo después de tocar la llave.
+        </li>
+        <li>
+          <b>Tres reacciones</b> <span class="nivel">(Avanzado)</span><br />Crea
+          tres objetos, cada uno con una reacción diferente al tocarlo.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mundo interactivo</h3>
+      <p>
+        Crea una escena con al menos tres objetos que reaccionan distinto cuando
+        el personaje los toca.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «¿tocando (sprite)?» correctamente.</li>
+        <li>Crea reacciones distintas para distintos objetos.</li>
+        <li>Las interacciones funcionan al jugar.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Estas interacciones son la base de los juegos: refuérzalas bien.
+        </li>
+        <li>
+          Pídeles inventar sus propias reglas: «¿qué pasa si tocas esto?».
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Trofeo 'Detective de reglas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 4: Gran Misión: Laberinto Interactivo</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un laberinto jugable con paredes, premios, trampas y
+        una salida ganadora.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar condiciones, sensores y colores</li>
+        <li>Reglas del juego (ganar / reiniciar)</li>
+        <li>Diseño de un nivel jugable</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: dibuja tu laberinto con la salida, dos premios y una
+              trampa.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo: paredes con color, control con flechas, premios que
+              desaparecen, trampa que reinicia y meta que gana.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>
+              Pruébalo (que un compañero lo juegue) y arregla los caminos
+              imposibles.
+            </td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>
+              ¡Sala de juegos! Cada quien presenta y deja jugar su laberinto.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>El plano:</b> Dibuja tu laberinto con su salida y su meta.</li>
+        <li><b>Tesoros:</b> Agrega premios que desaparecen al tocarlos.</li>
+        <li>
+          <b>Trampa traicionera:</b> Pon una trampa que devuelve al jugador al
+          inicio.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>¡Has ganado!</b> <span class="nivel">(Avanzado)</span><br />Que al
+          tocar la meta aparezca un mensaje de victoria.
+        </li>
+        <li>
+          <b>Premios a recoger</b> <span class="nivel">(Intermedio)</span
+          ><br />Coloca al menos dos premios que el jugador deba recoger.
+        </li>
+        <li>
+          <b>Reto extra</b> <span class="nivel">(Avanzado)</span><br />Agrega
+          una trampa móvil que también reinicie si te toca.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Laberinto Interactivo</h3>
+      <p>
+        Un laberinto jugable con paredes que no se atraviesan, premios, una
+        trampa y una meta que gana el juego. ¡Que lo jueguen!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Las paredes funcionan (no se atraviesan).</li>
+        <li>Hay premios, trampa y meta con sus reacciones.</li>
+        <li>El laberinto se puede ganar.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Es su primer mini-juego completo: celebra el logro.</li>
+        <li>Las pruebas cruzadas entre compañeros descubren caminos rotos.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · 🧭 Insignia 'Detective de Decisiones'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 5 — Repeticiones y Patrones</h1>
+      <p class="desc">
+        Aprendemos a repetir acciones automáticamente para crear movimientos y
+        patrones.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Robot Bailarín · <b>Insignia:</b> 🔁
+        Maestro de los Bucles · <b>XP:</b> 230
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 1: Repetir sin cansarse</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar «repetir» y «por siempre» para que el personaje haga acciones
+        automáticamente.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>«repetir 10»</li>
+        <li>«por siempre»</li>
+        <li>Repetir nos ahorra poner muchos bloques iguales</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego «la ola»: repetimos el mismo gesto en cadena. ¡Eso es un
+              bucle!
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Descubrimos «repetir 10» y «por siempre». Vemos cómo un solo
+              «repetir» reemplaza muchos bloques.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos juntos: «repetir 4 → mover 50 → girar 90» (¡dibuja un
+              cuadrado al caminar!).
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos cambiando el número de repeticiones.</td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos nuestros movimientos repetidos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Cuatro pasotes:</b> Haz que el personaje dé 4 pasos grandes usando
+          «repetir 4».
+        </li>
+        <li><b>Gira sin fin:</b> Usa «por siempre» para que gire sin parar.</li>
+        <li>
+          <b>Más o menos:</b> Cambia el número de «repetir» y mira cómo cambia
+          el resultado.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Vueltas</b> <span class="nivel">(Intermedio)</span><br />Que el
+          personaje dé 10 vueltas usando «repetir».
+        </li>
+        <li>
+          <b>Cuadrado caminando</b> <span class="nivel">(Intermedio)</span
+          ><br />Con «repetir 4», «mover» y «girar 90», dibuja un cuadrado con
+          el recorrido.
+        </li>
+        <li>
+          <b>Sin parar</b> <span class="nivel">(Intermedio)</span><br />Usa «por
+          siempre» para una animación que nunca se detiene.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El movimiento infinito</h3>
+      <p>
+        Crea un personaje que haga un movimiento repetido para siempre (girar,
+        latir o rebotar).
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «repetir» con un número.</li>
+        <li>Usa «por siempre» para repetir sin fin.</li>
+        <li>Entiende que repetir ahorra bloques.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>El juego de «la ola» hace sentir el bucle con el cuerpo.</li>
+        <li>Compara: 4 bloques «mover» vs un «repetir 4». ¡Magia!</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Primer bucle'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 2: Construyo movimientos automáticos</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Combinar repeticiones con disfraces y giros para crear movimientos
+        automáticos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Repetir con cambio de disfraz</li>
+        <li>«girar» dentro de un bucle</li>
+        <li>Contadores básicos (sumar 1 en cada vuelta)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos «repetir» y «por siempre».</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe construye un personaje que «baila»: dentro de un bucle
+              cambia disfraz, gira y se mueve.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso un baile automático con varias acciones
+              repetidas.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>Personalízalo: elige tu personaje y crea tu propio baile.</td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos los bailes automáticos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Baile en bucle:</b> Dentro de «por siempre»: cambiar disfraz +
+          esperar.
+        </li>
+        <li>
+          <b>Da vueltas:</b> Agrega un «girar» para que dé vueltas mientras
+          baila.
+        </li>
+        <li>
+          <b>Baila y avanza:</b> Que también se mueva por el escenario mientras
+          se anima.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Baile básico</b> <span class="nivel">(Intermedio)</span><br />Un
+          personaje que baila repitiendo disfraces y giros.
+        </li>
+        <li>
+          <b>Más pasos</b> <span class="nivel">(Intermedio)</span><br />Agrega
+          un tercer movimiento al baile (saltar o cambiar de tamaño).
+        </li>
+        <li>
+          <b>Cuenta los pasos</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea una variable que sume 1 en cada vuelta del baile y
+          muéstrala.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi baile automático</h3>
+      <p>
+        Crea un personaje que baile solo, repitiendo al menos tres movimientos
+        diferentes.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa un bucle para el baile.</li>
+        <li>Combina disfraces, giros y movimiento.</li>
+        <li>El baile se repite de forma fluida.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Pon música de fondo de la clase mientras construyen sus bailes: pura
+          motivación.
+        </li>
+        <li>
+          Introduce el contador con suavidad; no es obligatorio para todos.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Coreógrafo digital'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 3: Retos de patrones</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Usar bucles con el lápiz (o sellos) para dibujar patrones bonitos.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Bloques de Lápiz: «bajar lápiz», «sellar»</li>
+        <li>Repetir + girar = figuras y patrones</li>
+        <li>Cambiar color en cada vuelta</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: con «repetir» y «girar», ¿qué figura sale?
+              Adivinamos antes de probar.
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «bajar lápiz» + «repetir 36 → mover → girar 10»
+              dibuja un círculo de pasos.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: estrellas, flores, espirales y mosaicos con
+              sellos.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: exponemos nuestros dibujos de patrones.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Cuadrado mágico:</b> Con «bajar lápiz» y «repetir 4» (mover + girar
+          90) dibuja un cuadrado.
+        </li>
+        <li>
+          <b>Estrella:</b> Cambia el giro a 72 para que salga una estrella.
+        </li>
+        <li>
+          <b>Arcoíris:</b> Cambia el color del lápiz en cada vuelta del dibujo.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Polígono mágico</b> <span class="nivel">(Intermedio)</span
+          ><br />Dibuja un triángulo y luego un pentágono cambiando el giro.
+        </li>
+        <li>
+          <b>Flor de colores</b> <span class="nivel">(Avanzado)</span
+          ><br />Repite una figura girando un poco cada vez para formar una
+          flor.
+        </li>
+        <li>
+          <b>Espiral</b> <span class="nivel">(Avanzado)</span><br />Haz una
+          espiral moviéndote un poco más en cada vuelta.
+        </li>
+        <li>
+          <b>Mosaico con sellos</b> <span class="nivel">(Avanzado)</span
+          ><br />Usa «sellar» dentro de un bucle para llenar el escenario de un
+          patrón.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi obra de arte</h3>
+      <p>
+        Crea un dibujo de patrones usando bucles y el lápiz, con cambios de
+        color.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa el lápiz o los sellos dentro de un bucle.</li>
+        <li>Genera un patrón reconocible.</li>
+        <li>Aplica cambios de color para decorarlo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Recuerda «borrar todo» al empezar y «subir lápiz» al terminar.</li>
+        <li>
+          Los patrones geométricos asombran; deja tiempo para experimentar con
+          los números.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Trofeo 'Artista de patrones'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 4: Gran Misión: Robot Bailarín</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un robot que baila solo combinando bucles, movimientos
+        y patrones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar repeticiones, animación y patrones</li>
+        <li>Coreografía automática con varios bloques</li>
+        <li>Escenario decorado</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: diseña a tu robot y escribe los 4 pasos de su baile.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo: un robot que repite su coreografía (disfraces, giros,
+              movimiento) y deja un patrón de fondo.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>
+              Pruébalo y ajusta los tiempos para que el baile se vea bien.
+            </td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>¡Concurso de baile! Presentamos los robots bailarines.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu robot:</b> Elige (o dibuja) un robot y ponle un fondo para su
+          show.
+        </li>
+        <li><b>La coreografía:</b> Programa su baile dentro de un bucle.</li>
+        <li>
+          <b>Pista decorada:</b> Decora el fondo con un patrón hecho con bucles.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Coreografía completa</b> <span class="nivel">(Avanzado)</span
+          ><br />El robot repite al menos 4 movimientos distintos en su baile.
+        </li>
+        <li>
+          <b>Fondo con patrón</b> <span class="nivel">(Avanzado)</span
+          ><br />Dibuja un patrón decorativo de fondo con el lápiz o sellos.
+        </li>
+        <li>
+          <b>Dúo de baile</b> <span class="nivel">(Avanzado)</span><br />Agrega
+          un segundo robot que baile a un ritmo distinto.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Robot Bailarín</h3>
+      <p>
+        Un robot que baila solo repitiendo su coreografía, sobre un escenario
+        decorado con patrones. ¡Que empiece el show!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa bucles para la coreografía.</li>
+        <li>Combina varios movimientos repetidos.</li>
+        <li>El escenario tiene un patrón decorativo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El concurso de baile cierra el periodo con energía: dale protagonismo.
+        </li>
+        <li>Valora tanto la coreografía como la decoración del escenario.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · 🔁 Insignia 'Maestro de los Bucles'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 6 — Variables y Puntuaciones</h1>
+      <p class="desc">
+        Aprendemos a guardar información en los proyectos: puntos, vidas y
+        cronómetros.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Atrapa los Objetos · <b>Insignia:</b> 🔢
+        Guardián de Puntos · <b>XP:</b> 250
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 1: Una cajita que guarda números</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Entender qué es una variable y crear un marcador de puntos que sube.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Una variable es una cajita con nombre que guarda un valor</li>
+        <li>Crear la variable «puntos»</li>
+        <li>«fijar puntos a 0» y «sumar 1 a puntos»</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego del marcador: contamos puntos a mano en el tablero. La compu
+              puede hacerlo por nosotros con una variable.
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Descubrimos cómo crear la variable «puntos» y verla en el
+              escenario.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos juntos: empezar en 0 y, al hacer clic en un objeto,
+              «sumar 1 a puntos».
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos cambiando cuánto suma cada clic.</td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos nuestros marcadores.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Crea «puntos»:</b> Crea la variable «puntos» y haz que aparezca en
+          el escenario.
+        </li>
+        <li>
+          <b>Empieza en 0:</b> Pon «fijar puntos a 0» al pulsar la bandera
+          verde.
+        </li>
+        <li>
+          <b>Clic = punto:</b> Al hacer clic en un objeto, «sumar 1 a puntos».
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Clicker</b> <span class="nivel">(Intermedio)</span><br />Que cada
+          clic en el personaje sume 1 punto al marcador.
+        </li>
+        <li>
+          <b>Vale por 5</b> <span class="nivel">(Intermedio)</span><br />Crea un
+          objeto especial que sume 5 puntos de una vez.
+        </li>
+        <li>
+          <b>Reinicio</b> <span class="nivel">(Intermedio)</span><br />Que al
+          pulsar la bandera, los puntos vuelvan a 0.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi marcador</h3>
+      <p>
+        Crea un juego de clics donde cada clic suma puntos y el marcador empieza
+        en 0.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea y muestra una variable.</li>
+        <li>La inicializa en 0 al empezar.</li>
+        <li>Suma puntos al interactuar.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          La metáfora de la «cajita con nombre» funciona genial a esta edad.
+        </li>
+        <li>Que vean el número subir en pantalla los engancha al instante.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Mi primera variable'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 2: Construyo un juego con vidas</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar dos variables (puntos y vidas) y mostrar cuándo se acaba el juego.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Variable «vidas» además de «puntos»</li>
+        <li>«restar 1 a vidas» al fallar</li>
+        <li>«si vidas = 0» → fin del juego</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos qué es una variable y cómo suma puntos.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe construye un juego con vidas: ganar puntos al acertar,
+              perder vidas al fallar.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso: dos variables, sumar puntos, restar vidas
+              y revisar si llegaron a 0.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: cambia los personajes y cuántas vidas se empieza.
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos y jugamos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Tres vidas:</b> Crea la variable «vidas» y empiézala en 3.</li>
+        <li><b>¡Ay, fallaste!:</b> Haz que al fallar se «reste 1 a vidas».</li>
+        <li>
+          <b>Game over:</b> Cuando vidas = 0, muestra el mensaje «Fin del
+          juego».
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Tres vidas</b> <span class="nivel">(Intermedio)</span><br />El
+          jugador empieza con 3 vidas y las pierde al cometer errores.
+        </li>
+        <li>
+          <b>Game over</b> <span class="nivel">(Intermedio)</span><br />Cuando
+          las vidas llegan a 0, el juego se detiene y avisa.
+        </li>
+        <li>
+          <b>Puntos y vidas juntos</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra a la vez el puntaje y las vidas durante el juego.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Juego con vidas</h3>
+      <p>
+        Crea un mini juego que lleve puntos y vidas, y que termine cuando se
+        acaban las vidas.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa dos variables (puntos y vidas).</li>
+        <li>Resta vidas al fallar.</li>
+        <li>Detecta el fin del juego con «si vidas = 0».</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          «Detener todos» o un mensaje claro al llegar a 0 ayuda a cerrar el
+          juego.
+        </li>
+        <li>Que decidan cuántas vidas dar: les encanta tener ese control.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Sistema de vidas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 3: Retos de marcadores</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Usar cronómetros y récords para hacer los juegos más emocionantes.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>El «cronómetro» de Scratch</li>
+        <li>Variable «tiempo» o cuenta regresiva</li>
+        <li>Guardar el récord (mejor puntaje)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>Calentamiento: ¿quién consigue más clics en 10 segundos?</td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: usar el «cronómetro» y «reiniciar cronómetro» para
+              ponerle tiempo al juego.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: cuenta regresiva, récord, bonus por velocidad.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: comparamos récords de la clase.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Contrarreloj:</b> Muestra el «cronómetro» en pantalla y reinícialo
+          al empezar.
+        </li>
+        <li>
+          <b>Cuenta atrás:</b> Crea una cuenta regresiva de 30 a 0 con una
+          variable.
+        </li>
+        <li>
+          <b>Récord:</b> Guarda el mejor puntaje en una variable «récord».
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Contrarreloj</b> <span class="nivel">(Avanzado)</span><br />El
+          juego dura 30 segundos; al acabar, muestra el puntaje final.
+        </li>
+        <li>
+          <b>Récord</b> <span class="nivel">(Avanzado)</span><br />Si superas el
+          récord, guárdalo y muestra «¡Nuevo récord!».
+        </li>
+        <li>
+          <b>Bonus rápido</b> <span class="nivel">(Avanzado)</span><br />Da
+          puntos extra si aciertas en los primeros segundos.
+        </li>
+        <li>
+          <b>Cuenta regresiva</b> <span class="nivel">(Intermedio)</span
+          ><br />Muestra una variable «tiempo» que baja de 30 a 0.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Juego contrarreloj</h3>
+      <p>Crea un mini juego con tiempo límite y récord guardado.</p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa el cronómetro o una cuenta regresiva.</li>
+        <li>Guarda y muestra un récord.</li>
+        <li>El tiempo hace el juego más emocionante.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>El récord motiva a repetir y mejorar: gran enganche.</li>
+        <li>
+          La cuenta regresiva con variable es buen reto de lógica para los
+          mayores.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Trofeo 'Cazador de récords'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 4: Gran Misión: Atrapa los Objetos</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un juego donde atrapas objetos que caen, con puntos,
+        vidas y tiempo.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar variables, condiciones y movimiento</li>
+        <li>Objetos que caen y se atrapan</li>
+        <li>Reglas de puntos y fin del juego</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: diseña tu juego (¿qué cae?, ¿qué suma puntos?, ¿qué
+              quita vidas?).
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo: una canasta que mueves, objetos que caen, puntos al
+              atrapar y vidas al fallar.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>Pruébalo (que un compañero juegue) y ajusta la dificultad.</td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>¡Sala de arcade! Presentamos y jugamos los juegos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>La canasta:</b> Crea una canasta que muevas a izquierda y derecha.
+        </li>
+        <li>
+          <b>Lluvia:</b> Haz que un objeto caiga desde arriba del escenario.
+        </li>
+        <li>
+          <b>Puntos y vidas:</b> Suma puntos al atrapar y resta vidas al dejarlo
+          caer.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Lluvia de objetos</b> <span class="nivel">(Avanzado)</span
+          ><br />Que los objetos caigan una y otra vez en posiciones distintas.
+        </li>
+        <li>
+          <b>Buenos y malos</b> <span class="nivel">(Avanzado)</span
+          ><br />Agrega objetos que suman y objetos que quitan vidas si los
+          atrapas.
+        </li>
+        <li>
+          <b>Final con puntaje</b> <span class="nivel">(Avanzado)</span
+          ><br />Cuando se acaban las vidas o el tiempo, muestra el puntaje
+          final.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Atrapa los Objetos</h3>
+      <p>
+        Un juego completo: mueves una canasta para atrapar objetos que caen, con
+        puntos, vidas y un final claro. ¡A jugar!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa variables de puntos y vidas.</li>
+        <li>Los objetos caen y se pueden atrapar.</li>
+        <li>El juego tiene un final con puntaje.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Este proyecto junta casi todo lo aprendido: dale tiempo y acompaña.
+        </li>
+        <li>
+          Ayúdalos a equilibrar la velocidad de caída para que sea divertido, no
+          imposible.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · 🔢 Insignia 'Guardián de Puntos'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 7 — Sonidos y Multimedia</h1>
+      <p class="desc">
+        Hacemos proyectos más vivos con sonidos, música, fondos y efectos
+        visuales.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Concierto Interactivo · <b>Insignia:</b> 🎵
+        DJ Creativo · <b>XP:</b> 270
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 1: ¡Que suene!</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Agregar sonidos a los proyectos y reproducirlos con eventos.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>
+          Bloques de Sonido: «iniciar sonido», «tocar sonido hasta que termine»
+        </li>
+        <li>Elegir sonidos de la biblioteca</li>
+        <li>Reproducir sonido al hacer clic o con una tecla</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Juego de la orquesta: cada niño es un «instrumento» y suena cuando
+              el director lo señala.
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Descubrimos los bloques de sonido y la biblioteca de sonidos.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos juntos: «al hacer clic en este objeto → iniciar
+              sonido».
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos: que distintos objetos suenen distinto.</td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos (¡y escuchamos!) nuestros objetos sonoros.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Elige un sonido:</b> Escoge un sonido de la biblioteca para tu
+          personaje.
+        </li>
+        <li><b>Clic sonoro:</b> Haz que suene al hacer clic en él.</li>
+        <li>
+          <b>Dúo de sonidos:</b> Agrega un segundo objeto con un sonido
+          distinto.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Botonera de sonidos</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea 3 objetos que suenen distinto al hacerles clic.
+        </li>
+        <li>
+          <b>Sonido con tecla</b> <span class="nivel">(Intermedio)</span
+          ><br />Que al pulsar una tecla suene un efecto.
+        </li>
+        <li>
+          <b>Animal que habla</b> <span class="nivel">(Intermedio)</span
+          ><br />Un animal que hace su sonido y además «dice» qué animal es.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi tablero de sonidos</h3>
+      <p>
+        Crea un tablero con al menos 3 objetos que reproducen sonidos al
+        tocarlos.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Agrega sonidos de la biblioteca.</li>
+        <li>Los reproduce con un evento (clic o tecla).</li>
+        <li>Cada objeto suena distinto.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Usa audífonos o turnos para que el aula no sea un caos de sonidos.
+        </li>
+        <li>El juego de la orquesta prepara la idea de sincronizar.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Maestro del sonido'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 2: Construyo una escena con música</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Combinar música de fondo, cambios de fondo y efectos visuales en una
+        escena.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Música de fondo en bucle</li>
+        <li>Cambiar el fondo del escenario</li>
+        <li>Efectos visuales («efecto color», «efecto fantasma»)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos cómo reproducir sonidos.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe arma una escena con música de fondo, un cambio de fondo y
+              luces (efectos).
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso: música en «por siempre», cambiar el fondo
+              y aplicar efectos al personaje.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>Personalízalo: elige tu música, tus fondos y tus efectos.</td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos las escenas ambientadas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Música sin fin:</b> Pon una música de fondo que se repita en bucle.
+        </li>
+        <li>
+          <b>Cambia el lugar:</b> Cambia el fondo del escenario a otro distinto.
+        </li>
+        <li>
+          <b>Luces:</b> Aplica «efecto color» o «efecto fantasma» a tu
+          personaje.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Ambiente</b> <span class="nivel">(Intermedio)</span><br />Crea una
+          escena (día, fiesta o espacio) con su música y su fondo.
+        </li>
+        <li>
+          <b>Luces de colores</b> <span class="nivel">(Intermedio)</span
+          ><br />Haz que las luces (efecto color) cambien al ritmo, en un bucle.
+        </li>
+        <li>
+          <b>Aparición fantasma</b> <span class="nivel">(Avanzado)</span
+          ><br />Que un personaje aparezca poco a poco con el efecto fantasma.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi escena ambientada</h3>
+      <p>
+        Crea una escena con música de fondo, al menos un cambio de fondo y un
+        efecto visual.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa música de fondo en bucle.</li>
+        <li>Cambia el fondo del escenario.</li>
+        <li>Aplica un efecto visual.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Que la música no tape los efectos: enséñales a bajar el volumen si
+          hace falta.
+        </li>
+        <li>
+          Los efectos «fantasma» y «color» dan resultados vistosos con poco
+          esfuerzo.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Ambientador'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 3: Retos de sincronización</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Coordinar sonidos y animaciones usando mensajes y esperas.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>«enviar mensaje» y «al recibir mensaje»</li>
+        <li>Sincronizar varios sprites</li>
+        <li>Sonido + animación al mismo tiempo</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: el director envía «¡ya!» y todos los instrumentos
+              suenan a la vez.
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «enviar mensaje» avisa a otros sprites para que
+              actúen juntos.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: que la música y el baile vayan al mismo tiempo;
+              que un mensaje encienda las luces.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: presentamos nuestros números sincronizados.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Mensajero:</b> Usa «enviar mensaje» y que otro sprite reaccione con
+          «al recibir».
+        </li>
+        <li>
+          <b>Música + baile:</b> Haz que un personaje baile mientras suena la
+          música.
+        </li>
+        <li>
+          <b>A la vez:</b> Sincroniza dos personajes con un mismo mensaje.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>A la cuenta de tres</b> <span class="nivel">(Avanzado)</span
+          ><br />Que al enviar un mensaje, tres personajes hagan algo a la vez.
+        </li>
+        <li>
+          <b>Música y baile</b> <span class="nivel">(Avanzado)</span><br />Que
+          el baile empiece justo cuando empieza la música.
+        </li>
+        <li>
+          <b>Luces al ritmo</b> <span class="nivel">(Avanzado)</span><br />Que
+          las luces cambien sincronizadas con los golpes de la música.
+        </li>
+        <li>
+          <b>Coro</b> <span class="nivel">(Intermedio)</span><br />Varios
+          personajes que «cantan» (dicen) por turnos con mensajes.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Número sincronizado</h3>
+      <p>
+        Crea una escena donde música, animación y efectos pasan coordinados
+        gracias a los mensajes.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa «enviar» y «al recibir» mensaje.</li>
+        <li>Coordina sonido y animación.</li>
+        <li>Varios sprites actúan en sincronía.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Los mensajes son un concepto poderoso; preséntalos como «avisar a los
+          demás».
+        </li>
+        <li>Empieza sincronizando solo dos sprites antes de añadir más.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Trofeo 'Director de orquesta'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 4: Gran Misión: Concierto Interactivo</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un concierto donde el público interactúa con sonidos,
+        luces y animaciones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar sonido, efectos y mensajes</li>
+        <li>Interacción del público (clics y teclas)</li>
+        <li>Espectáculo coordinado</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: diseña tu concierto (¿qué instrumentos?, ¿qué pasa al
+              tocarlos?, ¿qué luces?).
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo: instrumentos que suenan al clic, músicos que se
+              animan y luces sincronizadas con mensajes.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>Pruébalo y ajusta volúmenes y tiempos.</td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>
+              ¡Gran concierto! Cada quien presenta su espectáculo interactivo.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Instrumentos:</b> Crea instrumentos que suenen al hacerles clic.
+        </li>
+        <li><b>La banda:</b> Agrega músicos que se animen mientras tocan.</li>
+        <li>
+          <b>Show de luces:</b> Pon luces (efectos) que cambien con la música.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Banda completa</b> <span class="nivel">(Avanzado)</span><br />Al
+          menos 3 instrumentos interactivos que suenan distinto.
+        </li>
+        <li>
+          <b>Show de luces</b> <span class="nivel">(Avanzado)</span><br />Luces
+          sincronizadas con la música usando mensajes.
+        </li>
+        <li>
+          <b>El público participa</b> <span class="nivel">(Avanzado)</span
+          ><br />Que con el teclado el público pueda añadir sonidos al
+          concierto.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Concierto Interactivo</h3>
+      <p>
+        Un concierto donde el público hace sonar instrumentos, los músicos se
+        animan y las luces van al ritmo. ¡Que suba el telón!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Combina sonidos, animación y efectos.</li>
+        <li>El público puede interactuar.</li>
+        <li>Hay sincronía (mensajes) en el espectáculo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El concierto es ideal para una presentación grupal: dale escenario.
+        </li>
+        <li>Cuida el volumen en el aula; sugiere turnos para presentar.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +95 XP · 🎵 Insignia 'DJ Creativo' desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 8 — Videojuegos Básicos</h1>
+      <p class="desc">
+        Juntamos todo lo aprendido para crear videojuegos con objetivo, enemigos
+        y reglas.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Juego de Recolección · <b>Insignia:</b> 🎮
+        Creador de Juegos · <b>XP:</b> 290
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 1: ¿Qué hace divertido un juego?</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Entender las partes de un videojuego: objetivo, héroe, enemigos y
+        reglas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>El objetivo del juego (qué hay que lograr)</li>
+        <li>Héroe y enemigos</li>
+        <li>Reglas: qué suma, qué quita, cómo se gana o pierde</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Charla rápida: ¿cuál es tu juego favorito y por qué es divertido?
+              Buscamos qué tienen en común.
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Descubrimos las partes de un juego con ejemplos sencillos hechos
+              en Scratch.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos juntos el inicio: un héroe que se mueve y un objetivo
+              (recoger algo).
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos: agregar una regla (sumar puntos al recoger).</td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Mostramos nuestros inicios de juego.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>El héroe:</b> Crea un héroe que se mueve con las flechas.</li>
+        <li>
+          <b>A recoger:</b> Agrega un objeto que suma puntos al recogerlo.
+        </li>
+        <li>
+          <b>La misión:</b> Que el juego «diga» cuál es el objetivo al empezar.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Objetivo claro</b> <span class="nivel">(Intermedio)</span><br />Que
+          al empezar, el juego diga al jugador qué debe hacer.
+        </li>
+        <li>
+          <b>Primer enemigo</b> <span class="nivel">(Intermedio)</span
+          ><br />Agrega un enemigo que se mueve por el escenario.
+        </li>
+        <li>
+          <b>Regla simple</b> <span class="nivel">(Intermedio)</span><br />Suma
+          puntos al recoger y resta vidas al tocar al enemigo.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Las bases de mi juego</h3>
+      <p>
+        Crea el inicio de un juego con héroe, un objeto a recoger, un enemigo y
+        una regla.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Identifica las partes de un juego.</li>
+        <li>Crea héroe, objetivo y enemigo.</li>
+        <li>Define al menos una regla.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Partir de sus juegos favoritos los conecta con la idea de diseño.
+        </li>
+        <li>
+          Insiste en el objetivo claro: muchos juegos fallan por no decir qué
+          hacer.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Aprendiz de game designer'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 2: Construyo un juego de recolección</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir paso a paso un juego de recoger objetos con puntos, enemigos y
+        vidas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Objetos que reaparecen al recogerlos</li>
+        <li>Enemigos que quitan vidas</li>
+        <li>Marcador de puntos y vidas</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos las partes de un juego.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe construye un juego de recolección completo y explica cada
+              parte.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso: héroe + objetos que reaparecen + enemigo
+              + puntos + vidas.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: cambia el tema (frutas, monedas, estrellas) y la
+              dificultad.
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos y jugamos los juegos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Reaparece:</b> Que el objeto reaparezca en otro lugar al recogerlo.
+        </li>
+        <li>
+          <b>¡Peligro!:</b> Agrega un enemigo que quita una vida al tocarte.
+        </li>
+        <li><b>Marcador:</b> Muestra los puntos y las vidas en pantalla.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Reaparición</b> <span class="nivel">(Intermedio)</span><br />Que
+          cada objeto recogido aparezca en una posición nueva al azar.
+        </li>
+        <li>
+          <b>Enemigo peligroso</b> <span class="nivel">(Avanzado)</span
+          ><br />Que tocar al enemigo reste una vida (sin perderlas todas de
+          golpe).
+        </li>
+        <li>
+          <b>Sube la dificultad</b> <span class="nivel">(Avanzado)</span
+          ><br />Haz que el enemigo se mueva más rápido a medida que ganas
+          puntos.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi juego de recolección</h3>
+      <p>
+        Crea un juego donde recoges objetos para sumar puntos mientras esquivas
+        a un enemigo.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Los objetos reaparecen al recogerse.</li>
+        <li>El enemigo quita vidas.</li>
+        <li>Muestra puntos y vidas.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>El truco «ir a posición al azar» da rejugabilidad: enséñalo.</li>
+        <li>
+          Cuida que tocar al enemigo no quite todas las vidas de un golpe (usa
+          una espera).
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Logro 'Mecánico de juegos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 3: Retos de juego</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Agregar condiciones de victoria y derrota y pulir las reglas del juego.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Ganar al llegar a una meta de puntos</li>
+        <li>Perder al quedarse sin vidas</li>
+        <li>Pantallas de «¡Ganaste!» y «Fin del juego»</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: jugamos un juego sin final... ¡aburre! ¿Por qué
+              hace falta ganar o perder?
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: «si puntos = 10 → enviar mensaje ganar» para
+              terminar el juego.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>Retos por niveles: victoria, derrota, niveles, bonus.</td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: probamos los juegos y damos ideas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>¡Ganaste!:</b> Al llegar a 10 puntos, muestra el mensaje
+          «¡Ganaste!».
+        </li>
+        <li>
+          <b>Fin del juego:</b> Al quedarte sin vidas, muestra «Fin del juego».
+        </li>
+        <li>
+          <b>Punto final:</b> Detén el juego cuando termina (al ganar o al
+          perder).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Pantalla de victoria</b> <span class="nivel">(Avanzado)</span
+          ><br />Al ganar, muestra un fondo de «¡Ganaste!» y detén todo.
+        </li>
+        <li>
+          <b>Pantalla de derrota</b> <span class="nivel">(Avanzado)</span
+          ><br />Al perder, muestra «Fin del juego» con el puntaje.
+        </li>
+        <li>
+          <b>Segundo nivel</b> <span class="nivel">(Avanzado)</span><br />Al
+          ganar el primer nivel, cambia de fondo y haz el juego más difícil.
+        </li>
+        <li>
+          <b>Reiniciar</b> <span class="nivel">(Intermedio)</span><br />Agrega
+          un botón o tecla para volver a empezar el juego.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Juego con final</h3>
+      <p>
+        Mejora tu juego para que tenga condición de victoria y de derrota, con
+        sus pantallas.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Tiene condición de victoria.</li>
+        <li>Tiene condición de derrota.</li>
+        <li>Muestra pantallas y detiene el juego al terminar.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Jugar un juego «sin final» les hace sentir por qué importan las
+          condiciones.
+        </li>
+        <li>Los mensajes («ganar», «perder») mantienen el código ordenado.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Trofeo 'Reglas de oro'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 4: Gran Misión: Juego de Recolección</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un videojuego completo de recolección con todas sus
+        reglas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar héroe, enemigos, puntos, vidas y final</li>
+        <li>Un juego jugable de principio a fin</li>
+        <li>Equilibrar la dificultad</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              En papel: diseña tu juego (héroe, qué recoges, enemigos, cómo se
+              gana y se pierde).
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo: junta todo lo aprendido en un juego completo y
+              jugable.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>
+              Pruébalo con un compañero y ajusta la dificultad y las reglas.
+            </td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>¡Feria de videojuegos! Presentamos y jugamos los juegos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Arma el juego:</b> Junta el héroe, los objetos y los enemigos en el
+          escenario.
+        </li>
+        <li>
+          <b>Reglas claras:</b> Agrega puntos, vidas y condiciones de
+          ganar/perder.
+        </li>
+        <li>
+          <b>Cómo jugar:</b> Pon un mensaje de inicio que explique el objetivo.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Juego completo</b> <span class="nivel">(Avanzado)</span><br />Tu
+          juego tiene objetivo, puntos, vidas, enemigos y final.
+        </li>
+        <li>
+          <b>Bien explicado</b> <span class="nivel">(Intermedio)</span><br />Al
+          empezar, el juego explica cómo se juega y cómo se gana.
+        </li>
+        <li>
+          <b>Toque personal</b> <span class="nivel">(Avanzado)</span
+          ><br />Agrega una idea original que haga tu juego diferente a los
+          demás.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Juego de Recolección</h3>
+      <p>
+        Un videojuego completo y jugable: recoges objetos, esquivas enemigos,
+        llevas puntos y vidas, y se puede ganar o perder. ¡A la feria de juegos!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El juego es jugable de principio a fin.</li>
+        <li>Tiene objetivo, puntos, vidas, enemigos y final.</li>
+        <li>Está equilibrado (ni imposible ni demasiado fácil).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          La feria de videojuegos es un cierre potente: invita a otras clases si
+          puedes.
+        </li>
+        <li>Valora el equilibrio del juego, no solo que «funcione».</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +100 XP · 🎮 Insignia 'Creador de Juegos'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 9 — Diseño de Videojuegos</h1>
+      <p class="desc">
+        Pensamos como creadores de videojuegos: planeamos, diseñamos personajes
+        y niveles, y mejoramos la experiencia.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Mi Primer Videojuego Original ·
+        <b>Insignia:</b> 🎨 Diseñador de Mundos · <b>XP:</b> 320
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 1: Pienso mi videojuego</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Planear un videojuego propio: idea, objetivo, personajes y reglas.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Planear antes de programar</li>
+        <li>La idea, el objetivo y la diversión</li>
+        <li>Personajes principales y reglas en papel</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Lluvia de ideas: cada quien dice una idea loca de videojuego.
+              ¡Todo vale!
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>
+              Vemos cómo los creadores planean en papel antes de programar
+              (ficha del juego).
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos juntos la «ficha de mi juego»: nombre, objetivo,
+              héroe, enemigos y reglas.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos: dibujar al héroe y un enemigo de tu juego.</td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Compartimos las ideas de juego.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>La idea:</b> Escribe el nombre y el objetivo de tu juego.</li>
+        <li><b>Héroe y villano:</b> Dibuja a tu héroe y a un enemigo.</li>
+        <li>
+          <b>Dos reglas:</b> Escribe 2 reglas: qué suma puntos y cómo se gana.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Ficha completa</b> <span class="nivel">(Intermedio)</span
+          ><br />Completa la ficha: nombre, objetivo, héroe, enemigos y reglas.
+        </li>
+        <li>
+          <b>¿Por qué es divertido?</b> <span class="nivel">(Intermedio)</span
+          ><br />Escribe en una frase por qué tu juego será divertido.
+        </li>
+        <li>
+          <b>Versión mínima</b> <span class="nivel">(Avanzado)</span><br />Marca
+          qué es lo más importante para tener listo primero.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: La ficha de mi juego</h3>
+      <p>
+        Entrega la ficha de tu videojuego original: idea, objetivo, personajes,
+        reglas y por qué es divertido.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Tiene una idea clara con objetivo.</li>
+        <li>Define héroe, enemigos y reglas.</li>
+        <li>Explica por qué será divertido.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Planear en papel es la gran meta del periodo: dale valor aunque no
+          toquen el computador.
+        </li>
+        <li>Ayúdalos a achicar ideas gigantes a algo posible de hacer.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Mente creadora'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 2: Diseño personajes y niveles</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y editar disfraces de personajes y diseñar el fondo de los
+        niveles.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>El editor de disfraces (crear y modificar personajes)</li>
+        <li>Diseñar fondos para distintos niveles</li>
+        <li>Que el aspecto cuente la historia del juego</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Recordamos nuestra ficha de juego.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe muestra el editor de disfraces y cómo dibujar/editar
+              personajes y fondos.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construimos paso a paso: diseña a tu héroe (disfraz) y el fondo de
+              tu primer nivel.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>Personalízalo: dale tu estilo a personajes y niveles.</td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Compartimos los diseños.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Héroe con estilo:</b> Edita el disfraz de tu héroe a tu gusto.
+        </li>
+        <li>
+          <b>El escenario:</b> Diseña o elige el fondo de tu primer nivel.
+        </li>
+        <li>
+          <b>Disfraz extra:</b> Crea un disfraz más (por ejemplo, el héroe
+          «dañado»).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Héroe con estilo</b> <span class="nivel">(Avanzado)</span
+          ><br />Diseña a tu héroe con al menos dos disfraces (normal y
+          especial).
+        </li>
+        <li>
+          <b>Nivel con ambiente</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea un fondo que muestre dónde ocurre tu juego.
+        </li>
+        <li>
+          <b>Segundo nivel</b> <span class="nivel">(Avanzado)</span><br />Diseña
+          un segundo fondo distinto para otro nivel.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El look de mi juego</h3>
+      <p>
+        Diseña a tu héroe (con disfraces) y al menos un nivel con su fondo,
+        acorde a tu idea.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea o edita disfraces del héroe.</li>
+        <li>Diseña el fondo de un nivel.</li>
+        <li>El aspecto encaja con la idea del juego.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El editor de dibujo encanta; deja que se expresen artísticamente.
+        </li>
+        <li>
+          Recuérdales que un buen aspecto hace el juego más atractivo, pero la
+          idea manda.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Logro 'Artista de juegos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 3: Retos de mecánicas</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Inventar y programar mecánicas que hagan el juego más divertido.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Mecánicas (poderes, niveles, power-ups)</li>
+        <li>Probar y mejorar (playtesting)</li>
+        <li>Equilibrio: ni muy fácil ni imposible</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: ¿qué mecánica «mágica» le pondrías a tu juego
+              favorito?
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: un power-up que te da un poder temporal (más
+              velocidad, escudo).
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Retos por niveles: power-ups, niveles que cambian, jefes finales.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>
+              Galería: probamos las mecánicas de los compañeros y damos ideas.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Power-up:</b> Agrega un objeto que te dé un poder al recogerlo.
+        </li>
+        <li>
+          <b>Sube de nivel:</b> Haz que el juego cambie al pasar de nivel.
+        </li>
+        <li>
+          <b>Prueba y anota:</b> Juega tu propio juego y anota qué puedes
+          mejorar.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Power-up</b> <span class="nivel">(Avanzado)</span><br />Un objeto
+          que al recogerlo te da más velocidad por unos segundos.
+        </li>
+        <li>
+          <b>Cambio de nivel</b> <span class="nivel">(Avanzado)</span><br />Al
+          cumplir un objetivo, cambia el fondo y la dificultad.
+        </li>
+        <li>
+          <b>Jefe final</b> <span class="nivel">(Avanzado)</span><br />Agrega un
+          enemigo «jefe» más difícil al final.
+        </li>
+        <li>
+          <b>Mejora tras probar</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide a un compañero que juegue y mejora algo según lo que diga.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi mecánica especial</h3>
+      <p>
+        Agrega a tu juego una mecánica original (power-up, nivel o jefe) y
+        mejórala probándola.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Programa una mecánica nueva que funciona.</li>
+        <li>Prueba el juego y lo ajusta.</li>
+        <li>La mecánica hace el juego más divertido.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El playtesting (probar con otros) es clave: enséñales a escuchar al
+          jugador.
+        </li>
+        <li>Celebra las mecánicas originales aunque sean simples.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Trofeo 'Inventor de mecánicas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 4: Gran Misión: Mi Primer Videojuego Original</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear y presentar un videojuego original propio, basado en la ficha
+        planeada.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar diseño, mecánicas y reglas propias</li>
+        <li>Un juego original de principio a fin</li>
+        <li>Presentar como un creador</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>Revisa tu ficha y decide qué tendrá listo tu juego hoy.</td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Constrúyelo: héroe, niveles, enemigos, puntos, una mecánica
+              especial y un final.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>Pruébalo con compañeros y haz mejoras según lo que digan.</td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>
+              ¡Estudio de juegos! Presenta tu videojuego original y explica tus
+              ideas.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Héroe y nivel:</b> Programa tu héroe y su primer nivel.</li>
+        <li>
+          <b>Tus reglas:</b> Agrega reglas, puntos y una mecánica especial.
+        </li>
+        <li>
+          <b>Inicio y final:</b> Pon un inicio que explique el juego y un final.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Juego original</b> <span class="nivel">(Avanzado)</span><br />Tu
+          juego tiene una idea propia, no es una copia del de clase.
+        </li>
+        <li>
+          <b>Experiencia cuidada</b> <span class="nivel">(Avanzado)</span
+          ><br />Inicio claro, juego equilibrado y final con puntaje.
+        </li>
+        <li>
+          <b>Detrás del juego</b> <span class="nivel">(Intermedio)</span
+          ><br />Prepara una mini explicación de qué quisiste lograr.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Mi Primer Videojuego Original</h3>
+      <p>
+        Tu videojuego original, diseñado por ti: héroe, niveles, mecánicas y
+        reglas propias, jugable de principio a fin. ¡Preséntalo como creador!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El juego es original y propio.</li>
+        <li>Aplica diseño, mecánicas y reglas.</li>
+        <li>Lo presenta y explica sus decisiones.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Resalta que ahora son CREADORES, no solo jugadores.</li>
+        <li>
+          Haz una presentación tipo «estudio de juegos»: sube la autoestima.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +110 XP · 🎨 Insignia 'Diseñador de Mundos'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 10 — Gran Proyecto Final</h1>
+      <p class="desc">
+        Diseñamos, construimos y presentamos un proyecto propio: nuestro mejor
+        videojuego o historia interactiva.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Mi Videojuego o Historia Interactiva ·
+        <b>Insignia:</b> 🏆 Gran Creador LuckSoft · <b>XP:</b> 400
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 1: Planeación</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Elegir el proyecto final (juego o historia) y planearlo completo en
+        papel.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Elegir entre videojuego o historia interactiva</li>
+        <li>Planear personajes, niveles/escenas y reglas</li>
+        <li>Definir lo mínimo para tenerlo terminado</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento / juego</td>
+            <td>10 min</td>
+            <td>
+              Recordamos todo lo aprendido: ¿qué sabemos hacer ya en Scratch?
+              Hacemos una lista.
+            </td>
+          </tr>
+          <tr>
+            <td>Descubrimos los bloques</td>
+            <td>20 min</td>
+            <td>Vemos ejemplos de proyectos grandes y cómo se planean.</td>
+          </tr>
+          <tr>
+            <td>Probamos juntos</td>
+            <td>25 min</td>
+            <td>
+              Construimos el plan: cada quien elige juego o historia y llena su
+              ficha completa.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos: dibujar la pantalla principal y la lista de cosas a
+              programar.
+            </td>
+          </tr>
+          <tr>
+            <td>Mostramos lo que hicimos</td>
+            <td>10 min</td>
+            <td>Compartimos los planes.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Juego o historia:</b> Decide si harás un videojuego o una historia
+          interactiva.
+        </li>
+        <li>
+          <b>Lo importante:</b> Escribe el objetivo y los personajes
+          principales.
+        </li>
+        <li>
+          <b>Lista de tareas:</b> Haz una lista de lo que necesitas programar.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Plan maestro</b> <span class="nivel">(Avanzado)</span><br />Entrega
+          una ficha completa con idea, personajes, escenas/niveles y reglas.
+        </li>
+        <li>
+          <b>Versión mínima</b> <span class="nivel">(Avanzado)</span><br />Marca
+          qué es lo esencial para terminar y qué sería un «extra».
+        </li>
+        <li>
+          <b>Boceto de pantalla</b> <span class="nivel">(Intermedio)</span
+          ><br />Dibuja cómo se verá la pantalla principal de tu proyecto.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi plan final</h3>
+      <p>
+        Entrega el plan completo de tu proyecto final, con su versión mínima
+        bien definida.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El proyecto tiene idea y objetivo claros.</li>
+        <li>El plan lista personajes, escenas/niveles y reglas.</li>
+        <li>El alcance es realista para el tiempo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Ayuda a ajustar el tamaño: mejor algo pequeño y terminado que algo
+          enorme a medias.
+        </li>
+        <li>Que elijan lo que les apasione: es SU proyecto.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Logro 'Gran planificador'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 2: Construcción</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Programar la versión mínima del proyecto siguiendo el plan.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Construir por partes</li>
+        <li>Probar mientras se construye</li>
+        <li>Pedir ayuda cuando uno se atasca</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Recordamos</td>
+            <td>5 min</td>
+            <td>Revisamos el plan y elegimos por dónde empezar.</td>
+          </tr>
+          <tr>
+            <td>El profe construye y explica</td>
+            <td>15 min</td>
+            <td>
+              El profe recuerda el método: construye una parte, pruébala y pasa
+              a la siguiente.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Tiempo de construcción acompañada: cada quien arma su versión
+              mínima.
+            </td>
+          </tr>
+          <tr>
+            <td>Personalízalo a tu gusto</td>
+            <td>20 min</td>
+            <td>
+              Personalízalo: ve añadiendo tu estilo a personajes y escenas.
+            </td>
+          </tr>
+          <tr>
+            <td>Compartimos</td>
+            <td>10 min</td>
+            <td>Punto de control: ¿qué parte ya funciona?</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Lo principal:</b> Programa la parte más importante de tu proyecto.
+        </li>
+        <li>
+          <b>Prueba ya:</b> Pruébala y corrige los errores antes de seguir.
+        </li>
+        <li><b>Guarda:</b> Guarda tu avance para no perderlo.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Primera parte lista</b> <span class="nivel">(Avanzado)</span
+          ><br />Logra que lo más importante de tu proyecto ya funcione.
+        </li>
+        <li>
+          <b>Probar temprano</b> <span class="nivel">(Avanzado)</span
+          ><br />Prueba cada parte apenas la termines y arregla los errores.
+        </li>
+        <li>
+          <b>Pedir ayuda bien</b> <span class="nivel">(Intermedio)</span
+          ><br />Cuando te atasques, explica el problema en una frase antes de
+          pedir ayuda.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Versión jugable</h3>
+      <p>
+        Deja tu proyecto en una versión mínima que ya se pueda usar o jugar de
+        principio a fin.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Avanza siguiendo su plan.</li>
+        <li>Prueba a medida que construye.</li>
+        <li>Tiene una versión mínima funcionando.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Refuerza «construye un poco, prueba un poco»: evita el proyecto
+          gigante sin probar.
+        </li>
+        <li>
+          Celebra cada parte que empieza a funcionar: mantiene la energía.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · Logro 'En construcción'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 3: Pruebas y mejoras</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Probar el proyecto con compañeros, corregir errores y pulir detalles.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Playtesting: que otros lo prueben</li>
+        <li>Encontrar y arreglar errores</li>
+        <li>Pulir: sonidos, instrucciones, detalles</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Calentamiento: ¿cómo «rompemos» un proyecto para encontrar fallos?
+              Lluvia de ideas.
+            </td>
+          </tr>
+          <tr>
+            <td>Truco del día</td>
+            <td>10 min</td>
+            <td>
+              Truco del día: pedir a alguien que juegue tu proyecto y mirar qué
+              le cuesta.
+            </td>
+          </tr>
+          <tr>
+            <td>Retos por niveles</td>
+            <td>55 min</td>
+            <td>
+              Tiempo de pruebas cruzadas: cada quien prueba el proyecto de otro
+              y deja sugerencias.
+            </td>
+          </tr>
+          <tr>
+            <td>Galería: nos mostramos</td>
+            <td>15 min</td>
+            <td>Galería: aplicamos mejoras según lo aprendido.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Jugador invitado:</b> Pide a un compañero que pruebe tu proyecto.
+        </li>
+        <li><b>Lista de mejoras:</b> Anota 3 cosas que puedes mejorar.</li>
+        <li>
+          <b>Cazabugs:</b> Arregla al menos un error que hayas encontrado.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Cazador de errores</b> <span class="nivel">(Avanzado)</span
+          ><br />Encuentra y arregla al menos dos problemas en tu proyecto.
+        </li>
+        <li>
+          <b>Instrucciones claras</b> <span class="nivel">(Intermedio)</span
+          ><br />Agrega una pantalla o mensaje que explique cómo se usa tu
+          proyecto.
+        </li>
+        <li>
+          <b>Toque final</b> <span class="nivel">(Avanzado)</span><br />Añade un
+          detalle que mejore la experiencia (sonido, efecto, mensaje).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Versión pulida</h3>
+      <p>
+        Deja tu proyecto probado, sin errores conocidos y con instrucciones
+        claras.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Prueba el proyecto con otra persona.</li>
+        <li>Corrige los errores encontrados.</li>
+        <li>Pule detalles de la experiencia.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Las pruebas cruzadas encuentran fallos que el autor no ve: son oro.
+        </li>
+        <li>
+          Enséñales que «sin errores conocidos» es una meta de calidad, no
+          perfección.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +100 XP · Trofeo 'Pulidor experto'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 4: Gran Misión: Presentación Final</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Presentar el proyecto final a la clase: mostrarlo, explicarlo y
+        celebrarlo.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Presentar y demostrar tu creación</li>
+        <li>Explicar tus ideas y lo que aprendiste</li>
+        <li>Dar y recibir comentarios positivos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeamos en papel</td>
+            <td>15 min</td>
+            <td>
+              Prepara tu presentación: qué mostrar y qué contar en 2 minutos.
+            </td>
+          </tr>
+          <tr>
+            <td>Construimos el proyecto</td>
+            <td>45 min</td>
+            <td>
+              Últimos ajustes y prueba final del proyecto antes de presentar.
+            </td>
+          </tr>
+          <tr>
+            <td>Probamos y mejoramos</td>
+            <td>15 min</td>
+            <td>Demostración en vivo de cada proyecto ante la clase.</td>
+          </tr>
+          <tr>
+            <td>¡Gran presentación!</td>
+            <td>15 min</td>
+            <td>
+              ¡Gran cierre! Comentarios positivos y entrega de la insignia
+              final.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Tu demo:</b> Prepara una demostración corta de tu proyecto.</li>
+        <li>
+          <b>Tu historia:</b> Explica qué parte te costó más y cómo la
+          resolviste.
+        </li>
+        <li>
+          <b>Próxima versión:</b> Anota una mejora futura para tu proyecto.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Demo impecable</b> <span class="nivel">(Avanzado)</span
+          ><br />Presenta tu proyecto funcionando de principio a fin.
+        </li>
+        <li>
+          <b>Cuenta tu proceso</b> <span class="nivel">(Avanzado)</span
+          ><br />Explica tu idea, lo que aprendiste y lo que más te gustó hacer.
+        </li>
+        <li>
+          <b>Próxima versión</b> <span class="nivel">(Intermedio)</span
+          ><br />Propón 2 mejoras que harías si tuvieras más tiempo.
+        </li>
+      </ul>
+
+      <h3>
+        🚀 Misión / cierre: Proyecto: Mi Videojuego o Historia Interactiva
+      </h3>
+      <p>
+        Tu mejor proyecto: planeado, construido, probado y presentado a la
+        clase. ¡Es tu obra como creador de Scratch!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El proyecto funciona de principio a fin.</li>
+        <li>Aplica lo aprendido en todo el curso.</li>
+        <li>Presenta y explica su trabajo con claridad.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Haz de la presentación una celebración, no un examen: refuerza la
+          confianza.
+        </li>
+        <li>
+          Destaca el progreso de cada niño desde el periodo 1: cierra el viaje
+          con orgullo.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +150 XP · 🏆 Insignia 'Gran Creador LuckSoft'
+        desbloqueada
+      </p>
+    </section>
+  </body>
+</html>

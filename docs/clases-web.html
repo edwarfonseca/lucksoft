@@ -1,0 +1,5381 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Curso de Diseño Web — Guía de clases</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #1a1a1a;
+        line-height: 1.5;
+        margin: 0;
+        padding: 32px 40px;
+      }
+      .cover {
+        text-align: center;
+        padding: 80px 0;
+        page-break-after: always;
+      }
+      .cover h1 {
+        font-size: 34px;
+        margin: 0 0 8px;
+      }
+      .cover p {
+        color: #555;
+      }
+      .periodo {
+        page-break-before: always;
+        border-top: 4px solid #6c5ce7;
+        padding-top: 12px;
+      }
+      .periodo h1 {
+        color: #4834d4;
+        font-size: 26px;
+        margin: 4px 0;
+      }
+      .desc {
+        color: #333;
+      }
+      .meta {
+        background: #f2f0ff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .sesion {
+        page-break-before: always;
+      }
+      .sesion h2 {
+        color: #6c5ce7;
+        font-size: 21px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 6px;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 16px 0 6px;
+        color: #2d2d2d;
+      }
+      .tags {
+        margin: 6px 0 4px;
+      }
+      .tag {
+        display: inline-block;
+        background: #eceafe;
+        color: #4834d4;
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 12px;
+        margin-right: 6px;
+      }
+      .nivel {
+        color: #888;
+        font-weight: normal;
+        font-size: 12px;
+      }
+      ul {
+        margin: 4px 0 4px 4px;
+        padding-left: 20px;
+      }
+      li {
+        margin: 3px 0;
+      }
+      .retos li {
+        margin-bottom: 8px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+      }
+      table.agenda th,
+      table.agenda td {
+        border: 1px solid #ddd;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.agenda th {
+        background: #f5f5f5;
+      }
+      table.agenda td:nth-child(2) {
+        white-space: nowrap;
+        width: 70px;
+      }
+      .recompensa {
+        background: #fff8e6;
+        border-left: 4px solid #ffab19;
+        padding: 8px 12px;
+        margin-top: 14px;
+        border-radius: 4px;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <h1>Curso de Diseño Web — Guía de clases</h1>
+      <p>Guía de clases · 10 periodos × 4 sesiones (40 clases de 90 min)</p>
+      <p>LuckSoft — material de apoyo para el docente</p>
+    </div>
+
+    <section class="periodo">
+      <h1>Periodo 1 — Introducción al Desarrollo Web y HTML</h1>
+      <p class="desc">
+        Cómo funciona la web y la estructura básica de HTML: etiquetas,
+        encabezados, párrafos, imágenes, enlaces y listas dentro de una página
+        HTML5.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Mi Primera Página Web Personal ·
+        <b>Insignia:</b> 🌐 Explorador de la Web · <b>XP:</b> 200
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 1: ¿Cómo funciona la web?</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Entender qué es Internet y una página web, y escribir tu primera
+        estructura HTML5 con encabezados y párrafos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Internet y la web: cliente, servidor y navegador</li>
+        <li>HTML, CSS y JavaScript: estructura, estilo y comportamiento</li>
+        <li>Etiquetas y la estructura HTML5 (html, head, body)</li>
+        <li>Encabezados &lt;h1&gt;–&lt;h6&gt; y párrafos &lt;p&gt;</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Dinámica: ¿qué pasa cuando escribo una dirección y pulso Enter?
+              Reconstruimos el viaje de una página hasta el navegador.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Qué es HTML y para qué sirve cada lenguaje (HTML = esqueleto, CSS
+              = ropa, JS = movimiento). Recorrido por el editor y la vista
+              previa.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Todos escriben la estructura HTML5 base y añaden un &lt;h1&gt; con
+              su nombre y un &lt;p&gt; de saludo; lo ven en la vista previa.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos para añadir varios encabezados y párrafos y observar
+              los tamaños.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Cada quien escribe un encabezado y un párrafo que lo presenten.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Hola, web:</b> Escribe la estructura HTML5 básica y un &lt;h1&gt;
+          que diga 'Hola, web'.
+        </li>
+        <li>
+          <b>Tu primer párrafo:</b> Añade un &lt;p&gt; con una frase que te
+          describa.
+        </li>
+        <li>
+          <b>Niveles de título:</b> Usa un &lt;h1&gt;, un &lt;h2&gt; y un
+          &lt;h3&gt; y observa la diferencia.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mi biografía corta</b> <span class="nivel">(Principiante)</span
+          ><br />Crea una página con un &lt;h1&gt; con tu nombre y 2 párrafos
+          contando algo de ti.
+        </li>
+        <li>
+          <b>Titulares de periódico</b> <span class="nivel">(Principiante)</span
+          ><br />Escribe 3 titulares usando encabezados de distinto nivel y un
+          párrafo bajo cada uno.
+        </li>
+        <li>
+          <b>La estructura correcta</b> <span class="nivel">(Intermedio)</span
+          ><br />Arma una página con head (con &lt;title&gt;) y body bien
+          ordenados, y comprueba el título en la pestaña.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi tarjeta web</h3>
+      <p>
+        Crea una mini página con tu nombre en un &lt;h1&gt;, un subtítulo en
+        &lt;h2&gt; y un párrafo de presentación.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>
+          La página tiene una estructura HTML5 correcta (html, head, body).
+        </li>
+        <li>Usa encabezados y párrafos con sentido.</li>
+        <li>Explica con sus palabras qué hace HTML.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra primero la página terminada y luego cómo se construye:
+          engancha más.
+        </li>
+        <li>
+          Insiste en la diferencia entre las 3 capas (HTML/CSS/JS) con la
+          analogía del cuerpo.
+        </li>
+        <li>
+          Celebra ver el primer texto en la vista previa: es el 'Hola, mundo' de
+          la web.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +40 XP · Logro 'Primera Página'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 2: Imágenes, enlaces y listas</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Enriquecer una página con imágenes, enlaces a otras páginas y listas
+        ordenadas y desordenadas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Imágenes con &lt;img&gt; (src y alt)</li>
+        <li>Enlaces con &lt;a&gt; (href y target)</li>
+        <li>Listas con &lt;ul&gt;, &lt;ol&gt; y &lt;li&gt;</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: ¿qué etiqueta usamos para un título y para un párrafo?
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: insertar una imagen por URL, crear un enlace a otra web y
+              armar una lista.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construyen juntos una página 'mis favoritos' con una imagen, una
+              lista de gustos y enlaces a sitios.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos cambiando el alt de la imagen, el target del enlace y
+              el tipo de lista.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Crear una lista de 3 enlaces a sus páginas favoritas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Pon una imagen:</b> Inserta una imagen con &lt;img&gt; usando una
+          URL y su atributo alt.
+        </li>
+        <li>
+          <b>Un enlace:</b> Crea un enlace &lt;a&gt; a tu página favorita que
+          abra en una pestaña nueva.
+        </li>
+        <li>
+          <b>Mi lista:</b> Haz una lista desordenada (&lt;ul&gt;) con 4 cosas
+          que te gusten.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Galería sencilla</b> <span class="nivel">(Principiante)</span
+          ><br />Muestra 3 imágenes seguidas, cada una con su texto alternativo.
+        </li>
+        <li>
+          <b>Menú de enlaces</b> <span class="nivel">(Principiante)</span
+          ><br />Crea una lista de enlaces a 4 sitios web que uses a menudo.
+        </li>
+        <li>
+          <b>Receta numerada</b> <span class="nivel">(Intermedio)</span
+          ><br />Escribe una receta con los pasos en una lista ordenada
+          (&lt;ol&gt;) y los ingredientes en una desordenada.
+        </li>
+        <li>
+          <b>Imagen con enlace</b> <span class="nivel">(Intermedio)</span
+          ><br />Haz que una imagen sea clicable envolviéndola en un enlace
+          &lt;a&gt;.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi página de aficiones</h3>
+      <p>
+        Crea una página con un título, una imagen, una lista de tus aficiones y
+        un enlace a algo relacionado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Inserta imágenes con alt y enlaces con href correctos.</li>
+        <li>Usa listas ordenadas y desordenadas según el caso.</li>
+        <li>La página combina varios elementos de forma ordenada.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Recuerda siempre el atributo alt: enséñalo como accesibilidad desde el
+          inicio.
+        </li>
+        <li>
+          Deja que elijan sus propias imágenes y enlaces: la identidad motiva.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Página con Vida'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 3: Armando una página completa</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Combinar todas las etiquetas básicas en páginas HTML5 bien estructuradas
+        y sin errores.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Anidación correcta de etiquetas</li>
+        <li>Estructura HTML5 completa</li>
+        <li>Leer y corregir el HTML</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Juego '¿qué etiqueta falta?': el profe muestra páginas incompletas
+              y el grupo adivina.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Cómo revisar que las etiquetas abren y cierran bien (anidación).
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Serie de páginas a construir combinando títulos, párrafos,
+              imágenes, enlaces y listas, de menos a más completa.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Crear una página de presentación de un personaje favorito con
+              todos los elementos vistos.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Página de un libro:</b> Crea una página sobre un libro: título,
+          imagen de portada y descripción.
+        </li>
+        <li>
+          <b>Etiquetas anidadas:</b> Pon una lista dentro de la cual un elemento
+          tenga un enlace.
+        </li>
+        <li>
+          <b>Caza el error:</b> Corrige una página donde una etiqueta no se
+          cerró correctamente.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Ficha de película</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea la ficha de una película con título, imagen, párrafo de
+          sinopsis y lista de actores.
+        </li>
+        <li>
+          <b>Mini blog</b> <span class="nivel">(Intermedio)</span><br />Escribe
+          una entrada de blog con título, fecha en un párrafo, una imagen y un
+          enlace 'leer más'.
+        </li>
+        <li>
+          <b>Índice con enlaces internos</b>
+          <span class="nivel">(Avanzado)</span><br />Crea una lista de enlaces
+          que lleven a distintos encabezados de la misma página (usa id y #).
+        </li>
+        <li>
+          <b>Página de viaje</b> <span class="nivel">(Intermedio)</span
+          ><br />Describe un lugar que quieras visitar con imagen, lista de
+          actividades y enlaces.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Página de un personaje</h3>
+      <p>
+        Crea una página completa sobre tu personaje favorito con título, imagen,
+        descripción, lista de poderes y un enlace.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Las etiquetas están bien anidadas y cerradas.</li>
+        <li>Combina al menos 4 tipos de elementos distintos.</li>
+        <li>La página se ve ordenada en la vista previa.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Enseña a sangrar el HTML para ver la anidación: previene muchos
+          errores.
+        </li>
+        <li>
+          Permite temas libres (juegos, series, deportes) para sostener la
+          motivación.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Trofeo 'Constructor de Páginas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 1 · Sesión 4: Misión Final: Mi Primera Página Web Personal
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar todas las etiquetas HTML aprendidas para crear una página web
+        personal y presentarla.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>
+          Integración de encabezados, párrafos, imágenes, enlaces y listas
+        </li>
+        <li>Estructura HTML5 ordenada</li>
+        <li>Presentar el propio trabajo</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Bocetar en papel la página: secciones (sobre mí, gustos, contacto)
+              y qué irá en cada una.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar la página con título, foto/avatar, párrafos de
+              presentación, lista de gustos y enlaces.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Revisar que no falten etiquetas por cerrar y mejorar el orden del
+              contenido.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Cada estudiante presenta su página personal a la clase.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Sección sobre mí:</b> Crea un encabezado 'Sobre mí' con un par de
+          párrafos de presentación.
+        </li>
+        <li>
+          <b>Mis gustos:</b> Añade una lista con tus gustos o pasatiempos.
+        </li>
+        <li>
+          <b>Mis enlaces:</b> Agrega una lista de enlaces (redes, páginas
+          favoritas).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Avatar y portada</b> <span class="nivel">(Principiante)</span
+          ><br />Incluye una imagen de avatar y un título de bienvenida en la
+          parte de arriba.
+        </li>
+        <li>
+          <b>Secciones con enlaces internos</b>
+          <span class="nivel">(Intermedio)</span><br />Crea un pequeño índice
+          arriba con enlaces que salten a cada sección de tu página.
+        </li>
+        <li>
+          <b>Contacto</b> <span class="nivel">(Intermedio)</span><br />Añade una
+          sección de contacto con un enlace de correo (mailto:).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Mi Primera Página Web Personal</h3>
+      <p>
+        Página personal terminada con varias secciones (sobre mí, gustos,
+        enlaces), imágenes y estructura HTML5 correcta, sin etiquetas sin
+        cerrar. ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>La página tiene al menos 3 secciones bien organizadas.</li>
+        <li>
+          Usa correctamente encabezados, párrafos, imágenes, listas y enlaces.
+        </li>
+        <li>Presenta su trabajo explicando qué construyó.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Valora la organización del contenido, no solo que 'tenga muchas
+          cosas'.
+        </li>
+        <li>
+          Haz una galería final: ver el trabajo de los demás motiva mucho.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · 🌐 Insignia 'Explorador de la Web'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 2 — HTML Intermedio</h1>
+      <p class="desc">
+        Contenido organizado: tablas, formularios con inputs y botones,
+        multimedia (video, audio, iframes) y etiquetas semánticas con
+        accesibilidad básica.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Página de Registro para un Evento ·
+        <b>Insignia:</b> 📋 Arquitecto de Contenido · <b>XP:</b> 220
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 1: Datos en tablas</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Organizar información en tablas con filas, columnas y encabezados.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Tablas con &lt;table&gt;</li>
+        <li>Filas &lt;tr&gt;, celdas &lt;td&gt; y encabezados &lt;th&gt;</li>
+        <li>Encabezado de tabla (&lt;thead&gt;) y cuerpo (&lt;tbody&gt;)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              ¿Dónde vemos tablas en la vida real? (horarios, marcadores,
+              precios). Las identificamos.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo se arma una tabla: filas y celdas; diferencia entre
+              &lt;td&gt; y &lt;th&gt;.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Construyen juntos un horario de clases sencillo en una tabla.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos añadiendo filas y columnas a la tabla.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Crear una tabla con 3 productos y su precio.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Tabla de 2x2:</b> Crea una tabla con 2 filas y 2 columnas.</li>
+        <li>
+          <b>Encabezados:</b> Añade una fila de encabezados con &lt;th&gt; a una
+          tabla de precios.
+        </li>
+        <li><b>Mi horario:</b> Haz una tabla con tus clases de un día.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Marcador deportivo</b> <span class="nivel">(Principiante)</span
+          ><br />Crea una tabla con 3 equipos y sus puntos, con fila de
+          encabezados.
+        </li>
+        <li>
+          <b>Horario semanal</b> <span class="nivel">(Intermedio)</span
+          ><br />Arma una tabla con los días de la semana como columnas y 3
+          actividades.
+        </li>
+        <li>
+          <b>Tabla de precios</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una tabla de un menú con columnas Plato, Descripción y
+          Precio.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Tabla de mi top 5</h3>
+      <p>
+        Crea una tabla con tu top 5 de algo (juegos, películas, canciones) con
+        columnas Puesto, Nombre y Año.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>La tabla tiene filas, celdas y encabezados correctos.</li>
+        <li>La información queda organizada y legible.</li>
+        <li>Diferencia &lt;th&gt; de &lt;td&gt;.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Dibuja la tabla en una cuadrícula antes de programarla: ayuda a
+          entender filas/columnas.
+        </li>
+        <li>
+          Evita usar tablas para 'maquetar': aclara que son para datos
+          tabulares.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Organizador de Datos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 2: Formularios e inputs</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear formularios para que el usuario escriba datos usando inputs,
+        etiquetas y botones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Formulario con &lt;form&gt;</li>
+        <li>Campos &lt;input&gt; (text, email, number, date…)</li>
+        <li>Etiquetas &lt;label&gt; y botón de envío</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: ¿qué páginas te piden escribir datos? Identificamos
+              formularios.
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: un formulario de contacto con nombre, correo y un botón
+              Enviar.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construyen un formulario de inscripción con varios tipos de input
+              y sus labels.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos cambiando el tipo de input (email, number, date) y el
+              placeholder.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Crear un formulario que pida nombre y edad.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Campo de nombre:</b> Crea un &lt;input&gt; de texto con su
+          &lt;label&gt; 'Nombre'.
+        </li>
+        <li>
+          <b>Correo y botón:</b> Añade un input de tipo email y un botón de
+          enviar al formulario.
+        </li>
+        <li>
+          <b>Varios tipos:</b> Usa un input de número y uno de fecha con sus
+          etiquetas.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Formulario de contacto</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea un formulario con nombre, correo, mensaje (textarea) y
+          botón Enviar.
+        </li>
+        <li>
+          <b>Encuesta rápida</b> <span class="nivel">(Intermedio)</span
+          ><br />Haz un formulario con opciones (radio) para elegir una
+          respuesta y un botón.
+        </li>
+        <li>
+          <b>Casillas de intereses</b> <span class="nivel">(Intermedio)</span
+          ><br />Añade casillas (checkbox) para que el usuario marque varios
+          intereses.
+        </li>
+        <li>
+          <b>Lista desplegable</b> <span class="nivel">(Avanzado)</span
+          ><br />Incluye un &lt;select&gt; con varias opciones (por ejemplo,
+          país o curso).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Formulario de inscripción</h3>
+      <p>
+        Crea un formulario de inscripción con nombre, correo, fecha, una lista
+        desplegable y un botón Enviar, cada campo con su label.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa &lt;form&gt;, varios &lt;input&gt; y sus &lt;label&gt;.</li>
+        <li>Elige tipos de input adecuados a cada dato.</li>
+        <li>El formulario tiene un botón de envío.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Asocia siempre label con su input: es accesibilidad y mejor
+          experiencia.
+        </li>
+        <li>Usa placeholders claros para guiar al usuario.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Recolector de Datos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 3: Multimedia y semántica</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Incrustar video, audio e iframes y estructurar la página con etiquetas
+        semánticas accesibles.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Video &lt;video&gt; y audio &lt;audio&gt;</li>
+        <li>Incrustar con &lt;iframe&gt;</li>
+        <li>
+          Etiquetas semánticas (header, nav, main, section, footer) y
+          accesibilidad
+        </li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Juego 'ponle nombre a la zona': sobre una web real, nombramos
+              header, menú, contenido y pie.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: incrustar un video, un audio y un mapa con iframe; presentar
+              las etiquetas semánticas.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos para incrustar multimedia y reorganizar una página con
+              etiquetas semánticas, de menos a más.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Convertir una página de &lt;div&gt; a etiquetas semánticas con
+              header, main y footer.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Un video:</b> Incrusta un video con &lt;video&gt; y controles
+          (controls).
+        </li>
+        <li>
+          <b>Estructura semántica:</b> Crea una página con &lt;header&gt;,
+          &lt;main&gt; y &lt;footer&gt;.
+        </li>
+        <li>
+          <b>Un mapa:</b> Incrusta un mapa u otra web con un &lt;iframe&gt;.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Reproductor</b> <span class="nivel">(Intermedio)</span><br />Crea
+          una página con un video y un audio, cada uno con sus controles.
+        </li>
+        <li>
+          <b>Página bien estructurada</b> <span class="nivel">(Intermedio)</span
+          ><br />Arma una página con header (con nav), main (con secciones) y
+          footer.
+        </li>
+        <li>
+          <b>Accesible de verdad</b> <span class="nivel">(Avanzado)</span
+          ><br />Revisa una página y añade alt a las imágenes, labels a los
+          inputs y texto descriptivo a los enlaces.
+        </li>
+        <li>
+          <b>Galería con video</b> <span class="nivel">(Intermedio)</span
+          ><br />Combina imágenes, un video incrustado y un iframe en una misma
+          página semántica.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Página multimedia</h3>
+      <p>
+        Crea una página sobre un tema que te guste, con estructura semántica, un
+        video o audio y un iframe, cuidando la accesibilidad.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Incrusta correctamente multimedia (video/audio/iframe).</li>
+        <li>Usa etiquetas semánticas en vez de solo &lt;div&gt;.</li>
+        <li>Aplica al menos 2 buenas prácticas de accesibilidad.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Presenta lo semántico como 'ponerle nombre a cada parte para que todos
+          entiendan'.
+        </li>
+        <li>
+          Conecta accesibilidad con personas reales: lectores de pantalla,
+          conexiones lentas.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Trofeo 'Maestro Multimedia'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 2 · Sesión 4: Misión Final: Página de Registro para un Evento
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar tablas, formularios y estructura semántica para crear la página
+        de registro de un evento.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de formularios, tablas y semántica</li>
+        <li>Organización de la información del evento</li>
+        <li>Accesibilidad básica del formulario</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Elegir el evento (concierto, torneo, taller) y decidir qué datos
+              pedir y qué mostrar.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar la página: cabecera del evento, tabla con el programa y
+              formulario de inscripción.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar el formulario, revisar labels/alt y mejorar el orden de las
+              secciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar la página de registro y simular una inscripción.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Cabecera del evento:</b> Crea un header con el nombre del evento,
+          la fecha y el lugar.
+        </li>
+        <li>
+          <b>Programa en tabla:</b> Añade una tabla con la agenda del evento
+          (hora y actividad).
+        </li>
+        <li>
+          <b>Formulario de inscripción:</b> Crea el formulario para registrarse
+          (nombre, correo, asistencia).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Más campos</b> <span class="nivel">(Intermedio)</span><br />Amplía
+          el formulario con una lista desplegable y casillas de preferencias.
+        </li>
+        <li>
+          <b>Sección de invitados</b> <span class="nivel">(Intermedio)</span
+          ><br />Añade una sección con imágenes y nombres de los invitados o
+          ponentes.
+        </li>
+        <li>
+          <b>Mapa del lugar</b> <span class="nivel">(Avanzado)</span
+          ><br />Incrusta con un iframe un mapa de la ubicación del evento.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Página de Registro para un Evento</h3>
+      <p>
+        Página de un evento con estructura semántica, tabla con el programa y un
+        formulario de inscripción completo y accesible. ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Incluye un formulario funcional con varios tipos de campo.</li>
+        <li>Organiza la información con tabla y etiquetas semánticas.</li>
+        <li>Cuida la accesibilidad (labels, alt).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Que cada quien invente su evento: hace el proyecto más personal.
+        </li>
+        <li>
+          Revisa juntos un formulario mal hecho y mejórenlo: enseña por
+          contraste.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · 📋 Insignia 'Arquitecto de Contenido'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 3 — Introducción a CSS</h1>
+      <p class="desc">
+        Dar estilo a las páginas: selectores, colores, tipografías, fondos,
+        bordes y el modelo de caja (márgenes, padding) con la propiedad display.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Landing Page sencilla · <b>Insignia:</b> 🎨
+        Aprendiz del Estilo · <b>XP:</b> 240
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 1: El color de la web</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Aplicar estilos con CSS usando selectores y propiedades de color a los
+        elementos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Qué es CSS y cómo se conecta con HTML</li>
+        <li>Selectores (etiqueta, clase, id)</li>
+        <li>Color de texto y de fondo</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Antes/después: la misma página sin y con CSS. ¿Qué cambió?
+              Descubrimos para qué sirve.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo se escribe una regla CSS (selector { propiedad: valor }) y
+              los tipos de selectores.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Pintan juntos una página: color de fondo, color de los títulos y
+              de los párrafos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos cambiando colores con nombres y con códigos
+              hexadecimales.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Dar color de fondo y de texto a una página propia.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Fondo de color:</b> Ponle un color de fondo al body con CSS.</li>
+        <li>
+          <b>Títulos de color:</b> Cambia el color de todos los &lt;h1&gt;
+          usando un selector.
+        </li>
+        <li>
+          <b>Una clase:</b> Crea una clase .destacado y aplícale un color a un
+          párrafo.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Paleta de colores</b> <span class="nivel">(Principiante)</span
+          ><br />Crea una página donde fondo, títulos y párrafos usen 3 colores
+          que combinen.
+        </li>
+        <li>
+          <b>Clases y ids</b> <span class="nivel">(Intermedio)</span
+          ><br />Aplica un estilo a una clase (.aviso) y otro distinto a un id
+          (#principal).
+        </li>
+        <li>
+          <b>Modo oscuro</b> <span class="nivel">(Intermedio)</span><br />Diseña
+          una página con fondo oscuro y texto claro que se lea bien.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi página con color</h3>
+      <p>
+        Toma una página de HTML que ya tengas y dale color de fondo, color de
+        títulos y resalta un elemento con una clase.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Escribe reglas CSS con la sintaxis correcta.</li>
+        <li>Usa selectores de etiqueta, clase e id.</li>
+        <li>Aplica colores de texto y de fondo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Empieza con nombres de color (red, blue) antes de los hexadecimales.
+        </li>
+        <li>
+          Muestra el panel de la vista previa en vivo: cambiar un color y ver el
+          efecto engancha.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Primer Estilo'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 2: Tipografía y fondos</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Mejorar la apariencia con tipografías, tamaños de texto, fondos y
+        bordes.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Fuentes (font-family) y tamaño (font-size)</li>
+        <li>Peso, estilo y alineación del texto</li>
+        <li>Fondos e imágenes de fondo; bordes (border)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: ¿cómo cambio el color del texto? Lo aplicamos rápido.
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: cambiar la fuente, el tamaño y la alineación; añadir borde y
+              fondo a una caja.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican dando estilo a una tarjeta: tipografía, fondo y bordes
+              redondeados.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos jugando con font-size, font-weight y border-radius.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Diseñar un título grande y centrado con su fuente.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Cambia la fuente:</b> Aplica una font-family distinta a toda la
+          página.
+        </li>
+        <li>
+          <b>Texto grande:</b> Haz que el &lt;h1&gt; sea más grande y esté
+          centrado.
+        </li>
+        <li>
+          <b>Una caja con borde:</b> Ponle borde y esquinas redondeadas a un
+          elemento.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Tarjeta de presentación</b> <span class="nivel">(Intermedio)</span
+          ><br />Diseña una tarjeta con fondo de color, borde redondeado,
+          tipografía y texto centrado.
+        </li>
+        <li>
+          <b>Cita destacada</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una cita con texto en cursiva, más grande y con un borde a
+          la izquierda.
+        </li>
+        <li>
+          <b>Fondo con imagen</b> <span class="nivel">(Avanzado)</span><br />Pon
+          una imagen de fondo a una sección y texto que se lea encima.
+        </li>
+        <li>
+          <b>Botón bonito</b> <span class="nivel">(Intermedio)</span><br />Da
+          estilo a un enlace para que parezca un botón (fondo, padding, borde
+          redondeado).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi tarjeta con estilo</h3>
+      <p>
+        Crea una tarjeta de perfil con foto, nombre y descripción, con
+        tipografía cuidada, fondo, bordes y todo bien alineado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Cambia tipografía, tamaño y alineación del texto.</li>
+        <li>Aplica fondos y bordes con buen gusto.</li>
+        <li>El resultado se ve cuidado y legible.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Pocas fuentes y colores: enseña que 'menos es más' en diseño.</li>
+        <li>Comparen tarjetas entre compañeros para inspirarse.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Diseñador de Tarjetas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 3: El modelo de caja</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Controlar el espacio con márgenes y padding y entender display para
+        colocar elementos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Modelo de caja: contenido, padding, borde y margen</li>
+        <li>margin y padding</li>
+        <li>display (block, inline, inline-block, none)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Analogía de la caja: contenido (regalo), padding (relleno), borde
+              (caja) y margen (espacio alrededor).
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: cómo cambian margin y padding el espacio; diferencia entre
+              block e inline.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos para separar y alinear cajas usando margin, padding y
+              display.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Crear una fila de 3 cajas separadas y bien espaciadas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Dale aire:</b> Añade padding a una caja para separar el texto del
+          borde.
+        </li>
+        <li><b>Separa cajas:</b> Usa margin para separar dos elementos.</li>
+        <li>
+          <b>Centrar una caja:</b> Centra una caja horizontalmente con margin
+          auto y un ancho fijo.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Tres tarjetas en fila</b> <span class="nivel">(Intermedio)</span
+          ><br />Coloca 3 tarjetas en una fila usando display inline-block y
+          márgenes.
+        </li>
+        <li>
+          <b>Caja perfecta</b> <span class="nivel">(Intermedio)</span><br />Crea
+          una caja con padding interno, borde y margen externo bien
+          diferenciados.
+        </li>
+        <li>
+          <b>Esconder y mostrar</b> <span class="nivel">(Intermedio)</span
+          ><br />Usa display none para ocultar un elemento y deja una versión
+          visible al lado.
+        </li>
+        <li>
+          <b>Menú horizontal</b> <span class="nivel">(Avanzado)</span
+          ><br />Convierte una lista vertical en un menú horizontal usando
+          display y márgenes.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Galería de cajas</h3>
+      <p>
+        Crea una galería con 4 cajas iguales, bien espaciadas y alineadas,
+        controlando margin, padding y display.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Diferencia margin de padding y los usa bien.</li>
+        <li>Coloca elementos usando display.</li>
+        <li>El espaciado se ve uniforme y ordenado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El modelo de caja es clave: dibújalo en el tablero y úsalo todo el
+          periodo.
+        </li>
+        <li>
+          Activa los bordes temporalmente para 'ver' las cajas mientras se
+          aprende.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Trofeo 'Maestro de las Cajas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 4: Misión Final: Landing Page sencilla</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar selectores, colores, tipografía y modelo de caja para diseñar
+        una landing page atractiva.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de HTML + CSS</li>
+        <li>Jerarquía visual (título, subtítulo, llamada a la acción)</li>
+        <li>Espaciado y composición</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Elegir el producto/servicio de la landing y bocetar sus secciones
+              (portada, beneficios, contacto).
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar la estructura HTML y darle estilo: colores, tipografía,
+              cajas y un botón de acción.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar la legibilidad, ajustar espaciados y colores, y revisar la
+              jerarquía visual.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar la landing y explicar las decisiones de diseño.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Portada con CTA:</b> Crea una portada con título grande, subtítulo
+          y un botón de acción.
+        </li>
+        <li>
+          <b>Sección de beneficios:</b> Añade 3 cajas con un beneficio cada una.
+        </li>
+        <li>
+          <b>Pie con contacto:</b> Crea un footer con datos de contacto
+          estilizado.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Paleta coherente</b> <span class="nivel">(Intermedio)</span
+          ><br />Usa una paleta de 3 colores en toda la landing de forma
+          coherente.
+        </li>
+        <li>
+          <b>Botón con estilo</b> <span class="nivel">(Intermedio)</span
+          ><br />Diseña un botón llamativo (fondo, padding, bordes redondeados)
+          bien colocado.
+        </li>
+        <li>
+          <b>Imagen de portada</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade una imagen o fondo en la portada con el texto legible
+          encima.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Landing Page sencilla</h3>
+      <p>
+        Landing page de un producto o servicio con portada, sección de
+        beneficios y contacto, con CSS cuidado (colores, tipografía, espaciado).
+        ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Aplica CSS coherente (colores, tipografía, espaciado).</li>
+        <li>Tiene una jerarquía visual clara.</li>
+        <li>Incluye una llamada a la acción visible.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra landings reales como referencia y que las imiten a su manera.
+        </li>
+        <li>
+          Premia la coherencia visual por encima de 'meter muchos colores'.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · 🎨 Insignia 'Aprendiz del Estilo'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 4 — Diseño Web Moderno</h1>
+      <p class="desc">
+        Interfaces atractivas y adaptables con Flexbox, Grid, diseño responsive,
+        unidades relativas, pseudo-clases y elementos, transiciones y sombras.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Página Web para un Restaurante ·
+        <b>Insignia:</b> 📱 Maestro Responsive · <b>XP:</b> 260
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 1: Layouts con Flexbox</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Acomodar elementos en filas y columnas flexibles con Flexbox.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Contenedor flex (display: flex)</li>
+        <li>Dirección y distribución (justify-content, align-items)</li>
+        <li>Espacio entre elementos (gap)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Reto: alinear 3 cajas perfectamente. ¿Con lo de antes era fácil?
+              Aparece Flexbox.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo funciona un contenedor flex y las propiedades para alinear y
+              distribuir.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Acomodan juntos una barra de navegación y una fila de tarjetas con
+              flex.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos cambiando justify-content y align-items.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Centrar un elemento perfectamente con Flexbox.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Fila flexible:</b> Pon 3 cajas en una fila usando display flex.
+        </li>
+        <li>
+          <b>Centrado total:</b> Centra una caja horizontal y verticalmente con
+          Flexbox.
+        </li>
+        <li>
+          <b>Con espacio:</b> Separa los elementos de una fila usando gap.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Barra de navegación</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una nav con el logo a la izquierda y los enlaces a la
+          derecha usando flex.
+        </li>
+        <li>
+          <b>Tarjetas en fila</b> <span class="nivel">(Intermedio)</span
+          ><br />Coloca 4 tarjetas iguales en una fila, bien distribuidas con
+          flex y gap.
+        </li>
+        <li>
+          <b>Columna centrada</b> <span class="nivel">(Intermedio)</span
+          ><br />Apila 3 elementos en columna y céntralos con flex-direction
+          column.
+        </li>
+        <li>
+          <b>Pie en dos zonas</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea un footer con texto a un lado y enlaces al otro usando
+          space-between.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Encabezado profesional</h3>
+      <p>
+        Crea un encabezado con logo y menú alineados con Flexbox, bien
+        espaciados y centrados verticalmente.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa display flex para alinear elementos.</li>
+        <li>Controla la distribución con justify-content y align-items.</li>
+        <li>El resultado queda alineado y equilibrado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Flexbox se entiende practicando: pon muchos mini ejemplos de alinear.
+        </li>
+        <li>Usa colores de fondo en las cajas para 'ver' cómo se acomodan.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Domador de Flexbox'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 2: Cuadrículas con Grid</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear cuadrículas de filas y columnas con CSS Grid para maquetar
+        páginas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Contenedor grid (display: grid)</li>
+        <li>Columnas y filas (grid-template-columns)</li>
+        <li>Espacio (gap) y áreas de la cuadrícula</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso de flex y diferencia con la idea de cuadrícula (2
+              dimensiones).
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>Demo: una galería en cuadrícula de 3 columnas con gap.</td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican maquetando una galería y un dashboard sencillo con Grid.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos cambiando el número de columnas y el tamaño con fr.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Crear una galería de 6 imágenes en 3 columnas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tres columnas:</b> Crea una cuadrícula de 3 columnas iguales con
+          display grid.
+        </li>
+        <li>
+          <b>Con separación:</b> Añade gap entre las celdas de la cuadrícula.
+        </li>
+        <li>
+          <b>Galería 2x2:</b> Acomoda 4 imágenes en una cuadrícula de 2x2.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Galería de fotos</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una galería de 6 imágenes en 3 columnas con espacio
+          uniforme.
+        </li>
+        <li>
+          <b>Columnas desiguales</b> <span class="nivel">(Intermedio)</span
+          ><br />Haz una cuadrícula con una columna ancha y otra estrecha usando
+          fr.
+        </li>
+        <li>
+          <b>Tablero de tarjetas</b> <span class="nivel">(Avanzado)</span
+          ><br />Maqueta un tablero con varias tarjetas, una ocupando 2
+          columnas.
+        </li>
+        <li>
+          <b>Layout de página</b> <span class="nivel">(Avanzado)</span><br />Usa
+          Grid para maquetar header, contenido y footer de una página.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Galería en cuadrícula</h3>
+      <p>
+        Crea una galería responsive de imágenes o tarjetas usando Grid, con
+        columnas iguales y buen espaciado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa display grid con columnas y gap.</li>
+        <li>Distribuye el contenido en una cuadrícula ordenada.</li>
+        <li>Combina Grid con el contenido de forma clara.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Aclara cuándo conviene Grid (2D) y cuándo Flexbox (1D).</li>
+        <li>La unidad fr cuesta: muéstrala como 'partes' de un pastel.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Logro 'Arquitecto de Cuadrículas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 3: Responsive y efectos</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Hacer páginas adaptables con unidades relativas y media queries, y
+        añadir efectos con pseudo-clases, transiciones y sombras.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Unidades relativas (%, rem, vw/vh) y media queries</li>
+        <li>Pseudo-clases (:hover) y pseudo-elementos (::before)</li>
+        <li>Transiciones (transition) y sombras (box-shadow)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Achicamos la ventana: ¿qué se rompe? Descubrimos por qué hace
+              falta responsive.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: una media query que cambia el layout en móvil; un :hover con
+              transición y sombra.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos para adaptar una página a móvil y añadir efectos de hover,
+              sombras y transiciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Hacer que una galería pase de 3 columnas a 1 en pantallas
+              pequeñas.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Botón con hover:</b> Haz que un botón cambie de color al pasar el
+          cursor (:hover).
+        </li>
+        <li>
+          <b>Sombra de tarjeta:</b> Añade una sombra (box-shadow) a una tarjeta.
+        </li>
+        <li>
+          <b>Adaptar a móvil:</b> Usa una media query para cambiar el color de
+          fondo en pantallas pequeñas.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Galería responsive</b> <span class="nivel">(Avanzado)</span
+          ><br />Haz que una galería tenga 3 columnas en escritorio y 1 en móvil
+          con media queries.
+        </li>
+        <li>
+          <b>Tarjeta interactiva</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade a una tarjeta una transición suave y una sombra que
+          aparezca en hover.
+        </li>
+        <li>
+          <b>Menú adaptable</b> <span class="nivel">(Avanzado)</span><br />Haz
+          que un menú horizontal se apile en vertical en pantallas pequeñas.
+        </li>
+        <li>
+          <b>Efecto ::before</b> <span class="nivel">(Avanzado)</span><br />Usa
+          un pseudo-elemento ::before para añadir un ícono o decoración a un
+          título.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Página adaptable</h3>
+      <p>
+        Toma una página tuya y hazla responsive con unidades relativas y media
+        queries, añadiendo hover, transiciones y sombras.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa unidades relativas y al menos una media query.</li>
+        <li>Añade efectos con pseudo-clases y transiciones.</li>
+        <li>La página se ve bien en pantalla grande y pequeña.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Prueba siempre achicando la ventana del navegador: es el test rápido
+          de responsive.
+        </li>
+        <li>
+          Las transiciones suben mucho la sensación de 'app profesional':
+          motívalas.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Trofeo 'Mago Responsive'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 4 · Sesión 4: Misión Final: Página Web para un Restaurante
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar Flexbox, Grid, responsive y efectos para crear la página de un
+        restaurante atractiva y adaptable.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de layout (flex/grid) + responsive + efectos</li>
+        <li>Composición de una página real</li>
+        <li>Detalles visuales (hover, sombras, transiciones)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Elegir el restaurante y bocetar sus secciones (portada, menú,
+              galería, contacto).
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar el layout con flex/grid, el menú, la galería y aplicar
+              estilos y efectos.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar en móvil y escritorio, ajustar el responsive y pulir los
+              detalles visuales.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Presentar la página del restaurante y mostrarla en distintos
+              tamaños.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Portada con hero:</b> Crea una portada con imagen de fondo, nombre
+          del restaurante y botón 'Ver menú'.
+        </li>
+        <li>
+          <b>Menú en cuadrícula:</b> Muestra los platos en una cuadrícula con
+          Grid.
+        </li>
+        <li>
+          <b>Galería responsive:</b> Añade una galería de fotos que se adapte a
+          móvil.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Navegación pegajosa</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea una barra de navegación con flex y efectos de hover en los
+          enlaces.
+        </li>
+        <li>
+          <b>Tarjetas de platos con efecto</b>
+          <span class="nivel">(Avanzado)</span><br />Da a cada plato una tarjeta
+          con sombra y una transición al pasar el cursor.
+        </li>
+        <li>
+          <b>Totalmente responsive</b> <span class="nivel">(Avanzado)</span
+          ><br />Asegúrate de que toda la página se vea bien en móvil con media
+          queries.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Página Web para un Restaurante</h3>
+      <p>
+        Página de un restaurante con portada, menú en cuadrícula, galería y
+        contacto, maquetada con flex/grid, responsive y con efectos.
+        ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Maqueta con Flexbox y/o Grid de forma correcta.</li>
+        <li>La página es responsive (móvil y escritorio).</li>
+        <li>Incluye efectos visuales (hover, sombras, transiciones).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Anímalos a buscar referencias reales de restaurantes y adaptarlas.
+        </li>
+        <li>
+          Revisa el responsive en clase con la ventana achicada: es el sello de
+          calidad.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · 📱 Insignia 'Maestro Responsive'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 5 — JavaScript Básico</h1>
+      <p class="desc">
+        Dar lógica a las páginas: qué es JavaScript, variables, tipos de datos,
+        operadores, la consola, entrada/salida y funciones básicas.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Calculadora Básica · <b>Insignia:</b> ⚡
+        Chispa de la Lógica · <b>XP:</b> 280
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 1: Variables y datos</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Escribir tu primer JavaScript: variables y tipos de datos mostrados en
+        la consola.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Qué es JavaScript y dónde se ejecuta</li>
+        <li>Variables con let y const</li>
+        <li>Tipos de datos: número, texto (string) y booleano</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              ¿Qué hace que una página 'reaccione'? Vemos ejemplos de páginas
+              con y sin JavaScript.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo se declara una variable (let/const), los tipos básicos y
+              console.log.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Crean variables (nombre, edad, esEstudiante) y las muestran en la
+              consola.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos cambiando valores y tipos de las variables.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Crear 3 variables sobre uno mismo y mostrarlas.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu primera variable:</b> Crea una variable con tu nombre y
+          muéstrala con console.log.
+        </li>
+        <li>
+          <b>Número y texto:</b> Crea una variable de número (edad) y una de
+          texto (ciudad).
+        </li>
+        <li>
+          <b>Verdadero o falso:</b> Crea una variable booleana y muéstrala en
+          consola.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mi ficha en consola</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea variables nombre, edad y ciudad y muéstralas en una frase
+          con console.log.
+        </li>
+        <li>
+          <b>let vs const</b> <span class="nivel">(Intermedio)</span><br />Crea
+          una variable con let y cámbiala; crea otra con const y explica por qué
+          no cambia.
+        </li>
+        <li>
+          <b>Tipos mezclados</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una variable de cada tipo (número, texto, booleano) y di
+          cuál es cuál en comentarios.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi perfil en consola</h3>
+      <p>
+        Crea variables para tu perfil (nombre, edad, hobby, ¿estudia?) y
+        muéstralo todo ordenado en la consola.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Declara variables con let/const correctamente.</li>
+        <li>Distingue número, texto y booleano.</li>
+        <li>Muestra valores con console.log.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Conecta JS con cosas que ya viven (botones, menús): así ven para qué
+          sirve.
+        </li>
+        <li>
+          Abre la consola y muestra que el código 'corre de verdad': es muy
+          motivador.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Primer Código JS'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 2: Operadores y consola</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Hacer cálculos y combinar textos con operadores, mostrando resultados en
+        la consola.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Operadores aritméticos (+, -, *, /, %)</li>
+        <li>Concatenar texto y plantillas (`${}`)</li>
+        <li>Operadores de comparación</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de variables con un ejemplo en vivo.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: operaciones matemáticas, unir texto con variables y comparar
+              valores.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican calculando totales y armando frases con plantillas de
+              texto.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos con módulo, comparaciones y plantillas.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Calcular el área de un rectángulo y mostrarla en una frase.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Suma en JS:</b> Crea dos variables numéricas y muestra su suma en
+          consola.
+        </li>
+        <li>
+          <b>Une textos:</b> Usa una plantilla `${}` para crear un saludo con tu
+          nombre.
+        </li>
+        <li>
+          <b>Compara:</b> Compara dos números y muestra el resultado
+          (true/false).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Calculadora de área</b> <span class="nivel">(Intermedio)</span
+          ><br />Con base y altura en variables, calcula y muestra el área en
+          una frase.
+        </li>
+        <li>
+          <b>¿Es par?</b> <span class="nivel">(Intermedio)</span><br />Usa el
+          operador % para mostrar si un número es par (residuo 0).
+        </li>
+        <li>
+          <b>Promedio</b> <span class="nivel">(Intermedio)</span><br />Calcula
+          el promedio de 3 notas y muéstralo con una plantilla.
+        </li>
+        <li>
+          <b>Comparador</b> <span class="nivel">(Avanzado)</span><br />Compara
+          dos variables con &gt;, &lt; e === y muestra cada resultado.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mini reporte</h3>
+      <p>
+        Crea un programa que, con variables, calcule un total y un promedio y
+        los muestre en frases claras con plantillas.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa operadores aritméticos correctamente.</li>
+        <li>Concatena texto con variables (plantillas).</li>
+        <li>Muestra resultados claros en consola.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra la diferencia entre sumar números y 'sumar' textos: gran
+          momento de aprendizaje.
+        </li>
+        <li>Las plantillas `${}` son cómodas: enséñalas pronto.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Logro 'Calculista JS'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 3: Entrada, salida y funciones</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Leer datos del usuario con prompt, mostrarlos con alert y empaquetar
+        lógica en funciones básicas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Entrada con prompt() y salida con alert()</li>
+        <li>Convertir texto a número (Number)</li>
+        <li>Funciones básicas (function) y return</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              ¿Cómo le preguntamos algo al usuario? Probamos prompt y vemos que
+              devuelve texto.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: pedir un dato con prompt, convertirlo con Number y crear una
+              función que calcule algo.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos pidiendo datos, convirtiéndolos y resolviéndolos dentro de
+              funciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Crear una función que reciba dos números y devuelva su suma.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Pregunta el nombre:</b> Pide el nombre con prompt y salúdalo con
+          alert.
+        </li>
+        <li>
+          <b>Texto a número:</b> Pide un número con prompt y conviértelo con
+          Number para sumarle 10.
+        </li>
+        <li>
+          <b>Tu primera función:</b> Crea una función saludar(nombre) que
+          devuelva un saludo.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Sumadora real</b> <span class="nivel">(Avanzado)</span><br />Pide
+          dos números con prompt, conviértelos y muestra la suma correcta (no
+          texto pegado).
+        </li>
+        <li>
+          <b>Función de área</b> <span class="nivel">(Avanzado)</span><br />Crea
+          una función area(base, altura) que devuelva el área, y úsala con datos
+          del usuario.
+        </li>
+        <li>
+          <b>Conversor de temperatura</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide grados Celsius y, con una función, devuelve y muestra los
+          Fahrenheit.
+        </li>
+        <li>
+          <b>Entrevista</b> <span class="nivel">(Avanzado)</span><br />Pide 3
+          datos con prompt y muestra un resumen con alert.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Conversor con función</h3>
+      <p>
+        Crea un programa que pida un dato al usuario, lo convierta y, usando una
+        función, calcule y muestre un resultado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa prompt/alert para entrada y salida.</li>
+        <li>Convierte texto a número cuando hace falta.</li>
+        <li>Define y usa al menos una función con return.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El error de 'sumar textos' vuelve aquí con prompt: provócalo y
+          explícalo.
+        </li>
+        <li>Presenta las funciones como 'máquinas': entra algo, sale algo.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Trofeo 'Creador de Funciones'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 4: Misión Final: Calculadora Básica</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar variables, operadores, entrada/salida y funciones para crear
+        una calculadora básica.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de entrada, cálculo y salida</li>
+        <li>Funciones para cada operación</li>
+        <li>Mostrar resultados claros</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Decidir qué operaciones tendrá (suma, resta, multiplicación,
+              división) y cómo pedir los datos.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar la calculadora con funciones por operación y
+              entrada/salida.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>Probar con varios números y cuidar la división entre cero.</td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar la calculadora y retar a un compañero a probarla.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Pide dos números:</b> Pide dos números con prompt y conviértelos a
+          número.
+        </li>
+        <li>
+          <b>Funciones de operación:</b> Crea funciones sumar(a,b) y restar(a,b)
+          que devuelvan el resultado.
+        </li>
+        <li>
+          <b>Muestra el reporte:</b> Muestra suma, resta, producto y división
+          con etiquetas claras.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Calculadora completa</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra las 4 operaciones de dos números usando una función
+          para cada una.
+        </li>
+        <li>
+          <b>A prueba de cero</b> <span class="nivel">(Avanzado)</span
+          ><br />Evita que la división se rompa si el segundo número es 0
+          (avísalo).
+        </li>
+        <li>
+          <b>Elige la operación</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide al usuario qué operación quiere y muestra solo ese
+          resultado.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Calculadora Básica</h3>
+      <p>
+        Calculadora que pide dos números, usa funciones para operar y muestra
+        los resultados claros, cuidando la división entre cero. ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Realiza las operaciones correctamente con funciones.</li>
+        <li>Lee datos del usuario y muestra resultados claros.</li>
+        <li>Maneja el caso de dividir entre cero.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Esta calculadora prepara los condicionales del próximo periodo:
+          aprovéchalo.
+        </li>
+        <li>
+          Haz una mini competencia: ¿quién encuentra un dato que rompa la
+          calculadora?
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · ⚡ Insignia 'Chispa de la Lógica'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 6 — Condicionales y Bucles</h1>
+      <p class="desc">
+        Tomar decisiones y automatizar tareas: if/else/else if, switch,
+        operadores lógicos y bucles while y for.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Sistema de Inicio de Sesión ·
+        <b>Insignia:</b> 🔀 Tomador de Decisiones · <b>XP:</b> 300
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 1: Tomar decisiones con if</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar if, else y else if para que el programa decida qué hacer según
+        condiciones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Comparaciones (===, !==, &lt;, &gt;, &lt;=, &gt;=)</li>
+        <li>Estructura if / else</li>
+        <li>Encadenar con else if</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Juego 'la frontera': el profe dice condiciones y los alumnos se
+              mueven si son verdaderas.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo se escribe un if/else y cómo encadenar varias condiciones con
+              else if.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Programan juntos un 'control de edad' y un clasificador de notas
+              con else if.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos con una y con varias condiciones.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Decir si un número es positivo, negativo o cero.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Mayor de edad:</b> Si la edad es 18 o más, muestra 'mayor'; si no,
+          'menor'.
+        </li>
+        <li>
+          <b>Par o impar:</b> Con if/else, di si un número es par o impar.
+        </li>
+        <li>
+          <b>Tres caminos:</b> Con else if, clasifica una nota en alta, media o
+          baja.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Control de acceso</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide la edad y muestra 'Puedes entrar' solo si es mayor de 12.
+        </li>
+        <li>
+          <b>Boletín de notas</b> <span class="nivel">(Intermedio)</span
+          ><br />Convierte una nota (0–5) en letra A, B, C o D con else if.
+        </li>
+        <li>
+          <b>Signo del número</b> <span class="nivel">(Intermedio)</span
+          ><br />Di si un número es positivo, negativo o cero con if/else
+          if/else.
+        </li>
+        <li>
+          <b>Mayor de dos</b> <span class="nivel">(Avanzado)</span><br />Pide
+          dos números y muestra cuál es el mayor.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El portero</h3>
+      <p>
+        Crea un programa que pida una contraseña y solo deje pasar si es la
+        correcta; si no, avise.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Escribe condiciones correctas.</li>
+        <li>Usa if/else y else if cuando corresponde.</li>
+        <li>El programa decide bien en cada caso.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Insiste en === (tres iguales) frente a = (asignación): error clásico.
+        </li>
+        <li>
+          Pide que prueben SIEMPRE los dos caminos antes de darlo por bueno.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Logro 'Primera Decisión'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 2: switch y lógica</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Elegir entre muchas opciones con switch y combinar condiciones con
+        operadores lógicos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Estructura switch / case / default</li>
+        <li>Operadores lógicos (&amp;&amp;, ||, !)</li>
+        <li>Combinar condiciones</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de else if con un ejemplo rápido.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: un menú con switch y condiciones combinadas con &amp;&amp; y
+              ||.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican un 'menú de opciones' con switch y validaciones con
+              lógica.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos combinando condiciones (rango de edad, dos requisitos a
+              la vez).
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Crear un menú que responda distinto según la opción elegida.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Día de la semana:</b> Con switch, muestra el nombre del día según
+          un número (1–7).
+        </li>
+        <li>
+          <b>Dos condiciones:</b> Muestra 'acceso' solo si el usuario Y la
+          contraseña son correctos (&amp;&amp;).
+        </li>
+        <li>
+          <b>Una u otra:</b> Muestra un mensaje si es fin de semana (sábado O
+          domingo) con ||.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Menú con switch</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea un menú (1=saludar, 2=despedir, 3=ayuda) con switch y un
+          default.
+        </li>
+        <li>
+          <b>Rango válido</b> <span class="nivel">(Intermedio)</span
+          ><br />Comprueba que un número esté entre 1 y 10 usando &amp;&amp;
+          (mayor que 0 y menor que 11).
+        </li>
+        <li>
+          <b>Semáforo</b> <span class="nivel">(Intermedio)</span><br />Según un
+          color (rojo/amarillo/verde), indica qué hacer usando switch.
+        </li>
+        <li>
+          <b>Validador de formulario</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide nombre y edad y avisa si falta algún dato o la edad no es
+          válida (lógica combinada).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Menú interactivo</h3>
+      <p>
+        Crea un menú con varias opciones usando switch, validando la entrada con
+        operadores lógicos.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa switch con case y default.</li>
+        <li>Combina condiciones con &amp;&amp;, || y !.</li>
+        <li>Maneja entradas no válidas.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra cuándo conviene switch (muchas opciones) frente a else if.
+        </li>
+        <li>
+          Las tablas de verdad ayudan: arma ejemplos de &amp;&amp; y || en el
+          tablero.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Logro 'Maestro de la Lógica'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 3: Bucles while y for</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Repetir tareas automáticamente con bucles while y for, usando contadores
+        y acumuladores.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Bucle while y condición de parada</li>
+        <li>Bucle for (inicio, condición, paso)</li>
+        <li>Contadores y acumuladores</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: imprimir del 1 al 100 sin escribir 100 líneas. Aparecen los
+              bucles.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: un while con condición de parada y un for que recorre
+              números.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos de conteos, sumas y tablas con while y for, de menos a más.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Crear la tabla de multiplicar de un número con un for.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Del 1 al 10:</b> Muestra del 1 al 10 en consola con un for.</li>
+        <li>
+          <b>Cuenta regresiva:</b> Con while, haz una cuenta regresiva del 5 al
+          1.
+        </li>
+        <li>
+          <b>Suma hasta N:</b> Suma los números del 1 al 10 con un acumulador en
+          un for.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Tabla de multiplicar</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide un número y muestra su tabla del 1 al 10 con un for.
+        </li>
+        <li>
+          <b>Solo pares</b> <span class="nivel">(Avanzado)</span><br />Muestra
+          los números pares del 2 al 20 usando un bucle.
+        </li>
+        <li>
+          <b>Promedio de notas</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide 5 notas en un bucle y calcula el promedio con un
+          acumulador.
+        </li>
+        <li>
+          <b>Adivina el número</b> <span class="nivel">(Avanzado)</span
+          ><br />Genera un número al azar y, con un while, deja que el usuario
+          adivine con pistas.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Generador de tablas</h3>
+      <p>
+        Crea un programa que pida un número y muestre su tabla de multiplicar
+        completa usando un bucle.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa while y for correctamente.</li>
+        <li>Evita los bucles infinitos.</li>
+        <li>Aplica contadores/acumuladores cuando hace falta.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Provoca un bucle infinito controlado para que vean el peligro (y cómo
+          parar).
+        </li>
+        <li>Dibuja en el tablero cómo cambia el contador en cada vuelta.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Trofeo 'Señor de los Bucles'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 4: Misión Final: Sistema de Inicio de Sesión</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar condicionales, lógica y bucles para crear un sistema de inicio
+        de sesión con intentos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de condicionales y bucles</li>
+        <li>Validación de credenciales</li>
+        <li>Límite de intentos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Decidir el usuario y contraseña 'correctos' y cuántos intentos se
+              permiten.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar el login: pedir credenciales, comprobarlas y repetir
+              mientras queden intentos.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar con datos correctos e incorrectos y revisar el límite de
+              intentos.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Presentar el sistema de login y demostrar los distintos casos.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Comprueba credenciales:</b> Pide usuario y contraseña y di si son
+          correctos con un if.
+        </li>
+        <li>
+          <b>Con intentos:</b> Usa un bucle para permitir 3 intentos de
+          contraseña.
+        </li>
+        <li>
+          <b>Bloqueo:</b> Si se agotan los intentos, muestra 'cuenta bloqueada'.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mensajes claros</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra cuántos intentos quedan tras cada fallo.
+        </li>
+        <li>
+          <b>Varios usuarios</b> <span class="nivel">(Avanzado)</span
+          ><br />Permite validar entre 2 usuarios distintos con sus contraseñas.
+        </li>
+        <li>
+          <b>Bienvenida personalizada</b> <span class="nivel">(Avanzado)</span
+          ><br />Al entrar bien, saluda al usuario por su nombre.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Sistema de Inicio de Sesión</h3>
+      <p>
+        Login que pide credenciales, las valida, da varios intentos con mensajes
+        claros y bloquea al agotarlos. ¡Preséntalo!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Valida credenciales con condicionales.</li>
+        <li>Controla los intentos con un bucle.</li>
+        <li>Da mensajes claros en cada caso.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Relaciónalo con apps reales: todos conocen una pantalla de login.
+        </li>
+        <li>
+          Pídeles probar 'como hacker': intentar romperlo descubre casos
+          olvidados.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · 🔀 Insignia 'Tomador de Decisiones'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 7 — Funciones y Arreglos</h1>
+      <p class="desc">
+        Organizar mejor el código: funciones con parámetros y return, arrays con
+        sus métodos y objetos básicos.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Administrador de Lista de Tareas ·
+        <b>Insignia:</b> 📦 Organizador de Código · <b>XP:</b> 320
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 1: Funciones a fondo</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Crear funciones reutilizables con parámetros y valores de retorno.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Definir y llamar funciones</li>
+        <li>Parámetros y argumentos</li>
+        <li>return y reutilización</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              ¿Qué tareas repetimos en el código? Idea de 'empaquetar' para no
+              repetir.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo se define una función con parámetros y cómo devuelve un valor
+              con return.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Crean funciones útiles (saludar, doble, esMayor) y las llaman con
+              distintos datos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos creando funciones con uno y varios parámetros.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Crear una función que reciba un nombre y devuelva un saludo.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Función saludar:</b> Crea saludar(nombre) que devuelva 'Hola,
+          NOMBRE'.
+        </li>
+        <li>
+          <b>El doble:</b> Crea una función doble(n) que devuelva el doble de n.
+        </li>
+        <li>
+          <b>Dos parámetros:</b> Crea sumar(a, b) que devuelva la suma y úsala
+          dos veces.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Calculadora de funciones</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea funciones sumar, restar y multiplicar y muestra resultados
+          con cada una.
+        </li>
+        <li>
+          <b>¿Es mayor de edad?</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea esMayor(edad) que devuelva true o false y úsala con varias
+          edades.
+        </li>
+        <li>
+          <b>Área y perímetro</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea dos funciones que devuelvan el área y el perímetro de un
+          rectángulo.
+        </li>
+        <li>
+          <b>Saludo con hora</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una función que reciba la hora y devuelva 'Buenos
+          días/tardes/noches'.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi caja de funciones</h3>
+      <p>
+        Crea 3 funciones útiles (con parámetros y return) y muéstralas
+        funcionando con distintos datos.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Define funciones con parámetros y return.</li>
+        <li>Las reutiliza con distintos argumentos.</li>
+        <li>El código queda más ordenado gracias a las funciones.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Refuerza la idea de 'no repetir': una función se escribe una vez y se
+          usa muchas.
+        </li>
+        <li>
+          Distingue mostrar (console.log) de devolver (return): confusión
+          típica.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Logro 'Fabricante de Funciones'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 2: Arrays y sus métodos</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Guardar muchos datos en arrays y manejarlos con sus métodos y bucles.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Crear arrays y acceder por índice</li>
+        <li>Métodos push, pop y length</li>
+        <li>Recorrer un array con for o forEach</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso de variables: ¿y si necesito guardar 100 nombres? Aparecen
+              los arrays.
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: crear un array, agregar/quitar elementos y recorrerlo.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican una lista de compras: agregar, quitar y mostrar todos
+              los elementos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos con push, pop, length y recorrido.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Crear un array de 5 elementos y mostrarlos uno por uno.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu primer array:</b> Crea un array con 4 frutas y muéstralo en
+          consola.
+        </li>
+        <li>
+          <b>Agregar y quitar:</b> Usa push para agregar y pop para quitar un
+          elemento.
+        </li>
+        <li>
+          <b>Recórrelo:</b> Recorre un array con un bucle y muestra cada
+          elemento.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Lista de compras</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una lista, agrega 3 productos, quita 1 y muestra cuántos
+          quedan.
+        </li>
+        <li>
+          <b>Suma del array</b> <span class="nivel">(Intermedio)</span
+          ><br />Recorre un array de números y muestra su suma total.
+        </li>
+        <li>
+          <b>El más grande</b> <span class="nivel">(Avanzado)</span
+          ><br />Recorre un array de números y encuentra el mayor.
+        </li>
+        <li>
+          <b>Buscar elemento</b> <span class="nivel">(Avanzado)</span
+          ><br />Comprueba si un nombre está en un array y avisa si lo encontró.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi top de favoritos</h3>
+      <p>
+        Crea un array con tu top de algo (juegos, canciones), permite agregar y
+        quitar, y muestra la lista numerada.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea y manipula arrays (push/pop/length).</li>
+        <li>Recorre arrays con un bucle.</li>
+        <li>Resuelve un problema simple usando un array.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Recuerda que los índices empiezan en 0: confusión muy común.</li>
+        <li>
+          Usa ejemplos cercanos (playlists, listas de amigos) para enganchar.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Logro 'Domador de Arrays'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 3: Objetos básicos</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Agrupar datos relacionados en objetos con propiedades y combinarlos con
+        arrays.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Objetos con propiedades clave: valor</li>
+        <li>Acceder y cambiar propiedades</li>
+        <li>Arrays de objetos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              ¿Cómo guardo el nombre, la edad y la nota de un estudiante juntos?
+              Aparecen los objetos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: crear un objeto, leer y cambiar sus propiedades, y un array
+              de objetos.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos creando objetos (producto, estudiante, personaje) y
+              recorriendo arrays de objetos.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Crear un array con 3 personajes (objetos) y mostrar sus nombres.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu primer objeto:</b> Crea un objeto persona con nombre, edad y
+          ciudad, y muéstralo.
+        </li>
+        <li>
+          <b>Cambia una propiedad:</b> Modifica la edad de un objeto y vuelve a
+          mostrarlo.
+        </li>
+        <li>
+          <b>Array de objetos:</b> Crea un array con 2 objetos producto (nombre
+          y precio).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Ficha de personaje</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea un objeto personaje con nombre, vida y poderes (array) y
+          muéstralo.
+        </li>
+        <li>
+          <b>Catálogo</b> <span class="nivel">(Avanzado)</span><br />Crea un
+          array de 3 productos (objetos) y recórrelo mostrando nombre y precio.
+        </li>
+        <li>
+          <b>Total del carrito</b> <span class="nivel">(Avanzado)</span
+          ><br />Recorre un array de productos y suma todos sus precios.
+        </li>
+        <li>
+          <b>Buscar por propiedad</b> <span class="nivel">(Avanzado)</span
+          ><br />Busca en un array de objetos el que tenga cierto nombre y
+          muéstralo.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mini base de datos</h3>
+      <p>
+        Crea un array de objetos (estudiantes, productos o personajes) y muestra
+        sus datos recorriéndolo con un bucle.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea objetos con propiedades y las usa.</li>
+        <li>Maneja arrays de objetos.</li>
+        <li>Recorre y filtra datos de objetos.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Presenta el objeto como una 'ficha' con campos: ayuda a visualizarlo.
+        </li>
+        <li>
+          Los arrays de objetos son la base de casi toda app: dales importancia.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Trofeo 'Maestro de Objetos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 7 · Sesión 4: Misión Final: Administrador de Lista de Tareas
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar funciones, arrays y objetos para crear un administrador de
+        tareas (en lógica).
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de funciones + arrays + objetos</li>
+        <li>Operaciones CRUD básicas (agregar, listar, completar, borrar)</li>
+        <li>Organización del código en funciones</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Decidir qué guarda cada tarea (texto, ¿completada?) y qué
+              operaciones tendrá.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar las funciones: agregar, listar, completar y eliminar
+              tareas del array.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar agregando y borrando tareas y revisar que el listado quede
+              correcto.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Presentar el administrador y demostrar todas las operaciones.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Agregar tarea:</b> Crea una función que agregue un objeto tarea al
+          array.
+        </li>
+        <li>
+          <b>Listar tareas:</b> Crea una función que recorra y muestre todas las
+          tareas.
+        </li>
+        <li>
+          <b>Completar tarea:</b> Crea una función que marque una tarea como
+          completada.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Eliminar tarea</b> <span class="nivel">(Avanzado)</span
+          ><br />Agrega una función para eliminar una tarea por su posición.
+        </li>
+        <li>
+          <b>Contador de pendientes</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra cuántas tareas faltan por completar.
+        </li>
+        <li>
+          <b>Mostrar estado</b> <span class="nivel">(Avanzado)</span><br />Al
+          listar, muestra [x] si la tarea está completada y [ ] si no.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Administrador de Lista de Tareas</h3>
+      <p>
+        Administrador (en lógica) con funciones para agregar, listar, completar
+        y eliminar tareas guardadas en un array de objetos. ¡Preséntalo!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa funciones, un array y objetos coordinados.</li>
+        <li>Realiza agregar, listar, completar y eliminar.</li>
+        <li>El código está organizado en funciones claras.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Este proyecto es la lógica de la app del próximo periodo (DOM):
+          conéctalos.
+        </li>
+        <li>
+          Pide nombres de funciones claros: es el momento de crear buen hábito.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +95 XP · 📦 Insignia 'Organizador de Código'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 8 — Manipulación del DOM</h1>
+      <p class="desc">
+        Modificar la página desde JavaScript: el DOM, querySelector, eventos con
+        addEventListener, cambiar texto y estilos, y crear o eliminar elementos.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Lista de Tareas Interactiva ·
+        <b>Insignia:</b> 🕹️ Domador del DOM · <b>XP:</b> 340
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 1: El DOM y querySelector</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Seleccionar elementos de la página desde JavaScript y leer o cambiar su
+        contenido.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Qué es el DOM (la página como objetos)</li>
+        <li>Seleccionar con querySelector / getElementById</li>
+        <li>Leer y cambiar textContent</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Idea clave: JavaScript puede 'tocar' la página. Mostramos un texto
+              que cambia solo.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Qué es el DOM y cómo seleccionar elementos para leer o cambiar su
+              texto.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Seleccionan un título y un párrafo y les cambian el texto desde
+              JS.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos seleccionando por id y por clase.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Cambiar el texto de un encabezado al cargar la página.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Selecciona un título:</b> Selecciona un &lt;h1&gt; con
+          querySelector y muéstralo en consola.
+        </li>
+        <li>
+          <b>Cambia el texto:</b> Cambia el texto de un párrafo desde
+          JavaScript.
+        </li>
+        <li>
+          <b>Por id:</b> Selecciona un elemento por su id y cámbiale el
+          contenido.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mensaje de bienvenida</b> <span class="nivel">(Intermedio)</span
+          ><br />Al cargar la página, cambia un título para que muestre un
+          saludo.
+        </li>
+        <li>
+          <b>Reloj de texto</b> <span class="nivel">(Intermedio)</span
+          ><br />Muestra la hora actual dentro de un párrafo usando el DOM.
+        </li>
+        <li>
+          <b>Varios cambios</b> <span class="nivel">(Intermedio)</span
+          ><br />Selecciona y cambia el texto de 3 elementos distintos.
+        </li>
+        <li>
+          <b>Contador inicial</b> <span class="nivel">(Avanzado)</span><br />Pon
+          un número en un elemento y cámbialo desde JS al cargar.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Página que se actualiza sola</h3>
+      <p>
+        Crea una página donde, al cargar, JavaScript cambie el título, un
+        párrafo y muestre la fecha.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Selecciona elementos con querySelector/getElementById.</li>
+        <li>Lee y cambia el texto de un elemento.</li>
+        <li>Conecta el HTML con el JavaScript.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Muestra el HTML y el JS lado a lado: ayuda a ver la conexión.</li>
+        <li>
+          Recuerda poner el script al final o esperar a que cargue el DOM.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Logro 'Selector Experto'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 2: Eventos y clics</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Responder a las acciones del usuario con addEventListener.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Eventos (click, input…)</li>
+        <li>addEventListener</li>
+        <li>Funciones que responden a eventos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: cambiamos un texto desde JS. ¿Y si lo cambia el usuario al
+              hacer clic?
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: un botón que, al hacer clic, cambia un texto o suma a un
+              contador.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican un contador con botones de sumar y reiniciar usando
+              eventos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos añadiendo más botones y respuestas.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Crear un botón que cambie el texto de un párrafo al pulsarlo.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Botón que saluda:</b> Crea un botón que, al hacer clic, muestre un
+          saludo en un párrafo.
+        </li>
+        <li>
+          <b>Contador:</b> Crea un botón que sume 1 a un número en pantalla.
+        </li>
+        <li><b>Reiniciar:</b> Añade un botón que ponga el contador en 0.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Contador completo</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea botones de sumar, restar y reiniciar para un contador.
+        </li>
+        <li>
+          <b>Interruptor de luz</b> <span class="nivel">(Intermedio)</span
+          ><br />Un botón que cambie el texto entre 'Encendido' y 'Apagado' en
+          cada clic.
+        </li>
+        <li>
+          <b>Saludo personalizado</b> <span class="nivel">(Avanzado)</span
+          ><br />Un input para el nombre y un botón que muestre 'Hola, NOMBRE'.
+        </li>
+        <li>
+          <b>Doble botón</b> <span class="nivel">(Intermedio)</span><br />Dos
+          botones que muestren mensajes distintos en el mismo lugar.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi contador interactivo</h3>
+      <p>
+        Crea un contador con botones de sumar, restar y reiniciar, todo
+        respondiendo a clics.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa addEventListener para responder a clics.</li>
+        <li>La página reacciona a las acciones del usuario.</li>
+        <li>Los botones hacen lo esperado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Presenta el evento como 'cuando pase X, haz Y': modelo mental simple.
+        </li>
+        <li>Celebra el primer botón que funciona: es un gran momento.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Logro 'Maestro de Eventos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 3: Crear, cambiar y borrar</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Cambiar estilos desde JS y crear o eliminar elementos de la página
+        dinámicamente.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Cambiar estilos (classList, style)</li>
+        <li>Crear elementos (createElement, appendChild)</li>
+        <li>Eliminar elementos (remove)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: ¿cómo agrego un elemento nuevo sin escribirlo en el HTML?
+              Aparece createElement.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: cambiar el color de un elemento, crear un &lt;li&gt; nuevo y
+              eliminarlo.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos creando y borrando elementos y cambiando estilos al hacer
+              clic.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Crear un botón que añada un elemento nuevo a una lista.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Cambia el estilo:</b> Con un botón, cambia el color de fondo de un
+          elemento desde JS.
+        </li>
+        <li>
+          <b>Crear un elemento:</b> Crea un &lt;li&gt; nuevo y agrégalo a una
+          lista con appendChild.
+        </li>
+        <li>
+          <b>Eliminar:</b> Crea un botón que elimine un elemento de la página.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Agregar a la lista</b> <span class="nivel">(Avanzado)</span
+          ><br />Un input y un botón que agreguen lo escrito como nuevo elemento
+          de una lista.
+        </li>
+        <li>
+          <b>Resaltar al clic</b> <span class="nivel">(Avanzado)</span><br />Haz
+          que al hacer clic en un elemento de la lista, se resalte (cambie de
+          clase).
+        </li>
+        <li>
+          <b>Borrar elemento</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade a cada elemento un botón que lo elimine de la lista.
+        </li>
+        <li>
+          <b>Modo oscuro</b> <span class="nivel">(Avanzado)</span><br />Un botón
+          que active/desactive una clase de modo oscuro en toda la página.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Lista que crece</h3>
+      <p>
+        Crea una lista donde puedas agregar elementos con un input y eliminarlos
+        con un botón, y resaltar el elemento al hacer clic.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Cambia estilos desde JavaScript.</li>
+        <li>Crea y elimina elementos del DOM.</li>
+        <li>La interacción funciona de forma fluida.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          classList es más limpio que tocar style directamente: enséñalo así.
+        </li>
+        <li>
+          Crear/eliminar elementos es la base de las apps: dale tiempo de
+          práctica.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · Trofeo 'Domador del DOM'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 4: Misión Final: Lista de Tareas Interactiva</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar DOM, eventos y manipulación de elementos para crear una lista
+        de tareas interactiva real.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de DOM + eventos + crear/eliminar</li>
+        <li>Marcar completadas y borrar</li>
+        <li>Interfaz usable</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Bocetar la interfaz: input, botón agregar y la lista con sus
+              acciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar agregar tareas, marcarlas como completadas (clic) y
+              eliminarlas (botón).
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>Probar el flujo completo y mejorar estilos y mensajes.</td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar la app de tareas y demostrar todas las acciones.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Agregar tareas:</b> Input + botón que agreguen una tarea a la lista
+          en pantalla.
+        </li>
+        <li>
+          <b>Marcar completada:</b> Al hacer clic en una tarea, que se marque
+          como completada (tachada).
+        </li>
+        <li>
+          <b>Eliminar tarea:</b> Cada tarea con un botón para eliminarla de la
+          lista.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Contador de tareas</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra cuántas tareas hay y cuántas están pendientes.
+        </li>
+        <li>
+          <b>Evitar vacías</b> <span class="nivel">(Avanzado)</span><br />No
+          permitas agregar una tarea si el input está vacío (avisa).
+        </li>
+        <li>
+          <b>Estilo profesional</b> <span class="nivel">(Avanzado)</span
+          ><br />Da estilo a la app (tarjetas, colores, hover) para que se vea
+          pulida.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Lista de Tareas Interactiva</h3>
+      <p>
+        App de tareas donde se agregan, completan y eliminan tareas en la
+        página, con un contador y buen diseño. ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Agrega, completa y elimina tareas en el DOM.</li>
+        <li>Responde correctamente a los eventos.</li>
+        <li>La interfaz es clara y usable.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Es el proyecto estrella del curso de DOM: dale tiempo y celébralo.
+        </li>
+        <li>
+          Conéctalo con la lógica del periodo 7: aquí se 've' lo que antes era
+          consola.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +100 XP · 🕹️ Insignia 'Domador del DOM'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 9 — Aplicaciones Web Interactivas</h1>
+      <p class="desc">
+        Integrar HTML, CSS y JS en apps completas: formularios dinámicos,
+        validaciones, temporizadores, localStorage, JSON básico y organización
+        del proyecto.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Agenda Personal · <b>Insignia:</b> 🚀
+        Constructor de Apps · <b>XP:</b> 360
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 1: Formularios y validaciones</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Procesar formularios desde JavaScript y validar los datos antes de
+        usarlos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Leer valores de inputs (value)</li>
+        <li>Evento submit y prevenir el envío</li>
+        <li>Validaciones (campos vacíos, formato)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              ¿Qué pasa cuando un formulario está mal llenado? Vemos
+              validaciones reales.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo leer los valores de un formulario en JS y validar antes de
+              continuar.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Procesan juntos un formulario de registro: leer datos y avisar si
+              falta algo.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos validando distintos campos (vacío, edad mínima, correo
+              con @).
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Validar que un campo de nombre no esté vacío al enviar.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Lee el input:</b> Lee el valor de un input al hacer clic en un
+          botón y muéstralo.
+        </li>
+        <li>
+          <b>Campo obligatorio:</b> Avisa si el usuario deja vacío el campo de
+          nombre.
+        </li>
+        <li>
+          <b>Validar edad:</b> Comprueba que la edad sea un número mayor que 0.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Registro validado</b> <span class="nivel">(Avanzado)</span
+          ><br />Valida un formulario de nombre, correo y edad y muestra los
+          errores encontrados.
+        </li>
+        <li>
+          <b>Correo con @</b> <span class="nivel">(Avanzado)</span
+          ><br />Comprueba que el correo contenga '@' antes de aceptarlo.
+        </li>
+        <li>
+          <b>Mostrar resumen</b> <span class="nivel">(Avanzado)</span><br />Si
+          los datos son válidos, muestra un resumen del registro en la página.
+        </li>
+        <li>
+          <b>Resaltar errores</b> <span class="nivel">(Avanzado)</span
+          ><br />Marca en rojo los campos que estén mal llenados.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Formulario inteligente</h3>
+      <p>
+        Crea un formulario que valide sus campos al enviar, muestre los errores
+        y, si todo está bien, confirme el registro.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Lee valores de los inputs desde JS.</li>
+        <li>Valida los datos y avisa de los errores.</li>
+        <li>Solo continúa cuando los datos son válidos.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Usa preventDefault para evitar que el formulario recargue la página.
+        </li>
+        <li>
+          Las validaciones enseñan a pensar en el usuario: dales importancia.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Logro 'Validador Experto'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 2: Temporizadores y localStorage</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar temporizadores para acciones en el tiempo y guardar datos con
+        localStorage.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>setTimeout y setInterval</li>
+        <li>Guardar y leer en localStorage</li>
+        <li>Persistir datos entre recargas</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: la app olvida todo al recargar. ¿Cómo recordar? Aparece
+              localStorage.
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: un cronómetro con setInterval y guardar/leer un dato en
+              localStorage.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican un contador que se guarda y un mensaje que aparece tras
+              unos segundos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos con temporizadores y guardado de datos.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Guardar el nombre del usuario y recuperarlo al recargar.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Mensaje con retraso:</b> Muestra un mensaje 3 segundos después de
+          cargar (setTimeout).
+        </li>
+        <li>
+          <b>Cronómetro:</b> Crea un contador que sube cada segundo con
+          setInterval.
+        </li>
+        <li>
+          <b>Guarda un dato:</b> Guarda un nombre en localStorage y léelo al
+          recargar.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Recuerda mi nombre</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide el nombre una vez, guárdalo y salúdalo automáticamente al
+          volver.
+        </li>
+        <li>
+          <b>Cuenta regresiva</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea una cuenta regresiva desde 10 que avise al llegar a 0.
+        </li>
+        <li>
+          <b>Contador persistente</b> <span class="nivel">(Avanzado)</span
+          ><br />Un contador con botones que recuerde su valor aunque recargues.
+        </li>
+        <li>
+          <b>Tema guardado</b> <span class="nivel">(Avanzado)</span><br />Guarda
+          en localStorage si el modo oscuro está activo y aplícalo al cargar.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: App que recuerda</h3>
+      <p>
+        Crea una app sencilla (contador o notas) que guarde su estado en
+        localStorage y lo recupere al recargar.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa setTimeout/setInterval correctamente.</li>
+        <li>Guarda y recupera datos con localStorage.</li>
+        <li>La app conserva su estado entre recargas.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra que al recargar los datos siguen ahí: el 'wow' de
+          localStorage.
+        </li>
+        <li>Recuerda detener los setInterval cuando ya no se necesitan.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · Logro 'Guardián de Datos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 3: JSON y organización</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Guardar estructuras de datos con JSON y organizar el proyecto en partes
+        claras.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>JSON.stringify y JSON.parse</li>
+        <li>Guardar arrays/objetos en localStorage</li>
+        <li>Organizar el código del proyecto</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: guardar una lista completa, no solo un dato. Aparece JSON.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: convertir un array de objetos a JSON, guardarlo y volver a
+              leerlo.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos guardando y recuperando listas con JSON y ordenando el
+              código.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Guardar una lista de tareas como JSON y recargarla al volver.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Array a JSON:</b> Convierte un array a texto con JSON.stringify y
+          muéstralo.
+        </li>
+        <li>
+          <b>Guardar lista:</b> Guarda un array de objetos en localStorage
+          usando JSON.
+        </li>
+        <li>
+          <b>Recuperar lista:</b> Lee el JSON de localStorage y conviértelo de
+          vuelta con JSON.parse.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Notas persistentes</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea una lista de notas que se guarde como JSON y se recupere
+          al recargar.
+        </li>
+        <li>
+          <b>Favoritos guardados</b> <span class="nivel">(Avanzado)</span
+          ><br />Permite marcar favoritos de una lista y guárdalos con JSON.
+        </li>
+        <li>
+          <b>Código ordenado</b> <span class="nivel">(Avanzado)</span
+          ><br />Reorganiza un programa separando la lógica en funciones con
+          nombres claros.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Lista persistente</h3>
+      <p>
+        Crea una lista (compras, tareas o notas) que guarde todos sus elementos
+        como JSON y los recupere al volver.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Convierte datos con JSON.stringify/parse.</li>
+        <li>Guarda y recupera estructuras completas.</li>
+        <li>El código está organizado en funciones claras.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>JSON es clave para apps reales y APIs: siéntales bien la base.</li>
+        <li>
+          Aprovecha para hablar de orden del código: prepara el proyecto final.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · Trofeo 'Maestro de JSON'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 4: Misión Final: Agenda Personal</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar formularios, validaciones, localStorage y JSON para crear una
+        agenda personal completa.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de formulario + DOM + persistencia</li>
+        <li>CRUD de contactos/eventos con JSON</li>
+        <li>App completa y usable</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Decidir qué guarda la agenda (contactos o eventos) y sus campos.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar agregar, listar y eliminar entradas, guardándolas con
+              JSON en localStorage.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar el flujo completo, validar campos y revisar que todo
+              persista al recargar.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar la agenda y demostrar que recuerda los datos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Formulario de la agenda:</b> Crea el formulario para agregar una
+          entrada (nombre, fecha o teléfono).
+        </li>
+        <li>
+          <b>Listar entradas:</b> Muestra todas las entradas guardadas en la
+          página.
+        </li>
+        <li>
+          <b>Guardar con JSON:</b> Guarda las entradas como JSON en
+          localStorage.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Eliminar entrada</b> <span class="nivel">(Avanzado)</span
+          ><br />Permite borrar una entrada y actualizar lo guardado.
+        </li>
+        <li>
+          <b>Validación completa</b> <span class="nivel">(Avanzado)</span
+          ><br />Valida que los campos no estén vacíos antes de agregar.
+        </li>
+        <li>
+          <b>Buscar en la agenda</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade un buscador que filtre las entradas por nombre.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Agenda Personal</h3>
+      <p>
+        Agenda que agrega, lista, busca y elimina entradas, con validaciones y
+        datos guardados en localStorage como JSON. ¡Preséntala!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Integra formulario, DOM y persistencia con JSON.</li>
+        <li>Realiza agregar, listar, buscar y eliminar.</li>
+        <li>Los datos persisten entre recargas.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Es casi una app real: anímalos, ya saben todo lo necesario.</li>
+        <li>
+          Pide que la prueben cerrando y abriendo la pestaña: demuestra la
+          persistencia.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +110 XP · 🚀 Insignia 'Constructor de Apps'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 10 — Proyecto Final</h1>
+      <p class="desc">
+        Desarrollar una aplicación web completa con todo lo aprendido: planear,
+        diseñar, programar, probar y presentar.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Aplicación Web Final (a elección) ·
+        <b>Insignia:</b> 🏆 Desarrollador Web Junior · <b>XP:</b> 400
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 1: Planear y diseñar</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Elegir el proyecto final, planear sus funciones y diseñar su estructura
+        y aspecto.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Elegir alcance realista</li>
+        <li>Boceto/wireframe y secciones</li>
+        <li>Estructura HTML y plan de funciones JS</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Galería de ideas: portafolio, quiz, conversor, biblioteca, juego…
+              ¿qué te emociona?
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo planear un proyecto: qué hace, qué pantallas tiene y qué
+              datos maneja.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Cada quien elige su proyecto y dibuja su boceto y lista de
+              funciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos definiendo el alcance mínimo (lo que sí o sí tendrá).
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Escribir la estructura HTML base del proyecto elegido.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Elige tu proyecto:</b> Decide tu proyecto final y escribe en
+          comentarios qué hará.
+        </li>
+        <li>
+          <b>Boceto:</b> Crea la estructura HTML de las secciones principales.
+        </li>
+        <li>
+          <b>Lista de funciones:</b> Anota en comentarios las funciones JS que
+          necesitarás.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Alcance mínimo</b> <span class="nivel">(Avanzado)</span
+          ><br />Define la versión mínima que debe funcionar sí o sí y
+          prográmala primero.
+        </li>
+        <li>
+          <b>Estructura completa</b> <span class="nivel">(Avanzado)</span
+          ><br />Arma todo el HTML de las secciones aunque aún no tengan estilo
+          ni lógica.
+        </li>
+        <li>
+          <b>Estilo base</b> <span class="nivel">(Avanzado)</span><br />Aplica
+          una paleta y tipografía base a todo el proyecto.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Plan del proyecto</h3>
+      <p>
+        Deja listo el plan: proyecto elegido, boceto, estructura HTML base y
+        lista de funciones a programar.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Elige un proyecto con alcance realista.</li>
+        <li>Planea sus secciones y funciones.</li>
+        <li>Deja la estructura HTML base lista.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Ayúdalos a recortar el alcance: mejor algo pequeño que funcione
+          completo.
+        </li>
+        <li>Pide que escriban primero qué debe hacer antes de programar.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Logro 'Planificador'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 2: Programar el núcleo</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir la funcionalidad principal del proyecto integrando HTML, CSS y
+        JS.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integrar DOM, eventos y datos</li>
+        <li>Avanzar por partes y probar seguido</li>
+        <li>Persistencia si aplica (localStorage/JSON)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso del plan: ¿cuál es la función principal a lograr hoy?
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: cómo avanzar por partes y probar cada función antes de
+              seguir.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Programan la funcionalidad central de su proyecto con apoyo del
+              profe.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos puliendo la función principal y probándola con casos
+              reales.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Dejar funcionando la característica más importante del proyecto.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Función principal:</b> Programa la acción central de tu app (lo que
+          más importa).
+        </li>
+        <li>
+          <b>Conecta el botón:</b> Haz que un evento dispare tu función
+          principal.
+        </li>
+        <li>
+          <b>Muestra resultados:</b> Refleja el resultado en la página (DOM).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Segunda función</b> <span class="nivel">(Avanzado)</span
+          ><br />Agrega una segunda característica importante a tu proyecto.
+        </li>
+        <li>
+          <b>Guarda datos</b> <span class="nivel">(Avanzado)</span><br />Si tu
+          app maneja datos, guárdalos con localStorage/JSON.
+        </li>
+        <li>
+          <b>Maneja errores</b> <span class="nivel">(Avanzado)</span
+          ><br />Controla los casos en que el usuario hace algo inesperado.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Núcleo funcionando</h3>
+      <p>
+        Deja la funcionalidad principal de tu proyecto funcionando de principio
+        a fin.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>La función principal del proyecto funciona.</li>
+        <li>Integra HTML, CSS y JS de forma coordinada.</li>
+        <li>Avanza probando por partes.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Recuérdales guardar/probar seguido: evita perder el avance.</li>
+        <li>Mejor una función sólida que cinco a medias.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · Logro 'Desarrollador en Acción'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 3: Probar y pulir</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Detectar y corregir errores, mejorar el diseño y hacer el proyecto
+        responsive.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Pruebas y corrección de errores</li>
+        <li>Mejoras de diseño y experiencia</li>
+        <li>Responsive y detalles finales</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Intercambio: cada quien prueba la app de un compañero y anota qué
+              falla.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: cómo encontrar errores con la consola y mejorar el diseño
+              con detalles.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos para corregir bugs, validar entradas y pulir el diseño y el
+              responsive.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Dejar el proyecto sin errores conocidos y adaptable a móvil.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Caza de bugs:</b> Prueba tu app y corrige al menos 2 errores
+          encontrados.
+        </li>
+        <li>
+          <b>Validaciones:</b> Asegura que la app no se rompa con entradas
+          vacías o raras.
+        </li>
+        <li>
+          <b>Detalles de diseño:</b> Mejora colores, espaciados y tipografía del
+          proyecto.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Responsive total</b> <span class="nivel">(Avanzado)</span><br />Haz
+          que tu proyecto se vea bien en móvil con media queries.
+        </li>
+        <li>
+          <b>Efectos finales</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade transiciones, hover o sombras para una experiencia más
+          pulida.
+        </li>
+        <li>
+          <b>Prueba de usuario</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide a un compañero que la use y corrige lo que le confunda.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Versión pulida</h3>
+      <p>
+        Deja tu proyecto sin errores conocidos, responsive y con un diseño
+        cuidado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Corrige los errores encontrados.</li>
+        <li>El proyecto es responsive y cuidado.</li>
+        <li>Maneja entradas inesperadas sin romperse.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Las pruebas cruzadas entre compañeros descubren muchos errores:
+          organízalas.
+        </li>
+        <li>
+          Recuérdales que pulir detalles es lo que separa un proyecto bueno de
+          uno excelente.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +100 XP · Trofeo 'Pulidor Experto'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 4: Misión Final: Presentar la Aplicación</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Terminar la aplicación web completa y presentarla explicando cómo se
+        construyó.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Cierre del proyecto</li>
+        <li>Documentación breve</li>
+        <li>Presentación del trabajo</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Repasar la lista de funciones: ¿está todo lo planeado? Ajustar lo
+              pendiente.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Dar los toques finales y escribir una breve descripción de qué
+              hace y cómo se usa.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar por última vez en móvil y escritorio antes de presentar.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Cada estudiante presenta su aplicación a la clase y responde
+              preguntas.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Toques finales:</b> Completa los detalles que falten de tu
+          proyecto.
+        </li>
+        <li>
+          <b>Descripción:</b> Escribe en comentarios qué hace tu app y cómo se
+          usa.
+        </li>
+        <li>
+          <b>Prueba final:</b> Revisa que todo funcione antes de presentar.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Pantalla de inicio</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade una portada con el nombre de la app y una breve
+          descripción.
+        </li>
+        <li>
+          <b>Función extra</b> <span class="nivel">(Avanzado)</span><br />Si te
+          alcanza el tiempo, añade una característica adicional que la mejore.
+        </li>
+        <li>
+          <b>Créditos</b> <span class="nivel">(Avanzado)</span><br />Agrega un
+          footer con tu nombre y la tecnología usada.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Aplicación Web Final</h3>
+      <p>
+        Aplicación web completa (portafolio, quiz, conversor, biblioteca,
+        juego…) planeada, programada, probada y presentada a la clase. ¡Tu
+        graduación como desarrollador web junior!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>La aplicación cumple lo que se propuso.</li>
+        <li>Integra HTML, CSS y JavaScript con calidad.</li>
+        <li>Presenta su trabajo explicando cómo lo construyó.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Haz una verdadera feria de proyectos: la presentación cierra el curso
+          con orgullo.
+        </li>
+        <li>Resalta cuánto avanzaron desde el 'Hola, web' del periodo 1.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +130 XP · 🏆 Insignia 'Desarrollador Web Junior'
+        desbloqueada
+      </p>
+    </section>
+  </body>
+</html>

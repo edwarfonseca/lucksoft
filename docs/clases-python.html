@@ -1,0 +1,5029 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>Curso de Python — Guía de clases</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        color: #1a1a1a;
+        line-height: 1.5;
+        margin: 0;
+        padding: 32px 40px;
+      }
+      .cover {
+        text-align: center;
+        padding: 80px 0;
+        page-break-after: always;
+      }
+      .cover h1 {
+        font-size: 34px;
+        margin: 0 0 8px;
+      }
+      .cover p {
+        color: #555;
+      }
+      .periodo {
+        page-break-before: always;
+        border-top: 4px solid #6c5ce7;
+        padding-top: 12px;
+      }
+      .periodo h1 {
+        color: #4834d4;
+        font-size: 26px;
+        margin: 4px 0;
+      }
+      .desc {
+        color: #333;
+      }
+      .meta {
+        background: #f2f0ff;
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 14px;
+      }
+      .sesion {
+        page-break-before: always;
+      }
+      .sesion h2 {
+        color: #6c5ce7;
+        font-size: 21px;
+        border-bottom: 2px solid #eee;
+        padding-bottom: 6px;
+      }
+      h3 {
+        font-size: 15px;
+        margin: 16px 0 6px;
+        color: #2d2d2d;
+      }
+      .tags {
+        margin: 6px 0 4px;
+      }
+      .tag {
+        display: inline-block;
+        background: #eceafe;
+        color: #4834d4;
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 12px;
+        margin-right: 6px;
+      }
+      .nivel {
+        color: #888;
+        font-weight: normal;
+        font-size: 12px;
+      }
+      ul {
+        margin: 4px 0 4px 4px;
+        padding-left: 20px;
+      }
+      li {
+        margin: 3px 0;
+      }
+      .retos li {
+        margin-bottom: 8px;
+      }
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        font-size: 13px;
+      }
+      table.agenda th,
+      table.agenda td {
+        border: 1px solid #ddd;
+        padding: 6px 8px;
+        text-align: left;
+        vertical-align: top;
+      }
+      table.agenda th {
+        background: #f5f5f5;
+      }
+      table.agenda td:nth-child(2) {
+        white-space: nowrap;
+        width: 70px;
+      }
+      .recompensa {
+        background: #fff8e6;
+        border-left: 4px solid #ffab19;
+        padding: 8px 12px;
+        margin-top: 14px;
+        border-radius: 4px;
+      }
+      @media print {
+        body {
+          padding: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cover">
+      <h1>Curso de Python — Guía de clases</h1>
+      <p>Guía de clases · 10 periodos × 4 sesiones (40 clases de 90 min)</p>
+      <p>LuckSoft — material de apoyo para el docente</p>
+    </div>
+
+    <section class="periodo">
+      <h1>Periodo 1 — Descubriendo la Programación</h1>
+      <p class="desc">
+        Primer contacto con el código: qué es un algoritmo, qué es Python y cómo
+        dar tus primeras órdenes a la computadora con print().
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Mi Tarjeta de Presentación Digital ·
+        <b>Insignia:</b> 🧭 Explorador del Código · <b>XP:</b> 200
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 1: El mapa del programador</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Entender qué es un algoritmo y escribir tu primer programa en Python que
+        muestra texto en pantalla.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Algoritmo: pasos ordenados para resolver un problema</li>
+        <li>Qué es Python y para qué se usa</li>
+        <li>El compilador/editor integrado de LuckSoft</li>
+        <li>La función print()</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Dinámica 'robot humano': un alumno da instrucciones paso a paso
+              para que el profe haga un sándwich. Se descubre qué es un
+              algoritmo.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              ¿Qué es Python? Por qué es popular. Recorrido por el editor: dónde
+              escribir, botón Ejecutar y consola.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Todos escriben y ejecutan print('Hola, mundo') y luego su nombre.
+              Vemos cómo aparece en la consola.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Retos cortos para imprimir varias líneas y un dibujo de texto.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Cada quien imprime una frase que lo represente y la comparte.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Hola, mundo:</b> Imprime 'Hola, mundo' y ejecútalo. ¡Tu primer
+          programa!
+        </li>
+        <li>
+          <b>Tu ficha:</b> Imprime tu nombre y tu edad en dos líneas separadas.
+        </li>
+        <li>
+          <b>Algoritmo diario:</b> Escribe en comentarios los pasos para lavarse
+          los dientes.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Triple saludo</b> <span class="nivel">(Principiante)</span
+          ><br />Imprime tres líneas: un saludo, tu color favorito y tu comida
+          favorita.
+        </li>
+        <li>
+          <b>Arte ASCII</b> <span class="nivel">(Principiante)</span
+          ><br />Usando varios print(), dibuja una carita feliz :) con símbolos.
+        </li>
+        <li>
+          <b>El algoritmo del día</b> <span class="nivel">(Principiante)</span
+          ><br />Describe con print() los 5 pasos de tu rutina para llegar al
+          colegio.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Tu primera huella</h3>
+      <p>
+        Crea un programa que imprima un mini cartel con tu nombre rodeado de
+        símbolos (***). Ejecútalo sin errores.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El programa se ejecuta sin errores.</li>
+        <li>Usa print() correctamente con comillas.</li>
+        <li>Comprende la idea de algoritmo (lo explica con sus palabras).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Empieza con la dinámica desconectada (sin computador) para enganchar.
+        </li>
+        <li>
+          Celebra el primer 'Hola, mundo' de cada estudiante: es un momento
+          clave.
+        </li>
+        <li>
+          No corrijas la sintaxis antes de tiempo; deja que vean el error y lo
+          lean.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +40 XP · Logro 'Primer Hola, mundo'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 2: Hablando con la consola</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Dominar print() con varios mensajes y aprender a documentar el código
+        con comentarios.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>print() con varios argumentos</li>
+        <li>Comentarios con #</li>
+        <li>Líneas en blanco y orden del código</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso relámpago: ¿qué hace print()? Cada quien dice un ejemplo.
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              El profe muestra print('a', 'b') y comentarios #; se ve qué se
+              ejecuta y qué no.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construyen juntos un 'menú de heladería' con varias líneas y
+              comentarios que explican cada parte.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos para añadir comentarios y reordenar líneas.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Documentar con comentarios el programa de la sesión anterior.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Lista de compras:</b> Imprime una lista de 4 productos, uno por
+          línea.
+        </li>
+        <li>
+          <b>Deja una nota:</b> Añade un comentario que explique qué hace tu
+          programa.
+        </li>
+        <li>
+          <b>Todo junto:</b> Usa print() con varias palabras separadas por
+          comas.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Menú del restaurante</b> <span class="nivel">(Principiante)</span
+          ><br />Imprime un menú con título y 3 platos con su precio.
+        </li>
+        <li>
+          <b>Comentarios espías</b> <span class="nivel">(Principiante)</span
+          ><br />Toma un programa y añade un comentario por cada línea
+          explicando qué hace.
+        </li>
+        <li>
+          <b>Escalera de texto</b> <span class="nivel">(Intermedio)</span
+          ><br />Imprime una escalera: cada línea con un # más que la anterior
+          (5 escalones).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi póster</h3>
+      <p>
+        Diseña con print() un póster de tu serie/juego favorito (título, una
+        frase y un dibujo ASCII), comentado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa al menos un comentario útil.</li>
+        <li>El texto sale ordenado y como se esperaba.</li>
+        <li>Diferencia código de comentario.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Refuerza que los comentarios son para humanos, no para la máquina.
+        </li>
+        <li>
+          Permite temas libres (juegos, música) para mantener la motivación.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Código Comentado'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 1 · Sesión 3: Cazadores de errores</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Reconocer y corregir errores básicos leyendo los mensajes de la consola.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Errores de sintaxis (comillas, paréntesis)</li>
+        <li>Leer el mensaje de error</li>
+        <li>Depuración: probar y corregir</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Juego '¿se ejecuta o no?': el profe muestra líneas y el grupo
+              vota.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>Cómo leer un SyntaxError: qué línea y qué pista da.</td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Serie de programas con errores que el estudiante debe arreglar, de
+              menos a más difícil.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Crear a propósito un error y explicárselo a un compañero.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Comilla perdida:</b> Arregla print('Hola) — le falta una comilla.
+        </li>
+        <li>
+          <b>Sin paréntesis:</b> Arregla print Hola — faltan paréntesis y
+          comillas.
+        </li>
+        <li>
+          <b>Caza el error:</b> Encuentra el error en un programa de 3 líneas
+          que te da el profe.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Hospital de código</b> <span class="nivel">(Principiante)</span
+          ><br />Recibe 3 programas 'enfermos' (con errores) y cúralos hasta que
+          ejecuten.
+        </li>
+        <li>
+          <b>Detective de comillas</b> <span class="nivel">(Principiante)</span
+          ><br />En un texto con varios print(), encuentra el único que tiene un
+          error.
+        </li>
+        <li>
+          <b>Trampa para tu compañero</b> <span class="nivel">(Intermedio)</span
+          ><br />Escribe un programa correcto, introdúcele 1 error y rétalo a
+          encontrarlo.
+        </li>
+        <li>
+          <b>El error invisible</b> <span class="nivel">(Intermedio)</span
+          ><br />Arregla un programa que mezcla mayúsculas en Print() y comillas
+          distintas.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Clínica de bugs</h3>
+      <p>
+        Corrige una tanda final de 4 errores variados y deja todos los programas
+        ejecutando.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Identifica el tipo de error a partir del mensaje.</li>
+        <li>Corrige sin ayuda al menos 3 de 4 programas.</li>
+        <li>Mantiene la calma ante los errores (actitud de depuración).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Normaliza el error: 'equivocarse es parte de programar'.</li>
+        <li>Enseña a leer SIEMPRE la última línea del mensaje primero.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Trofeo 'Cazador de Bugs'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 1 · Sesión 4: Misión Final: Tarjeta de Presentación Digital
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Integrar print() y comentarios para crear una tarjeta de presentación
+        personal y presentarla.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de print() y comentarios</li>
+        <li>Diseño con texto (ASCII)</li>
+        <li>Presentar el propio trabajo</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Bocetar en papel la tarjeta: nombre, apodo, hobby, frase y un
+              dibujo.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar la tarjeta con varios print(), bordes de símbolos y
+              comentarios por sección.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar que ejecuta sin errores y mejorar el diseño (alineación,
+              marco).
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Cada estudiante presenta su tarjeta a la clase.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Marco con estilo:</b> Imprime un marco de símbolos alrededor de tu
+          nombre.
+        </li>
+        <li>
+          <b>Sobre mí:</b> Añade una sección 'Sobre mí' con 3 datos tuyos.
+        </li>
+        <li><b>Documenta:</b> Comenta cada sección de tu programa.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Marco perfecto</b> <span class="nivel">(Principiante)</span
+          ><br />Logra que el marco de símbolos quede del mismo ancho en todas
+          las líneas.
+        </li>
+        <li>
+          <b>Tarjeta con logo</b> <span class="nivel">(Intermedio)</span
+          ><br />Incluye un pequeño dibujo ASCII que te represente (animal,
+          símbolo, etc.).
+        </li>
+        <li>
+          <b>Doble idioma</b> <span class="nivel">(Intermedio)</span
+          ><br />Muestra tu frase favorita en español y en inglés.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Tarjeta de Presentación Digital</h3>
+      <p>
+        Programa terminado con nombre, datos personales, una frase y un diseño
+        ASCII, todo comentado y sin errores. ¡Preséntalo!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>La tarjeta incluye nombre, al menos 3 datos y un diseño.</li>
+        <li>El código está comentado y ejecuta sin errores.</li>
+        <li>Presenta su trabajo explicando qué hizo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Dale valor a la creatividad, no solo a que 'funcione'.</li>
+        <li>
+          Haz una galería: que vean los trabajos de los demás motiva mucho.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · 🧭 Insignia 'Explorador del Código'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 2 — Variables y Datos</h1>
+      <p class="desc">
+        Guardar información en variables, distinguir tipos de datos (texto,
+        números, booleanos) y leer datos del usuario con input().
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Generador de Perfil Gamer ·
+        <b>Insignia:</b> 🎒 Coleccionista de Datos · <b>XP:</b> 220
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 1: Cajas con nombre</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Crear variables para guardar datos y usarlas dentro de print().</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Variable como 'caja' con nombre</li>
+        <li>Asignación con =</li>
+        <li>Strings, enteros y decimales</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Analogía de los casilleros: cada casillero (variable) guarda algo
+              y tiene una etiqueta (nombre).
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo se crea una variable, reglas de nombres y los tipos básicos
+              (texto, entero, decimal).
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Crear variables nombre, edad y altura, y mostrarlas en una frase
+              con print().
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>
+              Mini retos cambiando el valor de las variables y observando el
+              resultado.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Crear 3 variables sobre uno mismo e imprimir una presentación.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu primera variable:</b> Crea una variable «juego» y muéstrala.
+        </li>
+        <li>
+          <b>Guarda tu edad:</b> Guarda tu edad en una variable y úsala en una
+          frase.
+        </li>
+        <li>
+          <b>Con decimales:</b> Crea una variable decimal (por ejemplo, tu
+          estatura).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mi ficha</b> <span class="nivel">(Principiante)</span><br />Crea
+          variables nombre, edad y ciudad y muéstralas en una frase completa.
+        </li>
+        <li>
+          <b>Intercambio</b> <span class="nivel">(Intermedio)</span><br />Con
+          dos variables a y b, intercambia sus valores y muéstralos.
+        </li>
+        <li>
+          <b>Etiqueta correcta</b> <span class="nivel">(Principiante)</span
+          ><br />Crea una variable de cada tipo (texto, entero, decimal) y di
+          cuál es cuál en comentarios.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi avatar</h3>
+      <p>
+        Define tu avatar con variables (nombre, nivel, vida, arma) e imprime su
+        ficha.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea y usa variables correctamente.</li>
+        <li>Distingue texto de número.</li>
+        <li>Las usa dentro de print().</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Usa nombres de variables con sentido (no a, b) para crear buen hábito.
+        </li>
+        <li>
+          Relaciona variables con estadísticas de videojuegos: enganchan mucho.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Primera Variable'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 2: La computadora pregunta</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar input() para que el programa lea datos del usuario y responda con
+        ellos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>input() para leer texto</li>
+        <li>Guardar lo leído en una variable</li>
+        <li>Combinar input() con print()</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de variables con un ejemplo en vivo.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>Demo: pedir el nombre con input() y saludar a esa persona.</td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construyen un 'formulario' que pregunta nombre, edad y color
+              favorito y los repite.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos personalizando las preguntas y respuestas.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que entrevista al usuario y devuelve un resumen.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>¿Cómo te llamas?:</b> Pide el nombre y saluda a la persona.</li>
+        <li>
+          <b>Tu juego favorito:</b> Pregunta el juego favorito y responde con
+          una frase.
+        </li>
+        <li><b>Dos datos:</b> Pide dos datos y muéstralos juntos.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Recepcionista</b> <span class="nivel">(Principiante)</span
+          ><br />Pregunta nombre y ciudad y da una bienvenida personalizada.
+        </li>
+        <li>
+          <b>Mi mascota virtual</b> <span class="nivel">(Intermedio)</span
+          ><br />Pregunta el nombre y tipo de mascota y crea una frase
+          presentándola.
+        </li>
+        <li>
+          <b>Entrevista exprés</b> <span class="nivel">(Intermedio)</span
+          ><br />Haz 4 preguntas y al final muestra una 'tarjeta' con todas las
+          respuestas.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El adivino</h3>
+      <p>
+        Pide 3 datos al usuario y muestra una frase divertida que los combine.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa input() y guarda el resultado en variables.</li>
+        <li>Combina la entrada con print() correctamente.</li>
+        <li>El programa interactúa de forma clara.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Recuerda que input() siempre devuelve texto (lo veremos en la próxima
+          sesión).
+        </li>
+        <li>
+          Haz que prueben su programa con datos de un compañero: lo hace real.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +50 XP · Logro 'Programa Interactivo'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 3: Transformando datos</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Convertir entre tipos con int(), float() y str(), y usar booleanos.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Conversión de tipos: int(), float(), str()</li>
+        <li>Por qué input() devuelve texto</li>
+        <li>Booleanos: True / False</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              ¿Por qué '5' + '5' da '55'? Provocamos el bug y lo discutimos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>Demo de int(input()) para sumar dos números de verdad.</td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos que obligan a convertir tipos para que las operaciones
+              funcionen.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Crear un mini programa que sume dos edades introducidas por el
+              usuario.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Texto a número:</b> Pide un número con input() y conviértelo con
+          int().
+        </li>
+        <li><b>Suma real:</b> Suma dos números introducidos por el usuario.</li>
+        <li>
+          <b>Verdadero o falso:</b> Crea una variable booleana y muéstrala.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Sumadora real</b> <span class="nivel">(Intermedio)</span><br />Pide
+          dos números y muestra su suma correcta (no '55').
+        </li>
+        <li>
+          <b>¿Eres mayor de edad?</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide la edad y muestra un booleano que indique si es mayor de
+          18.
+        </li>
+        <li>
+          <b>Conversor de billetes</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide una cantidad y conviértela de texto a número para
+          multiplicarla por 1000.
+        </li>
+        <li>
+          <b>Texto y número</b> <span class="nivel">(Avanzado)</span
+          ><br />Combina un número convertido a texto con str() dentro de un
+          mensaje.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Convertidor mágico</h3>
+      <p>
+        Crea un programa que pida un número, lo convierta y muestre su doble y
+        su mitad.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Convierte correctamente con int()/float()/str().</li>
+        <li>Explica por qué hace falta convertir.</li>
+        <li>Las operaciones dan el resultado esperado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El error '55' es un momento de oro para enseñar: provócalo a
+          propósito.
+        </li>
+        <li>Conecta booleanos con preguntas de sí/no de la vida real.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Trofeo 'Transformador de Datos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 2 · Sesión 4: Misión Final: Generador de Perfil Gamer</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear un programa que arme el perfil gamer del usuario combinando
+        input(), variables y conversiones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de input(), variables y tipos</li>
+        <li>Diseño de una salida atractiva</li>
+        <li>Validar que los datos tengan sentido</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Decidir qué datos pedirá el perfil (nick, edad, juego favorito,
+              horas jugadas, nivel).
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar las preguntas, convertir los números y armar la ficha
+              del perfil.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>Probar con varios usuarios y mejorar el diseño de la ficha.</td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Presentar el generador y crear el perfil de un compañero en vivo.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Datos del jugador:</b> Pide el nick y el juego favorito.</li>
+        <li>
+          <b>Horas jugadas:</b> Pide las horas jugadas y conviértelas a número.
+        </li>
+        <li><b>Arma la ficha:</b> Muestra una ficha con todos los datos.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Rango automático</b> <span class="nivel">(Intermedio)</span
+          ><br />Según las horas jugadas, muestra un texto de rango (Novato/Pro)
+          usando un booleano.
+        </li>
+        <li>
+          <b>Ficha con marco</b> <span class="nivel">(Intermedio)</span
+          ><br />Presenta el perfil dentro de un marco ASCII bien alineado.
+        </li>
+        <li>
+          <b>Estadística extra</b> <span class="nivel">(Avanzado)</span
+          ><br />Calcula y muestra cuántos días en total ha jugado (horas / 24).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Generador de Perfil Gamer</h3>
+      <p>
+        Programa que entrevista al usuario y genera una ficha de perfil gamer
+        completa, con números convertidos y diseño cuidado.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa input(), variables y al menos una conversión.</li>
+        <li>La ficha final es clara y completa.</li>
+        <li>El programa funciona con distintos usuarios.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Deja que personalicen los campos: identidad = motivación.</li>
+        <li>
+          Anima a probar el programa con datos extremos para ver si aguanta.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · 🎒 Insignia 'Coleccionista de Datos'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 3 — Matemáticas y Operadores</h1>
+      <p class="desc">
+        Hacer cálculos con Python: operadores aritméticos, potencias, módulo y
+        construcción de fórmulas útiles.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Calculadora Inteligente ·
+        <b>Insignia:</b> 🧮 Mago de los Números · <b>XP:</b> 240
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 1: Python, tu calculadora</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Principiante</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar los operadores aritméticos básicos para hacer cálculos y mostrar
+        resultados.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Operadores + - * /</li>
+        <li>Orden de operaciones (paréntesis)</li>
+        <li>Mostrar resultados con print()</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Reto mental: calcular cuántos minutos hay en un día. Lo
+              comprobamos con Python.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Operadores aritméticos y prioridad; el papel de los paréntesis.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Calculan juntos áreas, totales de compra y promedios sencillos.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos de cálculo con datos pedidos al usuario.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que calcula cuántos segundos has vivido.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Multiplica:</b> Calcula 7 * 8 y muéstralo.</li>
+        <li>
+          <b>Suma y resta:</b> Pide dos números y muestra su suma y su resta.
+        </li>
+        <li><b>Promedio:</b> Calcula el promedio de tres notas.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Carrito de compras</b> <span class="nivel">(Principiante)</span
+          ><br />Pide precio y cantidad de un producto y muestra el total.
+        </li>
+        <li>
+          <b>Área del rectángulo</b> <span class="nivel">(Principiante)</span
+          ><br />Pide base y altura y calcula el área.
+        </li>
+        <li>
+          <b>Promedio de notas</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide 3 notas y muestra el promedio con un decimal.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Segundos de vida</h3>
+      <p>
+        Pide la edad del usuario y calcula aproximadamente cuántos segundos ha
+        vivido.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa los operadores correctamente.</li>
+        <li>Respeta el orden de operaciones.</li>
+        <li>Los resultados son correctos.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Parte de problemas cotidianos (compras, tiempo) para dar sentido a la
+          matemática.
+        </li>
+        <li>
+          Muestra el paréntesis como 'la regla para mandar' en el cálculo.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +55 XP · Logro 'Calculista'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 2: Potencias y residuos</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar potencias (**) y el módulo (%) para resolver problemas concretos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Potencias con **</li>
+        <li>Módulo % (residuo)</li>
+        <li>División entera //</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de operadores con un cálculo rápido.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>Demo: ** para potencias y % para saber si un número es par.</td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican calculando cuadrados, cubos y detectando pares/impares.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>
+              Mini retos con módulo (¿es múltiplo de? ¿qué hora será dentro de N
+              horas?).
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que dice si un número es par o impar.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Dos a la diez:</b> Calcula 2 elevado a 10 (usa **).</li>
+        <li><b>El residuo:</b> Averigua el residuo de 17 entre 5 (usa %).</li>
+        <li>
+          <b>¿Par o impar?:</b> Comprueba si un número pedido es par usando %.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Par o impar</b> <span class="nivel">(Intermedio)</span><br />Pide
+          un número y muestra su residuo entre 2 (0 = par).
+        </li>
+        <li>
+          <b>Reloj de 24h</b> <span class="nivel">(Intermedio)</span><br />Pide
+          una hora y cuántas horas pasan; calcula la hora final con %.
+        </li>
+        <li>
+          <b>Potencias en cadena</b> <span class="nivel">(Intermedio)</span
+          ><br />Muestra los cuadrados de 1 a 5 (calculados con **).
+        </li>
+        <li>
+          <b>Cambio de monedas</b> <span class="nivel">(Avanzado)</span
+          ><br />Dado un total, usa // y % para saber cuántas monedas de 100 y
+          de 50 caben.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Detector de pares</h3>
+      <p>
+        Crea un programa que pida un número y diga si es par o impar usando el
+        módulo.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa ** y % correctamente.</li>
+        <li>Interpreta el residuo (par/impar, múltiplos).</li>
+        <li>Resuelve un problema real con módulo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>El módulo cuesta: usa relojes y repartos para hacerlo visual.</li>
+        <li>Conecta potencias con 'crecer muy rápido' (memes de duplicar).</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Maestro del Módulo'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 3: Constructor de fórmulas</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Traducir problemas reales a fórmulas en Python combinando varios
+        operadores.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Construcción de fórmulas</li>
+        <li>Combinar operadores</li>
+        <li>Probar la fórmula con datos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              De la frase a la fórmula: traducimos juntos 'el doble más tres'.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>Demo: fórmula del IMC o de descuento en una tienda.</td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos que piden inventar y programar fórmulas (descuentos,
+              conversores, propinas).
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Crear un conversor (km↔millas o °C↔°F) que funcione.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Doble más tres:</b> Programa la fórmula 'doble más tres' para un
+          número dado.
+        </li>
+        <li><b>Descuento:</b> Calcula el 10% de descuento de un precio.</li>
+        <li>
+          <b>Conversor de grados:</b> Convierte grados Celsius a Fahrenheit.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Tienda con descuento</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide precio y % de descuento y muestra el precio final.
+        </li>
+        <li>
+          <b>Conversor de unidades</b> <span class="nivel">(Intermedio)</span
+          ><br />Convierte kilómetros a millas (1 km = 0.621 millas).
+        </li>
+        <li>
+          <b>Propina justa</b> <span class="nivel">(Intermedio)</span><br />Dado
+          el total y el número de personas, calcula cuánto paga cada una con 10%
+          de propina.
+        </li>
+        <li>
+          <b>Velocidad media</b> <span class="nivel">(Avanzado)</span><br />Pide
+          distancia y tiempo y calcula la velocidad media.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi fórmula útil</h3>
+      <p>
+        Inventa una fórmula útil para tu vida (gasto semanal, puntos de un
+        juego) y prográmala.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Traduce el problema a una fórmula correcta.</li>
+        <li>Combina operadores con buen orden.</li>
+        <li>Prueba la fórmula con varios datos.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Pide que primero escriban la fórmula en papel y luego la traduzcan.
+        </li>
+        <li>Valora las fórmulas que inventen ellos: fomenta la creatividad.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Trofeo 'Constructor de Fórmulas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 3 · Sesión 4: Misión Final: Calculadora Inteligente</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir una calculadora que pida dos números y muestre varias
+        operaciones a la vez.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de operadores</li>
+        <li>Salida organizada de resultados</li>
+        <li>Casos especiales (dividir entre 0)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Decidir qué operaciones tendrá la calculadora (+, -, *, /, **, %).
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar la lectura de dos números y mostrar todas las
+              operaciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>Probar con números grandes y con cero; cuidar la división.</td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar la calculadora y retar a un compañero a romperla.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Suma y producto:</b> Pide dos números y muestra su suma y su
+          producto.
+        </li>
+        <li>
+          <b>Más operaciones:</b> Añade la potencia y el módulo a la salida.
+        </li>
+        <li>
+          <b>Etiquetas claras:</b> Muestra los resultados con etiquetas claras.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Reporte completo</b> <span class="nivel">(Intermedio)</span
+          ><br />Muestra suma, resta, producto, división, potencia y módulo de
+          dos números.
+        </li>
+        <li>
+          <b>Decimales bonitos</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra la división con solo 2 decimales.
+        </li>
+        <li>
+          <b>Calculadora a prueba de cero</b>
+          <span class="nivel">(Avanzado)</span><br />Evita que el programa se
+          rompa si el segundo número es 0 en la división (avísalo).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Calculadora Inteligente</h3>
+      <p>
+        Calculadora que pide dos números y entrega un reporte ordenado con todas
+        las operaciones, cuidando la división entre cero.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Realiza correctamente todas las operaciones.</li>
+        <li>La salida es ordenada y legible.</li>
+        <li>Maneja el caso de dividir entre cero (sin romperse).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El caso 'dividir entre 0' adelanta las decisiones del próximo periodo:
+          aprovéchalo.
+        </li>
+        <li>Haz una mini competencia: ¿quién rompe la calculadora del otro?</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · 🧮 Insignia 'Mago de los Números'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 4 — Decisiones</h1>
+      <p class="desc">
+        Que el programa elija qué hacer: comparaciones y condicionales con if,
+        if-else y elif.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> ¿Qué superhéroe eres? · <b>Insignia:</b> 🦸
+        Maestro de Decisiones · <b>XP:</b> 260
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 1: Verdadero o falso</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar comparaciones y la primera estructura if para tomar decisiones
+        simples.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Comparadores ==, !=, &lt;, &gt;, &lt;=, &gt;=</li>
+        <li>La estructura if</li>
+        <li>Indentación (sangría) en Python</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Juego 'la frontera': el profe dice condiciones y los alumnos se
+              mueven a un lado si son verdaderas.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>Comparadores y el if; la importancia de la sangría.</td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Programan un 'control de edad' que solo saluda si la edad es mayor
+              que 12.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos con una sola condición.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que dice 'aprobado' si la nota es 3 o más.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>¿Cuál gana?:</b> Compara dos números y muestra True o False.</li>
+        <li>
+          <b>Mayor que 10:</b> Si un número es mayor que 10, muestra un mensaje.
+        </li>
+        <li>
+          <b>Mayor de edad:</b> Si la edad es 18 o más, di 'mayor de edad'.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Control de acceso</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide la edad y muestra 'Puedes entrar' solo si es mayor de 12.
+        </li>
+        <li>
+          <b>¿Aprobaste?</b> <span class="nivel">(Intermedio)</span><br />Pide
+          una nota y muestra 'Aprobado' si es 3 o más.
+        </li>
+        <li>
+          <b>Número positivo</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide un número y avisa si es positivo.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El portero</h3>
+      <p>
+        Crea un portero que pida una contraseña y solo deje pasar si es la
+        correcta.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Escribe comparaciones correctas.</li>
+        <li>Usa if con la sangría adecuada.</li>
+        <li>La decisión funciona según la condición.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          La sangría es el error #1: insiste con calma y muéstrala como 'lo que
+          está dentro del if'.
+        </li>
+        <li>
+          La dinámica corporal ayuda muchísimo a entender verdadero/falso.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Primera Decisión'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 2: Este sí, este no</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar if-else para responder de dos formas distintas según la condición.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>if-else</li>
+        <li>Caminos alternativos</li>
+        <li>Probar ambos casos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso del if con un ejemplo rápido.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>Demo de if-else: par o impar respondiendo de dos maneras.</td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Programan un 'adivina si llueve', un 'mayor de edad/menor' y un
+              'pasa/no pasa'.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos asegurando que ambos caminos funcionen.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que dice si un número es par o impar con if-else.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Par o impar:</b> Si un número es par di 'par'; si no, 'impar'.
+        </li>
+        <li>
+          <b>¿Aprobaste?:</b> Si la nota es 3 o más di 'aprobado'; si no,
+          'reprobado'.
+        </li>
+        <li>
+          <b>Adulto o menor:</b> Si la edad es mayor de 18, 'adulto'; si no,
+          'menor'.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Par o impar 2.0</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide un número y responde 'par' o 'impar' con if-else.
+        </li>
+        <li>
+          <b>Mayor de dos</b> <span class="nivel">(Intermedio)</span><br />Pide
+          dos números y muestra cuál es el mayor.
+        </li>
+        <li>
+          <b>Login</b> <span class="nivel">(Intermedio)</span><br />Pide usuario
+          y contraseña y muestra 'acceso permitido' o 'denegado'.
+        </li>
+        <li>
+          <b>Descuento VIP</b> <span class="nivel">(Avanzado)</span><br />Si la
+          compra supera 100, aplica 10% de descuento; si no, no.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: ¿Puedo ver la peli?</h3>
+      <p>
+        Pide la edad y la clasificación de una película y decide si la persona
+        puede verla.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa if-else correctamente.</li>
+        <li>Prueba que ambos caminos funcionan.</li>
+        <li>El mensaje corresponde a cada caso.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Haz que prueben SIEMPRE los dos casos antes de darlo por bueno.</li>
+        <li>
+          Usa ejemplos con los que se identifiquen (películas, juegos, acceso).
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Dos Caminos'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 3: Muchos caminos: elif</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Encadenar varias condiciones con elif para manejar más de dos opciones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>elif</li>
+        <li>Orden de las condiciones</li>
+        <li>Rangos de valores</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: clasificar una nota en A/B/C/D. ¿Con if-else basta? Surge
+              elif.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>Demo de if-elif-else con un sistema de calificaciones.</td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos de clasificación: notas, edades por etapa, signos del
+              zodiaco, etc.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Crear un clasificador de notas en letras que funcione para todos
+              los rangos.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tres niveles:</b> Clasifica una nota en 'alto', 'medio' o 'bajo'.
+        </li>
+        <li><b>Etapas:</b> Según la edad, di si es niño, joven o adulto.</li>
+        <li>
+          <b>Signo del número:</b> Dado un número, di si es negativo, cero o
+          positivo.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Boletín de notas</b> <span class="nivel">(Intermedio)</span
+          ><br />Convierte una nota (0–5) en letra: A, B, C o D según rangos.
+        </li>
+        <li>
+          <b>Etapas de la vida</b> <span class="nivel">(Intermedio)</span
+          ><br />Según la edad, clasifica en bebé, niño, joven, adulto o mayor.
+        </li>
+        <li>
+          <b>Semáforo</b> <span class="nivel">(Intermedio)</span><br />Según un
+          color (rojo/amarillo/verde), indica qué hacer.
+        </li>
+        <li>
+          <b>Calculadora con menú</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide dos números y una operación (+,-,*,/) y usa elif para
+          ejecutar la elegida.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Clasificador inteligente</h3>
+      <p>
+        Crea un clasificador (de notas, edades o lo que elijas) con al menos 4
+        caminos usando elif.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa elif para 3 o más opciones.</li>
+        <li>Ordena bien las condiciones (sin huecos ni solapes).</li>
+        <li>Cubre todos los casos posibles.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra cómo el orden de los elif cambia el resultado: es un gran
+          'aha'.
+        </li>
+        <li>
+          La 'calculadora con menú' une todo lo del periodo: úsala como reto
+          estrella.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Trofeo 'Clasificador Maestro'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 4 · Sesión 4: Misión Final: ¿Qué superhéroe eres?</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Crear un test de personalidad que, según las respuestas, asigne un
+        superhéroe usando condicionales.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de if/elif/else</li>
+        <li>Sistema de puntos simple</li>
+        <li>Decisión final según el puntaje</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Diseñar 3–4 preguntas y qué superhéroe corresponde a cada perfil.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar las preguntas, sumar puntos según respuestas y decidir
+              el héroe con elif.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar respondiendo distinto para verificar que salen varios
+              héroes.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar el test y dejar que la clase lo responda.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Suma puntos:</b> Haz una pregunta y suma puntos según la respuesta.
+        </li>
+        <li>
+          <b>Asigna héroe:</b> Con el puntaje, asigna un héroe usando elif.
+        </li>
+        <li>
+          <b>Resultado con estilo:</b> Muestra el resultado con una descripción.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Más preguntas</b> <span class="nivel">(Intermedio)</span
+          ><br />Amplía el test a 4 preguntas que sumen puntos.
+        </li>
+        <li>
+          <b>Héroe secreto</b> <span class="nivel">(Avanzado)</span><br />Añade
+          un héroe 'oculto' que solo aparece con una combinación especial.
+        </li>
+        <li>
+          <b>Resultado con estilo</b> <span class="nivel">(Intermedio)</span
+          ><br />Presenta el resultado con un marco ASCII y la descripción del
+          héroe.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: ¿Qué superhéroe eres?</h3>
+      <p>
+        Test interactivo que hace preguntas, lleva un puntaje y asigna un
+        superhéroe con if/elif/else. ¡Que la clase lo juegue!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa condicionales para decidir el resultado.</li>
+        <li>El test da resultados distintos según las respuestas.</li>
+        <li>La presentación del resultado es atractiva.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Deja libertad temática (superhéroes, casas de Hogwarts, animales):
+          sube la motivación.
+        </li>
+        <li>
+          Sugiere probar todos los caminos para que ningún héroe quede
+          'inalcanzable'.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · 🦸 Insignia 'Maestro de Decisiones'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 5 — Repeticiones</h1>
+      <p class="desc">
+        Hacer que el programa repita tareas sin reescribir código: bucles while
+        y for, range(), contadores y acumuladores.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Generador de Patrones y Tablas ·
+        <b>Insignia:</b> 🔁 Señor de los Bucles · <b>XP:</b> 280
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 1: Repite mientras...</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar el bucle while para repetir acciones mientras se cumpla una
+        condición.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Bucle while</li>
+        <li>Condición de parada</li>
+        <li>Peligro del bucle infinito</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Juego 'sigue aplaudiendo hasta que diga basta': introducción a
+              repetir con condición.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo funciona while y por qué hay que cambiar la condición (evitar
+              bucle infinito).
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>Programan una cuenta regresiva del 5 al 1 con while.</td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos modificando la condición de parada.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que imprime los números del 1 al 10 con while.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Del 1 al 5:</b> Imprime del 1 al 5 con while.</li>
+        <li><b>Cuenta atrás:</b> Haz una cuenta regresiva del 10 al 1.</li>
+        <li><b>Eco x3:</b> Repite un mensaje 3 veces usando un contador.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Cuenta regresiva</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide un número y haz la cuenta regresiva desde él hasta 0.
+        </li>
+        <li>
+          <b>Eco controlado</b> <span class="nivel">(Intermedio)</span
+          ><br />Repite un mensaje las veces que pida el usuario.
+        </li>
+        <li>
+          <b>Suma hasta N</b> <span class="nivel">(Avanzado)</span><br />Usa
+          while para sumar los números del 1 al N.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Lanzamiento de cohete</h3>
+      <p>
+        Haz una cuenta regresiva desde 10 que termine con '¡Despegue!' usando
+        while.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Escribe un while con condición de parada correcta.</li>
+        <li>Evita el bucle infinito.</li>
+        <li>El bucle repite el número de veces esperado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Provoca un bucle infinito controlado para que vean el peligro (y cómo
+          detenerlo).
+        </li>
+        <li>Dibuja en el tablero cómo cambia el contador en cada vuelta.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +60 XP · Logro 'Primer Bucle'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 2: Recorriendo con for y range</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar for con range() para repetir un número exacto de veces de forma
+        sencilla.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Bucle for</li>
+        <li>range(inicio, fin, paso)</li>
+        <li>for vs while</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de while y comparación con la idea de for.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo de for con range(): contar, saltar de 2 en 2, ir al revés.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>Practican tablas de multiplicar y secuencias con for.</td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos jugando con los parámetros de range().</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Programa que imprime la tabla del número que elija el usuario.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Del 1 al 10:</b> Imprime del 1 al 10 con for.</li>
+        <li><b>Solo pares:</b> Imprime los pares del 2 al 20 con range.</li>
+        <li><b>Al revés:</b> Cuenta del 10 al 1 con for.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Tabla de multiplicar</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide un número e imprime su tabla del 1 al 10.
+        </li>
+        <li>
+          <b>Saltos de canguro</b> <span class="nivel">(Intermedio)</span
+          ><br />Imprime de 0 a 50 saltando de 5 en 5.
+        </li>
+        <li>
+          <b>Cuenta atrás con for</b> <span class="nivel">(Intermedio)</span
+          ><br />Imprime del 20 al 1 usando range con paso negativo.
+        </li>
+        <li>
+          <b>Escalera con bucle</b> <span class="nivel">(Avanzado)</span
+          ><br />Imprime una escalera de asteriscos usando un for (1 a 5
+          asteriscos).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Tablas a la carta</h3>
+      <p>
+        Crea un programa que imprima la tabla de multiplicar del número que pida
+        el usuario.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa for y range() correctamente.</li>
+        <li>Controla inicio, fin y paso.</li>
+        <li>Elige for cuando sabe cuántas veces repetir.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Aclara que range(1, 11) llega hasta 10: es una confusión clásica.
+        </li>
+        <li>Las tablas de multiplicar dan logros rápidos y visibles.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Logro 'Maestro del for'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 5 · Sesión 3: Contadores y acumuladores</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar variables que cuentan y que acumulan dentro de un bucle para
+        calcular totales y promedios.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Contador (suma de 1 en 1)</li>
+        <li>Acumulador (suma de valores)</li>
+        <li>Promedios dentro de bucles</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: sumar los primeros 100 números. Aparece la idea de
+              acumulador.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo de contador y acumulador: contar pares y sumar una lista de
+              precios.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>Retos de totales, promedios, máximos y conteos con bucles.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Programa que pide 5 notas y calcula el promedio con un acumulador.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Suma 1 a 100:</b> Suma los números del 1 al 100 con un acumulador.
+        </li>
+        <li><b>Cuenta pares:</b> Cuenta cuántos pares hay entre 1 y 50.</li>
+        <li><b>Total:</b> Pide 3 números y muestra su total.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Promedio de notas</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide 5 notas en un bucle y calcula el promedio.
+        </li>
+        <li>
+          <b>Cajero del día</b> <span class="nivel">(Avanzado)</span><br />Suma
+          varias ventas hasta que el usuario escriba 0, y muestra el total.
+        </li>
+        <li>
+          <b>Contador de aprobados</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide varias notas y cuenta cuántas son mayores o iguales a 3.
+        </li>
+        <li>
+          <b>El más grande</b> <span class="nivel">(Avanzado)</span><br />Pide 5
+          números y muestra el mayor de todos.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi promedio del periodo</h3>
+      <p>
+        Crea un programa que pida tus notas, las sume con un acumulador y
+        muestre tu promedio.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa correctamente contador y/o acumulador.</li>
+        <li>Inicializa las variables antes del bucle.</li>
+        <li>Los totales y promedios son correctos.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El error de no inicializar el acumulador en 0 es muy común:
+          anticípalo.
+        </li>
+        <li>
+          Relaciona acumuladores con marcadores de juegos y dinero: motiva.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Trofeo 'Rey del Acumulador'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 5 · Sesión 4: Misión Final: Generador de Patrones y Tablas
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Combinar bucles para generar patrones visuales y tablas a partir de lo
+        que pida el usuario.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Bucles aplicados a diseño</li>
+        <li>Bucles anidados (introducción)</li>
+        <li>Generar salida según parámetros</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Elegir qué generar: pirámide, tablas, cuadrícula… y bocetarlo.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar el generador con for/while y, si se animan, un bucle
+              dentro de otro.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>Probar con distintos tamaños y ajustar el patrón.</td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Presentar el generador y crear un patrón a pedido de la clase.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Pirámide:</b> Imprime una pirámide de asteriscos de 5 filas.</li>
+        <li>
+          <b>Tabla a elección:</b> Genera la tabla de multiplicar de un número
+          elegido.
+        </li>
+        <li><b>Cuadrado NxN:</b> Dibuja un cuadrado de NxN con símbolos.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Pirámide ajustable</b> <span class="nivel">(Avanzado)</span
+          ><br />Pide la altura y dibuja una pirámide de asteriscos de ese
+          tamaño.
+        </li>
+        <li>
+          <b>Tabla doble</b> <span class="nivel">(Avanzado)</span><br />Genera
+          las tablas de dos números, una al lado de la otra.
+        </li>
+        <li>
+          <b>Tablero de ajedrez</b> <span class="nivel">(Avanzado)</span
+          ><br />Dibuja una cuadrícula alternando símbolos (como un tablero).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Generador de Patrones y Tablas</h3>
+      <p>
+        Programa que, según lo que pida el usuario, genera un patrón o una tabla
+        usando bucles. Pruébalo con varios tamaños.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa bucles para generar la salida.</li>
+        <li>El resultado se adapta al tamaño pedido.</li>
+        <li>El patrón se ve correcto y alineado.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Los bucles anidados son difíciles: preséntalos como 'un bucle por cada
+          fila'.
+        </li>
+        <li>Premia los patrones creativos: animan a experimentar.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · 🔁 Insignia 'Señor de los Bucles'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 6 — Colecciones de Datos</h1>
+      <p class="desc">
+        Guardar muchos datos en una sola variable con listas: crearlas, agregar
+        y quitar elementos y recorrerlas.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Lista de Mis Videojuegos Favoritos ·
+        <b>Insignia:</b> 📚 Guardián de Listas · <b>XP:</b> 300
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 1: Una caja con muchos cajones</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Crear listas y acceder a sus elementos por posición (índice).</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Lista: muchos datos en una variable</li>
+        <li>Índices (empiezan en 0)</li>
+        <li>len() para saber el tamaño</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Analogía del tren: cada vagón (índice) lleva un dato; el primero
+              es el 0.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>Crear listas, acceder por índice y medir con len().</td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Crean una lista de sus comidas favoritas y muestran algunas por
+              posición.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos accediendo a distintos índices.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Programa que muestra el primer y el último elemento de una lista.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Primera fruta:</b> Crea una lista con 4 frutas e imprime la
+          primera.
+        </li>
+        <li><b>La última:</b> Muestra el último elemento usando su índice.</li>
+        <li>
+          <b>¿Cuántas?:</b> Imprime cuántos elementos tiene la lista con len().
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Top 5</b> <span class="nivel">(Intermedio)</span><br />Crea una
+          lista con tus 5 canciones favoritas y muestra la número 1 y la 5.
+        </li>
+        <li>
+          <b>Primero y último</b> <span class="nivel">(Intermedio)</span
+          ><br />Dada una lista, muestra siempre su primer y último elemento
+          (con len()).
+        </li>
+        <li>
+          <b>El del medio</b> <span class="nivel">(Avanzado)</span><br />Muestra
+          el elemento del centro de una lista impar.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi inventario</h3>
+      <p>
+        Crea la lista del inventario de un personaje y muestra cuántos objetos
+        tiene y el primero.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea listas correctamente.</li>
+        <li>Accede a elementos por índice (incluyendo el 0).</li>
+        <li>Usa len() para el tamaño.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El índice 0 confunde: insiste con ejemplos visuales (vagones,
+          casilleros).
+        </li>
+        <li>Listas de gustos personales = motivación inmediata.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +65 XP · Logro 'Primera Lista'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 2: Agregar y quitar</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Modificar listas agregando y eliminando elementos con append() y
+        remove().
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>append() para agregar</li>
+        <li>remove() y pop() para quitar</li>
+        <li>Cambiar un elemento por su índice</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de listas e índices.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: agregar con append(), quitar con remove() y cambiar por
+              índice.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Construyen una 'lista de tareas' donde se agregan y completan
+              (quitan) tareas.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos modificando listas.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Programa que agrega 3 elementos a una lista vacía y muestra el
+              resultado.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Llena la lista:</b> Crea una lista vacía y agrégale 3 elementos.
+        </li>
+        <li>
+          <b>Quita uno:</b> Elimina un elemento por su valor con remove().
+        </li>
+        <li><b>Cambia uno:</b> Cambia el segundo elemento de la lista.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Lista de compras viva</b> <span class="nivel">(Intermedio)</span
+          ><br />Pide 3 productos y agrégalos a una lista, luego muéstrala.
+        </li>
+        <li>
+          <b>Tachar tarea</b> <span class="nivel">(Intermedio)</span><br />Dada
+          una lista de tareas, elimina la que indique el usuario.
+        </li>
+        <li>
+          <b>Cambio de planes</b> <span class="nivel">(Intermedio)</span
+          ><br />Reemplaza un elemento de la lista por otro usando su índice.
+        </li>
+        <li>
+          <b>Cola del videojuego</b> <span class="nivel">(Avanzado)</span
+          ><br />Simula una cola: agrega jugadores y saca al primero con pop(0).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mochila dinámica</h3>
+      <p>
+        Crea una mochila (lista) donde el usuario pueda agregar y soltar
+        objetos.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Agrega elementos con append().</li>
+        <li>Elimina elementos correctamente.</li>
+        <li>La lista refleja los cambios.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Conecta con juegos (inventarios, colas) para que se sienta útil.
+        </li>
+        <li>
+          Muestra la lista después de cada cambio para que vean el efecto.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Logro 'Editor de Listas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 6 · Sesión 3: Recorriendo listas</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Recorrer listas con for para procesar todos sus elementos (sumar,
+        buscar, contar).
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>for sobre una lista</li>
+        <li>Combinar listas con acumuladores</li>
+        <li>Buscar dentro de una lista</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: sumar todos los precios de una lista. Surge el for sobre la
+              lista.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: recorrer una lista para sumar, contar y encontrar el mayor.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos de procesamiento: promedios, búsquedas, conteos sobre
+              listas.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Programa que recorre una lista de notas y dice cuántas están
+              aprobadas.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Uno por uno:</b> Recorre una lista de números e imprime cada uno.
+        </li>
+        <li><b>Suma la lista:</b> Suma todos los elementos de una lista.</li>
+        <li>
+          <b>Cuenta con condición:</b> Cuenta cuántos elementos cumplen una
+          condición.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Total del carrito</b> <span class="nivel">(Avanzado)</span
+          ><br />Dada una lista de precios, calcula el total a pagar.
+        </li>
+        <li>
+          <b>El más caro</b> <span class="nivel">(Avanzado)</span><br />Recorre
+          una lista de precios y encuentra el mayor.
+        </li>
+        <li>
+          <b>Buscador</b> <span class="nivel">(Avanzado)</span><br />Pregunta un
+          nombre y di si está en la lista de invitados.
+        </li>
+        <li>
+          <b>Filtro de aprobados</b> <span class="nivel">(Avanzado)</span
+          ><br />De una lista de notas, muestra solo las aprobadas (&gt;= 3).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Analista de datos</h3>
+      <p>
+        Toma una lista de números y muestra su total, su promedio y el mayor.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Recorre la lista completa con for.</li>
+        <li>Combina el recorrido con contadores/acumuladores.</li>
+        <li>Obtiene resultados correctos (total, mayor, etc.).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Une el for sobre listas con lo aprendido de acumuladores: refuerza
+          ambos.
+        </li>
+        <li>Usa datos reales del grupo (edades, notas) para dar contexto.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Trofeo 'Analista de Listas'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 6 · Sesión 4: Misión Final: Lista de Mis Videojuegos Favoritos
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir un gestor de videojuegos favoritos que permita agregar, quitar
+        y listar juegos.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de listas + bucles + decisiones</li>
+        <li>Menú interactivo simple</li>
+        <li>Mostrar la colección ordenada</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Diseñar las opciones del gestor: agregar, eliminar, ver lista,
+              salir.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar el menú con un bucle y manejar la lista de juegos según
+              la opción.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar agregando y quitando varios juegos y revisando la lista.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar el gestor y compartir el top de juegos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Tu colección:</b> Crea la lista inicial de juegos.</li>
+        <li><b>Agregar:</b> Permite agregar un juego nuevo a la lista.</li>
+        <li><b>Mostrar todo:</b> Muestra toda la colección numerada.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Menú con repetición</b> <span class="nivel">(Avanzado)</span
+          ><br />Haz un menú que se repita hasta que el usuario elija 'salir'.
+        </li>
+        <li>
+          <b>Sin duplicados</b> <span class="nivel">(Avanzado)</span><br />Evita
+          agregar un juego que ya esté en la lista.
+        </li>
+        <li>
+          <b>Contador de la colección</b> <span class="nivel">(Avanzado)</span
+          ><br />Muestra siempre cuántos juegos hay en la colección.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Lista de Mis Videojuegos Favoritos</h3>
+      <p>
+        Gestor con menú que agrega, elimina y lista videojuegos usando una lista
+        y un bucle. ¡Arma tu colección!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Maneja la lista con append/remove.</li>
+        <li>El menú se repite y responde a cada opción.</li>
+        <li>Muestra la colección de forma clara.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Este proyecto integra todo: dale tiempo y acompaña los menús con
+          bucle.
+        </li>
+        <li>
+          Permite cualquier temática de colección (películas, libros, cartas).
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · 📚 Insignia 'Guardián de Listas'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 7 — Funciones</h1>
+      <p class="desc">
+        Organizar el código en funciones reutilizables con parámetros y valores
+        de retorno.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Centro de Herramientas Matemáticas ·
+        <b>Insignia:</b> 🛠️ Ingeniero de Funciones · <b>XP:</b> 320
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 1: Crea tus propias órdenes</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Definir y llamar funciones propias para reutilizar bloques de código.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>def para definir funciones</li>
+        <li>Llamar a una función</li>
+        <li>Por qué evitan repetir código</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Idea: 'inventar un nuevo comando'. ¿Y si print() lo hubieras
+              creado tú?
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>Cómo se define una función con def y cómo se llama.</td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>Crean una función saludar() y la llaman varias veces.</td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos creando funciones simples.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa con una función que dibuja una línea decorativa.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu primera función:</b> Define una función que imprima '¡Hola!'.
+        </li>
+        <li><b>Llámala 3 veces:</b> Llama a tu función tres veces.</li>
+        <li>
+          <b>Función separadora:</b> Crea una función que imprima una línea de
+          guiones.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Mi firma</b> <span class="nivel">(Intermedio)</span><br />Crea una
+          función que imprima tu firma con marco y llámala al final.
+        </li>
+        <li>
+          <b>Separador</b> <span class="nivel">(Intermedio)</span><br />Crea una
+          función linea() y úsala entre secciones de un programa.
+        </li>
+        <li>
+          <b>Menú reutilizable</b> <span class="nivel">(Avanzado)</span
+          ><br />Crea una función que imprima un menú y llámala donde se
+          necesite.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi primer comando</h3>
+      <p>
+        Inventa una función útil (un banner, un separador, un saludo) y úsala al
+        menos dos veces.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Define una función con def correctamente.</li>
+        <li>La llama y se ejecuta.</li>
+        <li>Entiende que evita repetir código.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Vende las funciones como 'crear tus propios superpoderes'.</li>
+        <li>Refuerza la diferencia entre definir (crear) y llamar (usar).</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Logro 'Primera Función'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 2: Funciones con datos: parámetros</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Pasar información a las funciones mediante parámetros para que sean
+        flexibles.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Parámetros</li>
+        <li>Argumentos al llamar</li>
+        <li>Varias entradas en una función</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: definir y llamar. ¿Cómo saludar a alguien por su nombre?
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>Demo: saludar(nombre) y una función que dibuja N estrellas.</td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Practican funciones con uno y dos parámetros (saludos, áreas,
+              sumas).
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos cambiando los argumentos al llamar.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>
+              Programa con una función que saluda a cualquier nombre que reciba.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Saludo a medida:</b> Crea saludar(nombre) y llámala con dos nombres
+          distintos.
+        </li>
+        <li>
+          <b>Tabla por parámetro:</b> Crea una función que reciba un número e
+          imprima su tabla.
+        </li>
+        <li><b>N asteriscos:</b> Crea una función que dibuje N asteriscos.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Saludo personalizado</b> <span class="nivel">(Avanzado)</span
+          ><br />Función que reciba nombre y edad y arme un saludo con ambos.
+        </li>
+        <li>
+          <b>Generador de líneas</b> <span class="nivel">(Avanzado)</span
+          ><br />Función que reciba un símbolo y una cantidad y dibuje esa
+          línea.
+        </li>
+        <li>
+          <b>Rectángulo a medida</b> <span class="nivel">(Avanzado)</span
+          ><br />Función que reciba ancho y alto y dibuje un rectángulo de
+          símbolos.
+        </li>
+        <li>
+          <b>Conversor reutilizable</b> <span class="nivel">(Avanzado)</span
+          ><br />Función celsius_a_fahrenheit(grados) que imprima la conversión.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Funciones a la carta</h3>
+      <p>
+        Crea dos funciones con parámetros y úsalas con distintos argumentos.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Define funciones con parámetros.</li>
+        <li>Las llama con distintos argumentos.</li>
+        <li>El resultado cambia según los datos pasados.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Muestra cómo una sola función con parámetro reemplaza muchas casi
+          iguales.
+        </li>
+        <li>Insiste en el orden de los argumentos al llamar.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +75 XP · Logro 'Funciones Flexibles'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 7 · Sesión 3: Funciones que devuelven</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar return para que las funciones devuelvan un resultado y poder
+        reutilizarlo.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>return de un valor</li>
+        <li>Guardar el resultado en una variable</li>
+        <li>Diferencia entre imprimir y devolver</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: una función que SUME y me dé el resultado para seguir
+              usándolo.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>Demo: print vs return; guardar el retorno y combinarlo.</td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos creando funciones de cálculo que devuelven (área, mayor,
+              es_par).
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Programa con una función es_par(n) que devuelve True/False y se
+              usa en un if.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Suma que devuelve:</b> Crea sumar(a, b) que devuelva la suma.
+        </li>
+        <li><b>Área:</b> Crea area(base, altura) que devuelva el área.</li>
+        <li><b>¿Es par?:</b> Crea es_par(n) que devuelva True o False.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Caja de cálculos</b> <span class="nivel">(Avanzado)</span
+          ><br />Funciones que devuelvan suma, resta y producto, y úsalas
+          juntas.
+        </li>
+        <li>
+          <b>El mayor</b> <span class="nivel">(Avanzado)</span><br />Función
+          mayor(a, b) que devuelva el más grande de dos números.
+        </li>
+        <li>
+          <b>Detector con retorno</b> <span class="nivel">(Avanzado)</span
+          ><br />Función es_par(n) que devuelva un booleano y úsala en un if.
+        </li>
+        <li>
+          <b>Combinar funciones</b> <span class="nivel">(Avanzado)</span
+          ><br />Usa el resultado de una función como argumento de otra.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mini biblioteca</h3>
+      <p>
+        Crea 3 funciones que devuelvan valores y combínalas para resolver un
+        cálculo.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Usa return para devolver valores.</li>
+        <li>Reutiliza el resultado (lo guarda o lo combina).</li>
+        <li>Distingue imprimir de devolver.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          La diferencia print/return es clave: usa el ejemplo de una calculadora
+          real.
+        </li>
+        <li>
+          Muestra cómo encadenar funciones: abre la puerta a programas más
+          grandes.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Trofeo 'Maestro del return'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 7 · Sesión 4: Misión Final: Centro de Herramientas Matemáticas
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir un programa con un menú que ofrezca varias herramientas
+        matemáticas, cada una en su función.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de funciones con parámetros y return</li>
+        <li>Menú que llama a funciones</li>
+        <li>Organización del código en piezas</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Elegir las herramientas (área, potencia, conversor, par/impar…) y
+              diseñar el menú.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar cada herramienta como una función y conectarlas con un
+              menú en bucle.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>Probar cada opción del menú con varios datos.</td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Presentar el centro de herramientas como una mini app.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Una por herramienta:</b> Crea una función por cada herramienta.
+        </li>
+        <li><b>El menú:</b> Haz un menú que llame a la función elegida.</li>
+        <li>
+          <b>Menú en bucle:</b> Repite el menú hasta que el usuario salga.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Cuatro herramientas</b> <span class="nivel">(Avanzado)</span
+          ><br />Incluye al menos 4 herramientas, cada una en su propia función.
+        </li>
+        <li>
+          <b>Resultados reutilizables</b> <span class="nivel">(Avanzado)</span
+          ><br />Que cada herramienta devuelva (return) su resultado y el menú
+          lo muestre.
+        </li>
+        <li>
+          <b>A prueba de errores</b> <span class="nivel">(Avanzado)</span
+          ><br />Si el usuario elige una opción inválida, avísalo y vuelve al
+          menú.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Centro de Herramientas Matemáticas</h3>
+      <p>
+        Mini app con menú que reúne varias herramientas matemáticas, cada una
+        como función con parámetros y return.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Cada herramienta es una función bien definida.</li>
+        <li>El menú llama a la función correcta.</li>
+        <li>Las funciones usan parámetros y return.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Es el proyecto más 'de ingeniería': resalta el orden y la
+          reutilización.
+        </li>
+        <li>
+          Anímalos a añadir su propia herramienta extra: apropiación del
+          proyecto.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +95 XP · 🛠️ Insignia 'Ingeniero de Funciones'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 8 — Juegos en Consola</h1>
+      <p class="desc">
+        Crear juegos de texto con azar (random), menús interactivos y un sistema
+        de puntos.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Piedra, Papel o Tijera ·
+        <b>Insignia:</b> 🎮 Creador de Juegos · <b>XP:</b> 340
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 1: El azar entra al juego</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Intermedio</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Usar el módulo random para generar números y elecciones al azar.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>import random</li>
+        <li>random.randint() y random.choice()</li>
+        <li>Azar en los juegos</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              ¿Cómo decide la máquina en un juego? Lanzamos un 'dado' mental.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>Importar random y usar randint() y choice().</td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>Programan un dado y una 'ruleta' que elige entre opciones.</td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos generando números y elecciones al azar.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa que tira un dado de 6 caras.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Dado:</b> Genera un número al azar del 1 al 6.</li>
+        <li><b>Cara o cruz:</b> Elige al azar entre 'cara' y 'cruz'.</li>
+        <li><b>Color sorpresa:</b> Elige un color al azar de una lista.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Dado de la suerte</b> <span class="nivel">(Intermedio)</span
+          ><br />Simula tirar dos dados y muestra la suma.
+        </li>
+        <li>
+          <b>Decisiones al azar</b> <span class="nivel">(Intermedio)</span
+          ><br />Crea una 'bola mágica' que responda sí/no/quizás al azar.
+        </li>
+        <li>
+          <b>Equipo aleatorio</b> <span class="nivel">(Avanzado)</span><br />De
+          una lista de jugadores, elige al azar un capitán.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Generador de la suerte</h3>
+      <p>
+        Crea un programa que dé un 'número de la suerte' y una frase al azar.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Importa y usa random correctamente.</li>
+        <li>Genera números y elecciones al azar.</li>
+        <li>El resultado cambia en cada ejecución.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El azar engancha mucho: úsalo como gancho del periodo de juegos.
+        </li>
+        <li>Muestra que cada ejecución da algo distinto: les encanta.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +70 XP · Logro 'Domador del Azar'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 2: Menús y puntos</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir menús interactivos y llevar un sistema de puntos durante el
+        juego.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Menú interactivo con bucle</li>
+        <li>Sistema de puntos (acumulador)</li>
+        <li>Repetir hasta salir</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Repaso de bucles y condicionales aplicados a un menú.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: menú de juego que suma puntos y se repite hasta salir.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>Construyen un 'adivina el número' con intentos y puntaje.</td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos mejorando el sistema de puntos.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Programa con un menú de 3 opciones que responde a cada una.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Menú de 3:</b> Haz un menú con 3 opciones y un 'salir'.</li>
+        <li>
+          <b>Sistema de puntos:</b> Suma 10 puntos cada vez que el usuario
+          acierta.
+        </li>
+        <li>
+          <b>Repite hasta salir:</b> Repite el menú hasta que elija salir.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Adivina el número</b> <span class="nivel">(Avanzado)</span><br />La
+          máquina piensa un número (random) y el jugador adivina con pistas
+          mayor/menor.
+        </li>
+        <li>
+          <b>Marcador persistente</b> <span class="nivel">(Avanzado)</span
+          ><br />Lleva el puntaje del jugador a lo largo de varias rondas.
+        </li>
+        <li>
+          <b>Menú a prueba de todo</b> <span class="nivel">(Avanzado)</span
+          ><br />Si eligen una opción que no existe, avisa y vuelve a mostrar el
+          menú.
+        </li>
+        <li>
+          <b>Vidas</b> <span class="nivel">(Avanzado)</span><br />Añade 3 vidas:
+          el juego termina cuando se acaban.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Adivina el número</h3>
+      <p>
+        Crea el juego de adivinar un número al azar con intentos limitados y
+        puntaje.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El menú se repite y maneja las opciones.</li>
+        <li>Lleva un puntaje correcto.</li>
+        <li>Termina cuando corresponde (salir/vidas).</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El 'adivina el número' es un clásico que integra random + bucles + if:
+          aprovéchalo.
+        </li>
+        <li>
+          Los puntos y vidas dan sensación de videojuego: refuerza la
+          motivación.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Logro 'Game Master'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 3: Retos arcade</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>Combinar azar, menús y puntos para crear mini juegos completos.</p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Combinar random + bucles + decisiones</li>
+        <li>Reglas de juego</li>
+        <li>Mensajes de victoria/derrota</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Galería de mini juegos de consola: ¿cómo funcionan por dentro?
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: estructura común de un mini juego (preparar, jugar en bucle,
+              mostrar resultado).
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos para programar mini juegos: par/impar contra la máquina,
+              mayor número, trivia exprés.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Terminar un mini juego completo elegido por el estudiante.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>Par o impar:</b> Juego de 'par o impar' contra la máquina.</li>
+        <li>
+          <b>Mayor número:</b> Juego de 'mayor número' (cada uno saca un dado).
+        </li>
+        <li><b>Quiz exprés:</b> Pequeño quiz de 3 preguntas con puntaje.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Par o impar arcade</b> <span class="nivel">(Avanzado)</span
+          ><br />Juega par/impar contra la máquina al mejor de 3 con marcador.
+        </li>
+        <li>
+          <b>Duelo de dados</b> <span class="nivel">(Avanzado)</span
+          ><br />Jugador y máquina sacan dados; gana el mayor. Lleva el
+          marcador.
+        </li>
+        <li>
+          <b>Quiz relámpago</b> <span class="nivel">(Avanzado)</span><br />Haz 3
+          preguntas y muestra el puntaje final con un mensaje según el
+          resultado.
+        </li>
+        <li>
+          <b>Ahorcado fácil</b> <span class="nivel">(Avanzado)</span
+          ><br />Versión simple: adivina una palabra letra por letra con
+          intentos limitados.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi mini arcade</h3>
+      <p>
+        Termina un mini juego completo con azar, puntaje y mensaje de
+        victoria/derrota.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El juego combina azar, bucle y decisiones.</li>
+        <li>Lleva puntaje y declara un ganador.</li>
+        <li>Las reglas son claras y funcionan.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>Deja que elijan el juego: la apropiación dispara el esfuerzo.</li>
+        <li>
+          Recuérdales reutilizar funciones del periodo 7 para ordenar el código.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · Trofeo 'Arcade Master'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 8 · Sesión 4: Misión Final: Piedra, Papel o Tijera</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Programar el juego de Piedra, Papel o Tijera contra la máquina con
+        marcador y varias rondas.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración de random + condicionales + bucle</li>
+        <li>Reglas del juego</li>
+        <li>Marcador y fin de partida</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Repasar las reglas y planear el flujo: elegir, comparar, puntuar,
+              repetir.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar el juego: elección del jugador, jugada al azar de la
+              máquina y marcador.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar muchas rondas y verificar que el marcador y el ganador sean
+              correctos.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Torneo relámpago: jugar los programas entre compañeros.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Tu jugada y la suya:</b> Pide la jugada del usuario y genera la de
+          la máquina.
+        </li>
+        <li><b>¿Quién gana?:</b> Decide quién gana la ronda con if/elif.</li>
+        <li><b>Marcador:</b> Lleva el marcador y muéstralo cada ronda.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Al mejor de 5</b> <span class="nivel">(Avanzado)</span
+          ><br />Termina la partida cuando alguien gane 3 rondas.
+        </li>
+        <li>
+          <b>Validación de jugada</b> <span class="nivel">(Avanzado)</span
+          ><br />Si el usuario escribe algo que no es piedra/papel/tijera,
+          vuelve a pedirlo.
+        </li>
+        <li>
+          <b>Modo lagarto-Spock</b> <span class="nivel">(Avanzado)</span
+          ><br />Amplía el juego con dos jugadas extra y sus reglas.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Piedra, Papel o Tijera</h3>
+      <p>
+        Juego completo contra la máquina con jugadas al azar, marcador y final
+        de partida. ¡Organicen un torneo!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Las reglas se aplican correctamente.</li>
+        <li>Lleva marcador y declara ganador.</li>
+        <li>Maneja jugadas inválidas sin romperse.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          El torneo final entre compañeros es un cierre motivador: resérvale
+          tiempo.
+        </li>
+        <li>
+          Valora el código ordenado (funciones, nombres claros), no solo que
+          funcione.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +100 XP · 🎮 Insignia 'Creador de Juegos'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 9 — Pensar como un Desarrollador</h1>
+      <p class="desc">
+        Resolver problemas grandes partiéndolos en piezas, organizar programas y
+        usar funciones avanzadas.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Trivia de Preguntas y Respuestas ·
+        <b>Insignia:</b> 🧠 Arquitecto de Software · <b>XP:</b> 360
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 1: Divide y vencerás</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Aprender a descomponer un problema grande en pasos y subproblemas más
+        pequeños.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Descomposición de problemas</li>
+        <li>De la idea a los pasos</li>
+        <li>Pensamiento computacional</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Reto: 'organizar una fiesta'. Lo partimos en tareas pequeñas en el
+              tablero.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo descomponer un programa en funciones/pasos antes de escribir
+              código.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Toman un problema (cajero, juego) y lo dividen en subproblemas en
+              papel y código.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Mini retos descomponiendo problemas dados.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Bocetar la trivia del periodo en pasos.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>En pasos:</b> Escribe en pasos cómo harías un programa de cajero.
+        </li>
+        <li>
+          <b>Tres fases:</b> Divide un juego en 'preparar, jugar, terminar'.
+        </li>
+        <li>
+          <b>De paso a función:</b> Convierte uno de los pasos en una función
+          vacía.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Plano del programa</b> <span class="nivel">(Avanzado)</span
+          ><br />Toma un problema y escribe sus subproblemas como funciones
+          (solo los nombres).
+        </li>
+        <li>
+          <b>De pasos a código</b> <span class="nivel">(Avanzado)</span
+          ><br />Implementa uno de los subproblemas que definiste.
+        </li>
+        <li>
+          <b>Caja negra</b> <span class="nivel">(Avanzado)</span><br />Define
+          una función por su entrada y salida, sin escribir aún su interior.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: El plano</h3>
+      <p>
+        Elige un programa que te gustaría hacer y entrégalo dividido en
+        funciones (su 'plano').
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Descompone el problema en subproblemas claros.</li>
+        <li>Asocia cada parte a una función.</li>
+        <li>El plano es coherente y completo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Trabaja primero en papel: pensar antes de teclear es la gran meta del
+          periodo.
+        </li>
+        <li>
+          Valora un buen plano aunque el código aún no esté: es lo que hace un
+          desarrollador.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +80 XP · Logro 'Mente de Arquitecto'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 2: Programas ordenados</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Organizar un programa en funciones bien nombradas y datos en listas, con
+        un flujo claro.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Organización de programas</li>
+        <li>Nombres claros y comentarios</li>
+        <li>Datos en listas + funciones</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>
+              Repaso: descomponer. Ahora lo llevamos a un programa ordenado.
+            </td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: refactorizar un programa desordenado en funciones con buenos
+              nombres.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Reorganizan un programa dado moviendo lógica a funciones y datos a
+              listas.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Mini retos mejorando la organización y los nombres.</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Estructurar el esqueleto de la trivia en funciones.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>A una función:</b> Mueve un bloque de código repetido a una
+          función.
+        </li>
+        <li><b>Nombres claros:</b> Renombra las variables poco claras.</li>
+        <li>
+          <b>Datos a una lista:</b> Guarda un conjunto de datos en una lista.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Gran limpieza</b> <span class="nivel">(Avanzado)</span><br />Toma
+          un programa largo y reorganízalo en al menos 3 funciones.
+        </li>
+        <li>
+          <b>Datos fuera del código</b> <span class="nivel">(Avanzado)</span
+          ><br />Mueve las preguntas/datos a listas, separados de la lógica.
+        </li>
+        <li>
+          <b>Flujo principal</b> <span class="nivel">(Avanzado)</span><br />Crea
+          una función main() que ordene las llamadas del programa.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Refactor</h3>
+      <p>
+        Toma un programa de un periodo anterior y reorganízalo con funciones y
+        nombres claros.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El programa queda dividido en funciones con buenos nombres.</li>
+        <li>Separa datos (listas) de la lógica.</li>
+        <li>El flujo principal es fácil de seguir.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Refactorizar un proyecto propio les muestra el valor del orden de
+          primera mano.
+        </li>
+        <li>Premia los nombres claros tanto como que el programa funcione.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +85 XP · Logro 'Código Limpio'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 9 · Sesión 3: Funciones avanzadas</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Usar funciones que se combinan, procesan listas y manejan valores por
+        defecto.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Funciones que reciben/devuelven listas</li>
+        <li>Combinar funciones entre sí</li>
+        <li>Parámetros por defecto</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              Reto: una función que reciba una lista de notas y devuelva el
+              promedio.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: funciones que procesan listas y se llaman unas a otras.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Retos creando funciones que reciben listas, devuelven listas y se
+              combinan.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>Crear una función que valide una respuesta de la trivia.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Promedio:</b> Función promedio(lista) que devuelva el promedio.
+        </li>
+        <li><b>El mayor:</b> Función que devuelva el mayor de una lista.</li>
+        <li>
+          <b>Valor por defecto:</b> Crea una función con un parámetro por
+          defecto.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Estadísticas</b> <span class="nivel">(Avanzado)</span
+          ><br />Funciones promedio(), maximo() y minimo() sobre una misma
+          lista.
+        </li>
+        <li>
+          <b>Filtrar lista</b> <span class="nivel">(Avanzado)</span
+          ><br />Función que reciba una lista y devuelva solo los aprobados.
+        </li>
+        <li>
+          <b>Función que llama a función</b>
+          <span class="nivel">(Avanzado)</span><br />Una función que use a otras
+          dos para entregar un reporte completo.
+        </li>
+        <li>
+          <b>Valor por defecto</b> <span class="nivel">(Avanzado)</span
+          ><br />Función saludar(nombre, saludo='Hola') que use el saludo por
+          defecto si no se pasa.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Caja de herramientas</h3>
+      <p>
+        Crea un conjunto de funciones que trabajen juntas sobre una lista de
+        datos.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Crea funciones que procesan listas.</li>
+        <li>Combina funciones entre sí.</li>
+        <li>Usa al menos un parámetro por defecto.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Conecta con el proyecto: estas funciones serán parte de la trivia.
+        </li>
+        <li>
+          Muestra cómo funciones pequeñas y combinables hacen programas más
+          fáciles.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · Trofeo 'Funciones Pro'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>
+        Periodo 9 · Sesión 4: Misión Final: Trivia de Preguntas y Respuestas
+      </h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Construir un juego de trivia bien organizado con preguntas en listas,
+        puntaje y funciones.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Integración: descomposición + funciones + listas</li>
+        <li>Banco de preguntas en listas</li>
+        <li>Puntaje y reporte final</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Diseñar la trivia: tema, preguntas, cómo se guardan y cómo se
+              puntúa.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>
+              Programar el banco de preguntas (listas) y las funciones de jugar
+              y puntuar.
+            </td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Probar respondiendo bien y mal; revisar el puntaje y el reporte
+              final.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>Jugar las trivias entre compañeros y comentar.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Banco de preguntas:</b> Guarda 5 preguntas con sus respuestas en
+          listas.
+        </li>
+        <li>
+          <b>Preguntar y revisar:</b> Crea una función que haga una pregunta y
+          diga si acertó.
+        </li>
+        <li><b>Puntaje final:</b> Lleva el puntaje y muéstralo al final.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Banco grande</b> <span class="nivel">(Avanzado)</span><br />Incluye
+          al menos 6 preguntas organizadas en listas.
+        </li>
+        <li>
+          <b>Reporte final</b> <span class="nivel">(Avanzado)</span><br />Al
+          terminar, muestra aciertos, errores y un mensaje según el puntaje.
+        </li>
+        <li>
+          <b>Preguntas al azar</b> <span class="nivel">(Avanzado)</span
+          ><br />Haz que las preguntas salgan en orden aleatorio con random.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Trivia de Preguntas y Respuestas</h3>
+      <p>
+        Juego de trivia organizado en funciones, con banco de preguntas en
+        listas, puntaje y reporte final.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El programa está dividido en funciones claras.</li>
+        <li>Las preguntas viven en listas, separadas de la lógica.</li>
+        <li>Lleva puntaje y entrega un reporte final.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Este proyecto demuestra 'pensar como desarrollador': resalta el orden
+          y la reutilización.
+        </li>
+        <li>Deja que elijan el tema de la trivia: dispara la motivación.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +105 XP · 🧠 Insignia 'Arquitecto de Software'
+        desbloqueada
+      </p>
+    </section>
+    <section class="periodo">
+      <h1>Periodo 10 — Proyecto Final</h1>
+      <p class="desc">
+        Llevar una idea propia de principio a fin: planear, desarrollar, probar
+        y presentar tu programa.
+      </p>
+      <p class="meta">
+        <b>Proyecto del periodo:</b> Proyecto libre creado por el estudiante ·
+        <b>Insignia:</b> 🏆 Programador LuckSoft · <b>XP:</b> 400
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 1: Planeación</h2>
+      <p class="tags">
+        <span class="tag">Conceptos nuevos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Elegir un proyecto propio y planear sus funciones, datos y pasos antes
+        de programar.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Definir el objetivo del proyecto</li>
+        <li>Planear funciones y datos</li>
+        <li>Alcance realista (lo mínimo que funcione)</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Repaso y gancho</td>
+            <td>10 min</td>
+            <td>
+              Lluvia de ideas de proyectos: juegos, herramientas, simuladores.
+              Cada quien elige.
+            </td>
+          </tr>
+          <tr>
+            <td>Concepto nuevo (teoría guiada)</td>
+            <td>20 min</td>
+            <td>
+              Cómo planear: objetivo, qué pedirá, qué hará, qué mostrará; lista
+              de funciones.
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica guiada</td>
+            <td>25 min</td>
+            <td>
+              Cada estudiante escribe el plan de su proyecto (objetivo +
+              funciones + datos).
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos en parejas</td>
+            <td>25 min</td>
+            <td>Revisión por parejas del plan: ¿es claro? ¿es realista?</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Entregar el plan del proyecto final.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li><b>En una frase:</b> Escribe en una frase qué hará tu proyecto.</li>
+        <li>
+          <b>Lista de funciones:</b> Lista las funciones que vas a necesitar.
+        </li>
+        <li>
+          <b>¿Qué datos?:</b> Define qué datos guardarás (y en qué listas).
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Objetivo claro</b> <span class="nivel">(Avanzado)</span
+          ><br />Resume tu proyecto en una sola frase y en 3 funciones
+          principales.
+        </li>
+        <li>
+          <b>Plan B</b> <span class="nivel">(Avanzado)</span><br />Define una
+          versión mínima (lo esencial) y una versión 'extra' si te sobra tiempo.
+        </li>
+        <li>
+          <b>Bocetar la pantalla</b> <span class="nivel">(Avanzado)</span
+          ><br />Dibuja en papel cómo se verá la interacción en la consola.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Mi plan maestro</h3>
+      <p>
+        Entrega el plan de tu proyecto: objetivo, lista de funciones, datos y
+        una versión mínima.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El proyecto tiene un objetivo claro.</li>
+        <li>El plan lista funciones y datos.</li>
+        <li>El alcance es realista para el tiempo.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Ayuda a ajustar el alcance: mejor algo pequeño y terminado que algo
+          grande a medias.
+        </li>
+        <li>Que cada quien elija algo que le apasione: es su proyecto.</li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +90 XP · Logro 'Planificador'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 2: Desarrollo</h2>
+      <p class="tags">
+        <span class="tag">Práctica guiada</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Programar la versión mínima del proyecto siguiendo el plan, función por
+        función.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Construir por partes</li>
+        <li>Probar mientras se programa</li>
+        <li>Resolver problemas sobre la marcha</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>5 min</td>
+            <td>Revisar el plan y elegir por dónde empezar.</td>
+          </tr>
+          <tr>
+            <td>Demo guiada</td>
+            <td>15 min</td>
+            <td>
+              Demo: construir una función, probarla y pasar a la siguiente (paso
+              a paso).
+            </td>
+          </tr>
+          <tr>
+            <td>Práctica paso a paso</td>
+            <td>40 min</td>
+            <td>
+              Tiempo de desarrollo acompañado: cada quien implementa su versión
+              mínima.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini retos</td>
+            <td>20 min</td>
+            <td>Puntos de control: ¿qué función ya funciona? ¿qué falta?</td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>10 min</td>
+            <td>Dejar la versión mínima ejecutándose.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Primera función:</b> Programa la primera función de tu plan y
+          pruébala.
+        </li>
+        <li><b>Conecta dos:</b> Conecta dos funciones de tu proyecto.</li>
+        <li><b>Guarda y prueba:</b> Guarda y prueba tu avance.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Primer hito</b> <span class="nivel">(Avanzado)</span><br />Logra
+          que la parte central de tu proyecto funcione (aunque sea simple).
+        </li>
+        <li>
+          <b>Probar temprano</b> <span class="nivel">(Avanzado)</span
+          ><br />Prueba cada función apenas la termines y corrige antes de
+          seguir.
+        </li>
+        <li>
+          <b>Pedir ayuda con sentido</b> <span class="nivel">(Avanzado)</span
+          ><br />Cuando te trabes, describe el problema en una frase antes de
+          pedir ayuda.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Versión jugable</h3>
+      <p>
+        Deja tu proyecto en una versión mínima que ya se pueda usar de principio
+        a fin.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Avanza siguiendo su plan.</li>
+        <li>Prueba a medida que construye.</li>
+        <li>Tiene una versión mínima funcionando.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Refuerza 'programa un poco, prueba un poco': evita el código gigante
+          sin probar.
+        </li>
+        <li>
+          Celebra cada función que empieza a funcionar: mantiene la energía.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +95 XP · Logro 'En Construcción'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 3: Pruebas y mejoras</h2>
+      <p class="tags">
+        <span class="tag">Retos y desafíos</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Probar el proyecto a fondo, corregir errores y pulir detalles antes de
+        presentarlo.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Pruebas con casos límite</li>
+        <li>Corrección de errores (debugging)</li>
+        <li>Mejoras y validaciones</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Calentamiento</td>
+            <td>10 min</td>
+            <td>
+              ¿Cómo 'romper' un programa para encontrar fallos? Lluvia de casos
+              raros.
+            </td>
+          </tr>
+          <tr>
+            <td>Mini-demo de técnica</td>
+            <td>10 min</td>
+            <td>
+              Demo: probar con datos extremos y validar entradas del usuario.
+            </td>
+          </tr>
+          <tr>
+            <td>Ronda de retos progresivos</td>
+            <td>55 min</td>
+            <td>
+              Cada quien prueba su proyecto, corrige bugs y añade
+              validaciones/mejoras.
+            </td>
+          </tr>
+          <tr>
+            <td>Misión de cierre</td>
+            <td>15 min</td>
+            <td>
+              Intercambio: un compañero prueba tu proyecto y reporta lo que
+              encuentre.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Datos raros:</b> Prueba tu proyecto con datos raros (vacío, muy
+          grande).
+        </li>
+        <li>
+          <b>Valida la entrada:</b> Valida una entrada para que no rompa el
+          programa.
+        </li>
+        <li><b>Arregla un bug:</b> Corrige un error que hayas encontrado.</li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Romper para mejorar</b> <span class="nivel">(Avanzado)</span
+          ><br />Encuentra y corrige al menos 2 problemas probando con datos
+          extremos.
+        </li>
+        <li>
+          <b>A prueba de usuarios</b> <span class="nivel">(Avanzado)</span
+          ><br />Añade validaciones para que entradas inválidas no rompan el
+          programa.
+        </li>
+        <li>
+          <b>Toque final</b> <span class="nivel">(Avanzado)</span><br />Mejora
+          la presentación (mensajes, marcos, instrucciones claras).
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Misión: Versión pulida</h3>
+      <p>
+        Deja tu proyecto probado, sin errores conocidos y con una presentación
+        cuidada.
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>Prueba con varios casos, incluidos límites.</li>
+        <li>Corrige los errores encontrados.</li>
+        <li>Añade validaciones o mejoras.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Las pruebas cruzadas entre compañeros encuentran fallos que el autor
+          no ve.
+        </li>
+        <li>
+          Enseña que 'sin errores conocidos' es una meta de calidad, no
+          perfección.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +100 XP · Trofeo 'Cazador de Bugs Senior'
+      </p>
+    </section>
+    <section class="sesion">
+      <h2>Periodo 10 · Sesión 4: Misión Final: Presentación del Proyecto</h2>
+      <p class="tags">
+        <span class="tag">Misión final</span>
+        <span class="tag">Nivel: Avanzado</span>
+      </p>
+
+      <h3>🎯 Objetivo</h3>
+      <p>
+        Presentar el proyecto final a la clase, explicando qué hace, cómo lo
+        hizo y demostrándolo.
+      </p>
+
+      <h3>📚 Conceptos que se enseñan</h3>
+      <ul>
+        <li>Presentar y demostrar software</li>
+        <li>Explicar decisiones de código</li>
+        <li>Recibir y dar retroalimentación</li>
+      </ul>
+
+      <h3>🕒 Agenda de la clase (90 min)</h3>
+      <table class="agenda">
+        <thead>
+          <tr>
+            <th>Bloque</th>
+            <th>Tiempo</th>
+            <th>Detalle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Planeación de la misión</td>
+            <td>15 min</td>
+            <td>
+              Preparar la presentación: qué mostrar, qué contar y un guion
+              corto.
+            </td>
+          </tr>
+          <tr>
+            <td>Desarrollo del proyecto</td>
+            <td>45 min</td>
+            <td>Demostración en vivo de cada proyecto ante la clase.</td>
+          </tr>
+          <tr>
+            <td>Pruebas y mejoras</td>
+            <td>15 min</td>
+            <td>
+              Ronda de preguntas y retroalimentación positiva entre compañeros.
+            </td>
+          </tr>
+          <tr>
+            <td>Presentación / showcase</td>
+            <td>15 min</td>
+            <td>
+              Ceremonia de cierre: entrega de la insignia final y reconocimiento
+              de logros.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>✍️ Ejercicios / actividades</h3>
+      <ul>
+        <li>
+          <b>Demo de 2 min:</b> Prepara una demo de 2 minutos de tu proyecto.
+        </li>
+        <li>
+          <b>Lo más difícil:</b> Explica qué función te costó más y por qué.
+        </li>
+        <li>
+          <b>Próxima versión:</b> Anota una mejora futura para tu proyecto.
+        </li>
+      </ul>
+
+      <h3>🏅 Retos</h3>
+      <ul class="retos">
+        <li>
+          <b>Demo impecable</b> <span class="nivel">(Avanzado)</span
+          ><br />Presenta tu proyecto funcionando de principio a fin sin
+          errores.
+        </li>
+        <li>
+          <b>Detrás del código</b> <span class="nivel">(Avanzado)</span
+          ><br />Explica cómo organizaste tus funciones y por qué.
+        </li>
+        <li>
+          <b>Próxima versión</b> <span class="nivel">(Avanzado)</span
+          ><br />Propón 2 mejoras que harías si tuvieras más tiempo.
+        </li>
+      </ul>
+
+      <h3>🚀 Misión / cierre: Proyecto: Proyecto Final Libre</h3>
+      <p>
+        Tu programa completo, planeado, desarrollado, probado y presentado a la
+        clase. ¡Es tu obra como programador!
+      </p>
+
+      <h3>✅ Evaluación</h3>
+      <ul>
+        <li>El proyecto funciona de principio a fin.</li>
+        <li>Aplica lo aprendido (funciones, listas, decisiones, bucles).</li>
+        <li>Presenta y explica su trabajo con claridad.</li>
+      </ul>
+
+      <h3>💡 Recomendaciones para el profe</h3>
+      <ul>
+        <li>
+          Haz de la presentación una celebración, no un examen: refuerza la
+          confianza.
+        </li>
+        <li>
+          Destaca el progreso de cada estudiante desde el periodo 1: cierra el
+          viaje.
+        </li>
+      </ul>
+
+      <p class="recompensa">
+        <b>🎁 Recompensa:</b> +150 XP · 🏆 Insignia 'Programador LuckSoft'
+        desbloqueada
+      </p>
+    </section>
+  </body>
+</html>
