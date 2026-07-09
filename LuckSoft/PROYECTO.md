@@ -1,142 +1,129 @@
-# LuckSoft — Resumen del proyecto (handoff)
+# LuckSoft — Estado del proyecto (handoff)
 
-> Pega este archivo (o su contenido) al iniciar un nuevo chat para retomar el contexto.
+> Documento de contexto para retomar el trabajo en una nueva sesión.
+> Actualizado: 2026-07-09. La descripción de la maqueta vanilla original quedó
+> en el historial de git de este archivo; ya no aplica.
 
 ## Qué es
 
-**LuckSoft** es una plataforma educativa de programación que corre **100% en el
-navegador, sin backend**. Tiene login con roles (docente/estudiante), varios
-cursos con editores funcionales, y un sistema de entregas y calificaciones.
+**LuckSoft Academy** es una plataforma educativa de programación (cursos de
+Python, Diseño Web y Scratch) con roles (estudiante/docente/admin), editores en
+el navegador, currículos gamificados, entregas/calificaciones, grupos con
+horarios y créditos, y mascota virtual.
 
-- Carpeta del proyecto: `c:\Users\edwar\Desktop\Ejercicios JS\LuckSoft`
-- (El `index.html` de la carpeta padre `Ejercicios JS` es una prueba vieja, no es parte de LuckSoft.)
+- **Producción:** https://app.lucksoftacademy.com (Vercel, plan Hobby).
+  - Dominio `lucksoftacademy.com` comprado en Porkbun (~$11 USD/año, renovación
+    estable). La raíz redirige 307 a `app.`; queda **reservada para una landing
+    comercial futura** (proyecto separado: reseñas, misión/visión, oferta de
+    cursos — se separa porque las cabeceras COOP/COEP de la plataforma romperían
+    los embeds típicos de una landing).
+  - DNS en Porkbun: `A @ → 216.198.79.1` y `CNAME app → 2a79bb48bc7ca67e.vercel-dns-017.com`.
+  - `lucksoft.vercel.app` sigue activa pero ya no se comparte.
+- **Repo:** https://github.com/edwarfonseca/lucksoft (rama `main`).
+- **Flujo git:** rama feature → Conventional Commit (SIN co-author trailer) →
+  merge `--no-ff` a main → push → borrar rama. Vercel redespliega solo con cada
+  push a main.
 
-## Cómo ejecutar
+## Stack y arquitectura
 
-```powershell
-cd "c:\Users\edwar\Desktop\Ejercicios JS\LuckSoft"
-python server.py
-```
-
-Abrir **http://localhost:8000/** (Ctrl+F5 para evitar caché).
-
-`server.py` es clave: sirve los archivos con cabeceras de **aislamiento de
-origen** (`Cross-Origin-Opener-Policy: same-origin` y
-`Cross-Origin-Embedder-Policy: credentialless`). Sin ellas, el editor de Python
-no puede usar `SharedArrayBuffer` y la entrada por consola deja de funcionar.
-
-## Cuentas de demo (contraseña `1234`)
-
-| Usuario   | Rol        |
-| --------- | ---------- |
-| `docente` | docente    |
-| `alumno`  | estudiante |
-| `alumno2` | estudiante |
-
-## Estructura de archivos
+React 19 + TypeScript strict + Vite 8 + React Router 7 + Zod 4 + Supabase
+(`@supabase/supabase-js`) + CodeMirror 6 (`@uiw/react-codemirror`).
+**Arquitectura hexagonal**; regla de dependencias: `domain` ← `application` ←
+(`infrastructure`, `features`).
 
 ```
-LuckSoft/
-├── server.py              Servidor dev con cabeceras COOP/COEP
-├── index.html             Login
-├── cursos.html            Catálogo de cursos (barra según rol)
-├── python.html            Editor de Python
-├── scratch.html           Editor de Scratch (embebe scratch-editor/)
-├── web.html               Editor de Diseño Web (HTML/CSS/JS)
-├── notas.html             Estudiante: ver sus calificaciones
-├── calificar.html         Docente: revisar entregas y calificar
-├── scratch-editor/        Build de TurboWarp (NO en git; ver Scratch abajo)
-├── css/styles.css         Estilos de toda la plataforma
-└── js/
-    ├── auth.js            Login + roles (requireLogin / requireRole)
-    ├── db.js              CAPA DE DATOS (localStorage) — entregas/notas
-    ├── ui.js              Barra superior (renderTopbar) según rol
-    ├── clase.js           Botón "Unirse a la clase" (Jitsi)
-    ├── editor.js          Lógica del editor de Python
-    ├── pyworker.js        Web Worker que corre Pyodide
-    ├── assignments.js     Tareas + botón Entregar (Python)
-    ├── web.js             Editor web: pestañas, preview, tareas, entregar
-    └── scratch.js         Integración Scratch: autosave/entregar/revisar
+src/
+├── app/            router.tsx · services.ts (raíz de composición: binding de ports)
+├── domain/         models (user, profile, submission, course, curriculum, lessons,
+│                   horario, enrollment, teacherGroup, stats, pet) · ports
+│                   (AuthService, SubmissionRepository, AdminService,
+│                   EnrollmentService, ProfileService, PetService)
+├── application/    casos de uso (submitAssignment, gradeSubmission,
+│                   listSubmissions, loadEnrollment, manageUsers, manageHorarios,
+│                   manageProfile, adminStats, pet, authenticate)
+├── infrastructure/ local/ (localStorage; fallback sin .env) · supabase/
+├── courses/        Strategy + registry (python/web/scratch) · curriculum.ts
+│                   (mapa kind→currículo) · <curso>/curriculum.ts + scaffolds.ts
+├── features/       auth · courses · grading · grades · admin · pets · profile
+└── components/     AppLayout · UserMenu · Avatar
 ```
 
-## Cursos y cómo funciona cada editor
+- Sin `.env` → modo localStorage (demo); con `VITE_SUPABASE_URL/ANON_KEY` → Supabase.
+- **COOP/COEP** en todas las respuestas (vercel.json en prod, `server.headers`
+  de vite en dev): imprescindibles para SharedArrayBuffer del editor Python.
+- Calidad: Vitest (~69 tests), ESLint 9, Prettier, Husky+lint-staged.
+  Antes de commitear: `npm run typecheck && npm run lint && npm run test && npm run build`.
 
-### Python (`python.html` + `editor.js` + `pyworker.js`)
+## Funcionalidades construidas
 
-- Pyodide (Python real vía WebAssembly) corre en un **Web Worker**.
-- `input()` es **bloqueante por consola** usando `SharedArrayBuffer` + `Atomics`
-  (por eso hacen falta las cabeceras COOP/COEP). Si no hay aislamiento de origen,
-  cae a un modo de respaldo con `window.prompt`.
-- Salida **inmediata** (`setStdout({write})`, no `batched`) para que el mensaje
-  de `input()` aparezca antes del campo de entrada.
-- Autocompletado con addon show-hint de CodeMirror.
-- Botón **⏹ Detener** termina el worker (corta bucles `while True`).
+### Cursos y editores
 
-### Diseño Web (`web.html` + `web.js`)
+- **Python:** Pyodide en Web Worker, `input()` bloqueante (SharedArrayBuffer+Atomics),
+  botón Detener, autocompletado, y módulo **turtle** propio (`public/turtle_shim.py`
+  - `pyworker.js` → dibuja en canvas).
+- **Diseño Web:** 3 editores (HTML/CSS/JS) en pestañas + vista previa en vivo
+  (iframe srcdoc sandbox). Panel de código con **alto redimensionable** arrastrando.
+- **Scratch:** TurboWarp autohospedado en `public/scratch-editor/` (NO va en git,
+  ~65 MB; recompilar y aplicar parche `isInvalidEmbed = false`). Cargar .sb3
+  como **Uint8Array**.
+- **Currículos gamificados** (los 3 cursos): 10 periodos × 4 sesiones = 40
+  lecciones (S1 intro · S2 práctica · S3 retos · S4 misión), con XP, insignias,
+  agendas de 90 min, ejercicios/retos/misión, andamiajes con TODO (Python y Web).
+  El editor recibe la lección por URL `?periodo=&sesion=`; las entregas llevan
+  prefijo `P·S` en el título.
+- Lecciones bloqueadas por progreso: solo las vistas + la siguiente durante su
+  horario de clase (`set_progreso` solo permite avanzar de a 1).
 
-- Tres editores CodeMirror en **pestañas** (HTML/CSS/JS), uno a pantalla completa.
-- **Vista previa en vivo** combinando el código en un `<iframe srcdoc sandbox>`.
-- Autocompletado por lenguaje (html-hint/css-hint/javascript-hint) + autocierre
-  de etiquetas.
+### Roles
 
-### Scratch (`scratch.html` + `scratch.js`)
+- **Estudiante:** sus cursos inscritos, créditos (bolsa compartida; advertencia
+  ≤3, bloqueo total en 0), clase remota (Jitsi o enlace del grupo, botón solo en
+  la franja horaria), Mis notas, **Mascota** tamagotchi (energía −34 por lección,
+  monedas = nota/10, tienda de comida; animaciones HTML del tiburón en
+  `public/pets/` mapeadas por estado en PetPage, escaladas con `--pet-scale`).
+- **Docente:** vista "Tus grupos" (conteo + tarjetas) → estudiantes del grupo con
+  créditos y modal "Ver información" (edad, acudiente, teléfono, país).
+  **Calificar por curso** (`/calificar` → `/calificar/:kind`): solo ve entregas
+  de estudiantes de SUS grupos.
+- **Admin:** Usuarios (CRUD vía Edge Functions con service_role; credenciales,
+  grupos múltiples, créditos, desbloquear lecciones), Horarios (grupos Python1…,
+  día/hora/docente/enlace, descuento manual de créditos), **Estadísticas**
+  (entregas por grupo con lecciones alcanzadas y entregas/esperadas %, y
+  estudiantes con <3 créditos con datos de acudiente).
+- **Todos:** menú de usuario con avatar (foto o iniciales) + **Mi perfil**
+  (editar nombre para mostrar y subir avatar a Storage). Login sin cuentas demo
+  visibles, con personaje animado (`public/characters/saludo.html`).
 
-- Se auto-hospeda el editor **TurboWarp** (scratch-gui). Para compilarlo:
-  ```
-  git clone --depth=1 https://github.com/TurboWarp/scratch-gui
-  cd scratch-gui && npm install && npm run build
-  ```
-  Copiar `build/` a `LuckSoft/scratch-editor/`. La página embebe
-  `scratch-editor/editor.html` en un iframe.
-- **PARCHE IMPORTANTE:** TurboWarp bloquea el embebido con
-  `const isInvalidEmbed = window.parent !== window` en
-  `scratch-editor/js/editor.js`. Se cambió a `const isInvalidEmbed = false`.
-  ⚠️ **Este parche se pierde si recompilas y vuelves a copiar el build.**
-- Se accede al motor expuesto `window.vm` desde el iframe (mismo origen) para:
-  - Autoguardar el proyecto en localStorage (`vm.saveProjectSb3()`).
-  - Restaurar al volver (`vm.loadProject(...)`).
-  - Entregar y que el docente revise (`scratch.html?review=<id>`).
-- ⚠️ **Gotcha resuelto:** al cargar el `.sb3` hay que pasar un **`Uint8Array`**,
-  no un `ArrayBuffer`; si no, Scratch no detecta el ZIP y falla con
-  "Could not parse as a valid SB2 or SB3 project".
+## Supabase (proyecto ref `unimlouxtqbiwibypakg`)
 
-## Sistema de roles y calificaciones
+- **Migraciones 0001–0015 TODAS aplicadas en producción** (`supabase/migrations/`):
+  init (profiles/submissions/RLS) · admin+campos perfil · horarios · cron créditos
+  (pg_cron) · grupos · enlace reunión · username · progreso · inscripciones ·
+  mascota (fix ambigüedad en 0011) · 0012 `mis_estudiantes()` (docente→sus
+  estudiantes) · 0013 `admin_entregas_por_grupo()` · 0014
+  `docente_estudiantes_grupo()` · 0015 avatar (columna, RPC
+  `actualizar_mi_perfil`, bucket `avatars` público + políticas por carpeta).
+- **Edge Functions desplegadas:** admin-create-user, admin-delete-user,
+  admin-update-credentials.
+- **Auth:** login usuario→email `usuario@lucksoft.local`; Site URL
+  `https://app.lucksoftacademy.com`; redirect URLs incluyen el dominio y
+  lucksoft.vercel.app. Patrón de seguridad: lo que cruza datos de varios usuarios
+  va en RPC SECURITY DEFINER validando `auth.uid()`/`is_admin()`.
 
-- `auth.js`: login falso con roles, sesión en `sessionStorage`.
-- `db.js`: **única capa de persistencia** (localStorage). Entregas tienen
-  `kind`: `"python"` (texto en `code`), `"web"` (objeto `{html,css,js}` en
-  `project`) o `"scratch"` (sb3 en base64 en `project`).
-- Estudiante entrega desde el editor → docente ve en `calificar.html`
-  (código, vista previa web, o abrir/descargar proyecto Scratch) y pone nota +
-  comentario → estudiante lo ve en `notas.html`.
+## Material docente
 
-## Clases remotas (Jitsi)
+`docs/clases-{python,web,scratch}.{html,doc}`: guías completas de las 40 clases
+por curso, **generadas desde los currículos** (regenerables si cambia el
+contenido; el generador fue un test temporal, pedirlo de nuevo si hace falta).
+HTML → imprimir a PDF; .doc → editable en Word.
 
-- `clase.js`: botón **📹 Unirse a la clase** en cada editor. Abre una sala fija
-  por curso en `meet.jit.si` (`LuckSoftAula<Curso>`) en pestaña nueva, con el
-  nombre del usuario. Sin backend ni cuentas.
+## Pendientes / próximos pasos
 
-## Limitaciones actuales (es una MAQUETA)
-
-- **Todo vive en `localStorage`** → docente y estudiante deben usar el **mismo
-  navegador/PC** para verse. No es multiusuario real.
-- Login es de prueba (credenciales en el JS del cliente).
-- localStorage ~5 MB: proyectos Scratch muy pesados pueden no caber.
-
-## Próximos pasos / ideas pendientes
-
-1. **Fase 2 — Supabase:** reemplazar el interior de `db.js` por Supabase
-   (auth real con roles, base de datos compartida multi-dispositivo,
-   almacenamiento de archivos). La arquitectura ya está aislada para este salto.
-2. **Curso de SQL** con `sql.js` (SQLite en el navegador) — recomendado, encaja
-   igual que Python.
-3. **Python para Datos** (pandas/matplotlib, ya soportados por Pyodide).
-4. **Jitsi IFrame API**: incrustar la clase y **registrar asistencia**
-   automáticamente en `db.js` (requiere una página de clase servida SIN las
-   cabeceras de aislamiento).
-5. Posible: MakeCode Arcade (bloques estilo Scratch que corren en el navegador).
-
-```
-
-## Herramientas instaladas: Node v24, npm, git, Python 3.13.
-```
+1. **Landing comercial** en `lucksoftacademy.com` (proyecto separado).
+2. **Google Search Console** cuando exista la landing.
+3. Backlog UI: modales propios en vez de `confirm`/`alert` en los editores.
+4. Al empezar a **cobrar**: Vercel Hobby es no-comercial → Pro ($20/mes) o migrar
+   a Cloudflare Pages (gratis comercial; `public/_headers` ya listo). Supabase
+   free se pausa tras ~1 semana de inactividad → Pro ($25/mes) cuando haya
+   ingresos. Pagos en Colombia: Wompi / MercadoPago / PayU.
+5. Ideas de cursos: SQL (sql.js), C/C++ (hoy son teasers en el catálogo).
