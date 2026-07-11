@@ -13,11 +13,16 @@ horarios y créditos, y mascota virtual.
 
 - **Producción:** https://app.lucksoftacademy.com (Vercel, plan Hobby).
   - Dominio `lucksoftacademy.com` comprado en Porkbun (~$11 USD/año, renovación
-    estable). La raíz redirige 307 a `app.`; queda **reservada para una landing
-    comercial futura** (proyecto separado: reseñas, misión/visión, oferta de
-    cursos — se separa porque las cabeceras COOP/COEP de la plataforma romperían
-    los embeds típicos de una landing).
-  - DNS en Porkbun: `A @ → 216.198.79.1` y `CNAME app → 2a79bb48bc7ca67e.vercel-dns-017.com`.
+    estable). La raíz sirve la **landing comercial** (publicada 2026-07-11):
+    proyecto Vercel separado que despliega `edwarfonseca/luksoft-frontend`
+    (React+Vite, desarrollado por DajerlyMoreno, ella sigue de colaboradora);
+    su `vercel.json` hace proxy de `/api/*` al backend de ella
+    (`https://luksoft-backend.vercel.app`, Express+Supabase propio) — así no hay
+    CORS ni variables de entorno. Panel de contenido en `/admin`. `www.` redirige
+    308 a la raíz. Se separó de la plataforma porque las cabeceras COOP/COEP
+    romperían los embeds de una landing.
+  - DNS en Porkbun: `A @ → 216.198.79.1`, `CNAME app → 2a79bb48bc7ca67e.vercel-dns-017.com`
+    y `CNAME www → 30733e4aee446379.vercel-dns-017.com`.
   - `lucksoft.vercel.app` sigue activa pero ya no se comparte.
 - **Repo:** https://github.com/edwarfonseca/lucksoft (rama `main`).
 - **Flujo git:** rama feature → Conventional Commit (SIN co-author trailer) →
@@ -119,8 +124,10 @@ HTML → imprimir a PDF; .doc → editable en Word.
 
 ## Pendientes / próximos pasos
 
-1. **Landing comercial** en `lucksoftacademy.com` (proyecto separado).
-2. **Google Search Console** cuando exista la landing.
+1. ~~Landing comercial~~ **publicada** en `lucksoftacademy.com` (2026-07-11).
+   Riesgo conocido: si Dajerly renombra su proyecto Vercel del backend, se rompe
+   el proxy (`luksoft-backend.vercel.app`).
+2. **Google Search Console**: registrar el dominio ahora que la landing existe.
 3. Backlog UI: modales propios en vez de `confirm`/`alert` en los editores.
 4. Al empezar a **cobrar**: Vercel Hobby es no-comercial → Pro ($20/mes) o migrar
    a Cloudflare Pages (gratis comercial; `public/_headers` ya listo). Supabase
