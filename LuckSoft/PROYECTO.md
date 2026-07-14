@@ -128,7 +128,9 @@ HTML → imprimir a PDF; .doc → editable en Word.
    Riesgo conocido: si Dajerly renombra su proyecto Vercel del backend, se rompe
    el proxy (`luksoft-backend.vercel.app`).
 2. **Google Search Console**: registrar el dominio ahora que la landing existe.
-3. Backlog UI: modales propios en vez de `confirm`/`alert` en los editores.
+3. ~~Backlog UI: modales propios en vez de `confirm`/`alert`~~ hecho (2026-07-11):
+   `DialogProvider` global (`useDialog` → `confirmar`/`avisar`) en
+   `src/components/`; ya no queda ningún alert/confirm nativo en la app.
 4. Al empezar a **cobrar**: Vercel Hobby es no-comercial → Pro ($20/mes) o migrar
    a Cloudflare Pages (gratis comercial; `public/_headers` ya listo). Supabase
    free se pausa tras ~1 semana de inactividad → Pro ($25/mes) cuando haya

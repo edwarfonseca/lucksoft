@@ -4,6 +4,7 @@ import { type Horario, grupoNombre } from "@/domain/models/horario";
 import { adminService } from "@/app/services";
 import { deleteUser, listProfiles } from "@/application/manageUsers";
 import { listHorarios } from "@/application/manageHorarios";
+import { useDialog } from "@/components/dialog-context";
 import { UserForm } from "@/features/admin/UserForm";
 import { HorariosPanel } from "@/features/admin/HorariosPanel";
 import { StatsPanel } from "@/features/admin/StatsPanel";
@@ -82,6 +83,7 @@ function UsuariosPanel({
 }: {
   service: NonNullable<typeof adminService>;
 }) {
+  const { confirmar } = useDialog();
   const [profiles, setProfiles] = useState<ManagedProfile[] | null>(null);
   const [horarios, setHorarios] = useState<Horario[]>([]);
   const [error, setError] = useState("");
@@ -105,9 +107,10 @@ function UsuariosPanel({
 
   async function onDelete(p: ManagedProfile) {
     if (
-      !confirm(
+      !(await confirmar(
         `¿Eliminar a ${p.fullName || "este usuario"}? No se puede deshacer.`,
-      )
+        { titulo: "Eliminar usuario", aceptar: "Eliminar", peligro: true },
+      ))
     )
       return;
     try {

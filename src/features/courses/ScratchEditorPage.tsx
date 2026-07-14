@@ -8,6 +8,7 @@ import { submitAssignment } from "@/application/submitAssignment";
 import { getSubmissionById } from "@/application/listSubmissions";
 import { base64ToBytes, bytesToBase64 } from "@/lib/base64";
 import { useAuth } from "@/features/auth/auth-context";
+import { useDialog } from "@/components/dialog-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
 import { lessonActivities } from "@/features/courses/lessonTasks";
 import type { ScratchVM, ScratchWindow } from "@/features/courses/scratchVm";
@@ -25,6 +26,7 @@ const EDITOR_PATH = "/scratch-editor/editor.html";
  */
 export function ScratchEditorPage() {
   const { user } = useAuth();
+  const { avisar } = useDialog();
   const [params] = useSearchParams();
   const reviewId = params.get("review");
   const isReview = !!reviewId;
@@ -180,10 +182,12 @@ export function ScratchEditorPage() {
         }),
       );
       say("Entregado ✓");
-      alert('✓ Proyecto entregado. El docente podrá revisarlo en "Calificar".');
+      await avisar('El docente podrá revisarlo en "Calificar".', {
+        titulo: "✓ Proyecto entregado",
+      });
     } catch (e) {
       say("Error al entregar", true);
-      alert("No se pudo entregar el proyecto: " + describe(e));
+      await avisar("No se pudo entregar el proyecto: " + describe(e));
     }
   }
 

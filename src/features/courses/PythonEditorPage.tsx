@@ -10,6 +10,7 @@ import type { PythonAssignment } from "@/courses/python";
 import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
 import { useAuth } from "@/features/auth/auth-context";
+import { useDialog } from "@/components/dialog-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
 import { lessonAssignments } from "@/features/courses/lessonTasks";
 import { usePythonRunner } from "@/features/courses/usePythonRunner";
@@ -28,6 +29,7 @@ for i in range(1, 6):
 /** Editor de Python: CodeMirror + Pyodide en un Web Worker. Migra editor.js. */
 export function PythonEditorPage() {
   const { user } = useAuth();
+  const { avisar, confirmar } = useDialog();
   const isStudent = user?.role === "estudiante";
   const runner = usePythonRunner();
 
@@ -69,12 +71,12 @@ export function PythonEditorPage() {
     if (runner.awaitingInput) inputRef.current?.focus();
   }, [runner.output, runner.awaitingInput]);
 
-  function loadBase() {
+  async function loadBase() {
     const base = assignments[taskIndex].codigoBase;
     if (!base) return;
     if (
       code.trim() &&
-      !confirm("Esto reemplazará tu código actual. ¿Continuar?")
+      !(await confirmar("Esto reemplazará tu código actual. ¿Continuar?"))
     )
       return;
     setCode(base);
@@ -96,13 +98,14 @@ export function PythonEditorPage() {
   async function submit() {
     if (!user) return;
     if (!code.trim()) {
-      alert("Escribe algo de código antes de entregar.");
+      await avisar("Escribe algo de código antes de entregar.");
       return;
     }
     if (
-      !confirm(
+      !(await confirmar(
         `¿Entregar tu solución de "${entrega.titulo}"?\nSi ya habías entregado, se reemplazará y quedará pendiente.`,
-      )
+        { titulo: "Entregar", aceptar: "Entregar" },
+      ))
     )
       return;
     await submitAssignment(
@@ -113,7 +116,10 @@ export function PythonEditorPage() {
         content: { code },
       }),
     );
-    alert("✓ Entrega registrada. Podrás ver tu calificación en “Mis notas”.");
+    await avisar(
+      "Podrás ver tu calificación en “Mis notas” cuando el docente la revise.",
+      { titulo: "✓ Entrega registrada" },
+    );
   }
 
   return (
