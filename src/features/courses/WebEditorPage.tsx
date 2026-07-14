@@ -18,6 +18,7 @@ import { submissionRepository } from "@/app/services";
 import { submitAssignment } from "@/application/submitAssignment";
 import { buildPreviewDoc } from "@/lib/preview";
 import { useAuth } from "@/features/auth/auth-context";
+import { useDialog } from "@/components/dialog-context";
 import { TaskPanel } from "@/features/courses/TaskPanel";
 import { lessonWebAssignments } from "@/features/courses/lessonTasks";
 
@@ -43,6 +44,7 @@ const EXTENSIONS: Record<Tab, Extension[]> = {
 /** Editor de Diseño Web: HTML/CSS/JS + vista previa en vivo. Migra web.js. */
 export function WebEditorPage() {
   const { user } = useAuth();
+  const { avisar, confirmar } = useDialog();
   const isStudent = user?.role === "estudiante";
   const storageKey = "lucksoft_web_" + (user?.id ?? "anon");
 
@@ -101,8 +103,9 @@ export function WebEditorPage() {
     setProject((p) => ({ ...p, [field]: value }));
   };
 
-  function loadBase() {
-    if (!confirm("Esto reemplazará tu código actual. ¿Continuar?")) return;
+  async function loadBase() {
+    if (!(await confirmar("Esto reemplazará tu código actual. ¿Continuar?")))
+      return;
     setStatus("Actualizando…");
     setProject(assignments[taskIndex].base);
   }
@@ -130,7 +133,13 @@ export function WebEditorPage() {
     const entrega = leccion
       ? { ...task, titulo: `P${periodo}·S${sesion} · ${task.titulo}` }
       : task;
-    if (!confirm(`¿Entregar tu solución de "${entrega.titulo}"?`)) return;
+    if (
+      !(await confirmar(`¿Entregar tu solución de "${entrega.titulo}"?`, {
+        titulo: "Entregar",
+        aceptar: "Entregar",
+      }))
+    )
+      return;
     await submitAssignment(
       submissionRepository,
       webCourse.buildSubmitInput({
@@ -139,7 +148,9 @@ export function WebEditorPage() {
         content: project,
       }),
     );
-    alert('✓ Entrega registrada. El docente podrá verla en "Calificar".');
+    await avisar('El docente podrá verla en "Calificar".', {
+      titulo: "✓ Entrega registrada",
+    });
   }
 
   return (

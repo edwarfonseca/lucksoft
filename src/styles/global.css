@@ -998,6 +998,19 @@ a:hover {
 .modal-close:hover {
   color: var(--text);
 }
+/* Diálogos de aviso/confirmación (DialogProvider). */
+.dialog-message {
+  margin: 0 0 18px;
+  white-space: pre-line;
+}
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+.btn-danger {
+  background: #c0392b;
+}
 /* Lista de datos clave-valor (información del estudiante). */
 .info-list {
   display: grid;

@@ -15,6 +15,7 @@ import {
   listHorarios,
 } from "@/application/manageHorarios";
 import { courseList, getCourse } from "@/courses/registry";
+import { useDialog } from "@/components/dialog-context";
 import { HorarioForm } from "@/features/admin/HorarioForm";
 
 interface Props {
@@ -23,6 +24,7 @@ interface Props {
 
 /** Pestaña de horarios: gestiona las clases semanales y el descuento manual. */
 export function HorariosPanel({ service }: Props) {
+  const { confirmar } = useDialog();
   const [horarios, setHorarios] = useState<Horario[] | null>(null);
   const [docentes, setDocentes] = useState<ManagedProfile[]>([]);
   const [error, setError] = useState("");
@@ -44,9 +46,10 @@ export function HorariosPanel({ service }: Props) {
 
   async function onDelete(h: Horario) {
     if (
-      !confirm(
+      !(await confirmar(
         "¿Eliminar este horario? Los estudiantes asignados quedarán sin horario.",
-      )
+        { titulo: "Eliminar horario", aceptar: "Eliminar", peligro: true },
+      ))
     )
       return;
     try {
@@ -58,7 +61,15 @@ export function HorariosPanel({ service }: Props) {
   }
 
   async function onConsume() {
-    if (!confirm("¿Descontar 1 crédito a los estudiantes con clase hoy?"))
+    if (
+      !(await confirmar(
+        "¿Descontar 1 crédito a los estudiantes con clase hoy?",
+        {
+          titulo: "Descontar créditos",
+          aceptar: "Descontar",
+        },
+      ))
+    )
       return;
     setError("");
     setInfo("");
