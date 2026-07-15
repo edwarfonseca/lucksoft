@@ -10,6 +10,9 @@ import {
   misionScaffolds as webMisionScaffolds,
   retoScaffolds as webRetoScaffolds,
 } from "@/courses/web/scaffolds";
+import { tareasCasa as pythonTareasCasa } from "@/courses/python/tareasCasa";
+import { tareasCasa as webTareasCasa } from "@/courses/web/tareasCasa";
+import { tareasCasa as scratchTareasCasa } from "@/courses/scratch/tareasCasa";
 
 /**
  * Convierte una sesión del currículo en una lista de tareas seleccionables para
@@ -31,6 +34,9 @@ const NIVEL_DIF: Record<Nivel, Difficulty> = {
 const PISTA_ANDAMIAJE =
   '<p class="task-hint">🧩 Pulsa «⬇ Cargar código base» para empezar con una ' +
   "estructura ya comenzada y completar lo que falta (# TODO).</p>";
+
+const INTRO_TAREA_CASA =
+  "<strong>🏠 Para hacer en casa antes de la próxima clase.</strong>";
 
 /** Arma el HTML del enunciado (texto de confianza, ya escapado). */
 function enunciado(
@@ -92,6 +98,17 @@ export function lessonAssignments(
         ? andamiajeMision
         : `# ${s.cierre.titulo}\n\n`,
   });
+
+  const casa = pythonTareasCasa[prefix];
+  if (casa) {
+    tasks.push({
+      id: `${prefix}-casa`,
+      titulo: `🏠 Tarea: ${casa.titulo}`,
+      dificultad: "facil",
+      enunciado: enunciado(casa.descripcion, 25, { intro: INTRO_TAREA_CASA }),
+      codigoBase: `# 🏠 Tarea para la casa: ${casa.titulo}\n# ${casa.descripcion}\n\n`,
+    });
+  }
 
   return tasks;
 }
@@ -159,6 +176,17 @@ export function lessonWebAssignments(
         : webBase("", s.cierre.titulo),
   });
 
+  const casa = webTareasCasa[prefix];
+  if (casa) {
+    tasks.push({
+      id: `${prefix}-casa`,
+      titulo: `🏠 Tarea: ${casa.titulo}`,
+      dificultad: "facil",
+      enunciado: enunciado(casa.descripcion, 25, { intro: INTRO_TAREA_CASA }),
+      base: webBase(`🏠 Tarea para la casa: ${casa.titulo}`, casa.descripcion),
+    });
+  }
+
   return tasks;
 }
 
@@ -203,6 +231,16 @@ export function lessonActivities(
       intro: `<strong>🎯 ${escapeHtml(s.objetivo)}</strong>`,
     }),
   });
+
+  const casa = scratchTareasCasa[prefix];
+  if (casa) {
+    tasks.push({
+      id: `${prefix}-casa`,
+      titulo: `🏠 Tarea: ${casa.titulo}`,
+      dificultad: "facil",
+      enunciado: enunciado(casa.descripcion, 25, { intro: INTRO_TAREA_CASA }),
+    });
+  }
 
   return tasks;
 }

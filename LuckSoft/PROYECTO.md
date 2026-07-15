@@ -75,7 +75,10 @@ src/
   lecciones (S1 intro · S2 práctica · S3 retos · S4 misión), con XP, insignias,
   agendas de 90 min, ejercicios/retos/misión, andamiajes con TODO (Python y Web).
   El editor recibe la lección por URL `?periodo=&sesion=`; las entregas llevan
-  prefijo `P·S` en el título.
+  prefijo `P·S` en el título. Cada sesión trae además una **tarea para la casa**
+  (refuerzo sin docente, ~25 min; contenido en `courses/<curso>/tareasCasa.ts`,
+  aparece de última en el panel de Tarea con 🏠 y se entrega igual que las de
+  clase; en Scratch es guía de práctica, sin entrega separada).
 - Lecciones bloqueadas por progreso: solo las vistas + la siguiente durante su
   horario de clase (`set_progreso` solo permite avanzar de a 1).
 
@@ -108,6 +111,9 @@ src/
   estudiantes) · 0013 `admin_entregas_por_grupo()` · 0014
   `docente_estudiantes_grupo()` · 0015 avatar (columna, RPC
   `actualizar_mi_perfil`, bucket `avatars` público + políticas por carpeta).
+- **0016 PENDIENTE de aplicar** (`0016_esperadas_tarea_casa.sql`): las
+  estadísticas esperan 2 entregas por lección (clase + tarea de casa) en
+  Python/Web; Scratch sigue en 1. Pegar en el SQL Editor y ejecutar.
 - **Edge Functions desplegadas:** admin-create-user, admin-delete-user,
   admin-update-credentials.
 - **Auth:** login usuario→email `usuario@lucksoft.local`; Site URL
