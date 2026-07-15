@@ -49,6 +49,16 @@ export interface Cierre {
 }
 
 /**
+ * Tarea para la casa de una sesión: refuerzo de lo visto, pensada para hacerse
+ * sin ayuda del docente (~20-30 min). El contenido vive en
+ * `courses/<curso>/tareasCasa.ts` (separado del currículo para no engordarlo).
+ */
+export interface TareaCasa {
+  titulo: string;
+  descripcion: string;
+}
+
+/**
  * Una actividad práctica con nombre y una descripción breve. Las sesiones
  * pueden listar sus ejercicios como texto simple (formato antiguo) o como un
  * `Ejercicio` con título + descripción (más atractivo en el panel de Tarea).

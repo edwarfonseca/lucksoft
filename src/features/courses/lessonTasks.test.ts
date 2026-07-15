@@ -12,11 +12,30 @@ import {
 } from "./lessonTasks";
 
 describe("tareas de la lección", () => {
-  it("genera ejercicios + retos + misión como tareas separadas", () => {
+  it("genera ejercicios + retos + misión + tarea de casa como tareas separadas", () => {
     const s = getSesionContenido(pythonCurriculum, 1, 1)!;
     const tasks = lessonAssignments(1, 1, s);
-    expect(tasks).toHaveLength(s.ejercicios.length + s.retos.length + 1);
-    expect(tasks.at(-1)!.id).toBe("p1s1-mision");
+    expect(tasks).toHaveLength(s.ejercicios.length + s.retos.length + 2);
+    expect(tasks.at(-2)!.id).toBe("p1s1-mision");
+    expect(tasks.at(-1)!.id).toBe("p1s1-casa");
+  });
+
+  it("toda sesión de los 3 cursos tiene tarea para la casa, de última y con 🏠", () => {
+    const cursos = [
+      { cur: pythonCurriculum, build: lessonAssignments },
+      { cur: webCurriculum, build: lessonWebAssignments },
+      { cur: scratchCurriculum, build: lessonActivities },
+    ] as const;
+    for (const { cur, build } of cursos) {
+      for (const p of cur) {
+        for (const s of p.sesiones) {
+          const casa = build(p.numero, s.numero, s).at(-1)!;
+          expect(casa.id).toBe(`p${p.numero}s${s.numero}-casa`);
+          expect(casa.titulo).toContain("🏠");
+          expect(casa.enunciado).toContain("en casa");
+        }
+      }
+    }
   });
 
   it("las actividades muestran su nombre en el título (Python y Scratch)", () => {
@@ -56,14 +75,14 @@ describe("tareas de la lección", () => {
   it("la misión de cada periodo trae un andamiaje con # TODO", () => {
     for (let p = 1; p <= 10; p++) {
       const s = getSesionContenido(pythonCurriculum, p, 4)!;
-      const mision = lessonAssignments(p, 4, s).at(-1)!;
+      const mision = lessonAssignments(p, 4, s).at(-2)!;
       expect(mision.codigoBase).toContain("TODO");
     }
   });
 
   it("la misión muestra la pista de cargar código base en el enunciado", () => {
     const s = getSesionContenido(pythonCurriculum, 6, 4)!;
-    const mision = lessonAssignments(6, 4, s).at(-1)!;
+    const mision = lessonAssignments(6, 4, s).at(-2)!;
     expect(mision.enunciado).toContain("Cargar código base");
   });
 
@@ -80,11 +99,11 @@ describe("tareas de la lección", () => {
     }
   });
 
-  it("Web: genera ejercicios + retos + misión con proyecto base {html,css,js}", () => {
+  it("Web: genera ejercicios + retos + misión + tarea con proyecto base {html,css,js}", () => {
     const s = getSesionContenido(webCurriculum, 1, 1)!;
     const tasks = lessonWebAssignments(1, 1, s);
-    expect(tasks).toHaveLength(s.ejercicios.length + s.retos.length + 1);
-    expect(tasks.at(-1)!.id).toBe("p1s1-mision");
+    expect(tasks).toHaveLength(s.ejercicios.length + s.retos.length + 2);
+    expect(tasks.at(-2)!.id).toBe("p1s1-mision");
     for (const t of tasks) {
       expect(typeof t.base.html).toBe("string");
       expect(typeof t.base.css).toBe("string");
@@ -95,7 +114,7 @@ describe("tareas de la lección", () => {
   it("Web: la misión de cada periodo trae un andamiaje con TODO", () => {
     for (let p = 1; p <= 10; p++) {
       const s = getSesionContenido(webCurriculum, p, 4)!;
-      const mision = lessonWebAssignments(p, 4, s).at(-1)!;
+      const mision = lessonWebAssignments(p, 4, s).at(-2)!;
       const todo = mision.base.html + mision.base.css + mision.base.js;
       expect(todo).toContain("TODO");
     }
