@@ -109,7 +109,7 @@ src/
 
 ## Supabase (proyecto ref `unimlouxtqbiwibypakg`)
 
-- **Migraciones 0001–0016 TODAS aplicadas en producción** (`supabase/migrations/`):
+- **Migraciones 0001–0017 TODAS aplicadas en producción** (`supabase/migrations/`):
   init (profiles/submissions/RLS) · admin+campos perfil · horarios · cron créditos
   (pg_cron) · grupos · enlace reunión · username · progreso · inscripciones ·
   mascota (fix ambigüedad en 0011) · 0012 `mis_estudiantes()` (docente→sus
@@ -118,9 +118,9 @@ src/
   `actualizar_mi_perfil`, bucket `avatars` público + políticas por carpeta).
 - 0016 aplicada (2026-07-11): las estadísticas esperan 2 entregas por lección
   (clase + tarea de casa) en Python/Web; Scratch sigue en 1.
-- **0017 PENDIENTE de aplicar** (`0017_historial_pagos.sql`): tabla `pagos` +
-  trigger que registra cada aumento de créditos como pago (con snapshot del
-  nombre) + RPC `admin_historial_pagos()`. Pegar en el SQL Editor y ejecutar.
+- 0017 aplicada (2026-07-12, probada por el admin): tabla `pagos` + trigger que
+  registra cada aumento de créditos como pago (snapshot del nombre) + RPC
+  `admin_historial_pagos()`.
 - **Edge Functions desplegadas:** admin-create-user, admin-delete-user,
   admin-update-credentials.
 - **Auth:** login usuario→email `usuario@lucksoft.local`; Site URL
