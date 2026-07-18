@@ -15,6 +15,7 @@ import {
 import type { AdminService } from "@/domain/ports/AdminService";
 import { courseKindSchema } from "@/domain/models/course";
 import type { GrupoEntregas } from "@/domain/models/stats";
+import type { Pago } from "@/domain/models/pago";
 import { LECCIONES_TOTAL } from "@/domain/models/lessons";
 import { getSupabaseClient } from "./client";
 
@@ -318,5 +319,28 @@ export class SupabaseAdminService implements AdminService {
           ]
         : [];
     });
+  }
+
+  async listPagos(): Promise<Pago[]> {
+    const { data, error } = await this.supabase.rpc("admin_historial_pagos");
+    if (error) throw new Error(error.message);
+    const rows = (data ?? []) as {
+      id: number;
+      fecha: string;
+      estudiante_id: string | null;
+      estudiante: string;
+      creditos: number;
+      saldo_despues: number;
+      registrado_por: string;
+    }[];
+    return rows.map((r) => ({
+      id: r.id,
+      fecha: r.fecha,
+      estudianteId: r.estudiante_id,
+      estudiante: r.estudiante,
+      creditos: r.creditos,
+      saldoDespues: r.saldo_despues,
+      registradoPor: r.registrado_por,
+    }));
   }
 }
