@@ -7,6 +7,11 @@ LuckSoft/scratch-editor/
 # sin los source maps (.map), que solo sirven para depurar y pesan ~25 MB.
 public/scratch-editor/**/*.map
 
+# Material de estudio personal: NUNCA subir a git (solo las guías
+# clases-*.html/.doc generadas desde los currículos van versionadas).
+docs/*.zip
+documentos_estudio*/
+
 # Variables de entorno (Supabase, etc.)
 .env
 .env.*

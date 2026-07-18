@@ -27,7 +27,10 @@ horarios y créditos, y mascota virtual.
 - **Repo:** https://github.com/edwarfonseca/lucksoft (rama `main`).
 - **Flujo git:** rama feature → Conventional Commit (SIN co-author trailer) →
   merge `--no-ff` a main → push → borrar rama. Vercel redespliega solo con cada
-  push a main.
+  push a main. **NUNCA versionar material de estudio personal** (zips, apuntes;
+  ya ignorado en `.gitignore`) — en `docs/` solo van las guías `clases-*`
+  generadas desde los currículos. Evitar `git add -A` a ciegas: revisar qué
+  entra en cada commit.
 
 ## Stack y arquitectura
 
