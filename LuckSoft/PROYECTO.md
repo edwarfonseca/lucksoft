@@ -98,7 +98,9 @@ src/
   de estudiantes de SUS grupos.
 - **Admin:** Usuarios (CRUD vía Edge Functions con service_role; credenciales,
   grupos múltiples, créditos, desbloquear lecciones), Horarios (grupos Python1…,
-  día/hora/docente/enlace, descuento manual de créditos), **Estadísticas**
+  día/hora/docente/enlace, descuento manual de créditos), **Pagos** (historial
+  automático: cada aumento de créditos = pago del acudiente; resumen del mes,
+  búsqueda por estudiante), **Estadísticas**
   (entregas por grupo con lecciones alcanzadas y entregas/esperadas %, y
   estudiantes con <3 créditos con datos de acudiente).
 - **Todos:** menú de usuario con avatar (foto o iniciales) + **Mi perfil**
@@ -116,6 +118,9 @@ src/
   `actualizar_mi_perfil`, bucket `avatars` público + políticas por carpeta).
 - 0016 aplicada (2026-07-11): las estadísticas esperan 2 entregas por lección
   (clase + tarea de casa) en Python/Web; Scratch sigue en 1.
+- **0017 PENDIENTE de aplicar** (`0017_historial_pagos.sql`): tabla `pagos` +
+  trigger que registra cada aumento de créditos como pago (con snapshot del
+  nombre) + RPC `admin_historial_pagos()`. Pegar en el SQL Editor y ejecutar.
 - **Edge Functions desplegadas:** admin-create-user, admin-delete-user,
   admin-update-credentials.
 - **Auth:** login usuario→email `usuario@lucksoft.local`; Site URL

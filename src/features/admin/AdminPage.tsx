@@ -8,6 +8,7 @@ import { useDialog } from "@/components/dialog-context";
 import { UserForm } from "@/features/admin/UserForm";
 import { HorariosPanel } from "@/features/admin/HorariosPanel";
 import { StatsPanel } from "@/features/admin/StatsPanel";
+import { PagosPanel } from "@/features/admin/PagosPanel";
 
 const ROLE_LABEL: Record<string, string> = {
   docente: "Docente",
@@ -15,7 +16,7 @@ const ROLE_LABEL: Record<string, string> = {
   admin: "Admin",
 };
 
-type Tab = "usuarios" | "horarios" | "estadisticas";
+type Tab = "usuarios" | "horarios" | "pagos" | "estadisticas";
 
 /** Panel de administración: gestiona estudiantes, docentes y horarios. */
 export function AdminPage() {
@@ -59,6 +60,14 @@ function AdminPanel() {
         </button>
         <button
           role="tab"
+          aria-selected={tab === "pagos"}
+          className={`tab ${tab === "pagos" ? "active" : ""}`}
+          onClick={() => setTab("pagos")}
+        >
+          Pagos
+        </button>
+        <button
+          role="tab"
           aria-selected={tab === "estadisticas"}
           className={`tab ${tab === "estadisticas" ? "active" : ""}`}
           onClick={() => setTab("estadisticas")}
@@ -71,6 +80,8 @@ function AdminPanel() {
         <UsuariosPanel service={service} />
       ) : tab === "horarios" ? (
         <HorariosPanel service={service} />
+      ) : tab === "pagos" ? (
+        <PagosPanel service={service} />
       ) : (
         <StatsPanel service={service} />
       )}

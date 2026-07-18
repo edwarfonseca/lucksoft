@@ -10,6 +10,7 @@ import type {
   UpdateHorarioInput,
 } from "../models/horario";
 import type { GrupoEntregas } from "../models/stats";
+import type { Pago } from "../models/pago";
 
 /**
  * Port de administración. Solo lo implementa el adaptador de Supabase
@@ -64,4 +65,7 @@ export interface AdminService {
 
   /** Estadísticas de entregas por grupo (para las estadísticas del panel). */
   getGroupSubmissionStats(): Promise<GrupoEntregas[]>;
+
+  /** Historial de pagos (aumentos de créditos), del más reciente al más viejo. */
+  listPagos(): Promise<Pago[]>;
 }
