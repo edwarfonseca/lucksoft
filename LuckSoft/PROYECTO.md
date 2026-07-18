@@ -107,16 +107,15 @@ src/
 
 ## Supabase (proyecto ref `unimlouxtqbiwibypakg`)
 
-- **Migraciones 0001–0015 TODAS aplicadas en producción** (`supabase/migrations/`):
+- **Migraciones 0001–0016 TODAS aplicadas en producción** (`supabase/migrations/`):
   init (profiles/submissions/RLS) · admin+campos perfil · horarios · cron créditos
   (pg_cron) · grupos · enlace reunión · username · progreso · inscripciones ·
   mascota (fix ambigüedad en 0011) · 0012 `mis_estudiantes()` (docente→sus
   estudiantes) · 0013 `admin_entregas_por_grupo()` · 0014
   `docente_estudiantes_grupo()` · 0015 avatar (columna, RPC
   `actualizar_mi_perfil`, bucket `avatars` público + políticas por carpeta).
-- **0016 PENDIENTE de aplicar** (`0016_esperadas_tarea_casa.sql`): las
-  estadísticas esperan 2 entregas por lección (clase + tarea de casa) en
-  Python/Web; Scratch sigue en 1. Pegar en el SQL Editor y ejecutar.
+- 0016 aplicada (2026-07-11): las estadísticas esperan 2 entregas por lección
+  (clase + tarea de casa) en Python/Web; Scratch sigue en 1.
 - **Edge Functions desplegadas:** admin-create-user, admin-delete-user,
   admin-update-credentials.
 - **Auth:** login usuario→email `usuario@lucksoft.local`; Site URL
