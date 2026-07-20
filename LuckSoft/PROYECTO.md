@@ -85,16 +85,21 @@ src/
 - Lecciones bloqueadas por progreso: solo las vistas + la siguiente durante su
   horario de clase (`set_progreso` solo permite avanzar de a 1).
 
-### Prueba gratis pública (`/prueba`)
+### Pruebas gratis públicas (`/prueba` y `/prueba-scratch`)
 
-Aventura guiada de 3 misiones (~5 min) SIN registro, para captar padres: Lucky
-(guía estilo videojuego, `src/features/demo/`) va hablando en burbujas con
-máquina de escribir; el niño saluda con print(), invoca la tortuga y dibuja la
-estrella (144°). XP + chips de misión + cierre con CTA a la clase gratis.
-Corre 100% en el navegador (Pyodide), no toca Supabase. Pendientes: subir las
-animaciones HTML de Lucky a `public/characters/lucky/` (hola/habla/celebra/
-piensa, mapa `ANIMACIONES_GUIA` en DemoPage; mientras tanto emojis) y poner el
-número en `WHATSAPP_NUMERO` (vacío = CTA lleva a la landing).
+Aventuras guiadas de 3 misiones (~5 min) SIN registro, para captar padres:
+Lucky (guía estilo videojuego, `src/features/demo/`; piezas compartidas en
+`guia.tsx`) habla en burbujas con máquina de escribir. **Python** (`/prueba`,
+10+): saludo con print(), tortuga y estrella (144°), evaluado al ejecutar.
+**Scratch** (`/prueba-scratch`, 7-9): TurboWarp embebido y Lucky detecta EN
+VIVO los bloques que el niño arrastra (evento PROJECT_CHANGED → escaneo de
+opcodes: mover/decir/efecto color), con botón «💡 Dame una pista»; los textos
+dicen "tu personaje" porque TurboWarp elige un sprite al azar. XP + chips +
+cierre con CTA a la clase gratis; enlaces cruzados entre ambas. Corren 100% en
+el navegador, no tocan Supabase. Pendientes: animaciones HTML de Lucky en
+`public/characters/lucky/` (hola/habla/celebra/piensa, mapa `ANIMACIONES_GUIA`
+en `guia.tsx`; mientras tanto emojis) y el número en `WHATSAPP_NUMERO`
+(`contacto.ts`; vacío = CTA lleva a la landing).
 
 ### Roles
 

@@ -1277,6 +1277,43 @@ a:hover {
     opacity: 0;
   }
 }
+/* Prueba de Scratch: TurboWarp embebido a lo ancho. */
+.demo-page-scratch {
+  max-width: 1100px;
+}
+.demo-switch {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 4px 0 14px;
+}
+.demo-scratch-wrap {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 10px;
+}
+.demo-scratch-wrap.preparando {
+  opacity: 0.45;
+  pointer-events: none;
+}
+.demo-scratch-wrap.oculto {
+  display: none;
+}
+.demo-scratch-frame {
+  display: block;
+  width: 100%;
+  height: min(68vh, 640px);
+  min-height: 420px;
+  border: 0;
+  background: white;
+}
+@media (max-width: 640px) {
+  .demo-scratch-frame {
+    height: 70vh;
+    min-height: 380px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .guia-emoji,
   .guia-avatar.celebra .guia-emoji,
