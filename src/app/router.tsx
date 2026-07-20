@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { AppLayout } from "@/components/AppLayout";
 import { LoginPage } from "@/features/auth/LoginPage";
+import { DemoPage } from "@/features/demo/DemoPage";
 import {
   RequireAuth,
   RequireCourseAccess,
@@ -26,6 +27,8 @@ import { ProfilePage } from "@/features/profile/ProfilePage";
  */
 export const router = createBrowserRouter([
   { path: "/", element: <LoginPage /> },
+  // Prueba gratis pública: sin login, corre 100% en el navegador (modo demo).
+  { path: "/prueba", element: <DemoPage /> },
   {
     element: (
       <RequireAuth>

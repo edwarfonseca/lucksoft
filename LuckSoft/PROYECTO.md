@@ -85,6 +85,17 @@ src/
 - Lecciones bloqueadas por progreso: solo las vistas + la siguiente durante su
   horario de clase (`set_progreso` solo permite avanzar de a 1).
 
+### Prueba gratis pública (`/prueba`)
+
+Aventura guiada de 3 misiones (~5 min) SIN registro, para captar padres: Lucky
+(guía estilo videojuego, `src/features/demo/`) va hablando en burbujas con
+máquina de escribir; el niño saluda con print(), invoca la tortuga y dibuja la
+estrella (144°). XP + chips de misión + cierre con CTA a la clase gratis.
+Corre 100% en el navegador (Pyodide), no toca Supabase. Pendientes: subir las
+animaciones HTML de Lucky a `public/characters/lucky/` (hola/habla/celebra/
+piensa, mapa `ANIMACIONES_GUIA` en DemoPage; mientras tanto emojis) y poner el
+número en `WHATSAPP_NUMERO` (vacío = CTA lleva a la landing).
+
 ### Roles
 
 - **Estudiante:** sus cursos inscritos, créditos (bolsa compartida; advertencia
