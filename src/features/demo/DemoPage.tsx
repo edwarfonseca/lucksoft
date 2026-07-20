@@ -1,8 +1,15 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import CodeMirror from "@uiw/react-codemirror";
 import { python } from "@codemirror/lang-python";
 import { usePythonRunner } from "@/features/courses/usePythonRunner";
 import { animateTurtle } from "@/features/courses/turtleCanvas";
+import {
+  DemoFinal,
+  DemoHeader,
+  GuiaLucky,
+  type EstadoGuia,
+} from "@/features/demo/guia";
 import {
   PASOS_DEMO,
   XP_TOTAL,
@@ -10,40 +17,10 @@ import {
 } from "@/features/demo/pasosDemo";
 
 /**
- * Prueba gratis pública (/prueba): aventura guiada de 3 misiones sin registro.
- * Lucky, el guía, habla como en un videojuego; el código corre en el navegador
+ * Prueba gratis pública de Python (/prueba): aventura guiada de 3 misiones sin
+ * registro. Lucky habla como en un videojuego; el código corre en el navegador
  * (Pyodide) y no toca ninguna base de datos. Al final, CTA a la clase gratis.
  */
-
-/** Número de WhatsApp para agendar (con indicativo, solo dígitos, p. ej. "573001234567").
- *  Vacío = el botón lleva al formulario de contacto de la landing. */
-const WHATSAPP_NUMERO = "";
-const MENSAJE_WHATSAPP =
-  "¡Hola! Completamos la prueba gratis de LuckSoft y queremos agendar la clase de prueba 🎉";
-const URL_CONTACTO = WHATSAPP_NUMERO
-  ? `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(MENSAJE_WHATSAPP)}`
-  : "https://lucksoftacademy.com/";
-
-type EstadoGuia = "hola" | "habla" | "celebra" | "piensa";
-
-/**
- * Animación HTML del guía por estado (mismo patrón que la mascota): archivos
- * autocontenidos en `public/characters/lucky/` incrustados en un iframe.
- * `null` = todavía no existe el archivo y se muestra el emoji de respaldo.
- */
-const ANIMACIONES_GUIA: Record<EstadoGuia, string | null> = {
-  hola: null, // p. ej. "/characters/lucky/hola.html"
-  habla: null, // p. ej. "/characters/lucky/habla.html"
-  celebra: null, // p. ej. "/characters/lucky/celebra.html"
-  piensa: null, // p. ej. "/characters/lucky/piensa.html"
-};
-
-const EMOJI_GUIA: Record<EstadoGuia, string> = {
-  hola: "🤖",
-  habla: "🤖",
-  celebra: "🥳",
-  piensa: "🤔",
-};
 
 const INTRO_MENSAJES = [
   "¡Hola! Soy Lucky, tu guía en la academia 🤖 Hoy vas a convertirte en programador… de verdad.",
@@ -52,27 +29,6 @@ const INTRO_MENSAJES = [
 
 const FINAL_MENSAJE =
   "¡MISIÓN CUMPLIDA! 🏅 100 XP y el título de Programador Novato. Corre a mostrarle a tu familia la estrella que programaste.";
-
-/** Burbuja de diálogo con efecto máquina de escribir. */
-function Burbuja({ texto }: { texto: string }) {
-  const [visible, setVisible] = useState("");
-  useEffect(() => {
-    const rapido =
-      typeof window.matchMedia === "function" &&
-      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    let i = 0;
-    const id = setInterval(
-      () => {
-        i = rapido ? texto.length : i + 1;
-        setVisible(texto.slice(0, i));
-        if (i >= texto.length) clearInterval(id);
-      },
-      rapido ? 0 : 16,
-    );
-    return () => clearInterval(id);
-  }, [texto]);
-  return <p className="demo-burbuja-texto">{visible}</p>;
-}
 
 export function DemoPage() {
   const runner = usePythonRunner();
@@ -176,49 +132,20 @@ export function DemoPage() {
     empezarPaso(0);
   }
 
-  const anim = ANIMACIONES_GUIA[estadoGuia];
-
   return (
     <div className="demo-page">
-      <header className="demo-top">
-        <span className="demo-logo">
-          <span className="logo">L</span> Luck<b>Soft</b>{" "}
-          <span className="demo-logo-sub">· Prueba gratis</span>
-        </span>
-        <span className="demo-marcadores">
-          {PASOS_DEMO.map((p, i) => (
-            <span
-              key={p.id}
-              className={
-                "demo-chip" +
-                (logradas[i] ? " lograda" : fase === i ? " actual" : "")
-              }
-              title={p.titulo}
-            >
-              {logradas[i] ? "⭐" : i + 1}
-            </span>
-          ))}
-          <span className="demo-xp">✨ {xp} XP</span>
-        </span>
-      </header>
+      <DemoHeader
+        titulos={PASOS_DEMO.map((p) => p.titulo)}
+        logradas={logradas}
+        actual={typeof fase === "number" ? fase : null}
+        xp={xp}
+      />
 
-      <section className="demo-guia" aria-live="polite">
-        <div className={"guia-avatar " + estadoGuia} aria-hidden="true">
-          {anim ? (
-            <iframe
-              src={anim}
-              title="Lucky, el guía"
-              className="guia-frame"
-              scrolling="no"
-            />
-          ) : (
-            <span className="guia-emoji">{EMOJI_GUIA[estadoGuia]}</span>
-          )}
-          <span className="guia-nombre">Lucky</span>
-        </div>
-        <div className="demo-burbuja">
-          {cola.length > 0 && <Burbuja texto={cola[0]} />}
-          <div className="demo-burbuja-acciones">
+      <GuiaLucky
+        estado={estadoGuia}
+        mensaje={cola.length > 0 ? cola[0] : null}
+        acciones={
+          <>
             {cola.length > 1 && (
               <button
                 className="btn btn-ghost"
@@ -242,9 +169,17 @@ export function DemoPage() {
                   : "🏁 Terminar la aventura"}
               </button>
             )}
-          </div>
-        </div>
-      </section>
+          </>
+        }
+      />
+
+      {fase === "intro" && (
+        <p className="demo-switch">
+          🐱 ¿Tienes entre 7 y 9 años? Prueba mejor la{" "}
+          <Link to="/prueba-scratch">aventura de Scratch</Link> (¡con bloques de
+          colores!).
+        </p>
+      )}
 
       {paso && (
         <section className="demo-reto">
@@ -318,43 +253,7 @@ export function DemoPage() {
       )}
 
       {fase === "final" && (
-        <section className="demo-final">
-          <div className="demo-confetti" aria-hidden="true">
-            {["🎉", "⭐", "🎊", "✨", "🏅", "🎈", "⭐", "🎉"].map((e, i) => (
-              <span key={i} style={{ ["--i" as string]: i }}>
-                {e}
-              </span>
-            ))}
-          </div>
-          <h1>🏅 ¡Programador Novato desbloqueado!</h1>
-          <p className="demo-final-xp">
-            ✨ {xp} de {XP_TOTAL} XP
-          </p>
-          <div className="demo-padres">
-            <p>
-              <strong>👨‍👩‍👧 Para papá y mamá:</strong> esto fue una probadita de la{" "}
-              <strong>primera de 40 lecciones</strong> del curso real, con
-              profesor en vivo, misiones, insignias y hasta una mascota virtual
-              que crece con cada clase. La primera clase es gratis:
-            </p>
-            <div className="demo-cta">
-              <a className="btn btn-primary demo-cta-btn" href={URL_CONTACTO}>
-                🎁 Agendar la clase gratis
-              </a>
-              <a
-                className="btn btn-ghost"
-                href="https://lucksoftacademy.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Conocer los cursos
-              </a>
-              <button className="btn btn-ghost" onClick={reiniciar}>
-                🔁 Jugar otra vez
-              </button>
-            </div>
-          </div>
-        </section>
+        <DemoFinal xp={xp} xpTotal={XP_TOTAL} onReiniciar={reiniciar} />
       )}
     </div>
   );
