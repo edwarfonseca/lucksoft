@@ -4,6 +4,9 @@
 > Actualizado: 2026-07-09. La descripción de la maqueta vanilla original quedó
 > en el historial de git de este archivo; ya no aplica.
 
+**Instrucción para Claude:** responde siempre en español en este proyecto,
+sin importar el idioma en que el usuario escriba.
+
 ## Qué es
 
 **LuckSoft Academy** es una plataforma educativa de programación (cursos de
