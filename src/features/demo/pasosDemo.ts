@@ -1,5 +1,5 @@
 /**
- * Contenido de la prueba gratis pública (/prueba): una mini-aventura guiada de
+ * Contenido de la prueba gratis pública (/prueba-python): una mini-aventura guiada de
  * 3 misiones (~5 minutos) donde un niño programa por primera vez sin registrarse.
  * Un personaje guía va hablando como en un videojuego; el "wow" es la tortuga
  * dibujando en pantalla. Al final, el llamado a la clase de prueba real.

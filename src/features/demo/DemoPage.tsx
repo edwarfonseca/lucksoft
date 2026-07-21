@@ -17,7 +17,7 @@ import {
 } from "@/features/demo/pasosDemo";
 
 /**
- * Prueba gratis pública de Python (/prueba): aventura guiada de 3 misiones sin
+ * Prueba gratis pública de Python (/prueba-python): aventura guiada de 3 misiones sin
  * registro. Lucky habla como en un videojuego; el código corre en el navegador
  * (Pyodide) y no toca ninguna base de datos. Al final, CTA a la clase gratis.
  */

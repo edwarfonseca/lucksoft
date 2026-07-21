@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Navigate } from "react-router-dom";
 import { AppLayout } from "@/components/AppLayout";
 import { LoginPage } from "@/features/auth/LoginPage";
 import { DemoPage } from "@/features/demo/DemoPage";
@@ -29,8 +29,10 @@ import { ProfilePage } from "@/features/profile/ProfilePage";
 export const router = createBrowserRouter([
   { path: "/", element: <LoginPage /> },
   // Pruebas gratis públicas: sin login, corren 100% en el navegador.
-  { path: "/prueba", element: <DemoPage /> },
+  { path: "/prueba-python", element: <DemoPage /> },
   { path: "/prueba-scratch", element: <DemoScratchPage /> },
+  // Redirect de compatibilidad: "/prueba" era la ruta original de Python.
+  { path: "/prueba", element: <Navigate to="/prueba-python" replace /> },
   {
     element: (
       <RequireAuth>

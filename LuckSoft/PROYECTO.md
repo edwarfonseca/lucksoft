@@ -85,12 +85,13 @@ src/
 - Lecciones bloqueadas por progreso: solo las vistas + la siguiente durante su
   horario de clase (`set_progreso` solo permite avanzar de a 1).
 
-### Pruebas gratis públicas (`/prueba` y `/prueba-scratch`)
+### Pruebas gratis públicas (`/prueba-python` y `/prueba-scratch`)
 
 Aventuras guiadas de 3 misiones (~5 min) SIN registro, para captar padres:
 Lucky (guía estilo videojuego, `src/features/demo/`; piezas compartidas en
-`guia.tsx`) habla en burbujas con máquina de escribir. **Python** (`/prueba`,
-10+): saludo con print(), tortuga y estrella (144°), evaluado al ejecutar.
+`guia.tsx`) habla en burbujas con máquina de escribir. **Python**
+(`/prueba-python`, 10+; `/prueba` redirige aquí por compatibilidad): saludo
+con print(), tortuga y estrella (144°), evaluado al ejecutar.
 **Scratch** (`/prueba-scratch`, 7-9): TurboWarp embebido y Lucky detecta EN
 VIVO los bloques que el niño arrastra (evento PROJECT_CHANGED → escaneo de
 opcodes: mover/decir/efecto color), con botón «💡 Dame una pista»; los textos

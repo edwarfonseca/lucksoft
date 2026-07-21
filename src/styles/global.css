@@ -998,7 +998,7 @@ a:hover {
 .modal-close:hover {
   color: var(--text);
 }
-/* ---- Prueba gratis pública (/prueba) ---- */
+/* ---- Pruebas gratis públicas (/prueba-python, /prueba-scratch) ---- */
 .demo-page {
   max-width: 860px;
   margin: 0 auto;

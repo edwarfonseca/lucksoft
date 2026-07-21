@@ -2,7 +2,7 @@ import { useEffect, useState, type ReactNode } from "react";
 import { URL_CONTACTO } from "@/features/demo/contacto";
 
 /**
- * Piezas compartidas de las pruebas gratis públicas (/prueba y /prueba-scratch):
+ * Piezas compartidas de las pruebas gratis públicas (/prueba-python y /prueba-scratch):
  * Lucky el guía (avatar + burbuja de diálogo), el encabezado con XP/misiones y
  * la pantalla final con el llamado a la clase gratis.
  */

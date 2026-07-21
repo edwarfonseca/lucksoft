@@ -10,7 +10,8 @@ import {
 import { PASOS_SCRATCH, XP_TOTAL_SCRATCH } from "@/features/demo/pasosScratch";
 
 /**
- * Prueba gratis pública de Scratch (/prueba-scratch), para 7-9 años: TurboWarp
+ * Prueba gratis pública de Scratch (/prueba-scratch), para 7-9 años. Su par
+ * de Python vive en /prueba-python. TurboWarp
  * embebido y Lucky detectando EN VIVO los bloques que el niño arrastra
  * (PROJECT_CHANGED), sin registro y sin tocar la base de datos.
  */
@@ -196,7 +197,7 @@ export function DemoScratchPage() {
       {fase === "intro" && (
         <p className="demo-switch">
           🐍 ¿Ya tienes 10 años o más? Prueba también la{" "}
-          <Link to="/prueba">aventura de Python</Link>.
+          <Link to="/prueba-python">aventura de Python</Link>.
         </p>
       )}
 
@@ -210,7 +211,7 @@ export function DemoScratchPage() {
       {buildStatus === "missing" && (
         <p className="notice">
           El editor de Scratch no está disponible en este momento. Intenta más
-          tarde o prueba la <Link to="/prueba">aventura de Python</Link>.
+          tarde o prueba la <Link to="/prueba-python">aventura de Python</Link>.
         </p>
       )}
 
