@@ -164,5 +164,16 @@ HTML → imprimir a PDF; .doc → editable en Word.
 4. Al empezar a **cobrar**: Vercel Hobby es no-comercial → Pro ($20/mes) o migrar
    a Cloudflare Pages (gratis comercial; `public/_headers` ya listo). Supabase
    free se pausa tras ~1 semana de inactividad → Pro ($25/mes) cuando haya
-   ingresos. Pagos en Colombia: Wompi / MercadoPago / PayU.
+   ingresos. Pagos en Colombia: Wompi (2,65% + $700 + IVA por transacción, sin
+   mensualidad) / MercadoPago / PayU. Con Vercel Pro + Supabase Pro (~$46
+   USD/mes) un solo estudiante ya cubre la infraestructura. Ver
+   [[auditoria-seguridad-2026-07]] para el resto de pendientes operativos
+   (respaldos de BD, monitoreo de errores).
 5. Ideas de cursos: SQL (sql.js), C/C++ (hoy son teasers en el catálogo).
+6. **Pruebas gratis públicas** (ver sección arriba): subir las 4 animaciones de
+   Lucky a `public/characters/lucky/` y definir `WHATSAPP_NUMERO` en
+   `src/features/demo/contacto.ts` (hoy el CTA final cae a la landing).
+7. **Estrategia de captación de padres** acordada 2026-07-18: el embudo es
+   probar → wow → WhatsApp → clase gratis → matrícula (ver
+   [[estrategia-venta-cursos]]). Falta: llenar WhatsApp/testimonios en la
+   landing, Google Business Profile, primer taller en colegio.
