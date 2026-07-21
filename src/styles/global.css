@@ -41,6 +41,15 @@ a:hover {
   text-decoration: underline;
 }
 
+/* La app llena el alto de la ventana; app-main se reparte lo que sobra tras
+   la barra superior, para que páginas de alto completo (editores) puedan
+   estirarse con flex:1 en vez de adivinar su alto con calc(100vh - Npx). */
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .topbar {
   display: flex;
   align-items: center;
@@ -709,8 +718,10 @@ a:hover {
 .console.compact {
   flex: 0 0 100px;
 }
-/* …y el área del editor se hace más alta para que el dibujo sea grande. */
+/* …y el área del editor se hace más alta para que el dibujo sea grande.
+   flex: 0 0 auto para que la altura explícita mande sobre el flex:1 base. */
 .editor-body.turtle-on {
+  flex: 0 0 auto;
   height: calc(100vh - 140px);
 }
 /* En escritorio, el dibujo se lleva la mayor parte del ancho. */
@@ -724,6 +735,8 @@ a:hover {
   flex-direction: column;
   gap: 12px;
   padding: 16px 24px;
+  height: 100%;
+  min-height: 0;
 }
 .editor-toolbar {
   display: flex;
@@ -746,7 +759,7 @@ a:hover {
 .editor-body {
   display: flex;
   gap: 12px;
-  height: calc(100vh - 200px);
+  flex: 1;
   min-height: 420px;
 }
 .code-pane,
@@ -798,6 +811,7 @@ a:hover {
 /* Editor con paneles de alto ajustable (Diseño Web): el alto lo fija el inline
    style desde React, no la altura calculada por defecto. */
 .editor-body--resizable {
+  flex: 0 1 auto;
   height: auto;
   min-height: 0;
 }
@@ -1721,7 +1735,9 @@ a:hover {
   color: #ff6b6b;
 }
 .scratch-frame {
-  flex: 1;
+  /* flex-basis: auto (no "1" a secas) para que la altura explícita del
+     media query móvil (70vh) no quede ignorada por una base 0%. */
+  flex: 1 1 auto;
   min-width: 0;
   width: 100%;
   height: 100%;
@@ -1742,7 +1758,9 @@ a:hover {
   /* Editores: apilar paneles en vertical con altura automática. */
   .editor-body {
     flex-direction: column;
+    flex: 0 1 auto;
     height: auto;
+    min-height: 0;
   }
   .task-pane {
     width: 100%;
