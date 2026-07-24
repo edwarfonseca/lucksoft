@@ -16,6 +16,7 @@ import type { ScratchVM, ScratchWindow } from "@/features/courses/scratchVm";
 const scratchCourse = getCourse("scratch");
 const scratchCurriculum = getCurriculum("scratch");
 const EDITOR_PATH = "/scratch-editor/editor.html";
+const STARTER_PROJECT_PATH = "/scratch-starter/proyecto-inicial.sb3";
 
 /**
  * Editor de Scratch: embebe TurboWarp en un iframe y accede a su motor
@@ -91,7 +92,7 @@ export function ScratchEditorPage() {
     async function restoreLocal(vm: ScratchVM) {
       const saved = localStorage.getItem(storageKey);
       if (!saved) {
-        say("Proyecto nuevo");
+        await loadStarter(vm);
         return;
       }
       try {
@@ -99,6 +100,19 @@ export function ScratchEditorPage() {
         say("Proyecto restaurado ✓");
       } catch (e) {
         say("No se pudo restaurar: " + describe(e), true);
+      }
+    }
+
+    // Proyecto nuevo: arranca con el sprite de LuckSoft en vez del que
+    // TurboWarp elige al azar (ver public/scratch-starter/).
+    async function loadStarter(vm: ScratchVM) {
+      try {
+        const res = await fetch(STARTER_PROJECT_PATH);
+        const buf = await res.arrayBuffer();
+        await vm.loadProject(new Uint8Array(buf));
+        say("Proyecto nuevo");
+      } catch (e) {
+        say("Proyecto nuevo (sin sprite inicial: " + describe(e) + ")", true);
       }
     }
 
